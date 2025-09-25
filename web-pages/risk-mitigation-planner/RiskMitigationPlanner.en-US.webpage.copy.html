@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk Mitigation Planner - SynD-DGF</title>
+    <meta name="description" content="Systematic approach to identifying and implementing appropriate risk mitigation strategies for higher-risk synthetic health data scenarios.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #fd7e14 0%, #e63946 100%);
+            color: white;
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+        .assessment-section {
+            border-left: 4px solid #fd7e14;
+            padding: 20px;
+            margin-bottom: 30px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        .framework-card {
+            border: 2px solid #fd7e14;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: white;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        .framework-card:hover {
+            background: #fff4e6;
+            transform: translateY(-2px);
+        }
+        .framework-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .button1 {
+            background: linear-gradient(135deg, #fd7e14 0%, #e63946 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        .button1:hover {
+            background: linear-gradient(135deg, #dc6545 0%, #c53030 100%);
+            color: white;
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+        .nav-button, .action-button {
+            background: #fd7e14;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .nav-button:hover, .action-button:hover {
+            background: #dc6545;
+            color: white;
+            text-decoration: none;
+        }
+        .nav-button.prev-section {
+            background: #6c757d;
+        }
+        .nav-button.prev-section:hover {
+            background: #495057;
+        }
+        .breadcrumb {
+            background: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: "›";
+            color: #fd7e14;
+        }
+        .factor-item, .safeguard-item {
+            display: block;
+            padding: 10px;
+            margin-bottom: 8px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .factor-item:hover, .safeguard-item:hover {
+            background: #fff4e6;
+            border-color: #fd7e14;
+        }
+        .risk-level {
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .risk-level.high {
+            background: #dc3545;
+            color: white;
+        }
+        .risk-level.medium {
+            background: #ffc107;
+            color: black;
+        }
+        .risk-level.low {
+            background: #28a745;
+            color: white;
+        }
+        .effectiveness {
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .effectiveness.high {
+            background: #28a745;
+            color: white;
+        }
+        .effectiveness.medium {
+            background: #ffc107;
+            color: black;
+        }
+        .strategy-section {
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            background: white;
+        }
+        .strategy-header {
+            background: #f8f9fa;
+            padding: 15px;
+            border-bottom: 1px solid #dee2e6;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .strategy-content {
+            padding: 20px;
+            display: none;
+        }
+        .strategy-content.active {
+            display: block;
+        }
+        .technique-card {
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: #f8f9fa;
+        }
+        .resource-card {
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+        .action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #fd7e14;">
+        <div class="container">
+            <a class="navbar-brand" href="../home/Home.en-US.webpage.copy.html">SynD-DGF</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="../home/Home.en-US.webpage.copy.html">Home</a>
+                <a class="nav-link" href="../framework-overview/FrameworkOverview.en-US.webpage.copy.html">Framework</a>
+                <a class="nav-link" href="../assessment-tools/AssessmentTools.en-US.webpage.copy.html">Assessment Tools</a>
+                <a class="nav-link" href="../resources/Resources.en-US.webpage.copy.html">Resources</a>
+                <a class="nav-link active" href="../decision-support-overview/DecisionSupportOverview.en-US.webpage.copy.html">Decision Support</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="container mt-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../home/Home.en-US.webpage.copy.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="../decision-support-overview/DecisionSupportOverview.en-US.webpage.copy.html">Decision Support</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Risk Mitigation Planner</li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <h1>Risk mitigation planner</h1>
+                
+                <div class="planner-intro">
+                    <p class="lead">Develop comprehensive risk mitigation strategies for synthetic health data projects with elevated privacy risks.</p>
+                    
+                    <div class="risk-framework">
+                        <h2>Risk mitigation framework</h2>
+                        <p>Our approach follows a layered defence model with five key mitigation areas:</p>
+                        <div class="framework-grid">
+                            <div class="framework-card" data-area="technical">
+                                <div class="framework-icon">🔧</div>
+                                <h3>Technical safeguards</h3>
+                                <p>Advanced de-identification and privacy-preserving techniques</p>
+                            </div>
+                            <div class="framework-card" data-area="organisational">
+                                <div class="framework-icon">🏢</div>
+                                <h3>Organisational controls</h3>
+                                <p>Governance, access controls and training requirements</p>
+                            </div>
+                            <div class="framework-card" data-area="legal">
+                                <div class="framework-icon">⚖️</div>
+                                <h3>Legal protections</h3>
+                                <p>Contractual safeguards and regulatory compliance</p>
+                            </div>
+                            <div class="framework-card" data-area="monitoring">
+                                <div class="framework-icon">📊</div>
+                                <h3>Monitoring & assurance</h3>
+                                <p>Ongoing risk assessment and incident management</p>
+                            </div>
+                            <div class="framework-card" data-area="engagement">
+                                <div class="framework-icon">👥</div>
+                                <h3>Stakeholder engagement</h3>
+                                <p>Community consultation and transparency measures</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="risk-assessment">
+                    <h2>Risk assessment and planning tool</h2>
+                    <p>Complete this assessment to generate a customised risk mitigation plan for your project:</p>
+                    
+                    <div class="assessment-container">
+                        <div class="assessment-section active" id="section-1">
+                            <div class="section-header">
+                                <h3>Section 1: Project risk profile</h3>
+                                <p>Identify the key risk factors in your synthetic data project</p>
+                            </div>
+                            
+                            <div class="risk-factors">
+                                <div class="factor-group">
+                                    <h4>Data characteristics</h4>
+                                    <div class="factor-checklist">
+                                        <label class="factor-item">
+                                            <input type="checkbox" name="data-risks" value="small-population">
+                                            <span class="factor-text">Small population dataset (less than 1000 individuals)</span>
+                                            <span class="risk-level high">High</span>
+                                        </label>
+                                        <label class="factor-item">
+                                            <input type="checkbox" name="data-risks" value="rare-conditions">
+                                            <span class="factor-text">Rare diseases or conditions</span>
+                                            <span class="risk-level high">High</span>
+                                        </label>
+                                        <label class="factor-item">
+                                            <input type="checkbox" name="data-risks" value="genetic-data">
+                                            <span class="factor-text">Genetic or genomic information</span>
+                                            <span class="risk-level high">High</span>
+                                        </label>
+                                        <label class="factor-item">
+                                            <input type="checkbox" name="data-risks" value="mental-health">
+                                            <span class="factor-text">Mental health or psychological data</span>
+                                            <span class="risk-level medium">Medium</span>
+                                        </label>
+                                        <label class="factor-item">
+                                            <input type="checkbox" name="data-risks" value="longitudinal">
+                                            <span class="factor-text">Longitudinal data with temporal patterns</span>
+                                            <span class="risk-level medium">Medium</span>
+                                        </label>
+                                        <label class="factor-item">
+                                            <input type="checkbox" name="data-risks" value="geographic">
+                                            <span class="factor-text">Detailed geographic or location data</span>
+                                            <span class="risk-level medium">Medium</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="factor-group">
+                                    <h4>Population characteristics</h4>
+                                    <div class="factor-checklist">
+                                        <label class="factor-item">
+                                            <input type="checkbox" name="population-risks" value="indigenous">
+                                            <span class="factor-text">Aboriginal and Torres Strait Islander peoples</span>
+                                            <span class="risk-level high">High</span>
+                                        </label>
+                                        <label class="factor-item">
+                                            <input type="checkbox" name="population-risks" value="children">
+                                            <span class="factor-text">Children and adolescents</span>
+                                            <span class="risk-level medium">Medium</span>
+                                        </label>
+                                        <label class="factor-item">
+                                            <input type="checkbox" name="population-risks" value="elderly">
+                                            <span class="factor-text">Elderly or aged care populations</span>
+                                            <span class="risk-level medium">Medium</span>
+                                        </label>
+                                        <label class="factor-item">
+                                            <input type="checkbox" name="population-risks" value="vulnerable">
+                                            <span class="factor-text">Other vulnerable or marginalised groups</span>
+                                            <span class="risk-level medium">Medium</span>
+                                        </label>
+                                        <label class="factor-item">
+                                            <input type="checkbox" name="population-risks" value="identifiable">
+                                            <span class="factor-text">Potentially identifiable individuals (public figures, unique characteristics)</span>
+                                            <span class="risk-level high">High</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="factor-group">
+                                    <h4>Usage and sharing risks</h4>
+                                    <div class="factor-checklist">
+                                        <label class="factor-item">
+                                            <input type="checkbox" name="usage-risks" value="public-release">
+                                            <span class="factor-text">Public data release or open access</span>
+                                            <span class="risk-level high">High</span>
+                                        </label>
+                                        <label class="factor-item">
+                                            <input type="checkbox" name="usage-risks" value="commercial">
+                                            <span class="factor-text">Commercial use or partnerships</span>
+                                            <span class="risk-level medium">Medium</span>
+                                        </label>
+                                        <label class="factor-item">
+                                            <input type="checkbox" name="usage-risks" value="international">
+                                            <span class="factor-text">International data sharing</span>
+                                            <span class="risk-level medium">Medium</span>
+                                        </label>
+                                        <label class="factor-item">
+                                            <input type="checkbox" name="usage-risks" value="linkage">
+                                            <span class="factor-text">Potential for data linkage with other datasets</span>
+                                            <span class="risk-level medium">Medium</span>
+                                        </label>
+                                        <label class="factor-item">
+                                            <input type="checkbox" name="usage-risks" value="long-term">
+                                            <span class="factor-text">Long-term data retention or storage</span>
+                                            <span class="risk-level low">Low</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="section-navigation">
+                                <button class="nav-button next-section" onclick="nextSection()">Continue to technical assessment →</button>
+                            </div>
+                        </div>
+
+                        <div class="assessment-section" id="section-2">
+                            <div class="section-header">
+                                <h3>Section 2: Current safeguards assessment</h3>
+                                <p>Evaluate your existing privacy and security measures</p>
+                            </div>
+                            
+                            <div class="safeguards-assessment">
+                                <div class="safeguard-category">
+                                    <h4>Technical safeguards currently in place</h4>
+                                    <div class="safeguard-options">
+                                        <label class="safeguard-item">
+                                            <input type="checkbox" name="current-technical" value="k-anonymity">
+                                            <span class="safeguard-text">K-anonymity (k ≥ 5)</span>
+                                            <span class="effectiveness medium">Medium</span>
+                                        </label>
+                                        <label class="safeguard-item">
+                                            <input type="checkbox" name="current-technical" value="l-diversity">
+                                            <span class="safeguard-text">L-diversity</span>
+                                            <span class="effectiveness high">High</span>
+                                        </label>
+                                        <label class="safeguard-item">
+                                            <input type="checkbox" name="current-technical" value="differential-privacy">
+                                            <span class="safeguard-text">Differential privacy</span>
+                                            <span class="effectiveness high">High</span>
+                                        </label>
+                                        <label class="safeguard-item">
+                                            <input type="checkbox" name="current-technical" value="data-perturbation">
+                                            <span class="safeguard-text">Data perturbation or noise addition</span>
+                                            <span class="effectiveness medium">Medium</span>
+                                        </label>
+                                        <label class="safeguard-item">
+                                            <input type="checkbox" name="current-technical" value="aggregation">
+                                            <span class="safeguard-text">Data aggregation or suppression</span>
+                                            <span class="effectiveness low">Low</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="safeguard-category">
+                                    <h4>Organisational safeguards currently in place</h4>
+                                    <div class="safeguard-options">
+                                        <label class="safeguard-item">
+                                            <input type="checkbox" name="current-organisational" value="access-controls">
+                                            <span class="safeguard-text">Role-based access controls</span>
+                                            <span class="effectiveness high">High</span>
+                                        </label>
+                                        <label class="safeguard-item">
+                                            <input type="checkbox" name="current-organisational" value="training">
+                                            <span class="safeguard-text">Privacy and security training for staff</span>
+                                            <span class="effectiveness medium">Medium</span>
+                                        </label>
+                                        <label class="safeguard-item">
+                                            <input type="checkbox" name="current-organisational" value="agreements">
+                                            <span class="safeguard-text">Data sharing agreements with privacy clauses</span>
+                                            <span class="effectiveness high">High</span>
+                                        </label>
+                                        <label class="safeguard-item">
+                                            <input type="checkbox" name="current-organisational" value="governance">
+                                            <span class="safeguard-text">Data governance committee oversight</span>
+                                            <span class="effectiveness high">High</span>
+                                        </label>
+                                        <label class="safeguard-item">
+                                            <input type="checkbox" name="current-organisational" value="audit">
+                                            <span class="safeguard-text">Regular privacy and security audits</span>
+                                            <span class="effectiveness high">High</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="safeguard-category">
+                                    <h4>Legal and regulatory safeguards</h4>
+                                    <div class="safeguard-options">
+                                        <label class="safeguard-item">
+                                            <input type="checkbox" name="current-legal" value="hrec-approval">
+                                            <span class="safeguard-text">Human Research Ethics Committee approval</span>
+                                            <span class="effectiveness high">High</span>
+                                        </label>
+                                        <label class="safeguard-item">
+                                            <input type="checkbox" name="current-legal" value="privacy-assessment">
+                                            <span class="safeguard-text">Comprehensive privacy impact assessment</span>
+                                            <span class="effectiveness high">High</span>
+                                        </label>
+                                        <label class="safeguard-item">
+                                            <input type="checkbox" name="current-legal" value="legal-review">
+                                            <span class="safeguard-text">Legal review of data sharing arrangements</span>
+                                            <span class="effectiveness high">High</span>
+                                        </label>
+                                        <label class="safeguard-item">
+                                            <input type="checkbox" name="current-legal" value="consent">
+                                            <span class="safeguard-text">Specific consent for synthetic data use</span>
+                                            <span class="effectiveness high">High</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="section-navigation">
+                                <button class="nav-button prev-section" onclick="prevSection()">← Previous</button>
+                                <button class="nav-button next-section" onclick="nextSection()">Continue to capacity assessment →</button>
+                            </div>
+                        </div>
+
+                        <div class="assessment-section" id="section-3">
+                            <div class="section-header">
+                                <h3>Section 3: Organisational capacity assessment</h3>
+                                <p>Assess your organisation's capacity to implement additional safeguards</p>
+                            </div>
+                            
+                            <div class="capacity-assessment">
+                                <div class="capacity-area">
+                                    <h4>Technical capacity</h4>
+                                    <div class="capacity-questions">
+                                        <div class="capacity-question">
+                                            <p>Does your organisation have in-house technical expertise in privacy-preserving technologies?</p>
+                                            <div class="capacity-options">
+                                                <label><input type="radio" name="tech-expertise" value="high"> Extensive expertise available</label>
+                                                <label><input type="radio" name="tech-expertise" value="medium"> Some expertise, may need additional training</label>
+                                                <label><input type="radio" name="tech-expertise" value="low"> Limited expertise, would need external support</label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="capacity-question">
+                                            <p>What is your budget allocation for implementing additional privacy safeguards?</p>
+                                            <div class="capacity-options">
+                                                <label><input type="radio" name="budget" value="high"> Substantial budget available ($100k+)</label>
+                                                <label><input type="radio" name="budget" value="medium"> Moderate budget ($25k-$100k)</label>
+                                                <label><input type="radio" name="budget" value="low"> Limited budget (under $25k)</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="capacity-area">
+                                    <h4>Governance capacity</h4>
+                                    <div class="capacity-questions">
+                                        <div class="capacity-question">
+                                            <p>Does your organisation have established data governance structures?</p>
+                                            <div class="capacity-options">
+                                                <label><input type="radio" name="governance" value="mature"> Mature governance with dedicated committee and policies</label>
+                                                <label><input type="radio" name="governance" value="developing"> Developing governance structures</label>
+                                                <label><input type="radio" name="governance" value="limited"> Limited formal governance structures</label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="capacity-question">
+                                            <p>How quickly can your organisation implement new privacy and security measures?</p>
+                                            <div class="capacity-options">
+                                                <label><input type="radio" name="implementation-speed" value="fast"> Within 1-3 months</label>
+                                                <label><input type="radio" name="implementation-speed" value="medium"> Within 3-6 months</label>
+                                                <label><input type="radio" name="implementation-speed" value="slow"> 6+ months required</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="capacity-area">
+                                    <h4>Stakeholder engagement capacity</h4>
+                                    <div class="capacity-questions">
+                                        <div class="capacity-question">
+                                            <p>What is your organisation's experience with community consultation?</p>
+                                            <div class="capacity-options">
+                                                <label><input type="radio" name="consultation" value="extensive"> Extensive experience with formal consultation processes</label>
+                                                <label><input type="radio" name="consultation" value="some"> Some experience, may need guidance</label>
+                                                <label><input type="radio" name="consultation" value="limited"> Limited experience with community engagement</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="section-navigation">
+                                <button class="nav-button prev-section" onclick="prevSection()">← Previous</button>
+                                <button class="nav-button generate-plan" onclick="generateMitigationPlan()">Generate mitigation plan →</button>
+                            </div>
+                        </div>
+
+                        <div class="assessment-section" id="results">
+                            <div class="section-header">
+                                <h3>Your risk mitigation plan</h3>
+                                <p>Customised recommendations based on your risk profile and organisational capacity</p>
+                            </div>
+                            
+                            <div id="mitigation-results" class="mitigation-results">
+                                <!-- Results will be generated here -->
+                            </div>
+
+                            <div class="plan-actions">
+                                <h4>Implementation tools</h4>
+                                <div class="action-buttons">
+                                    <button class="action-button" onclick="exportPlan()">📋 Export detailed plan</button>
+                                    <button class="action-button" onclick="generateChecklist()">✅ Generate implementation checklist</button>
+                                    <button class="action-button" onclick="generateTimeline()">📅 Create implementation timeline</button>
+                                    <button class="action-button" onclick="restartAssessment()">🔄 Start new assessment</button>
+                                </div>
+                            </div>
+
+                            <div class="section-navigation">
+                                <button class="nav-button prev-section" onclick="prevSection()">← Modify assessment</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mitigation-strategies">
+                    <h2>Comprehensive mitigation strategies</h2>
+                    <p>Detailed guidance on implementing each type of risk mitigation measure:</p>
+                    
+                    <div class="strategies-accordion">
+                        <div class="strategy-section" data-strategy="technical">
+                            <div class="strategy-header">
+                                <h3>🔧 Technical safeguards</h3>
+                                <span class="toggle-icon">▼</span>
+                            </div>
+                            <div class="strategy-content">
+                                <div class="strategy-overview">
+                                    <h4>Advanced de-identification techniques</h4>
+                                    <div class="technique-grid">
+                                        <div class="technique-card">
+                                            <h5>Differential privacy</h5>
+                                            <p><strong>Application:</strong> Add calibrated noise to synthetic data generation process</p>
+                                            <p><strong>Effectiveness:</strong> High privacy protection with mathematical guarantees</p>
+                                            <p><strong>Complexity:</strong> High - requires technical expertise</p>
+                                            <p><strong>Cost:</strong> Medium to high implementation costs</p>
+                                        </div>
+                                        
+                                        <div class="technique-card">
+                                            <h5>Enhanced k-anonymity</h5>
+                                            <p><strong>Application:</strong> Increase k value (k≥10 for higher risk scenarios)</p>
+                                            <p><strong>Effectiveness:</strong> Medium - provides baseline protection</p>
+                                            <p><strong>Complexity:</strong> Low to medium</p>
+                                            <p><strong>Cost:</strong> Low implementation costs</p>
+                                        </div>
+                                        
+                                        <div class="technique-card">
+                                            <h5>L-diversity with T-closeness</h5>
+                                            <p><strong>Application:</strong> Ensure diversity in sensitive attributes with distribution matching</p>
+                                            <p><strong>Effectiveness:</strong> High for protecting sensitive attributes</p>
+                                            <p><strong>Complexity:</strong> Medium</p>
+                                            <p><strong>Cost:</strong> Medium implementation costs</p>
+                                        </div>
+                                        
+                                        <div class="technique-card">
+                                            <h5>Federated synthetic data generation</h5>
+                                            <p><strong>Application:</strong> Generate synthetic data without centralising source data</p>
+                                            <p><strong>Effectiveness:</strong> High for multi-organisational scenarios</p>
+                                            <p><strong>Complexity:</strong> Very high</p>
+                                            <p><strong>Cost:</strong> High implementation costs</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="implementation-guidance">
+                                    <h4>Implementation guidance</h4>
+                                    <ol>
+                                        <li><strong>Risk-technique matching:</strong> Select techniques based on specific re-identification risks identified</li>
+                                        <li><strong>Parameter tuning:</strong> Calibrate privacy parameters based on risk tolerance and utility requirements</li>
+                                        <li><strong>Validation testing:</strong> Conduct membership inference and other attack simulations</li>
+                                        <li><strong>Performance monitoring:</strong> Establish ongoing monitoring of privacy protection effectiveness</li>
+                                        <li><strong>Documentation:</strong> Maintain comprehensive documentation of technical implementation choices</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="strategy-section" data-strategy="organisational">
+                            <div class="strategy-header">
+                                <h3>🏢 Organisational controls</h3>
+                                <span class="toggle-icon">▼</span>
+                            </div>
+                            <div class="strategy-content">
+                                <div class="control-areas">
+                                    <div class="control-area">
+                                        <h4>Enhanced access controls</h4>
+                                        <ul>
+                                            <li><strong>Role-based access:</strong> Implement granular access controls based on job requirements</li>
+                                            <li><strong>Multi-factor authentication:</strong> Require MFA for all synthetic data access</li>
+                                            <li><strong>Privileged access management:</strong> Additional controls for administrative access</li>
+                                            <li><strong>Session monitoring:</strong> Log and monitor all data access sessions</li>
+                                            <li><strong>Regular access reviews:</strong> Quarterly review and certification of access permissions</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="control-area">
+                                        <h4>Staff training and awareness</h4>
+                                        <ul>
+                                            <li><strong>Privacy training:</strong> Comprehensive privacy law and best practice training</li>
+                                            <li><strong>Technical training:</strong> Training on synthetic data handling and protection measures</li>
+                                            <li><strong>Incident response training:</strong> Regular drills and response procedure training</li>
+                                            <li><strong>Cultural competency:</strong> Training on Indigenous data sovereignty and cultural sensitivities</li>
+                                            <li><strong>Ongoing education:</strong> Regular updates on emerging privacy risks and technologies</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="control-area">
+                                        <h4>Governance structures</h4>
+                                        <ul>
+                                            <li><strong>Privacy committee:</strong> Dedicated committee with decision-making authority</li>
+                                            <li><strong>Risk assessment process:</strong> Formal process for evaluating new privacy risks</li>
+                                            <li><strong>Incident management:</strong> Clear procedures for privacy incident response</li>
+                                            <li><strong>Third-party oversight:</strong> Enhanced due diligence for external service providers</li>
+                                            <li><strong>Regular reporting:</strong> Privacy risk reporting to executive leadership</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="strategy-section" data-strategy="legal">
+                            <div class="strategy-header">
+                                <h3>⚖️ Legal protections</h3>
+                                <span class="toggle-icon">▼</span>
+                            </div>
+                            <div class="strategy-content">
+                                <div class="legal-measures">
+                                    <div class="legal-area">
+                                        <h4>Enhanced contractual protections</h4>
+                                        <ul>
+                                            <li><strong>Data processing agreements:</strong> Comprehensive agreements with specific privacy obligations</li>
+                                            <li><strong>Liability provisions:</strong> Clear allocation of liability for privacy breaches</li>
+                                            <li><strong>Audit rights:</strong> Rights to audit third-party compliance with privacy requirements</li>
+                                            <li><strong>Data breach notification:</strong> Specific requirements for breach notification timelines</li>
+                                            <li><strong>Data return/destruction:</strong> Clear obligations for data return or secure destruction</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="legal-area">
+                                        <h4>Regulatory compliance measures</h4>
+                                        <ul>
+                                            <li><strong>Privacy impact assessments:</strong> Comprehensive PIAs with regular updates</li>
+                                            <li><strong>Regulatory consultation:</strong> Proactive engagement with privacy regulators</li>
+                                            <li><strong>Compliance monitoring:</strong> Regular assessment of compliance with applicable laws</li>
+                                            <li><strong>Legal advice:</strong> Access to specialist privacy law expertise</li>
+                                            <li><strong>Cross-jurisdictional analysis:</strong> Assessment of multi-jurisdictional requirements</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="legal-area">
+                                        <h4>Community and stakeholder protections</h4>
+                                        <ul>
+                                            <li><strong>Community benefit agreements:</strong> Formal agreements on community benefits from research</li>
+                                            <li><strong>Data sovereignty frameworks:</strong> Recognition of Indigenous data governance rights</li>
+                                            <li><strong>Transparency measures:</strong> Public reporting on data use and privacy protections</li>
+                                            <li><strong>Complaint mechanisms:</strong> Accessible processes for privacy complaints and concerns</li>
+                                            <li><strong>Independent oversight:</strong> External oversight of privacy protection measures</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="strategy-section" data-strategy="monitoring">
+                            <div class="strategy-header">
+                                <h3>📊 Monitoring and assurance</h3>
+                                <span class="toggle-icon">▼</span>
+                            </div>
+                            <div class="strategy-content">
+                                <div class="monitoring-framework">
+                                    <div class="monitoring-area">
+                                        <h4>Ongoing risk assessment</h4>
+                                        <ul>
+                                            <li><strong>Regular risk reviews:</strong> Quarterly reassessment of re-identification risks</li>
+                                            <li><strong>Threat landscape monitoring:</strong> Monitoring for new attack methods and vulnerabilities</li>
+                                            <li><strong>Technology assessment:</strong> Regular evaluation of privacy-preserving technology advances</li>
+                                            <li><strong>Usage monitoring:</strong> Tracking how synthetic data is being used and shared</li>
+                                            <li><strong>External environment scanning:</strong> Monitoring for changes in legal and regulatory environment</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="monitoring-area">
+                                        <h4>Privacy monitoring systems</h4>
+                                        <ul>
+                                            <li><strong>Access logging:</strong> Comprehensive logging of all data access and use</li>
+                                            <li><strong>Anomaly detection:</strong> Automated detection of unusual access patterns</li>
+                                            <li><strong>Privacy metrics:</strong> Regular measurement of privacy protection effectiveness</li>
+                                            <li><strong>Incident tracking:</strong> Systematic tracking and analysis of privacy incidents</li>
+                                            <li><strong>Performance dashboards:</strong> Real-time monitoring of privacy and security controls</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="monitoring-area">
+                                        <h4>Assurance and audit</h4>
+                                        <ul>
+                                            <li><strong>Internal audits:</strong> Regular internal privacy and security audits</li>
+                                            <li><strong>External assessments:</strong> Independent privacy and security assessments</li>
+                                            <li><strong>Penetration testing:</strong> Regular testing of security controls and defences</li>
+                                            <li><strong>Compliance audits:</strong> Formal audits of regulatory compliance</li>
+                                            <li><strong>Continuous improvement:</strong> Regular updates to controls based on audit findings</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="strategy-section" data-strategy="engagement">
+                            <div class="strategy-header">
+                                <h3>👥 Stakeholder engagement</h3>
+                                <span class="toggle-icon">▼</span>
+                            </div>
+                            <div class="strategy-content">
+                                <div class="engagement-strategies">
+                                    <div class="engagement-area">
+                                        <h4>Community consultation</h4>
+                                        <ul>
+                                            <li><strong>Early engagement:</strong> Consult communities before project commencement</li>
+                                            <li><strong>Ongoing dialogue:</strong> Maintain regular communication throughout project lifecycle</li>
+                                            <li><strong>Cultural protocols:</strong> Follow appropriate cultural consultation protocols</li>
+                                            <li><strong>Community representatives:</strong> Include community representatives in governance structures</li>
+                                            <li><strong>Feedback mechanisms:</strong> Establish accessible channels for community feedback and concerns</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="engagement-area">
+                                        <h4>Transparency and accountability</h4>
+                                        <ul>
+                                            <li><strong>Public reporting:</strong> Regular public reports on data use and privacy protections</li>
+                                            <li><strong>Open governance:</strong> Transparent decision-making processes</li>
+                                            <li><strong>Research outcomes sharing:</strong> Sharing research results with contributing communities</li>
+                                            <li><strong>Privacy protection communication:</strong> Clear communication about privacy safeguards</li>
+                                            <li><strong>Impact assessment:</strong> Regular assessment and reporting of community impacts</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="engagement-area">
+                                        <h4>Stakeholder involvement</h4>
+                                        <ul>
+                                            <li><strong>Ethics committee participation:</strong> Community representatives on ethics committees</li>
+                                            <li><strong>Advocacy group engagement:</strong> Regular consultation with relevant advocacy groups</li>
+                                            <li><strong>Professional body liaison:</strong> Engagement with relevant professional associations</li>
+                                            <li><strong>Regulatory communication:</strong> Proactive communication with privacy regulators</li>
+                                            <li><strong>Research participant involvement:</strong> Opportunities for participants to understand and influence research</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="additional-resources">
+                    <h2>Implementation resources</h2>
+                    <div class="resource-grid">
+                        <div class="resource-card">
+                            <h3>Technical implementation guides</h3>
+                            <p>Step-by-step guidance for implementing advanced privacy-preserving techniques.</p>
+                            <a href="#" title="Coming Soon" class="button1">Access Guides</a>
+                        </div>
+                        <div class="resource-card">
+                            <h3>Policy templates</h3>
+                            <p>Template policies and procedures for privacy governance and risk management.</p>
+                            <a href="#" title="Coming Soon" class="button1">Download Templates</a>
+                        </div>
+                        <div class="resource-card">
+                            <h3>Training materials</h3>
+                            <p>Comprehensive training resources for staff and stakeholders on privacy protection.</p>
+                            <a href="#" title="Coming Soon" class="button1">Access Training</a>
+                        </div>
+                        <div class="resource-card">
+                            <h3>Vendor assessment tools</h3>
+                            <p>Tools and checklists for assessing third-party privacy and security capabilities.</p>
+                            <a href="#" title="Coming Soon" class="button1">Access Tools</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="navigation-links">
+                    <div class="nav-buttons">
+                        <a href="../legal-pathways-wizard/LegalPathwaysWizard.en-US.webpage.copy.html" class="nav-button nav-previous">← Legal Pathways Wizard</a>
+                        <a href="../jurisdiction-mapper/JurisdictionMapper.en-US.webpage.copy.html" class="nav-button nav-next">Jurisdiction Mapper →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function nextSection() {
+            console.log('Next section functionality to be implemented');
+        }
+        
+        function prevSection() {
+            console.log('Previous section functionality to be implemented');
+        }
+        
+        function generateMitigationPlan() {
+            console.log('Generate mitigation plan functionality to be implemented');
+        }
+        
+        function exportPlan() {
+            console.log('Export plan functionality to be implemented');
+        }
+        
+        function generateChecklist() {
+            console.log('Generate checklist functionality to be implemented');
+        }
+        
+        function generateTimeline() {
+            console.log('Generate timeline functionality to be implemented');
+        }
+        
+        function restartAssessment() {
+            console.log('Restart assessment functionality to be implemented');
+        }
+        
+        // Add toggle functionality for strategy accordion
+        document.querySelectorAll('.strategy-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                const icon = this.querySelector('.toggle-icon');
+                
+                if (content.style.display === 'block') {
+                    content.style.display = 'none';
+                    icon.textContent = '▼';
+                } else {
+                    content.style.display = 'block';
+                    icon.textContent = '▲';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

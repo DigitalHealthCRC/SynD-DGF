@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment Outcomes and Documentation - SynD-DGF</title>
+    <meta name="description" content="Document assessment outcomes and maintain records for synthetic health data projects under the SynD-DGF framework.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .breadcrumb {
+            background: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: "›";
+            color: #6c757d;
+        }
+        .button1 {
+            background: linear-gradient(135deg, #004d9f 0%, #0066cc 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        .button1:hover {
+            background: linear-gradient(135deg, #003d7a 0%, #0052a3 100%);
+            color: white;
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+        .form-section {
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            background: white;
+        }
+        .outcome-status {
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+        }
+        .outcome-pass {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        .outcome-fail {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+        .outcome-conditional {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+        }
+        .download-card {
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #004d9f;">
+        <div class="container">
+            <a class="navbar-brand" href="../../home/Home.en-US.webpage.copy.html">SynD-DGF</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="../../home/Home.en-US.webpage.copy.html">Home</a>
+                <a class="nav-link" href="../../framework-overview/FrameworkOverview.en-US.webpage.copy.html">Framework</a>
+                <a class="nav-link active" href="../AssessmentTools.en-US.webpage.copy.html">Assessment Tools</a>
+                <a class="nav-link" href="../../resources/Resources.en-US.webpage.copy.html">Resources</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="container mt-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../home/Home.en-US.webpage.copy.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="../AssessmentTools.en-US.webpage.copy.html">Assessment Tools</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Assessment Outcomes</li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <h1>Assessment outcomes and documentation</h1>
+
+                <div class="outcomes-intro">
+                    <p class="lead">Document and maintain comprehensive records of your SynD-DGF assessment outcomes, decisions, and ongoing compliance requirements.</p>
+
+                    <div class="alert alert-info">
+                        <h4 class="alert-heading">Documentation requirements</h4>
+                        <p class="mb-0">Proper documentation of assessment outcomes is essential for accountability, compliance monitoring, and future project reviews. All assessment decisions must be recorded with supporting evidence and rationale.</p>
+                    </div>
+                </div>
+
+                <!-- Assessment Outcomes Form -->
+                <div class="form-section" data-component-theme="portalThemeColorBlue">
+                    <h2>Assessment outcomes summary</h2>
+
+                    <form id="assessmentOutcomes" class="outcomes-form">
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <label for="project-title" class="form-label">Project title</label>
+                                <input type="text" class="form-control" id="project-title" name="project-title" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="assessment-date" class="form-label">Assessment completion date</label>
+                                <input type="date" class="form-control" id="assessment-date" name="assessment-date" required>
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <label for="organisation" class="form-label">Organisation</label>
+                                <input type="text" class="form-control" id="organisation" name="organisation" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="accountable-decision-maker" class="form-label">Accountable decision-maker</label>
+                                <input type="text" class="form-control" id="accountable-decision-maker" name="accountable-decision-maker" required>
+                            </div>
+                        </div>
+
+                        <!-- Use Case Assessment Outcome -->
+                        <div class="assessment-outcome">
+                            <h3>Use case assessment outcome</h3>
+
+                            <div class="outcome-tests">
+                                <div class="test-outcome">
+                                    <h4>Test 1: Public benefit purpose</h4>
+                                    <div class="radio-group">
+                                        <label><input type="radio" name="test1-outcome" value="pass" required> <span class="text-success">✓ Pass</span></label>
+                                        <label><input type="radio" name="test1-outcome" value="fail" required> <span class="text-danger">✗ Fail</span></label>
+                                    </div>
+                                    <textarea name="test1-rationale" placeholder="Provide rationale for this outcome..." class="form-control mt-2" rows="3" required></textarea>
+                                </div>
+
+                                <div class="test-outcome">
+                                    <h4>Test 2: De-identified dataset objective</h4>
+                                    <div class="radio-group">
+                                        <label><input type="radio" name="test2-outcome" value="pass" required> <span class="text-success">✓ Pass</span></label>
+                                        <label><input type="radio" name="test2-outcome" value="fail" required> <span class="text-danger">✗ Fail</span></label>
+                                    </div>
+                                    <textarea name="test2-rationale" placeholder="Provide rationale for this outcome..." class="form-control mt-2" rows="3" required></textarea>
+                                </div>
+
+                                <div class="test-outcome">
+                                    <h4>Test 3: Community expectations and notification</h4>
+                                    <div class="radio-group">
+                                        <label><input type="radio" name="test3-outcome" value="pass" required> <span class="text-success">✓ Pass</span></label>
+                                        <label><input type="radio" name="test3-outcome" value="fail" required> <span class="text-danger">✗ Fail</span></label>
+                                    </div>
+                                    <textarea name="test3-rationale" placeholder="Provide rationale for this outcome..." class="form-control mt-2" rows="3" required></textarea>
+                                </div>
+                            </div>
+
+                            <div class="overall-outcome mt-4">
+                                <h4>Overall use case assessment outcome</h4>
+                                <div class="radio-group">
+                                    <label><input type="radio" name="usecase-overall" value="pass" required> <span class="text-success">✓ Pass - All three tests satisfied</span></label>
+                                    <label><input type="radio" name="usecase-overall" value="fail" required> <span class="text-danger">✗ Fail - One or more tests not satisfied</span></label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Impact Assessment Outcome -->
+                        <div class="assessment-outcome mt-5">
+                            <h3>Impact assessment outcome</h3>
+
+                            <div class="impact-considerations">
+                                <div class="consideration-outcome">
+                                    <h4>Public interest</h4>
+                                    <select name="public-interest-rating" class="form-select" required>
+                                        <option value="">Select rating...</option>
+                                        <option value="high">High public interest</option>
+                                        <option value="moderate">Moderate public interest</option>
+                                        <option value="low">Low public interest</option>
+                                    </select>
+                                </div>
+
+                                <div class="consideration-outcome">
+                                    <h4>Privacy impacts</h4>
+                                    <select name="privacy-impact-rating" class="form-select" required>
+                                        <option value="">Select rating...</option>
+                                        <option value="very-low">Very low risk</option>
+                                        <option value="low">Low risk</option>
+                                        <option value="moderate">Moderate risk</option>
+                                        <option value="high">High risk</option>
+                                    </select>
+                                </div>
+
+                                <div class="consideration-outcome">
+                                    <h4>Data ethics concerns</h4>
+                                    <select name="ethics-rating" class="form-select" required>
+                                        <option value="">Select rating...</option>
+                                        <option value="none">No significant concerns</option>
+                                        <option value="minor">Minor concerns, well-managed</option>
+                                        <option value="moderate">Moderate concerns, mitigation required</option>
+                                        <option value="major">Major concerns, significant mitigation required</option>
+                                    </select>
+                                </div>
+
+                                <div class="consideration-outcome">
+                                    <h4>Indigenous data sovereignty</h4>
+                                    <select name="indigenous-sovereignty-rating" class="form-select" required>
+                                        <option value="">Select rating...</option>
+                                        <option value="not-applicable">Not applicable - no Indigenous data</option>
+                                        <option value="compliant">Compliant with sovereignty principles</option>
+                                        <option value="needs-improvement">Some improvements needed</option>
+                                        <option value="non-compliant">Non-compliant, major changes required</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="overall-impact-outcome mt-4">
+                                <h4>Overall impact assessment recommendation</h4>
+                                <div class="radio-group">
+                                    <label><input type="radio" name="impact-overall" value="proceed" required> <span class="text-success">Proceed - Benefits outweigh risks</span></label>
+                                    <label><input type="radio" name="impact-overall" value="conditional" required> <span class="text-warning">Conditional - Proceed with additional safeguards</span></label>
+                                    <label><input type="radio" name="impact-overall" value="revise" required> <span class="text-warning">Revise - Significant changes needed</span></label>
+                                    <label><input type="radio" name="impact-overall" value="reject" required> <span class="text-danger">Reject - Risks too significant</span></label>
+                                </div>
+                                <textarea name="impact-rationale" placeholder="Provide detailed rationale for this recommendation..." class="form-control mt-2" rows="4" required></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Final Decision -->
+                        <div class="final-decision mt-5">
+                            <h3>Final project decision</h3>
+
+                            <div class="decision-outcome">
+                                <h4>Accountable decision-maker determination</h4>
+                                <div class="radio-group">
+                                    <label><input type="radio" name="final-decision" value="approved" required> <span class="text-success">✓ Approved - Project may proceed to next framework steps</span></label>
+                                    <label><input type="radio" name="final-decision" value="conditional" required> <span class="text-warning">⚠ Conditional approval - Project may proceed with specified conditions</span></label>
+                                    <label><input type="radio" name="final-decision" value="rejected" required> <span class="text-danger">✗ Rejected - Project may not proceed under SynD-DGF framework</span></label>
+                                </div>
+
+                                <div class="mt-3">
+                                    <label for="decision-rationale" class="form-label">Decision rationale and conditions (if applicable)</label>
+                                    <textarea name="decision-rationale" class="form-control" rows="5" required placeholder="Provide comprehensive rationale for this decision, including any conditions that must be met for conditional approval or reasons for rejection..."></textarea>
+                                </div>
+
+                                <div class="mt-3">
+                                    <label for="next-steps" class="form-label">Next steps and requirements</label>
+                                    <textarea name="next-steps" class="form-control" rows="4" placeholder="Detail the next steps, ongoing requirements, monitoring arrangements, or alternative approaches if applicable..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Additional Documentation -->
+                        <div class="additional-documentation mt-5">
+                            <h3>Additional documentation and evidence</h3>
+
+                            <div class="documentation-checklist">
+                                <h4>Supporting documents attached</h4>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" name="attached-docs" value="use-case-assessment"> Completed use case assessment form</label>
+                                    <label><input type="checkbox" name="attached-docs" value="impact-assessment"> Completed impact assessment form</label>
+                                    <label><input type="checkbox" name="attached-docs" value="public-messaging"> Evidence of public messaging and communication</label>
+                                    <label><input type="checkbox" name="attached-docs" value="stakeholder-consultation"> Stakeholder consultation records</label>
+                                    <label><input type="checkbox" name="attached-docs" value="expert-advice"> Expert advice or legal review</label>
+                                    <label><input type="checkbox" name="attached-docs" value="ethics-approval"> Ethics committee or HREC approvals</label>
+                                    <label><input type="checkbox" name="attached-docs" value="indigenous-consultation"> Indigenous consultation and collaboration evidence</label>
+                                    <label><input type="checkbox" name="attached-docs" value="pia"> Privacy Impact Assessment (if required)</label>
+                                    <label><input type="checkbox" name="attached-docs" value="organisational-policies"> Relevant organisational policies and procedures</label>
+                                </div>
+                            </div>
+
+                            <div class="mt-3">
+                                <label for="additional-notes" class="form-label">Additional notes and considerations</label>
+                                <textarea name="additional-notes" class="form-control" rows="4" placeholder="Record any additional considerations, special circumstances, or notes relevant to this assessment..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-actions mt-4">
+                            <button type="submit" class="button1">Save Assessment Outcomes</button>
+                            <button type="button" id="generate-report" class="button1">Generate Assessment Report</button>
+                            <button type="button" id="export-outcomes" class="button1">Export Outcomes</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Download Templates Section -->
+                <div class="form-section" data-component-theme="portalThemeColorGreen">
+                    <h2>Assessment documentation templates</h2>
+                    <p>Download standardised templates and forms to support your assessment documentation and record-keeping requirements.</p>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="download-card">
+                                <h4>Assessment outcomes form</h4>
+                                <p>Standardised form for documenting final assessment outcomes and decisions.</p>
+                                <a href="#" class="button1" onclick="generateTemplate('assessment-outcomes-form')">Download Form</a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="download-card">
+                                <h4>Decision documentation template</h4>
+                                <p>Template for recording accountable decision-maker determinations and rationale.</p>
+                                <a href="#" class="button1" onclick="generateTemplate('decision-documentation')">Download Template</a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="download-card">
+                                <h4>Compliance monitoring checklist</h4>
+                                <p>Ongoing compliance checklist for approved synthetic data projects.</p>
+                                <a href="#" class="button1" onclick="generateTemplate('compliance-checklist')">Download Checklist</a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="download-card">
+                                <h4>Stakeholder communication template</h4>
+                                <p>Template for documenting community engagement and stakeholder consultation.</p>
+                                <a href="#" class="button1" onclick="generateTemplate('stakeholder-communication')">Download Template</a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="download-card">
+                                <h4>Indigenous sovereignty assessment form</h4>
+                                <p>Specialised form for assessing Indigenous data sovereignty compliance.</p>
+                                <a href="#" class="button1" onclick="generateTemplate('indigenous-sovereignty-form')">Download Form</a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="download-card">
+                                <h4>Risk mitigation plan template</h4>
+                                <p>Template for documenting risk mitigation strategies and monitoring plans.</p>
+                                <a href="#" class="button1" onclick="generateTemplate('risk-mitigation-plan')">Download Template</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Record Keeping Guidance -->
+                <div class="form-section" data-component-theme="portalThemeColorOrange">
+                    <h2>Record keeping and compliance requirements</h2>
+
+                    <div class="requirements-section">
+                        <h3>Mandatory record keeping</h3>
+                        <p>Organisations must maintain comprehensive records for the following minimum periods:</p>
+                        <ul>
+                            <li><strong>Assessment documentation:</strong> 7 years from completion date</li>
+                            <li><strong>Decision records:</strong> 7 years from decision date</li>
+                            <li><strong>Consultation evidence:</strong> 5 years from project completion</li>
+                            <li><strong>Compliance monitoring:</strong> Duration of project plus 3 years</li>
+                            <li><strong>Indigenous sovereignty documentation:</strong> As specified by relevant Indigenous groups or permanent retention</li>
+                        </ul>
+                    </div>
+
+                    <div class="requirements-section">
+                        <h3>Ongoing compliance monitoring</h3>
+                        <p>Approved projects must maintain ongoing compliance through:</p>
+                        <ul>
+                            <li>Annual compliance reviews and reporting</li>
+                            <li>Monitoring of community feedback and concerns</li>
+                            <li>Regular review of risk mitigation effectiveness</li>
+                            <li>Updates to reflect changes in legal or policy frameworks</li>
+                            <li>Periodic reassessment if project scope or use cases change</li>
+                        </ul>
+                    </div>
+
+                    <div class="requirements-section">
+                        <h3>Audit and review requirements</h3>
+                        <p>Assessment outcomes may be subject to:</p>
+                        <ul>
+                            <li>Internal audit and quality assurance review</li>
+                            <li>External regulatory or oversight body examination</li>
+                            <li>Community or stakeholder group review</li>
+                            <li>Academic or expert peer review</li>
+                            <li>Legal or compliance audit</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="step-navigation">
+                    <div class="nav-buttons">
+                        <a href="../impact-assessment/ImpactAssessmentEnhanced.en-US.webpage.copy.html" class="nav-button nav-previous">← Impact Assessment</a>
+                        <a href="../AssessmentTools.en-US.webpage.copy.html" class="nav-button nav-next">Assessment Tools Overview →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Template generation functionality
+        function generateTemplate(templateType) {
+            console.log('Generating template:', templateType);
+            alert('Template generation feature will be implemented with backend functionality.');
+        }
+
+        // Form submission handling
+        document.getElementById('assessmentOutcomes').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Assessment outcomes save functionality will be implemented with backend integration.');
+        });
+
+        // Generate report functionality
+        document.getElementById('generate-report').addEventListener('click', function() {
+            alert('Assessment report generation will be implemented with backend integration.');
+        });
+
+        // Export outcomes functionality
+        document.getElementById('export-outcomes').addEventListener('click', function() {
+            alert('Assessment outcomes export will be implemented with backend integration.');
+        });
+
+        // Dynamic outcome status updates
+        document.querySelectorAll('input[name="usecase-overall"], input[name="impact-overall"], input[name="final-decision"]').forEach(input => {
+            input.addEventListener('change', function() {
+                updateOutcomeStatus();
+            });
+        });
+
+        function updateOutcomeStatus() {
+            // This would update visual indicators based on assessment outcomes
+            console.log('Updating outcome status indicators');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 4: Assess Re-identification Risks - SynD-DGF</title>
+    <meta name="description" content="Comprehensive guidance for assessing and mitigating re-identification risks in synthetic health data using established techniques and methodologies.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #2A324B;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .step-intro {
+            background: linear-gradient(135deg, #FFFDD0 0%, #B0E0E6 100%);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 5px solid #FF7F50;
+        }
+        .risk-card, .technique-card, .methodology-step {
+            background: white;
+            border: 1px solid #C7CCDB;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .technique-details, .step-content {
+            border-left: 3px solid #FF7F50;
+            padding-left: 20px;
+            margin-bottom: 25px;
+        }
+        .assessment-tool, .uniqueness-calculator {
+            background: #FFF7D9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid #ffc107;
+        }
+        .inference-testing {
+            background: #e7f3ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid #007bff;
+        }
+        .button1 {
+            background: linear-gradient(135deg, #004d9f 0%, #0066cc 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        .button1:hover {
+            background: linear-gradient(135deg, #003d7a 0%, #0052a3 100%);
+            color: white;
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+        .criteria-checklist {
+            background: #FFF7D9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .criteria-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .criteria-item input {
+            margin-right: 10px;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #dee2e6;
+        }
+        .nav-button {
+            background: #6c757d;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .nav-button:hover {
+            background: #545b62;
+            color: white;
+            text-decoration: none;
+        }
+        .breadcrumb {
+            background: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: "›";
+            color: #6c757d;
+        }
+        .risk-level {
+            border: 1px solid #C7CCDB;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .risk-level.very-low {
+            border-left: 4px solid #28a745;
+            background: #f8fff8;
+        }
+        .risk-level.low {
+            border-left: 4px solid #ffc107;
+            background: #fffcf0;
+        }
+        .risk-level.medium-high {
+            border-left: 4px solid #dc3545;
+            background: #fff8f8;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #004d9f;">
+        <div class="container">
+            <a class="navbar-brand" href="../home/Home.en-US.webpage.copy.html">SynD-DGF</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="../home/Home.en-US.webpage.copy.html">Home</a>
+                <a class="nav-link" href="../framework-overview/FrameworkOverview.en-US.webpage.copy.html">Framework</a>
+                <a class="nav-link" href="../assessment-tools/AssessmentTools.en-US.webpage.copy.html">Assessment Tools</a>
+                <a class="nav-link" href="../resources/Resources.en-US.webpage.copy.html">Resources</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="container mt-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../home/Home.en-US.webpage.copy.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="../framework-overview/FrameworkOverview.en-US.webpage.copy.html">Framework</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Step 4: Assess Re-identification Risks</li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <h1>Step 4: Assess re-identification risks</h1>
+                
+                <div class="step-intro">
+                    <p class="lead">Even synthetic data can pose re-identification risks. This step ensures your synthetic dataset meets the "very low risk" threshold required for safe use and sharing.</p>
+                    <div class="step-objectives">
+                        <h2>Step objectives</h2>
+                        <ul>
+                            <li>Apply appropriate de-identification techniques to reduce privacy risks</li>
+                            <li>Conduct systematic re-identification risk assessment using established methodologies</li>
+                            <li>Test for data leakage and membership inference vulnerabilities</li>
+                            <li>Implement additional privacy-preserving measures if risks are too high</li>
+                            <li>Document risk assessment results and mitigation strategies</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="risk-overview">
+                    <h2>Understanding re-identification risks in synthetic data</h2>
+                    <p>While synthetic data is designed to protect privacy, it can still pose re-identification risks through several mechanisms:</p>
+
+                    <div class="risk-types">
+                        <div class="risk-card" data-component-theme="portalThemeColorRed">
+                            <h3>Direct re-identification</h3>
+                            <p>Synthetic records that too closely resemble real individuals in the source dataset.</p>
+                            <ul>
+                                <li>Synthetic records identical or very similar to real records</li>
+                                <li>Preservation of unique or rare characteristic combinations</li>
+                                <li>Insufficient noise or perturbation in generation process</li>
+                            </ul>
+                        </div>
+
+                        <div class="risk-card" data-component-theme="portalThemeColorOrange">
+                            <h3>Statistical disclosure</h3>
+                            <p>Inference of information about individuals through statistical analysis of synthetic data.</p>
+                            <ul>
+                                <li>Small cell sizes allowing individual identification</li>
+                                <li>Preservation of rare statistical patterns</li>
+                                <li>Ability to infer sensitive attributes from quasi-identifiers</li>
+                            </ul>
+                        </div>
+
+                        <div class="risk-card" data-component-theme="portalThemeColorPurple">
+                            <h3>Membership inference</h3>
+                            <p>Determining whether a specific individual was included in the original training dataset.</p>
+                            <ul>
+                                <li>Model overfitting to specific training examples</li>
+                                <li>Distinguishable patterns in synthetic data generation</li>
+                                <li>Statistical testing revealing training set membership</li>
+                            </ul>
+                        </div>
+
+                        <div class="risk-card" data-component-theme="portalThemeColorBlue">
+                            <h3>Attribute inference</h3>
+                            <p>Learning sensitive information about individuals through correlation analysis.</p>
+                            <ul>
+                                <li>Strong correlations between public and sensitive attributes</li>
+                                <li>Preserved relationships allowing inference attacks</li>
+                                <li>Combination with external datasets for linkage</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="deidentification-techniques">
+                    <h2>De-identification techniques for synthetic data</h2>
+                    <p>Apply these techniques to reduce re-identification risks before conducting formal risk assessment:</p>
+
+                    <div class="technique-sections">
+                        <div class="technique-card">
+                            <h3>K-anonymity</h3>
+                            <div class="technique-content">
+                                <p><strong>Principle:</strong> Ensure that each record is indistinguishable from at least k-1 other records with respect to quasi-identifying attributes.</p>
+                                
+                                <div class="technique-details">
+                                    <h4>Implementation for synthetic data</h4>
+                                    <ul>
+                                        <li>Identify quasi-identifying attributes (age, gender, postcode, etc.)</li>
+                                        <li>Check that each combination appears at least k times in synthetic dataset</li>
+                                        <li>Suppress or generalise combinations with fewer than k occurrences</li>
+                                        <li>Common k values: 3-5 for high privacy, 10+ for very high privacy</li>
+                                    </ul>
+
+                                    <h4>Advantages</h4>
+                                    <ul>
+                                        <li>Well-established and widely understood</li>
+                                        <li>Provides clear privacy guarantee</li>
+                                        <li>Relatively simple to implement and validate</li>
+                                        <li>Suitable for most tabular health datasets</li>
+                                    </ul>
+
+                                    <h4>Limitations</h4>
+                                    <ul>
+                                        <li>Vulnerable to homogeneity attacks</li>
+                                        <li>May require significant data suppression</li>
+                                        <li>Does not prevent attribute inference</li>
+                                        <li>Can reduce data utility for detailed analysis</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="technique-card">
+                            <h3>L-diversity</h3>
+                            <div class="technique-content">
+                                <p><strong>Principle:</strong> Extend k-anonymity by ensuring each equivalence class has at least l "well-represented" values for sensitive attributes.</p>
+                                
+                                <div class="technique-details">
+                                    <h4>Implementation for synthetic data</h4>
+                                    <ul>
+                                        <li>Define sensitive attributes (diagnosis, income, etc.)</li>
+                                        <li>Ensure diverse representation of sensitive values within each quasi-identifier group</li>
+                                        <li>Apply entropy or recursive diversity measures</li>
+                                        <li>Balance diversity requirements with data utility</li>
+                                    </ul>
+
+                                    <h4>Applications</h4>
+                                    <ul>
+                                        <li>Health datasets with clear sensitive attributes</li>
+                                        <li>When homogeneity attacks are a concern</li>
+                                        <li>Datasets with categorical sensitive variables</li>
+                                        <li>Research requiring preserved sensitive attribute distributions</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="technique-card">
+                            <h3>Differential privacy</h3>
+                            <div class="technique-content">
+                                <p><strong>Principle:</strong> Provide mathematical guarantees that individual records cannot be distinguished, even by computationally powerful adversaries.</p>
+                                
+                                <div class="technique-details">
+                                    <h4>Implementation approaches</h4>
+                                    <ul>
+                                        <li><strong>Input perturbation:</strong> Add noise to source data before model training</li>
+                                        <li><strong>Algorithm perturbation:</strong> Add noise during the learning process</li>
+                                        <li><strong>Output perturbation:</strong> Add noise to synthetic data generation</li>
+                                        <li><strong>Post-processing:</strong> Apply differential privacy to generated synthetic data</li>
+                                    </ul>
+
+                                    <h4>Key parameters</h4>
+                                    <ul>
+                                        <li><strong>ε (epsilon):</strong> Privacy budget - smaller values mean stronger privacy (typical: 0.1-10)</li>
+                                        <li><strong>δ (delta):</strong> Probability of privacy violation (typical: 1/n where n is dataset size)</li>
+                                        <li><strong>Sensitivity:</strong> Maximum change in output from adding/removing one record</li>
+                                        <li><strong>Noise mechanism:</strong> Laplace, Gaussian, or exponential noise addition</li>
+                                    </ul>
+
+                                    <h4>Advantages</h4>
+                                    <ul>
+                                        <li>Strongest theoretical privacy guarantees</li>
+                                        <li>Robust against any re-identification attack</li>
+                                        <li>Composable across multiple data releases</li>
+                                        <li>Growing acceptance in research and policy</li>
+                                    </ul>
+
+                                    <h4>Limitations</h4>
+                                    <ul>
+                                        <li>Can significantly reduce data utility</li>
+                                        <li>Complex to implement correctly</li>
+                                        <li>Requires careful parameter tuning</li>
+                                        <li>May not preserve complex statistical relationships</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="technique-card">
+                            <h3>Suppression and generalisation</h3>
+                            <div class="technique-content">
+                                <p><strong>Principle:</strong> Remove or generalise identifying or quasi-identifying information to reduce re-identification risks.</p>
+                                
+                                <div class="technique-details">
+                                    <h4>Suppression strategies</h4>
+                                    <ul>
+                                        <li><strong>Record suppression:</strong> Remove entire synthetic records with high risk characteristics</li>
+                                        <li><strong>Cell suppression:</strong> Remove specific values while retaining other record information</li>
+                                        <li><strong>Attribute suppression:</strong> Remove entire variables from synthetic dataset</li>
+                                        <li><strong>Conditional suppression:</strong> Remove data based on specific risk conditions</li>
+                                    </ul>
+
+                                    <h4>Generalisation approaches</h4>
+                                    <ul>
+                                        <li><strong>Temporal generalisation:</strong> Use broader time periods (year instead of date)</li>
+                                        <li><strong>Geographic generalisation:</strong> Use larger geographic regions</li>
+                                        <li><strong>Categorical generalisation:</strong> Use broader category groups</li>
+                                        <li><strong>Numerical generalisation:</strong> Use ranges instead of exact values</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="risk-assessment-methodology">
+                    <h2>Re-identification risk assessment methodology</h2>
+                    <p>Conduct systematic risk assessment using established approaches:</p>
+
+                    <div class="methodology-steps">
+                        <div class="methodology-step">
+                            <h3>Step 1: Identify quasi-identifiers</h3>
+                            <div class="step-content">
+                                <p>Systematically identify attributes that could be used for re-identification:</p>
+                                <ul>
+                                    <li><strong>Demographic attributes:</strong> Age, gender, ethnicity, marital status</li>
+                                    <li><strong>Geographic attributes:</strong> Postcode, suburb, state/territory</li>
+                                    <li><strong>Temporal attributes:</strong> Admission dates, birth dates, event dates</li>
+                                    <li><strong>Clinical attributes:</strong> Rare diagnoses, procedures, medications</li>
+                                    <li><strong>Administrative attributes:</strong> Provider identifiers, episode numbers</li>
+                                </ul>
+                                <div class="assessment-tool">
+                                    <a href="../assessment-tools/AssessmentTools.en-US.webpage.copy.html" class="button1">Use Quasi-identifier Checklist</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="methodology-step">
+                            <h3>Step 2: Calculate uniqueness measures</h3>
+                            <div class="step-content">
+                                <p>Assess how unique records are based on quasi-identifier combinations:</p>
+                                <ul>
+                                    <li><strong>Sample uniqueness:</strong> Records unique in the synthetic dataset</li>
+                                    <li><strong>Population uniqueness:</strong> Estimated uniqueness in the broader population</li>
+                                    <li><strong>Equivalence class sizes:</strong> Distribution of group sizes for quasi-identifier combinations</li>
+                                    <li><strong>Special uniques:</strong> Records with very rare characteristic combinations</li>
+                                </ul>
+                                <div class="uniqueness-calculator">
+                                    <h4>Acceptable uniqueness thresholds</h4>
+                                    <ul>
+                                        <li><strong>Very low risk:</strong> <5% of records are unique on key quasi-identifiers</li>
+                                        <li><strong>Low risk:</strong> 5-10% of records are unique</li>
+                                        <li><strong>Medium risk:</strong> 10-20% of records are unique</li>
+                                        <li><strong>High risk:</strong> >20% of records are unique</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="methodology-step">
+                            <h3>Step 3: Assess membership inference risks</h3>
+                            <div class="step-content">
+                                <p>Test whether attackers could determine if individuals were in the training data:</p>
+                                <ul>
+                                    <li><strong>Statistical tests:</strong> Compare synthetic data distributions to known external datasets</li>
+                                    <li><strong>Machine learning attacks:</strong> Train classifiers to distinguish synthetic from real records</li>
+                                    <li><strong>Overfitting detection:</strong> Identify synthetic records too similar to training examples</li>
+                                    <li><strong>Linkage attacks:</strong> Test synthetic data linkage with external datasets</li>
+                                </ul>
+                                <div class="inference-testing">
+                                    <h4>Testing approaches</h4>
+                                    <ul>
+                                        <li>Split source data into training/testing sets before synthetic generation</li>
+                                        <li>Train membership inference classifiers on synthetic vs. holdout data</li>
+                                        <li>Measure classifier accuracy - should be close to random (50%)</li>
+                                        <li>Test multiple quasi-identifier combinations and attack scenarios</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="methodology-step">
+                            <h3>Step 4: Evaluate attribute inference risks</h3>
+                            <div class="step-content">
+                                <p>Assess whether sensitive attributes can be inferred from non-sensitive ones:</p>
+                                <ul>
+                                    <li><strong>Correlation analysis:</strong> Identify strong correlations between public and sensitive attributes</li>
+                                    <li><strong>Prediction accuracy:</strong> Train models to predict sensitive attributes from public ones</li>
+                                    <li><strong>Information gain:</strong> Measure how much synthetic data reveals about sensitive attributes</li>
+                                    <li><strong>Linkage vulnerability:</strong> Test combination with external datasets for inference</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="methodology-step">
+                            <h3>Step 5: Overall risk classification</h3>
+                            <div class="step-content">
+                                <p>Combine individual risk assessments into overall risk level:</p>
+                                <div class="risk-matrix">
+                                    <h4>Risk level definitions</h4>
+                                    <div class="risk-levels">
+                                        <div class="risk-level very-low">
+                                            <h5>Very low risk</h5>
+                                            <p>Safe for intended use and sharing. Proceed with Step 5.</p>
+                                            <ul>
+                                                <li>Uniqueness <5% on key quasi-identifiers</li>
+                                                <li>Membership inference accuracy ≤55%</li>
+                                                <li>Attribute inference accuracy below baseline</li>
+                                                <li>No obvious linkage vulnerabilities identified</li>
+                                            </ul>
+                                        </div>
+                                        <div class="risk-level low">
+                                            <h5>Low risk</h5>
+                                            <p>Acceptable with additional safeguards. Apply extra controls in Step 5.</p>
+                                            <ul>
+                                                <li>Uniqueness 5-10% on key quasi-identifiers</li>
+                                                <li>Membership inference accuracy 55-65%</li>
+                                                <li>Limited attribute inference capabilities</li>
+                                                <li>Linkage risks can be managed through access controls</li>
+                                            </ul>
+                                        </div>
+                                        <div class="risk-level medium-high">
+                                            <h5>Medium to high risk</h5>
+                                            <p>Requires additional de-identification before proceeding.</p>
+                                            <ul>
+                                                <li>Uniqueness >10% on key quasi-identifiers</li>
+                                                <li>Membership inference accuracy >65%</li>
+                                                <li>Strong attribute inference capabilities</li>
+                                                <li>Significant linkage vulnerabilities</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="risk-mitigation">
+                    <h2>Risk mitigation strategies</h2>
+                    <p>If risk assessment indicates more than very low risk, apply additional mitigation measures:</p>
+
+                    <div class="mitigation-strategies">
+                        <div class="strategy-category">
+                            <h3>Data-level mitigations</h3>
+                            <ul>
+                                <li><strong>Additional suppression:</strong> Remove more records or attributes with high risk</li>
+                                <li><strong>Increased generalisation:</strong> Use broader categories for quasi-identifiers</li>
+                                <li><strong>Enhanced noise addition:</strong> Apply stronger differential privacy parameters</li>
+                                <li><strong>Rare value handling:</strong> Special treatment of very uncommon characteristics</li>
+                                <li><strong>Temporal perturbation:</strong> Add noise to dates and temporal patterns</li>
+                            </ul>
+                        </div>
+
+                        <div class="strategy-category">
+                            <h3>Model-level mitigations</h3>
+                            <ul>
+                                <li><strong>Model retraining:</strong> Retrain with stronger privacy-preserving parameters</li>
+                                <li><strong>Ensemble approaches:</strong> Combine multiple models to reduce individual model risks</li>
+                                <li><strong>Adversarial training:</strong> Train models to resist re-identification attacks</li>
+                                <li><strong>Regularisation:</strong> Apply stronger regularisation to prevent overfitting</li>
+                                <li><strong>Federated learning:</strong> Train models without centralising source data</li>
+                            </ul>
+                        </div>
+
+                        <div class="strategy-category">
+                            <h3>Access-level mitigations</h3>
+                            <ul>
+                                <li><strong>Restricted access:</strong> Limit data access to authorised users only</li>
+                                <li><strong>Purpose limitation:</strong> Restrict use to specific approved purposes</li>
+                                <li><strong>Output controls:</strong> Review and approve any published results</li>
+                                <li><strong>Audit trails:</strong> Comprehensive logging of all data access and use</li>
+                                <li><strong>Time limits:</strong> Restrict access duration and require periodic review</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="decision-criteria">
+                    <h2>Decision criteria for Step 4</h2>
+                    <p>To proceed to Step 5, your re-identification risk assessment must confirm:</p>
+                    
+                    <div class="criteria-checklist">
+                        <div class="criteria-item">
+                            <input type="checkbox" id="criteria1">
+                            <label for="criteria1">Comprehensive risk assessment completed using established methodologies</label>
+                        </div>
+                        <div class="criteria-item">
+                            <input type="checkbox" id="criteria2">
+                            <label for="criteria2">Appropriate de-identification techniques applied to synthetic dataset</label>
+                        </div>
+                        <div class="criteria-item">
+                            <input type="checkbox" id="criteria3">
+                            <label for="criteria3">Overall re-identification risk assessed as very low or low</label>
+                        </div>
+                        <div class="criteria-item">
+                            <input type="checkbox" id="criteria4">
+                            <label for="criteria4">Membership inference and attribute inference risks within acceptable bounds</label>
+                        </div>
+                        <div class="criteria-item">
+                            <input type="checkbox" id="criteria5">
+                            <label for="criteria5">Risk assessment results comprehensively documented</label>
+                        </div>
+                        <div class="criteria-item">
+                            <input type="checkbox" id="criteria6">
+                            <label for="criteria6">Additional mitigation strategies identified for implementation in Step 5</label>
+                        </div>
+                    </div>
+
+                    <div class="decision-outcome">
+                        <div class="outcome-proceed">
+                            <h3>✓ Proceed to Step 5</h3>
+                            <p>Your synthetic data meets the required privacy standards. Continue to implement comprehensive safeguards for data use and sharing.</p>
+                            <a href="../step-5-manage-residual-risks/Step5ManageResidualRisks.en-US.webpage.copy.html" class="button1">Continue to Step 5</a>
+                        </div>
+                        <div class="outcome-complex">
+                            <h3>⚠️ Complex scenario - additional assessment required</h3>
+                            <p>If re-identification risk is assessed as more than very low, your project requires additional assessment:</p>
+                            <ul>
+                                <li><strong>Medium to high risk:</strong> The project must be paused until additional mitigation measures are implemented</li>
+                                <li><strong>Lawful pathway determination:</strong> A lawful pathway to proceed must be established before continuing</li>
+                                <li><strong>Additional safeguards:</strong> Enhanced controls and monitoring must be implemented</li>
+                                <li><strong>Legal review:</strong> Seek legal advice on privacy compliance for higher-risk scenarios</li>
+                            </ul>
+                            <p><a href="../resources/Resources.en-US.webpage.copy.html" class="button1">Access Complex Scenarios Guide</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-navigation">
+                    <div class="nav-buttons">
+                        <a href="../step-3-generate-synthetic-data/Step3GenerateSyntheticData.en-US.webpage.copy.html" class="nav-button nav-previous">← Step 3: Generate Synthetic Data</a>
+                        <a href="../step-5-manage-residual-risks/Step5ManageResidualRisks.en-US.webpage.copy.html" class="nav-button nav-next">Step 5: Manage Residual Risks →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

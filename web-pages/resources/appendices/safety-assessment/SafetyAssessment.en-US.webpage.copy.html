@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appendix 10: Safety Assessment Protocols - SynD-DGF</title>
+    <meta name="description" content="Comprehensive safety assessment protocols for synthetic health data projects, covering risk identification, testing procedures, monitoring, and incident response.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .appendix-header {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 10px;
+            padding: 40px;
+            margin-bottom: 40px;
+            border-left: 5px solid #dc3545;
+        }
+        .appendix-number {
+            color: #dc3545;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .appendix-title {
+            color: #333;
+            margin: 10px 0 20px 0;
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+        .key-concept {
+            background: #ffe6e6;
+            border: 2px solid #dc3545;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+        .key-concept h4 {
+            color: #dc3545;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .safety-section {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #dc3545;
+        }
+        .safety-title {
+            color: #dc3545;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .safety-icon {
+            background: #dc3545;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        .safety-content {
+            color: #495057;
+            line-height: 1.7;
+        }
+        .risk-category {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .risk-category h5 {
+            color: #495057;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .risk-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .risk-item {
+            background: #fff;
+            margin-bottom: 10px;
+            padding: 12px 15px;
+            border-radius: 6px;
+            border-left: 3px solid #ffc107;
+            font-size: 0.95rem;
+        }
+        .risk-item.high {
+            border-left-color: #dc3545;
+        }
+        .risk-item.medium {
+            border-left-color: #fd7e14;
+        }
+        .risk-item.low {
+            border-left-color: #28a745;
+        }
+        .risk-item:before {
+            content: "⚠";
+            color: #ffc107;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .risk-item.high:before {
+            color: #dc3545;
+            content: "🔴";
+        }
+        .risk-item.medium:before {
+            color: #fd7e14;
+            content: "🟡";
+        }
+        .risk-item.low:before {
+            color: #28a745;
+            content: "🟢";
+        }
+        .testing-protocol {
+            background: #e7f3ff;
+            border: 1px solid #007bff;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .testing-protocol h5 {
+            color: #007bff;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .protocol-steps {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .protocol-step {
+            background: #fff;
+            margin-bottom: 10px;
+            padding: 12px 15px;
+            border-radius: 6px;
+            border-left: 3px solid #007bff;
+            font-size: 0.95rem;
+        }
+        .protocol-step:before {
+            content: "✓";
+            color: #007bff;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .warning-box {
+            background: #f8d7da;
+            border: 2px solid #dc3545;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .warning-box h5 {
+            color: #721c24;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .warning-box p {
+            color: #721c24;
+            margin: 0;
+        }
+        .monitoring-box {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .monitoring-box h5 {
+            color: #155724;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .monitoring-list {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .monitoring-list li {
+            color: #155724;
+            margin-bottom: 8px;
+        }
+        .framework-overview {
+            background: #f0f8ff;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            border-left: 5px solid #007bff;
+        }
+        .framework-overview h3 {
+            color: #007bff;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .safety-metric {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid #28a745;
+        }
+        .metric-title {
+            color: #28a745;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .breadcrumb {
+            background: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: "›";
+            color: #6c757d;
+        }
+        .navigation-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .nav-button {
+            background: linear-gradient(135deg, #004d9f 0%, #0066cc 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        .nav-button:hover {
+            background: linear-gradient(135deg, #003d7a 0%, #0052a3 100%);
+            color: white;
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+        .nav-previous::before {
+            content: "← ";
+        }
+        .nav-next::after {
+            content: " →";
+        }
+        .resources-section {
+            background: #e8f5e8;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            border-left: 5px solid #28a745;
+        }
+        .resources-section h3 {
+            color: #28a745;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .resource-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .resource-links li {
+            background: white;
+            margin-bottom: 10px;
+            padding: 10px 15px;
+            border-radius: 6px;
+            border-left: 3px solid #28a745;
+        }
+        .resource-links a {
+            color: #28a745;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .resource-links a:hover {
+            text-decoration: underline;
+        }
+        .incident-response {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .incident-response h5 {
+            color: #856404;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .response-steps {
+            list-style: decimal;
+            padding-left: 20px;
+            margin: 0;
+        }
+        .response-steps li {
+            color: #856404;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        @media (max-width: 768px) {
+            .appendix-title {
+                font-size: 2rem;
+            }
+            .safety-section {
+                padding: 20px;
+            }
+            .nav-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #004d9f;">
+        <div class="container">
+            <a class="navbar-brand" href="../../../home/Home.en-US.webpage.copy.html">SynD-DGF</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="../../../home/Home.en-US.webpage.copy.html">Home</a>
+                <a class="nav-link" href="../../../framework-overview/FrameworkOverview.en-US.webpage.copy.html">Framework</a>
+                <a class="nav-link" href="../../../assessment-tools/AssessmentTools.en-US.webpage.copy.html">Assessment Tools</a>
+                <a class="nav-link active" href="../../Resources.en-US.webpage.copy.html">Resources</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="container mt-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../../home/Home.en-US.webpage.copy.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="../../Resources.en-US.webpage.copy.html">Resources</a></li>
+                <li class="breadcrumb-item"><a href="../../Resources.en-US.webpage.copy.html#appendices">Framework appendices</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Appendix 10</li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="appendix-header">
+                    <div class="appendix-number">Appendix 10</div>
+                    <h1 class="appendix-title">Safety Assessment Protocols</h1>
+                    <p class="lead">Comprehensive protocols for assessing, monitoring and maintaining the safety of synthetic health data throughout its lifecycle, from generation to deployment and ongoing use.</p>
+                </div>
+
+                <div class="key-concept">
+                    <h4>Safety first approach</h4>
+                    <p>Safety assessment for synthetic health data goes beyond traditional privacy protection. It encompasses a holistic evaluation of potential risks including privacy breaches, data quality issues, misuse scenarios, and technical vulnerabilities that could harm individuals or compromise data integrity.</p>
+                    <p class="mt-3">A robust safety assessment framework ensures that synthetic data projects maintain their protective benefits while identifying and mitigating potential harms before they can impact individuals or organisations.</p>
+                </div>
+
+                <div class="framework-overview">
+                    <h3>Safety assessment framework components</h3>
+                    <p>The safety assessment process comprises six interconnected components that work together to ensure comprehensive protection:</p>
+
+                    <div class="safety-metric">
+                        <div class="metric-title">Risk identification and categorisation</div>
+                        <div>Systematic identification of privacy, quality, misuse, and technical risks across all project phases.</div>
+                    </div>
+
+                    <div class="safety-metric">
+                        <div class="metric-title">Testing protocols and validation</div>
+                        <div>Structured testing procedures to evaluate safety measures before dataset release or deployment.</div>
+                    </div>
+
+                    <div class="safety-metric">
+                        <div class="metric-title">Ongoing monitoring and maintenance</div>
+                        <div>Continuous assessment of safety measures throughout the dataset's active lifecycle.</div>
+                    </div>
+
+                    <div class="safety-metric">
+                        <div class="metric-title">Incident response and breach management</div>
+                        <div>Established procedures for responding to safety incidents and managing potential breaches.</div>
+                    </div>
+
+                    <div class="safety-metric">
+                        <div class="metric-title">Documentation and reporting</div>
+                        <div>Comprehensive record-keeping of safety assessments, decisions, and ongoing monitoring results.</div>
+                    </div>
+
+                    <div class="safety-metric">
+                        <div class="metric-title">Five Safes integration</div>
+                        <div>Alignment with established data safety frameworks including safe projects, people, settings, data, and outputs.</div>
+                    </div>
+                </div>
+
+                <!-- Risk Identification Section -->
+                <div class="safety-section">
+                    <div class="safety-title">
+                        <div class="safety-icon">1</div>
+                        <span>Risk identification and categorisation</span>
+                    </div>
+                    <div class="safety-content">
+                        <p>Effective safety assessment begins with systematic identification of potential risks across four primary categories. Each category requires specific evaluation methods and mitigation strategies.</p>
+
+                        <div class="risk-category">
+                            <h5>Privacy risks</h5>
+                            <ul class="risk-list">
+                                <li class="risk-item high">Re-identification of individuals through data linkage or inference attacks</li>
+                                <li class="risk-item high">Attribute inference revealing sensitive characteristics about specific individuals</li>
+                                <li class="risk-item medium">Membership inference determining whether specific individuals were in the training data</li>
+                                <li class="risk-item medium">Model inversion attacks extracting individual records from generative models</li>
+                                <li class="risk-item low">Indirect disclosure through unusual data patterns or outliers</li>
+                            </ul>
+                        </div>
+
+                        <div class="risk-category">
+                            <h5>Data quality risks</h5>
+                            <ul class="risk-list">
+                                <li class="risk-item high">Systematic bias introduction affecting clinical decision-making</li>
+                                <li class="risk-item high">Loss of critical statistical relationships impacting research validity</li>
+                                <li class="risk-item medium">Temporal inconsistencies in longitudinal health data</li>
+                                <li class="risk-item medium">Rare condition under-representation affecting minority populations</li>
+                                <li class="risk-item low">Minor statistical deviations from original data distributions</li>
+                            </ul>
+                        </div>
+
+                        <div class="risk-category">
+                            <h5>Misuse risks</h5>
+                            <ul class="risk-list">
+                                <li class="risk-item high">Unauthorised commercial exploitation of health insights</li>
+                                <li class="risk-item high">Discriminatory use in insurance or employment decisions</li>
+                                <li class="risk-item medium">Research purposes beyond approved scope or ethical approval</li>
+                                <li class="risk-item medium">Secondary data sharing without appropriate governance</li>
+                                <li class="risk-item low">Academic misuse or methodological errors in analysis</li>
+                            </ul>
+                        </div>
+
+                        <div class="risk-category">
+                            <h5>Technical risks</h5>
+                            <ul class="risk-list">
+                                <li class="risk-item high">Model extraction allowing recreation of training algorithms</li>
+                                <li class="risk-item high">Data poisoning affecting subsequent synthetic data generation</li>
+                                <li class="risk-item medium">Infrastructure vulnerabilities enabling unauthorised access</li>
+                                <li class="risk-item medium">Version control issues leading to unsafe data distribution</li>
+                                <li class="risk-item low">Performance degradation affecting user experience</li>
+                            </ul>
+                        </div>
+
+                        <div class="warning-box">
+                            <h5>Dynamic risk assessment</h5>
+                            <p>Risk profiles can change over time due to technological advances, new attack vectors, changes in data environments, or evolving privacy expectations. Regular reassessment is essential, particularly when datasets are accessed by new user groups or used for different purposes than originally intended.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testing Protocols Section -->
+                <div class="safety-section">
+                    <div class="safety-title">
+                        <div class="safety-icon">2</div>
+                        <span>Safety testing protocols and validation</span>
+                    </div>
+                    <div class="safety-content">
+                        <p>Comprehensive testing protocols validate safety measures before synthetic data release. Testing should be conducted by independent teams with appropriate expertise and access to necessary tools and datasets.</p>
+
+                        <div class="testing-protocol">
+                            <h5>Privacy testing protocol</h5>
+                            <ul class="protocol-steps">
+                                <li>Conduct re-identification testing using available auxiliary datasets</li>
+                                <li>Perform membership inference attacks with known individual records</li>
+                                <li>Test attribute inference capabilities across sensitive characteristics</li>
+                                <li>Evaluate model inversion attack resistance</li>
+                                <li>Assess statistical disclosure risk using established metrics</li>
+                                <li>Document results with quantitative privacy risk scores</li>
+                            </ul>
+                        </div>
+
+                        <div class="testing-protocol">
+                            <h5>Quality validation protocol</h5>
+                            <ul class="protocol-steps">
+                                <li>Compare univariate and multivariate statistical distributions</li>
+                                <li>Validate preservation of correlation structures and relationships</li>
+                                <li>Test clinical plausibility using domain expert review</li>
+                                <li>Assess rare event and outlier representation</li>
+                                <li>Evaluate temporal consistency in longitudinal data</li>
+                                <li>Benchmark utility for intended research applications</li>
+                            </ul>
+                        </div>
+
+                        <div class="testing-protocol">
+                            <h5>Technical security testing</h5>
+                            <ul class="protocol-steps">
+                                <li>Penetration testing of data access systems and infrastructure</li>
+                                <li>Model extraction attack simulation and resistance testing</li>
+                                <li>Access control validation across different user roles</li>
+                                <li>Data lineage verification and audit trail testing</li>
+                                <li>Backup and recovery procedure validation</li>
+                                <li>Performance testing under various load conditions</li>
+                            </ul>
+                        </div>
+
+                        <div class="warning-box">
+                            <h5>Independent testing requirement</h5>
+                            <p>Safety testing must be conducted by teams independent of the data generation process. This includes having access to the original source data for comparison, using different tools and methodologies than those used in generation, and having no conflicts of interest in the testing outcomes.</p>
+                        </div>
+
+                        <div class="monitoring-box">
+                            <h5>Testing documentation requirements</h5>
+                            <ul class="monitoring-list">
+                                <li>Detailed testing methodologies and tools used</li>
+                                <li>Quantitative results for all privacy and quality metrics</li>
+                                <li>Expert review reports and domain validation</li>
+                                <li>Identified limitations and residual risks</li>
+                                <li>Recommendations for ongoing monitoring</li>
+                                <li>Approval sign-off from appropriate governance bodies</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ongoing Monitoring Section -->
+                <div class="safety-section">
+                    <div class="safety-title">
+                        <div class="safety-icon">3</div>
+                        <span>Ongoing safety monitoring and maintenance</span>
+                    </div>
+                    <div class="safety-content">
+                        <p>Safety assessment doesn't end with initial testing. Ongoing monitoring ensures that safety measures remain effective throughout the dataset's lifecycle and can detect emerging risks or changes in the threat environment.</p>
+
+                        <div class="monitoring-box">
+                            <h5>Regular monitoring activities</h5>
+                            <ul class="monitoring-list">
+                                <li><strong>Access pattern analysis:</strong> Monitor who accesses data, when, and for what purposes</li>
+                                <li><strong>Usage analytics:</strong> Track how synthetic data is being used and analysed</li>
+                                <li><strong>Environment assessment:</strong> Regular review of technical infrastructure and security measures</li>
+                                <li><strong>Threat landscape monitoring:</strong> Stay informed about new attack methods and vulnerabilities</li>
+                                <li><strong>User feedback collection:</strong> Gather input on data quality and utility from authorised users</li>
+                                <li><strong>Incident tracking:</strong> Log and analyse any safety-related incidents or concerns</li>
+                            </ul>
+                        </div>
+
+                        <div class="testing-protocol">
+                            <h5>Scheduled reassessment triggers</h5>
+                            <ul class="protocol-steps">
+                                <li>Annual comprehensive safety review regardless of other factors</li>
+                                <li>New user groups or access permission changes</li>
+                                <li>Significant changes to data usage or research purposes</li>
+                                <li>Technical infrastructure updates or migrations</li>
+                                <li>Emergence of new privacy attack methods or vulnerabilities</li>
+                                <li>Regulatory or policy changes affecting data governance</li>
+                            </ul>
+                        </div>
+
+                        <div class="warning-box">
+                            <h5>Proactive monitoring approach</h5>
+                            <p>Effective monitoring requires proactive rather than reactive approaches. This means establishing baseline metrics, setting up automated alerts for unusual patterns, and maintaining regular communication with data users to identify potential issues before they become significant problems.</p>
+                        </div>
+
+                        <div class="risk-category">
+                            <h5>Monitoring metrics and thresholds</h5>
+                            <ul class="risk-list">
+                                <li class="risk-item">Privacy metrics: Re-identification risk scores, membership inference success rates</li>
+                                <li class="risk-item">Quality metrics: Statistical fidelity measures, utility benchmarks</li>
+                                <li class="risk-item">Usage metrics: Access frequency, user behaviour patterns, query complexity</li>
+                                <li class="risk-item">Security metrics: Authentication failures, unauthorised access attempts</li>
+                                <li class="risk-item">Performance metrics: System availability, response times, error rates</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Incident Response Section -->
+                <div class="safety-section">
+                    <div class="safety-title">
+                        <div class="safety-icon">4</div>
+                        <span>Incident response and breach management</span>
+                    </div>
+                    <div class="safety-content">
+                        <p>Despite preventive measures, safety incidents can occur. A well-defined incident response plan ensures rapid, effective response to minimise harm and enable learning from incidents.</p>
+
+                        <div class="incident-response">
+                            <h5>Incident response protocol</h5>
+                            <ol class="response-steps">
+                                <li><strong>Detection and assessment:</strong> Identify potential safety incidents through monitoring or reporting</li>
+                                <li><strong>Initial response:</strong> Implement immediate containment measures to limit potential harm</li>
+                                <li><strong>Investigation:</strong> Conduct thorough investigation to understand scope and impact</li>
+                                <li><strong>Stakeholder notification:</strong> Inform relevant parties including governance bodies and affected individuals</li>
+                                <li><strong>Remediation:</strong> Implement corrective measures to address the incident and prevent recurrence</li>
+                                <li><strong>Documentation:</strong> Record incident details, response actions, and lessons learned</li>
+                                <li><strong>Review and improvement:</strong> Update safety protocols based on incident analysis</li>
+                            </ol>
+                        </div>
+
+                        <div class="risk-category">
+                            <h5>Incident classification levels</h5>
+                            <ul class="risk-list">
+                                <li class="risk-item high"><strong>Level 1 - Critical:</strong> Confirmed privacy breach or data exposure requiring immediate action</li>
+                                <li class="risk-item medium"><strong>Level 2 - High:</strong> Potential privacy risk or quality issue requiring urgent investigation</li>
+                                <li class="risk-item medium"><strong>Level 3 - Medium:</strong> Technical issues or policy violations requiring prompt attention</li>
+                                <li class="risk-item low"><strong>Level 4 - Low:</strong> Minor issues or improvement opportunities for routine handling</li>
+                            </ul>
+                        </div>
+
+                        <div class="warning-box">
+                            <h5>Notification requirements</h5>
+                            <p>Privacy breach notification requirements vary by jurisdiction and organisation type. Response plans must account for legal notification timelines, regulatory reporting requirements, and ethical obligations to inform affected individuals or communities when appropriate.</p>
+                        </div>
+
+                        <div class="monitoring-box">
+                            <h5>Response team structure</h5>
+                            <ul class="monitoring-list">
+                                <li><strong>Incident coordinator:</strong> Overall response management and stakeholder communication</li>
+                                <li><strong>Technical lead:</strong> System investigation and technical remediation</li>
+                                <li><strong>Privacy officer:</strong> Privacy impact assessment and regulatory compliance</li>
+                                <li><strong>Legal counsel:</strong> Legal obligations and liability management</li>
+                                <li><strong>Communications lead:</strong> External communication and public relations</li>
+                                <li><strong>Domain experts:</strong> Clinical or research expertise as relevant to the incident</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Documentation Section -->
+                <div class="safety-section">
+                    <div class="safety-title">
+                        <div class="safety-icon">5</div>
+                        <span>Safety reporting and documentation requirements</span>
+                    </div>
+                    <div class="safety-content">
+                        <p>Comprehensive documentation provides accountability, enables continuous improvement, and supports regulatory compliance. Documentation should be accessible to authorised reviewers while protecting sensitive technical details.</p>
+
+                        <div class="testing-protocol">
+                            <h5>Core documentation components</h5>
+                            <ul class="protocol-steps">
+                                <li><strong>Safety assessment report:</strong> Comprehensive initial evaluation including methodology, results, and decisions</li>
+                                <li><strong>Risk register:</strong> Ongoing record of identified risks, their assessment, and mitigation measures</li>
+                                <li><strong>Testing documentation:</strong> Detailed records of all safety testing procedures and results</li>
+                                <li><strong>Monitoring logs:</strong> Regular monitoring results and trend analysis</li>
+                                <li><strong>Incident reports:</strong> Documentation of any safety incidents and response actions</li>
+                                <li><strong>Review records:</strong> Periodic safety review outcomes and decisions</li>
+                                <li><strong>Change management:</strong> Documentation of changes affecting safety measures</li>
+                            </ul>
+                        </div>
+
+                        <div class="risk-category">
+                            <h5>Documentation standards</h5>
+                            <ul class="risk-list">
+                                <li class="risk-item">Standardised templates and formats for consistency across projects</li>
+                                <li class="risk-item">Version control and change tracking for all safety documents</li>
+                                <li class="risk-item">Access controls ensuring appropriate confidentiality</li>
+                                <li class="risk-item">Regular review and update cycles</li>
+                                <li class="risk-item">Integration with broader project governance and quality systems</li>
+                            </ul>
+                        </div>
+
+                        <div class="monitoring-box">
+                            <h5>Reporting frequency and audiences</h5>
+                            <ul class="monitoring-list">
+                                <li><strong>Monthly:</strong> Operational monitoring reports to project management</li>
+                                <li><strong>Quarterly:</strong> Summary safety status reports to governance boards</li>
+                                <li><strong>Annually:</strong> Comprehensive safety assessment review and update</li>
+                                <li><strong>Ad hoc:</strong> Incident reports and significant change notifications as they occur</li>
+                                <li><strong>Upon request:</strong> Regulatory submissions and audit documentation</li>
+                            </ul>
+                        </div>
+
+                        <div class="warning-box">
+                            <h5>Balancing transparency and security</h5>
+                            <p>Safety documentation must balance transparency for accountability with security to prevent misuse. This includes protecting technical details that could enable attacks while providing sufficient information for independent review and oversight.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Five Safes Integration Section -->
+                <div class="safety-section">
+                    <div class="safety-title">
+                        <div class="safety-icon">6</div>
+                        <span>Integration with the Five Safes framework</span>
+                    </div>
+                    <div class="safety-content">
+                        <p>The Five Safes framework provides a structured approach to data safety that complements synthetic data safety assessment. Integration ensures comprehensive coverage and aligns with established data governance practices.</p>
+
+                        <div class="risk-category">
+                            <h5>Safe projects</h5>
+                            <ul class="risk-list">
+                                <li class="risk-item">Ensure synthetic data projects align with approved research purposes and ethical frameworks</li>
+                                <li class="risk-item">Validate that synthetic data use remains within scope of original approvals</li>
+                                <li class="risk-item">Assess whether project outcomes could cause harm to individuals or communities</li>
+                                <li class="risk-item">Review project governance structures and oversight mechanisms</li>
+                            </ul>
+                        </div>
+
+                        <div class="risk-category">
+                            <h5>Safe people</h5>
+                            <ul class="risk-list">
+                                <li class="risk-item">Verify user qualifications, training, and authorisation for synthetic data access</li>
+                                <li class="risk-item">Implement background checks and security clearances as appropriate</li>
+                                <li class="risk-item">Provide ongoing training on synthetic data safety and responsible use</li>
+                                <li class="risk-item">Monitor user behaviour and enforce access agreement compliance</li>
+                            </ul>
+                        </div>
+
+                        <div class="risk-category">
+                            <h5>Safe settings</h5>
+                            <ul class="risk-list">
+                                <li class="risk-item">Evaluate technical infrastructure security and access controls</li>
+                                <li class="risk-item">Implement appropriate data handling environments and restrictions</li>
+                                <li class="risk-item">Ensure physical and logical security of data processing systems</li>
+                                <li class="risk-item">Monitor and log all data access and usage activities</li>
+                            </ul>
+                        </div>
+
+                        <div class="risk-category">
+                            <h5>Safe data</h5>
+                            <ul class="risk-list">
+                                <li class="risk-item">Assess whether synthetic data meets privacy and quality safety standards</li>
+                                <li class="risk-item">Validate that re-identification risks remain acceptably low</li>
+                                <li class="risk-item">Ensure data quality sufficient for intended purposes without introducing bias</li>
+                                <li class="risk-item">Review data provenance and generation methodology transparency</li>
+                            </ul>
+                        </div>
+
+                        <div class="risk-category">
+                            <h5>Safe outputs</h5>
+                            <ul class="risk-list">
+                                <li class="risk-item">Review research outputs for potential disclosure risks or harmful content</li>
+                                <li class="risk-item">Implement output checking procedures for publications and presentations</li>
+                                <li class="risk-item">Ensure aggregation and summary statistics don't enable re-identification</li>
+                                <li class="risk-item">Monitor how synthetic data insights are communicated and applied</li>
+                            </ul>
+                        </div>
+
+                        <div class="monitoring-box">
+                            <h5>Five Safes assessment integration</h5>
+                            <ul class="monitoring-list">
+                                <li>Incorporate Five Safes assessment into initial safety evaluation</li>
+                                <li>Use Five Safes framework as structure for ongoing monitoring</li>
+                                <li>Align incident response procedures with Five Safes considerations</li>
+                                <li>Document safety measures using Five Safes categorisation</li>
+                                <li>Enable comparison with traditional data sharing safety assessments</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Type Considerations Section -->
+                <div class="safety-section">
+                    <div class="safety-title">
+                        <div class="safety-icon">7</div>
+                        <span>Safety considerations for different data types and use cases</span>
+                    </div>
+                    <div class="safety-content">
+                        <p>Different types of health data and intended use cases present unique safety challenges requiring tailored assessment approaches and mitigation strategies.</p>
+
+                        <div class="risk-category">
+                            <h5>Clinical records and administrative data</h5>
+                            <ul class="risk-list">
+                                <li class="risk-item high">Complex clinical narratives may contain identifying information resistant to standard de-identification</li>
+                                <li class="risk-item medium">Administrative codes and treatment patterns may enable individual identification</li>
+                                <li class="risk-item medium">Longitudinal treatment histories create unique individual signatures</li>
+                                <li class="risk-item low">Standard demographic variables require careful handling but are generally lower risk</li>
+                            </ul>
+                        </div>
+
+                        <div class="risk-category">
+                            <h5>Genomic and molecular data</h5>
+                            <ul class="risk-list">
+                                <li class="risk-item high">Genetic variants are inherently identifying and require specialised privacy protection</li>
+                                <li class="risk-item high">Family relationships can be inferred enabling identification of multiple individuals</li>
+                                <li class="risk-item medium">Rare genetic conditions create high re-identification risks</li>
+                                <li class="risk-item medium">Population stratification may not be preserved in synthetic data affecting research validity</li>
+                            </ul>
+                        </div>
+
+                        <div class="risk-category">
+                            <h5>Mental health and substance use data</h5>
+                            <ul class="risk-list">
+                                <li class="risk-item high">Stigma associated with mental health and substance use increases harm potential</li>
+                                <li class="risk-item high">Treatment histories may be particularly identifying in smaller communities</li>
+                                <li class="risk-item medium">Complex comorbidity patterns require careful preservation in synthetic data</li>
+                                <li class="risk-item medium">Crisis events and interventions create unique temporal signatures</li>
+                            </ul>
+                        </div>
+
+                        <div class="risk-category">
+                            <h5>Paediatric and vulnerable populations</h5>
+                            <ul class="risk-list">
+                                <li class="risk-item high">Additional consent and ethical considerations for minors and vulnerable adults</li>
+                                <li class="risk-item high">Rare paediatric conditions increase re-identification risks</li>
+                                <li class="risk-item medium">Developmental data creates complex longitudinal patterns</li>
+                                <li class="risk-item medium">Family structure information may enable identification through relationships</li>
+                            </ul>
+                        </div>
+
+                        <div class="testing-protocol">
+                            <h5>Use case specific safety protocols</h5>
+                            <ul class="protocol-steps">
+                                <li><strong>Research and analytics:</strong> Focus on preserving statistical relationships while minimising individual risks</li>
+                                <li><strong>System testing and development:</strong> Prioritise realistic data patterns over statistical precision</li>
+                                <li><strong>Training and education:</strong> Ensure appropriate complexity while maintaining safety for broader access</li>
+                                <li><strong>Commercial applications:</strong> Implement enhanced monitoring for potential misuse</li>
+                                <li><strong>Public release:</strong> Apply highest safety standards with comprehensive testing</li>
+                            </ul>
+                        </div>
+
+                        <div class="warning-box">
+                            <h5>Intersectional risks</h5>
+                            <p>Data safety risks can be amplified when multiple sensitive characteristics intersect. For example, rare conditions in small populations, or mental health data from Indigenous communities. Safety assessment must consider these intersectional effects and implement appropriate additional protections.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resources-section">
+                    <h3>Further resources</h3>
+                    <ul class="resource-links">
+                        <li><a href="https://www.nhmrc.gov.au/about-us/publications/national-statement-ethical-conduct-human-research-2007-updated-2018" target="_blank" rel="noopener">NHMRC National Statement on Ethical Conduct in Human Research 2025</a></li>
+                        <li><a href="https://ukdataservice.ac.uk/learn/new-forms-of-data/administrative-data/five-safes/" target="_blank" rel="noopener">UK Data Service: Five Safes Framework</a></li>
+                        <li><a href="https://www.oaic.gov.au/privacy/guidance-and-advice/de-identification-and-the-privacy-act" target="_blank" rel="noopener">OAIC De-identification and the Privacy Act</a></li>
+                        <li><a href="https://www.iso.org/standard/27001" target="_blank" rel="noopener">ISO/IEC 27001 Information Security Management</a></li>
+                        <li><a href="../deidentification-techniques/DeidentificationTechniques.en-US.webpage.copy.html">Appendix 8: De-identification techniques guide</a></li>
+                        <li><a href="../impact-assessment/ImpactAssessment.en-US.webpage.copy.html">Appendix 5: Privacy Impact Assessment for synthetic data</a></li>
+                        <li><a href="../technical-assessment/TechnicalAssessment.en-US.webpage.copy.html">Appendix 6: Technical Assessment and validation protocols</a></li>
+                        <li><a href="../privacy-obligations/PrivacyObligations.en-US.webpage.copy.html">Appendix 12: Privacy obligations matrix</a></li>
+                    </ul>
+                </div>
+
+                <div class="navigation-section">
+                    <h3>Related appendices</h3>
+                    <p>Explore other appendices that complement these safety assessment protocols:</p>
+                    <div class="nav-buttons">
+                        <a href="../lawful-pathways/LawfulPathways.en-US.webpage.copy.html" class="nav-button nav-previous">Appendix 9: Lawful pathways explained</a>
+                        <span class="nav-button" style="background: #6c757d; cursor: not-allowed;">Appendix 11: Assessment outcomes (Coming soon)</span>
+                    </div>
+                </div>
+
+                <div class="key-concept">
+                    <h4>Using this guidance</h4>
+                    <p>This appendix provides a comprehensive framework for safety assessment throughout synthetic data projects. When implementing these protocols:</p>
+                    <ul>
+                        <li>Adapt assessment procedures to match the specific data types and use cases in your project</li>
+                        <li>Ensure safety assessment is integrated with other governance processes including ethics review and privacy impact assessment</li>
+                        <li>Engage appropriate expertise including privacy specialists, domain experts, and technical security professionals</li>
+                        <li>Document all safety decisions and maintain comprehensive records for ongoing monitoring and accountability</li>
+                        <li>Plan for incident response before it's needed and test response procedures regularly</li>
+                        <li>Stay informed about evolving threats and update safety measures accordingly</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

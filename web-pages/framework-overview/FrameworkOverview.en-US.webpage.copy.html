@@ -1,0 +1,429 @@
+<!-- Enhanced Breadcrumbs with Framework Context -->
+<nav class="enhanced-breadcrumbs" aria-label="Breadcrumb navigation">
+  <div class="breadcrumb-container">
+
+    <!-- Standard Breadcrumbs -->
+    <ol class="breadcrumb-list">
+      <li class="breadcrumb-item">
+        <a href="/" class="breadcrumb-link">
+          <span class="breadcrumb-icon">🏠</span>
+          <span class="breadcrumb-text">Home</span>
+        </a>
+      </li>
+
+      <!-- Dynamic breadcrumbs will be inserted here by JavaScript -->
+      <li class="breadcrumb-item current" id="current-page">
+        <span class="breadcrumb-text">Framework Overview</span>
+      </li>
+    </ol>
+
+    <!-- Page Actions -->
+    <div class="page-actions">
+      <button class="action-button" onclick="printPage()" title="Print this page">
+        <span class="action-icon">🖨️</span>
+      </button>
+      <button class="action-button" onclick="sharePage()" title="Share this page">
+        <span class="action-icon">📤</span>
+      </button>
+      <button class="action-button" onclick="bookmarkPage()" title="Bookmark this page">
+        <span class="action-icon">🔖</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<style>
+.enhanced-breadcrumbs {
+    background: #FFF7D9;
+    border-bottom: 1px solid #C7CCDB;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+}
+
+.breadcrumb-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.breadcrumb-list {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+.breadcrumb-item {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-item:not(:last-child)::after {
+    content: '›';
+    margin-left: 0.5rem;
+    color: #36454F;
+    font-size: 1.2rem;
+}
+
+.breadcrumb-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    color: #2A324B;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.breadcrumb-link:hover {
+    background: #B0E0E6;
+    color: #36454F;
+    text-decoration: none;
+}
+
+.breadcrumb-icon {
+    font-size: 1rem;
+}
+
+.breadcrumb-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.breadcrumb-item.current .breadcrumb-text {
+    color: #36454F;
+    font-weight: 600;
+}
+
+.page-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: auto;
+}
+
+.action-button {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-button:hover {
+    background: #FFF7D9;
+    border-color: #2A324B;
+    transform: translateY(-1px);
+}
+
+.action-button:focus {
+    outline: 2px solid #F7C59F;
+    outline-offset: 2px;
+}
+
+.action-icon {
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .breadcrumb-container {
+        padding: 0 1rem;
+    }
+
+    .breadcrumb-list {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+
+    .breadcrumb-item:not(:last-child)::after {
+        display: none;
+    }
+
+    .page-actions {
+        margin-left: 0;
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .breadcrumb-text {
+        font-size: 0.8rem;
+    }
+}
+</style>
+
+<script>
+// Page action functions
+function printPage() {
+    window.print();
+}
+
+function sharePage() {
+    if (navigator.share) {
+        navigator.share({
+            title: document.title,
+            url: window.location.href
+        });
+    } else {
+        // Fallback: copy URL to clipboard
+        navigator.clipboard.writeText(window.location.href).then(() => {
+            alert('Page URL copied to clipboard');
+        });
+    }
+}
+
+function bookmarkPage() {
+    // Store bookmark in localStorage
+    const bookmark = {
+        title: document.title,
+        url: window.location.href,
+        timestamp: new Date().toISOString()
+    };
+
+    let bookmarks = JSON.parse(localStorage.getItem('synd-bookmarks') || '[]');
+    bookmarks.push(bookmark);
+    localStorage.setItem('synd-bookmarks', JSON.stringify(bookmarks));
+
+    alert('Page bookmarked successfully');
+}
+</script>
+
+<!-- Framework Overview Hero -->
+<div style="background: linear-gradient(135deg, #2A324B 0%, #36454F 100%); color: white; padding: 4rem 0; text-align: center;">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
+    <h1 style="font-size: 3rem; margin-bottom: 1rem; color: white;">Five-step synthetic data governance framework</h1>
+    <p style="font-size: 1.25rem; margin-bottom: 1rem; opacity: 0.9; max-width: 800px; margin-left: auto; margin-right: auto;">The SynD-DGF provides a structured approach to synthetic health data governance through five sequential steps that ensure privacy compliance, technical quality, and regulatory alignment.</p>
+  </div>
+</div>
+
+<!-- Guiding Principles -->
+<div style="padding: 4rem 0;">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
+    <h2 style="color: #2A324B; font-size: 2.5rem; margin-bottom: 2rem;">Guiding principles</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+      <div>
+        <ul style="list-style: none; padding: 0;">
+          <li style="margin-bottom: 1rem; padding: 1rem; background: #FFF7D9; border-radius: 6px; border-left: 4px solid #F7C59F;"><strong>Purpose limitation:</strong> Synthetic data generation must be justified by a clear public benefit purpose</li>
+          <li style="margin-bottom: 1rem; padding: 1rem; background: #FFF7D9; border-radius: 6px; border-left: 4px solid #F7C59F;"><strong>Data minimisation:</strong> Only the minimum data necessary should be used and shared</li>
+          <li style="margin-bottom: 1rem; padding: 1rem; background: #FFF7D9; border-radius: 6px; border-left: 4px solid #F7C59F;"><strong>Transparency:</strong> Clear documentation and accountability throughout the process</li>
+        </ul>
+      </div>
+      <div>
+        <ul style="list-style: none; padding: 0;">
+          <li style="margin-bottom: 1rem; padding: 1rem; background: #FFF7D9; border-radius: 6px; border-left: 4px solid #F7C59F;"><strong>Privacy by design:</strong> Privacy considerations embedded at every step</li>
+          <li style="margin-bottom: 1rem; padding: 1rem; background: #FFF7D9; border-radius: 6px; border-left: 4px solid #F7C59F;"><strong>Technical robustness:</strong> High-quality synthetic data that preserves utility while protecting privacy</li>
+          <li style="margin-bottom: 1rem; padding: 1rem; background: #FFF7D9; border-radius: 6px; border-left: 4px solid #F7C59F;"><strong>Continuous assessment:</strong> Ongoing evaluation of privacy risks and data quality</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- The Five-Step Process -->
+<div style="background: #FFF7D9; padding: 4rem 0;">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
+    <h2 style="color: #2A324B; font-size: 2.5rem; margin-bottom: 1rem;">The five-step process</h2>
+    <p style="font-size: 1.25rem; color: #36454F; margin-bottom: 3rem;">Each step builds upon the previous one, with clear decision points and assessment criteria:</p>
+
+    <!-- Step 1 -->
+    <div style="background: white; border: 1px solid #C7CCDB; border-left: 5px solid #2A324B; border-radius: 8px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+        <div style="background: #F7C59F; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem; font-size: 1.2rem;">1</div>
+        <h3 style="color: #2A324B; margin: 0; font-size: 1.5rem;">Assess use case</h3>
+      </div>
+      <div>
+        <p><strong>Purpose:</strong> Determine if synthetic data generation is appropriate and lawful for your intended use case.</p>
+        <p><strong>Key activities:</strong></p>
+        <ul>
+          <li>Evaluate public benefit purpose and consumer health outcomes</li>
+          <li>Assess community and stakeholder notifications</li>
+          <li>Complete use case assessment checklist (3 required tests)</li>
+          <li>Conduct impact assessment including data ethics and Indigenous data sovereignty</li>
+        </ul>
+        <p><strong>Decision point:</strong> Proceed only if use case meets public benefit criteria and passes all required assessments.</p>
+        <a href="../step-1-use-case-assessment/Step1UseCaseAssessment.en-US.webpage.copy.html" style="background: #F7C59F; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 6px; font-weight: 600; display: inline-block; margin-top: 1rem;">View Step 1 Details</a>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div style="background: white; border: 1px solid #C7CCDB; border-left: 5px solid #069494; border-radius: 8px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+        <div style="background: #069494; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem; font-size: 1.2rem;">2</div>
+        <h3 style="color: #069494; margin: 0; font-size: 1.5rem;">Assess and prepare source data</h3>
+      </div>
+      <div>
+        <p><strong>Purpose:</strong> Ensure source data is suitable, available, and properly prepared for synthetic data generation.</p>
+        <p><strong>Key activities:</strong></p>
+        <ul>
+          <li>Identify and validate data availability and access rights</li>
+          <li>Complete technical assessment for data quality and fitness for purpose</li>
+          <li>Remove or augment directly identifying information</li>
+          <li>Prepare data specification and quality statements</li>
+        </ul>
+        <p><strong>Decision point:</strong> Proceed only if source data is fit for purpose and properly controlled by your organisation.</p>
+        <a href="../step-2-assess-source-data/Step2AssessSourceData.en-US.webpage.copy.html" style="background: #F7C59F; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 6px; font-weight: 600; display: inline-block; margin-top: 1rem;">View Step 2 Details</a>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div style="background: white; border: 1px solid #C7CCDB; border-left: 5px solid #FFD700; border-radius: 8px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+        <div style="background: #FFD700; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem; font-size: 1.2rem;">3</div>
+        <h3 style="color: #FFD700; margin: 0; font-size: 1.5rem;">Generate synthetic data</h3>
+      </div>
+      <div>
+        <p><strong>Purpose:</strong> Create synthetic data using appropriate models and techniques whilst maintaining data quality and utility.</p>
+        <p><strong>Key activities:</strong></p>
+        <ul>
+          <li>Select appropriate generative model (rule-based, statistical, or machine learning)</li>
+          <li>Configure model parameters and training procedures</li>
+          <li>Generate synthetic dataset maintaining statistical properties</li>
+          <li>Document model details and generation parameters</li>
+        </ul>
+        <p><strong>Decision point:</strong> Proceed only if synthetic data maintains utility whilst reducing privacy risks.</p>
+        <a href="../step-3-generate-synthetic-data/Step3GenerateSyntheticData.en-US.webpage.copy.html" style="background: #F7C59F; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 6px; font-weight: 600; display: inline-block; margin-top: 1rem;">View Step 3 Details</a>
+      </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div style="background: white; border: 1px solid #C7CCDB; border-left: 5px solid #FF7F50; border-radius: 8px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+        <div style="background: #FF7F50; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem; font-size: 1.2rem;">4</div>
+        <h3 style="color: #FF7F50; margin: 0; font-size: 1.5rem;">Assess re-identification risks</h3>
+      </div>
+      <div>
+        <p><strong>Purpose:</strong> Evaluate and mitigate the risk that synthetic data could be used to re-identify individuals.</p>
+        <p><strong>Key activities:</strong></p>
+        <ul>
+          <li>Apply appropriate de-identification techniques (K-anonymity, differential privacy)</li>
+          <li>Conduct re-identification risk assessment using established methodologies</li>
+          <li>Test for data leakage and membership inference risks</li>
+          <li>Apply additional privacy-preserving measures if needed</li>
+        </ul>
+        <p><strong>Decision point:</strong> Proceed only if re-identification risk is assessed as very low.</p>
+        <a href="../step-4-assess-reidentification-risks/Step4AssessReidentificationRisks.en-US.webpage.copy.html" style="background: #F7C59F; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 6px; font-weight: 600; display: inline-block; margin-top: 1rem;">View Step 4 Details</a>
+      </div>
+    </div>
+
+    <!-- Step 5 -->
+    <div style="background: white; border: 1px solid #C7CCDB; border-left: 5px solid #6A5ACD; border-radius: 8px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+        <div style="background: #6A5ACD; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem; font-size: 1.2rem;">5</div>
+        <h3 style="color: #6A5ACD; margin: 0; font-size: 1.5rem;">Manage residual privacy risks</h3>
+      </div>
+      <div>
+        <p><strong>Purpose:</strong> Implement safeguards and controls to manage any remaining privacy risks during data use and sharing.</p>
+        <p><strong>Key activities:</strong></p>
+        <ul>
+          <li>Apply Five Safes Framework (safe data, projects, settings, people, outputs)</li>
+          <li>Establish data sharing agreements and use agreements</li>
+          <li>Implement security controls and access management</li>
+          <li>Plan ongoing assurance and compliance monitoring</li>
+        </ul>
+        <p><strong>Final decision:</strong> Approve data sharing only if all safeguards are in place and risks are acceptable.</p>
+        <a href="../step-5-manage-residual-risks/Step5ManageResidualRisks.en-US.webpage.copy.html" style="background: #F7C59F; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 6px; font-weight: 600; display: inline-block; margin-top: 1rem;">View Step 5 Details</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Roles and Responsibilities -->
+<div style="padding: 4rem 0;">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
+    <h2 style="color: #2A324B; font-size: 2.5rem; margin-bottom: 2rem;">Roles and responsibilities</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem;">
+      <div style="background: white; border: 1px solid #C7CCDB; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+        <div style="background: #FFF7D9; padding: 1.5rem; border-bottom: 1px solid #ddd;">
+          <h3 style="color: #2A324B; margin: 0; font-size: 1.3rem;">Data Provider</h3>
+        </div>
+        <div style="padding: 1.5rem;">
+          <ul>
+            <li>Owns and controls the source dataset</li>
+            <li>Responsible for data quality and compliance</li>
+            <li>Conducts privacy and technical assessments</li>
+            <li>Makes final decision on data sharing approval</li>
+          </ul>
+        </div>
+      </div>
+      <div style="background: white; border: 1px solid #C7CCDB; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+        <div style="background: #FFF7D9; padding: 1.5rem; border-bottom: 1px solid #ddd;">
+          <h3 style="color: #2A324B; margin: 0; font-size: 1.3rem;">Data Requestor</h3>
+        </div>
+        <div style="padding: 1.5rem;">
+          <ul>
+            <li>Defines the use case and data requirements</li>
+            <li>Ensures appropriate technical capabilities</li>
+            <li>Complies with data sharing agreements</li>
+            <li>Manages end user access and training</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Complex Scenarios -->
+<div style="background: #FFF7D9; padding: 4rem 0;">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
+    <h2 style="color: #2A324B; font-size: 2.5rem; margin-bottom: 1rem;">Complex scenarios</h2>
+    <p style="margin-bottom: 2rem;">Some synthetic data projects may be classified as 'complex' and require additional assessment:</p>
+    <ul style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <li style="margin-bottom: 1rem;"><strong>Cross-organisational data:</strong> When source data is held by multiple organisations</li>
+      <li style="margin-bottom: 1rem;"><strong>Third-party generation:</strong> When synthetic data generation is outsourced</li>
+      <li style="margin-bottom: 1rem;"><strong>High re-identification risk:</strong> When risk assessment indicates more than very low risk</li>
+      <li style="margin-bottom: 1rem;"><strong>Sensitive populations:</strong> When data involves Indigenous communities or vulnerable groups</li>
+    </ul>
+    <p style="margin-top: 2rem;">For complex scenarios, consult the <a href="/decision-support/complex-scenarios" style="color: #2A324B; text-decoration: underline;">decision tree navigator</a> for additional guidance.</p>
+  </div>
+</div>
+
+<!-- Content Tagging System -->
+{% include 'Content Tagging System' %}
+
+<!-- Cross-Reference Navigation -->
+{% include 'Cross-Reference Navigation' %}
+
+<!-- Related Resources Section -->
+{% include 'Related Resources Section' %}
+
+<!-- Getting Started -->
+<div style="padding: 4rem 0;">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
+    <h2 style="color: #2A324B; font-size: 2.5rem; margin-bottom: 2rem;">Getting started</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+      <div style="background: white; border-radius: 8px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center;">
+        <h3 style="color: #2A324B; margin-bottom: 1rem;">Assessment tools</h3>
+        <p style="margin-bottom: 1.5rem;">Access comprehensive checklists and forms for each framework step.</p>
+        <a href="/assessment-tools" style="background: #F7C59F; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 6px; font-weight: 600;">View Tools</a>
+      </div>
+      <div style="background: white; border-radius: 8px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center;">
+        <h3 style="color: #2A324B; margin-bottom: 1rem;">Decision support</h3>
+        <p style="margin-bottom: 1.5rem;">Interactive decision trees and scenario guidance for complex situations.</p>
+        <a href="../decision-support-overview/DecisionSupportOverview.en-US.webpage.copy.html" style="background: #F7C59F; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 6px; font-weight: 600;">Get Support</a>
+      </div>
+      <div style="background: white; border-radius: 8px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center;">
+        <h3 style="color: #2A324B; margin-bottom: 1rem;">Resources</h3>
+        <p style="margin-bottom: 1.5rem;">Detailed appendices, legal frameworks, and technical guidance.</p>
+        <a href="../resources/Resources.en-US.webpage.copy.html" style="background: #F7C59F; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 6px; font-weight: 600;">Browse Resources</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Important Note -->
+<div style="padding: 4rem 0; background: #B0E0E6;">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
+    <div style="background: #B0E0E6; border: 1px solid #C7CCDB; border-radius: 8px; padding: 2rem;">
+      <h3 style="color: #2A324B; margin-bottom: 1rem;">Important note</h3>
+      <p style="color: #2A324B; margin: 0;">This framework applies to health organisations operating under Australian privacy laws. Each organisation should seek legal advice to ensure compliance with applicable jurisdictional requirements. The framework should be reviewed periodically to ensure currency with evolving laws and best practices.</p>
+    </div>
+  </div>
+</div>

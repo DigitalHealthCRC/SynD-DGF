@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 3: Generate Synthetic Data - SynD-DGF</title>
+    <meta name="description" content="Comprehensive guidance for selecting appropriate models and generating high-quality synthetic health data whilst preserving privacy.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #2A324B;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .step-intro {
+            background: linear-gradient(135deg, #FFFDD0 0%, #F5F5DC 100%);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 5px solid #069494;
+        }
+        .model-card, .assessment-card {
+            background: white;
+            border: 1px solid #C7CCDB;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .config-section, .process-step {
+            border-left: 3px solid #069494;
+            padding-left: 20px;
+            margin-bottom: 25px;
+        }
+        .preparation-step {
+            background: #FFF7D9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #FFD700;
+        }
+        .technical-note {
+            background: #B0E0E6;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid #2A324B;
+        }
+        .button1 {
+            background: linear-gradient(135deg, #2A324B 0%, #36454F 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        .button1:hover {
+            background: linear-gradient(135deg, #36454F 0%, #2A324B 100%);
+            color: white;
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+        .criteria-checklist {
+            background: #FFF7D9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .criteria-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .criteria-item input {
+            margin-right: 10px;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #dee2e6;
+        }
+        .nav-button {
+            background: #6c757d;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .nav-button:hover {
+            background: #545b62;
+            color: white;
+            text-decoration: none;
+        }
+        .breadcrumb {
+            background: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: "›";
+            color: #6c757d;
+        }
+        .complexity-level {
+            background: #28a745;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        .complexity-level.medium {
+            background: #ffc107;
+            color: #2A324B;
+        }
+        .complexity-level.high {
+            background: #dc3545;
+        }
+        .security-alert {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .process-step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+        .step-number {
+            background: #28a745;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        .step-content {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #004d9f;">
+        <div class="container">
+            <a class="navbar-brand" href="../home/Home.en-US.webpage.copy.html">SynD-DGF</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="../home/Home.en-US.webpage.copy.html">Home</a>
+                <a class="nav-link" href="../framework-overview/FrameworkOverview.en-US.webpage.copy.html">Framework</a>
+                <a class="nav-link" href="../assessment-tools/AssessmentTools.en-US.webpage.copy.html">Assessment Tools</a>
+                <a class="nav-link" href="../resources/Resources.en-US.webpage.copy.html">Resources</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="container mt-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../home/Home.en-US.webpage.copy.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="../framework-overview/FrameworkOverview.en-US.webpage.copy.html">Framework</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Step 3: Generate Synthetic Data</li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <h1>Step 3: Generate synthetic data</h1>
+                
+                <div class="step-intro">
+                    <p class="lead">Selecting the right generative model and configuring it appropriately is crucial for creating synthetic data that maintains utility whilst protecting individual privacy.</p>
+                    <div class="step-objectives">
+                        <h2>Step objectives</h2>
+                        <ul>
+                            <li>Select an appropriate generative model for your data type and use case</li>
+                            <li>Configure model parameters to balance utility and privacy</li>
+                            <li>Generate synthetic datasets that preserve statistical properties</li>
+                            <li>Document the generation process and model configuration</li>
+                            <li>Ensure secure handling and storage of both models and generated data</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="model-selection">
+                    <h2>Selecting a generative model</h2>
+                    <p>The choice of generative model depends on your data characteristics, technical capabilities, and privacy requirements:</p>
+
+                    <div class="model-types">
+                        <div class="model-card" data-component-theme="portalThemeColorBlue">
+                            <div class="model-header">
+                                <h3>Rule-based approaches</h3>
+                                <div class="complexity-indicator">
+                                    <span class="complexity-level low">Low complexity</span>
+                                </div>
+                            </div>
+                            <div class="model-content">
+                                <p><strong>Description:</strong> Generate synthetic data using predefined business rules and statistical distributions derived from the source data.</p>
+                                
+                                <div class="model-details">
+                                    <h4>When to use</h4>
+                                    <ul>
+                                        <li>Simple tabular data with well-understood relationships</li>
+                                        <li>Limited technical expertise available</li>
+                                        <li>Need for transparent and explainable generation process</li>
+                                        <li>Small to medium datasets (up to ~10,000 records)</li>
+                                    </ul>
+
+                                    <h4>Advantages</h4>
+                                    <ul>
+                                        <li>Easy to understand and implement</li>
+                                        <li>Full control over generation logic</li>
+                                        <li>Lower computational requirements</li>
+                                        <li>Deterministic and reproducible results</li>
+                                    </ul>
+
+                                    <h4>Limitations</h4>
+                                    <ul>
+                                        <li>May not capture complex statistical relationships</li>
+                                        <li>Requires manual specification of all rules</li>
+                                        <li>Limited ability to handle high-dimensional data</li>
+                                        <li>May produce unrealistic edge cases</li>
+                                    </ul>
+
+                                    <h4>Example techniques</h4>
+                                    <ul>
+                                        <li>Random sampling from empirical distributions</li>
+                                        <li>Conditional probability tables</li>
+                                        <li>Decision tree-based generation</li>
+                                        <li>Template-based synthetic record creation</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="model-card" data-component-theme="portalThemeColorGreen">
+                            <div class="model-header">
+                                <h3>Statistical models</h3>
+                                <div class="complexity-indicator">
+                                    <span class="complexity-level medium">Medium complexity</span>
+                                </div>
+                            </div>
+                            <div class="model-content">
+                                <p><strong>Description:</strong> Use established statistical methods to model data distributions and relationships, then sample from these models to generate synthetic records.</p>
+                                
+                                <div class="model-details">
+                                    <h4>When to use</h4>
+                                    <ul>
+                                        <li>Moderate to complex tabular data</li>
+                                        <li>Some statistical expertise available</li>
+                                        <li>Need to preserve specific statistical properties</li>
+                                        <li>Medium to large datasets (1,000 to 100,000+ records)</li>
+                                    </ul>
+
+                                    <h4>Advantages</h4>
+                                    <ul>
+                                        <li>Well-established theoretical foundation</li>
+                                        <li>Good preservation of statistical relationships</li>
+                                        <li>Interpretable model parameters</li>
+                                        <li>Established privacy analysis methods</li>
+                                    </ul>
+
+                                    <h4>Limitations</h4>
+                                    <ul>
+                                        <li>May struggle with very high-dimensional data</li>
+                                        <li>Requires assumptions about data distributions</li>
+                                        <li>Limited handling of complex non-linear relationships</li>
+                                        <li>May need manual feature engineering</li>
+                                    </ul>
+
+                                    <h4>Example techniques</h4>
+                                    <ul>
+                                        <li>Gaussian mixture models</li>
+                                        <li>Bayesian networks</li>
+                                        <li>Copula-based models</li>
+                                        <li>CART (Classification and Regression Trees)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="model-card" data-component-theme="portalThemeColorOrange">
+                            <div class="model-header">
+                                <h3>Machine learning models</h3>
+                                <div class="complexity-indicator">
+                                    <span class="complexity-level high">High complexity</span>
+                                </div>
+                            </div>
+                            <div class="model-content">
+                                <p><strong>Description:</strong> Advanced neural network and deep learning approaches that can capture complex patterns and generate high-fidelity synthetic data.</p>
+                                
+                                <div class="model-details">
+                                    <h4>When to use</h4>
+                                    <ul>
+                                        <li>Large, complex datasets with intricate relationships</li>
+                                        <li>High-dimensional data (many variables)</li>
+                                        <li>Experienced data science team available</li>
+                                        <li>Large datasets (10,000+ records) for training</li>
+                                    </ul>
+
+                                    <h4>Advantages</h4>
+                                    <ul>
+                                        <li>Can capture very complex statistical patterns</li>
+                                        <li>Handles high-dimensional data well</li>
+                                        <li>Automatically learns feature relationships</li>
+                                        <li>State-of-the-art synthetic data quality</li>
+                                    </ul>
+
+                                    <h4>Limitations</h4>
+                                    <ul>
+                                        <li>Requires significant computational resources</li>
+                                        <li>Complex to implement and tune</li>
+                                        <li>Less interpretable ("black box" models)</li>
+                                        <li>More difficult privacy risk assessment</li>
+                                    </ul>
+
+                                    <h4>Example techniques</h4>
+                                    <ul>
+                                        <li>Generative Adversarial Networks (GANs)</li>
+                                        <li>Variational Autoencoders (VAEs)</li>
+                                        <li>Transformer-based models</li>
+                                        <li>Diffusion models</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="model-configuration">
+                    <h2>Model configuration and training</h2>
+                    <p>Proper configuration is essential for generating high-quality synthetic data whilst managing privacy risks:</p>
+
+                    <div class="configuration-sections">
+                        <div class="config-section">
+                            <h3>Privacy-preserving parameters</h3>
+                            <div class="config-content">
+                                <p>Configure your model to prioritise privacy protection:</p>
+                                <ul>
+                                    <li><strong>Differential privacy:</strong> Add calibrated noise during training to provide formal privacy guarantees</li>
+                                    <li><strong>Training data sampling:</strong> Use subsets of training data to reduce memorisation risk</li>
+                                    <li><strong>Model regularisation:</strong> Apply techniques to prevent overfitting to individual records</li>
+                                    <li><strong>Early stopping:</strong> Stop training before the model memorises training examples</li>
+                                    <li><strong>Limited model complexity:</strong> Use simpler models that generalise better</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="config-section">
+                            <h3>Quality preservation parameters</h3>
+                            <div class="config-content">
+                                <p>Ensure synthetic data maintains utility for your intended use case:</p>
+                                <ul>
+                                    <li><strong>Statistical fidelity:</strong> Configure models to preserve key statistical properties</li>
+                                    <li><strong>Correlation preservation:</strong> Maintain important relationships between variables</li>
+                                    <li><strong>Distribution matching:</strong> Ensure synthetic data follows similar distributions to source data</li>
+                                    <li><strong>Constraint enforcement:</strong> Apply business rules and data validation constraints</li>
+                                    <li><strong>Temporal consistency:</strong> Preserve time-based patterns in longitudinal data</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="config-section">
+                            <h3>Technical implementation</h3>
+                            <div class="config-content">
+                                <p>Key technical considerations for implementation:</p>
+                                <ul>
+                                    <li><strong>Computational resources:</strong> Ensure adequate processing power and memory</li>
+                                    <li><strong>Training time:</strong> Allow sufficient time for model convergence</li>
+                                    <li><strong>Hyperparameter tuning:</strong> Systematically optimise model parameters</li>
+                                    <li><strong>Cross-validation:</strong> Use proper validation techniques to assess model performance</li>
+                                    <li><strong>Reproducibility:</strong> Set random seeds and document all configuration choices</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="generation-process">
+                    <h2>Synthetic data generation process</h2>
+                    <p>Follow these steps to generate your synthetic dataset:</p>
+
+                    <div class="process-steps">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h3>Prepare training environment</h3>
+                                <ul>
+                                    <li>Set up secure computational environment with appropriate access controls</li>
+                                    <li>Ensure training data is properly prepared and cleaned</li>
+                                    <li>Implement logging and monitoring for the generation process</li>
+                                    <li>Configure backup and recovery procedures</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h3>Train generative model</h3>
+                                <ul>
+                                    <li>Load prepared source data with appropriate security measures</li>
+                                    <li>Initialize model with configured parameters</li>
+                                    <li>Train model whilst monitoring for convergence and overfitting</li>
+                                    <li>Validate model performance using holdout datasets</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h3>Generate synthetic records</h3>
+                                <ul>
+                                    <li>Sample from trained model to create synthetic records</li>
+                                    <li>Apply post-processing rules and constraints</li>
+                                    <li>Validate generated records for quality and consistency</li>
+                                    <li>Generate multiple synthetic datasets if needed for robustness testing</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h3>Quality assessment</h3>
+                                <ul>
+                                    <li>Compare statistical properties of synthetic vs. source data</li>
+                                    <li>Test synthetic data utility for intended analytical use cases</li>
+                                    <li>Assess for any obvious quality issues or unrealistic values</li>
+                                    <li>Document any limitations or known issues with generated data</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="documentation-requirements">
+                    <h2>Documentation and model management</h2>
+                    <p>Comprehensive documentation is essential for reproducibility and governance:</p>
+
+                    <div class="doc-requirements">
+                        <div class="doc-category">
+                            <h3>Model documentation</h3>
+                            <ul>
+                                <li><strong>Model type and architecture:</strong> Detailed description of the chosen generative approach</li>
+                                <li><strong>Hyperparameters:</strong> All configuration settings and their rationale</li>
+                                <li><strong>Training procedure:</strong> Step-by-step description of the training process</li>
+                                <li><strong>Performance metrics:</strong> Validation results and quality assessments</li>
+                                <li><strong>Known limitations:</strong> Any identified issues or constraints</li>
+                            </ul>
+                        </div>
+
+                        <div class="doc-category">
+                            <h3>Generation parameters</h3>
+                            <ul>
+                                <li><strong>Random seeds:</strong> All seeds used for reproducibility</li>
+                                <li><strong>Sample size:</strong> Number of synthetic records generated and rationale</li>
+                                <li><strong>Generation settings:</strong> Any specific parameters used during sampling</li>
+                                <li><strong>Post-processing steps:</strong> Any transformations applied after generation</li>
+                                <li><strong>Version control:</strong> Model versions and generation timestamps</li>
+                            </ul>
+                        </div>
+
+                        <div class="doc-category">
+                            <h3>Security and storage</h3>
+                            <ul>
+                                <li><strong>Model storage:</strong> Secure storage location and access controls</li>
+                                <li><strong>Retention policy:</strong> How long models will be retained and disposal procedures</li>
+                                <li><strong>Access logging:</strong> Records of who accessed models and when</li>
+                                <li><strong>Backup procedures:</strong> Model backup and recovery processes</li>
+                                <li><strong>Environment security:</strong> Security measures for training and generation environments</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="model-security">
+                    <h2>Model security considerations</h2>
+                    <div class="security-alert">
+                        <h3>⚠️ Important security requirements</h3>
+                        <p>Trained models can potentially leak information about the source data and must be handled securely:</p>
+                        
+                        <div class="security-requirements">
+                            <div class="security-item">
+                                <h4>Secure model storage</h4>
+                                <p>After synthetic data generation, trained models must be stored separately in a secure manner or destroyed:</p>
+                                <ul>
+                                    <li>Use encryption for model storage</li>
+                                    <li>Implement strict access controls</li>
+                                    <li>Store models separately from source and synthetic data</li>
+                                    <li>Consider model destruction if not needed for future use</li>
+                                </ul>
+                            </div>
+
+                            <div class="security-item">
+                                <h4>Access management</h4>
+                                <p>Control and monitor access to trained models:</p>
+                                <ul>
+                                    <li>Limit model access to authorised personnel only</li>
+                                    <li>Log all model access and usage</li>
+                                    <li>Regular review of access permissions</li>
+                                    <li>Secure model transfer protocols if sharing is required</li>
+                                </ul>
+                            </div>
+
+                            <div class="security-item">
+                                <h4>Model disposal</h4>
+                                <p>When models are no longer needed:</p>
+                                <ul>
+                                    <li>Securely delete model files from all storage locations</li>
+                                    <li>Clear models from memory and temporary storage</li>
+                                    <li>Document disposal procedures and timing</li>
+                                    <li>Verify complete removal from backup systems</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="decision-criteria">
+                    <h2>Decision criteria for Step 3</h2>
+                    <p>To proceed to Step 4, your synthetic data generation must meet these criteria:</p>
+                    
+                    <div class="criteria-checklist">
+                        <div class="criteria-item">
+                            <input type="checkbox" id="criteria1">
+                            <label for="criteria1">Appropriate generative model selected based on data characteristics and capabilities</label>
+                        </div>
+                        <div class="criteria-item">
+                            <input type="checkbox" id="criteria2">
+                            <label for="criteria2">Model configured with privacy-preserving parameters</label>
+                        </div>
+                        <div class="criteria-item">
+                            <input type="checkbox" id="criteria3">
+                            <label for="criteria3">Synthetic data successfully generated with acceptable quality</label>
+                        </div>
+                        <div class="criteria-item">
+                            <input type="checkbox" id="criteria4">
+                            <label for="criteria4">Generation process comprehensively documented</label>
+                        </div>
+                        <div class="criteria-item">
+                            <input type="checkbox" id="criteria5">
+                            <label for="criteria5">Trained model securely stored or appropriately disposed of</label>
+                        </div>
+                        <div class="criteria-item">
+                            <input type="checkbox" id="criteria6">
+                            <label for="criteria6">Synthetic data preserves utility for intended use case whilst reducing privacy risks</label>
+                        </div>
+                    </div>
+
+                    <div class="decision-outcome">
+                        <div class="outcome-proceed">
+                            <h3>✓ Proceed to Step 4</h3>
+                            <p>Your synthetic data is ready for re-identification risk assessment. Continue to evaluate and mitigate privacy risks.</p>
+                            <a href="../step-4-assess-reidentification-risks/Step4AssessReidentificationRisks.en-US.webpage.copy.html" class="button1">Continue to Step 4</a>
+                        </div>
+                        <div class="outcome-review">
+                            <h3>↻ Address issues before proceeding</h3>
+                            <p>If any criteria are not met, address the following before proceeding:</p>
+                            <ul>
+                                <li><strong>Model selection issues:</strong> Reconsider model choice based on data characteristics and requirements</li>
+                                <li><strong>Configuration problems:</strong> Adjust privacy and quality parameters</li>
+                                <li><strong>Quality concerns:</strong> Retrain model or modify generation process</li>
+                                <li><strong>Documentation gaps:</strong> Complete required technical documentation</li>
+                                <li><strong>Security issues:</strong> Implement proper model storage and access controls</li>
+                                <li><strong>Utility problems:</strong> Evaluate if synthetic data meets analytical requirements</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-navigation">
+                    <div class="nav-buttons">
+                        <a href="../step-2-assess-source-data/Step2AssessSourceData.en-US.webpage.copy.html" class="nav-button nav-previous">← Step 2: Assess Source Data</a>
+                        <a href="../step-4-assess-reidentification-risks/Step4AssessReidentificationRisks.en-US.webpage.copy.html" class="nav-button nav-next">Step 4: Assess Re-identification Risks →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

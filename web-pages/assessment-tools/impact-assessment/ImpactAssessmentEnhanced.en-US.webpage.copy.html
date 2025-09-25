@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impact Assessment - SynD-DGF</title>
+    <meta name="description" content="Complete the mandatory impact assessment covering ethical, social, cultural, and Indigenous data sovereignty considerations for synthetic health data generation under the SynD-DGF framework.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .breadcrumb {
+            background: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: "›";
+            color: #6c757d;
+        }
+        .button1 {
+            background: linear-gradient(135deg, #004d9f 0%, #0066cc 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        .button1:hover {
+            background: linear-gradient(135deg, #003d7a 0%, #0052a3 100%);
+            color: white;
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+        .assessment-section {
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            background: white;
+        }
+        .question-group {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+        .sub-question {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: white;
+            border-left: 4px solid #004d9f;
+        }
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .alert-warning {
+            border-left: 4px solid #ffc107;
+        }
+        .alert-danger {
+            border-left: 4px solid #dc3545;
+        }
+        .indigenous-section {
+            background: linear-gradient(135deg, #fff3cd 0%, #f8f5e4 100%);
+            border: 2px solid #ffc107;
+        }
+        .ethics-examples {
+            background: #e7f3ff;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #004d9f;">
+        <div class="container">
+            <a class="navbar-brand" href="../../home/Home.en-US.webpage.copy.html">SynD-DGF</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="../../home/Home.en-US.webpage.copy.html">Home</a>
+                <a class="nav-link" href="../../framework-overview/FrameworkOverview.en-US.webpage.copy.html">Framework</a>
+                <a class="nav-link active" href="../AssessmentTools.en-US.webpage.copy.html">Assessment Tools</a>
+                <a class="nav-link" href="../../resources/Resources.en-US.webpage.copy.html">Resources</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="container mt-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../home/Home.en-US.webpage.copy.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="../AssessmentTools.en-US.webpage.copy.html">Assessment Tools</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Impact Assessment</li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <h1>Impact assessment</h1>
+
+                <div class="assessment-intro">
+                    <p class="lead">This mandatory assessment evaluates the broader ethical, social, cultural, and sovereignty implications of your synthetic health data project to ensure responsible and appropriate use.</p>
+
+                    <div class="alert alert-warning mb-4">
+                        <h4 class="alert-heading">Comprehensive evaluation required</h4>
+                        <p>The accountable decision-maker must assess the synthetic data request in consideration of all the following aspects. This assessment applies to all synthetic data request types and must address potential impacts on individuals, communities, and stakeholders.</p>
+                    </div>
+
+                    <div class="request-types mb-4">
+                        <h3>Assessment scope</h3>
+                        <p>This impact assessment covers:</p>
+                        <ul>
+                            <li>Organisations requesting another organisation to generate synthetic data for specific projects</li>
+                            <li>Organisations establishing synthetic datasets for multiple potential projects or purposes</li>
+                            <li>Organisations or End Users requesting access to existing synthetic datasets for different purposes</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <form id="impactAssessment" class="assessment-form">
+                    <!-- Core Considerations Section -->
+                    <div class="assessment-section" data-component-theme="portalThemeColorBlue">
+                        <h2>Core impact considerations</h2>
+                        <p>Evaluate the fundamental aspects of your synthetic data project against key decision-making criteria.</p>
+
+                        <div class="question-group">
+                            <h3>Public interest</h3>
+                            <p><strong>Will the synthetic data use case be in the public interest?</strong> This question should be considered in relation to:</p>
+                            <ul>
+                                <li>What the objective is when creating a synthetic dataset, as well as</li>
+                                <li>Each request for access and use of the synthetic dataset</li>
+                            </ul>
+
+                            <div class="sub-question">
+                                <h4>Public interest assessment</h4>
+                                <p>How does your project serve the public interest?</p>
+                                <textarea name="public-interest" placeholder="Describe the specific public benefits, how the project serves community needs, and the expected positive outcomes..." class="form-control" rows="4" required></textarea>
+                            </div>
+
+                            <div class="sub-question">
+                                <h4>Objective evaluation</h4>
+                                <p>Rate the public interest level of your project objective:</p>
+                                <div class="radio-group">
+                                    <label><input type="radio" name="public-interest-level" value="high" required> High public interest - clear, significant benefits to health outcomes or system efficiency</label>
+                                    <label><input type="radio" name="public-interest-level" value="moderate" required> Moderate public interest - some benefits but limited scope or uncertain outcomes</label>
+                                    <label><input type="radio" name="public-interest-level" value="low" required> Low public interest - benefits unclear or primarily serve organisational rather than public needs</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h3>Resourcing</h3>
+                            <p><strong>What will be the resourcing impacts on the organisation, both in expenses and time? Will this project create a high opportunity cost?</strong></p>
+
+                            <div class="sub-question">
+                                <h4>Resource requirements</h4>
+                                <p>Estimate the resource investment required for this project:</p>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" name="resource-types" value="technical-staff"> Technical staff time for data generation and management</label>
+                                    <label><input type="checkbox" name="resource-types" value="governance-oversight"> Governance and oversight resources</label>
+                                    <label><input type="checkbox" name="resource-types" value="infrastructure"> Technical infrastructure and storage costs</label>
+                                    <label><input type="checkbox" name="resource-types" value="consultation"> Community consultation and engagement resources</label>
+                                    <label><input type="checkbox" name="resource-types" value="compliance"> Compliance and legal review costs</label>
+                                    <label><input type="checkbox" name="resource-types" value="ongoing-maintenance"> Ongoing maintenance and support</label>
+                                </div>
+                            </div>
+
+                            <div class="sub-question">
+                                <h4>Opportunity cost assessment</h4>
+                                <p>Will resources be diverted from other projects more closely aligned to the organisation's policy or strategic objectives?</p>
+                                <div class="radio-group">
+                                    <label><input type="radio" name="opportunity-cost" value="low" required> No - this project aligns well with strategic priorities</label>
+                                    <label><input type="radio" name="opportunity-cost" value="moderate" required> Somewhat - some resources diverted but manageable</label>
+                                    <label><input type="radio" name="opportunity-cost" value="high" required> Yes - significant diversion from higher-priority activities</label>
+                                </div>
+                                <textarea name="opportunity-cost-explanation" placeholder="Explain your reasoning and describe any alternative projects that may be impacted..." class="form-control" rows="3"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h3>Beneficiaries</h3>
+                            <p><strong>Will the synthetic data use case be for the benefit of many or a few? Can we maximise the utility of the data to be shared, to benefit multiple parties or derive useful insights to assist health care delivery and systems?</strong></p>
+
+                            <div class="sub-question">
+                                <h4>Beneficiary scope</h4>
+                                <p>Who will benefit from this project? (Select all that apply)</p>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" name="beneficiaries" value="patients-broad"> Patients and health consumers (broad population)</label>
+                                    <label><input type="checkbox" name="beneficiaries" value="patients-specific"> Patients with specific conditions or demographics</label>
+                                    <label><input type="checkbox" name="beneficiaries" value="healthcare-providers"> Healthcare providers and clinicians</label>
+                                    <label><input type="checkbox" name="beneficiaries" value="health-organisations"> Health organisations and systems</label>
+                                    <label><input type="checkbox" name="beneficiaries" value="researchers"> Researchers and academic community</label>
+                                    <label><input type="checkbox" name="beneficiaries" value="policymakers"> Policymakers and health authorities</label>
+                                    <label><input type="checkbox" name="beneficiaries" value="industry"> Industry and technology developers</label>
+                                    <label><input type="checkbox" name="beneficiaries" value="international"> International health community</label>
+                                </div>
+                            </div>
+
+                            <div class="sub-question">
+                                <h4>Utility maximisation</h4>
+                                <p>How can the utility of the synthetic data be maximised to benefit multiple parties?</p>
+                                <textarea name="utility-maximisation" placeholder="Describe how the synthetic data could serve multiple purposes, benefit various stakeholders, or be made available for additional beneficial uses..." class="form-control" rows="4" required></textarea>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h3>Community expectations and trust</h3>
+                            <p><strong>Will the synthetic data use case meet community expectations about how their data will be handled? Will the data sharing take place in a manner that maintains or builds trust with stakeholders?</strong></p>
+
+                            <div class="sub-question">
+                                <h4>Community expectations</h4>
+                                <p>How does your project align with community expectations about health data use?</p>
+                                <textarea name="community-expectations" placeholder="Describe how the community would reasonably expect their health data to be used, based on existing communication and consent processes..." class="form-control" rows="4" required></textarea>
+                            </div>
+
+                            <div class="sub-question">
+                                <h4>Trust impact</h4>
+                                <p>How will this project impact community trust in health data governance?</p>
+                                <div class="radio-group">
+                                    <label><input type="radio" name="trust-impact" value="builds" required> Builds trust through transparent, beneficial use of synthetic data</label>
+                                    <label><input type="radio" name="trust-impact" value="maintains" required> Maintains current trust levels with responsible governance</label>
+                                    <label><input type="radio" name="trust-impact" value="risks" required> May risk trust if not carefully managed or communicated</label>
+                                    <label><input type="radio" name="trust-impact" value="undermines" required> Could undermine trust due to controversial or unclear benefits</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h3>Privacy impacts</h3>
+                            <p><strong>A Privacy Impact Assessment (PIA) will be needed for high-risk projects involving data sharing for linkage prior to creating a synthetic dataset, and where re-identification risk cannot be lowered to a very low level, in order to manage legal compliance risks.</strong></p>
+
+                            <div class="sub-question">
+                                <h4>PIA requirement assessment</h4>
+                                <p>Does your project require a formal Privacy Impact Assessment?</p>
+                                <div class="radio-group">
+                                    <label><input type="radio" name="pia-required" value="yes" required> Yes - high-risk project with data sharing/linkage before synthetic generation</label>
+                                    <label><input type="radio" name="pia-required" value="no" required> No - low-risk project with minimal privacy implications</label>
+                                    <label><input type="radio" name="pia-required" value="uncertain" required> Uncertain - requires further risk assessment</label>
+                                </div>
+                            </div>
+
+                            <div class="sub-question">
+                                <h4>Re-identification risk level</h4>
+                                <p>What is the assessed re-identification risk level for your synthetic data?</p>
+                                <div class="radio-group">
+                                    <label><input type="radio" name="reidentification-risk" value="very-low" required> Very low - robust synthetic generation with strong privacy protections</label>
+                                    <label><input type="radio" name="reidentification-risk" value="low" required> Low - good synthetic generation with adequate protections</label>
+                                    <label><input type="radio" name="reidentification-risk" value="moderate" required> Moderate - some residual risks that need management</label>
+                                    <label><input type="radio" name="reidentification-risk" value="high" required> High - significant risks that cannot be adequately lowered</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Ethics Section -->
+                    <div class="assessment-section" data-component-theme="portalThemeColorGreen">
+                        <h2>Data ethics</h2>
+                        <p><strong>Does the synthetic data use case raise concerns with regard to ethical considerations, in terms of the potential for harmful impacts on individuals, particular cohorts or sections of the community?</strong></p>
+
+                        <div class="ethics-examples">
+                            <h4>Data types that could raise ethical concerns include:</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li>Health information (including physical and mental health)</li>
+                                        <li>Disability</li>
+                                        <li>Address or housing status</li>
+                                        <li>Alcohol and drug use</li>
+                                        <li>Sexuality</li>
+                                        <li>Data about children</li>
+                                        <li>Data about family violence / AVO's</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li>Aboriginality</li>
+                                        <li>Ethnicity</li>
+                                        <li>Language background other than English</li>
+                                        <li>Religion</li>
+                                        <li>Trade union membership</li>
+                                        <li>Text-based fields / unstructured data</li>
+                                        <li>Staff information</li>
+                                        <li>Practice performance</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h3>Sensitive data assessment</h3>
+                            <div class="sub-question">
+                                <h4>Sensitive data types in your dataset</h4>
+                                <p>Which types of sensitive data are included in your source dataset? (Select all that apply)</p>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" name="sensitive-data" value="mental-health"> Mental health information</label>
+                                    <label><input type="checkbox" name="sensitive-data" value="disability"> Disability status or support needs</label>
+                                    <label><input type="checkbox" name="sensitive-data" value="housing"> Address or housing status</label>
+                                    <label><input type="checkbox" name="sensitive-data" value="substance-use"> Alcohol and drug use</label>
+                                    <label><input type="checkbox" name="sensitive-data" value="sexuality"> Sexuality or gender identity</label>
+                                    <label><input type="checkbox" name="sensitive-data" value="children"> Data about children or minors</label>
+                                    <label><input type="checkbox" name="sensitive-data" value="family-violence"> Family violence or domestic violence orders</label>
+                                    <label><input type="checkbox" name="sensitive-data" value="aboriginality"> Aboriginal and Torres Strait Islander status</label>
+                                    <label><input type="checkbox" name="sensitive-data" value="ethnicity"> Ethnicity or cultural background</label>
+                                    <label><input type="checkbox" name="sensitive-data" value="language"> Language background other than English</label>
+                                    <label><input type="checkbox" name="sensitive-data" value="religion"> Religious beliefs or affiliations</label>
+                                    <label><input type="checkbox" name="sensitive-data" value="unstructured"> Text-based fields or unstructured data</label>
+                                    <label><input type="checkbox" name="sensitive-data" value="staff"> Staff information or performance data</label>
+                                    <label><input type="checkbox" name="sensitive-data" value="none"> None of the above</label>
+                                </div>
+                            </div>
+
+                            <div class="sub-question">
+                                <h4>Ethical risk scenarios</h4>
+                                <p>Do any of these scenarios apply to your project? (Select all that apply)</p>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" name="ethical-scenarios" value="data-linkage"> Data linkage across multiple data sources and/or platforms</label>
+                                    <label><input type="checkbox" name="ethical-scenarios" value="protective-legislation"> Legislation (other than privacy laws) protecting specific types of data</label>
+                                    <label><input type="checkbox" name="ethical-scenarios" value="high-risk-tech"> High risk technologies (e.g., generative AI) applied to the data</label>
+                                    <label><input type="checkbox" name="ethical-scenarios" value="external-sharing"> Data or results will be published or shared with external parties</label>
+                                    <label><input type="checkbox" name="ethical-scenarios" value="procurement-conflict"> Data about services to be commissioned where organisation may bid to provide services</label>
+                                    <label><input type="checkbox" name="ethical-scenarios" value="none"> None of the above</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h3>Ethics of synthetic data</h3>
+                            <p>Even where synthetic data has been robustly de-identified, ethical concerns can still arise from its use.</p>
+
+                            <div class="sub-question">
+                                <h4>Incorrect recognition risks</h4>
+                                <p>How will you mitigate the risk of individuals incorrectly believing they recognise someone in the synthetic dataset?</p>
+                                <textarea name="incorrect-recognition-mitigation" placeholder="Describe measures to prevent misidentification and potential harm from incorrect recognition of synthetic records..." class="form-control" rows="3" required></textarea>
+                            </div>
+
+                            <div class="sub-question">
+                                <h4>Bias and representativeness</h4>
+                                <p>How will you address bias in the reference data and ensure the synthetic data is representative?</p>
+                                <textarea name="bias-mitigation" placeholder="Describe how you will detect and correct bias, ensure representativeness, and prevent exclusion of disadvantaged groups..." class="form-control" rows="4" required></textarea>
+                            </div>
+
+                            <div class="sub-question">
+                                <h4>Decision-making implications</h4>
+                                <p>Will the synthetic data be used to make policy or operational decisions that could have consequences for individuals or communities?</p>
+                                <div class="radio-group">
+                                    <label><input type="radio" name="decision-making" value="yes" required> Yes - synthetic data will inform decisions affecting people or services</label>
+                                    <label><input type="radio" name="decision-making" value="no" required> No - purely research or analysis purposes without direct decision-making</label>
+                                    <label><input type="radio" name="decision-making" value="uncertain" required> Uncertain - may indirectly influence decisions</label>
+                                </div>
+
+                                <div id="decision-making-detail" style="display: none;">
+                                    <p>If yes, describe the potential consequences and how you will ensure decision quality:</p>
+                                    <textarea name="decision-consequences" placeholder="Describe potential consequences of decisions based on synthetic data and quality assurance measures..." class="form-control" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Indigenous Data Sovereignty Section -->
+                    <div class="assessment-section indigenous-section" data-component-theme="portalThemeColorOrange">
+                        <h2>Indigenous data sovereignty</h2>
+                        <p><strong>Does the data include data about indigenous status?</strong></p>
+
+                        <div class="alert alert-warning">
+                            <h4 class="alert-heading">Indigenous Data Sovereignty Requirements</h4>
+                            <p class="mb-0">Synthetic data use cases involving data about Aboriginal and Torres Strait Islander peoples are subject to additional considerations beyond the standard framework requirements. Indigenous Data Sovereignty principles must be respected and incorporated throughout the project lifecycle.</p>
+                        </div>
+
+                        <div class="question-group">
+                            <h3>Indigenous data inclusion</h3>
+                            <div class="sub-question">
+                                <h4>Indigenous status data</h4>
+                                <p>Does your source dataset include data about Aboriginal and Torres Strait Islander peoples?</p>
+                                <div class="radio-group">
+                                    <label><input type="radio" name="indigenous-data" value="yes" required> Yes - dataset includes Aboriginal and Torres Strait Islander data</label>
+                                    <label><input type="radio" name="indigenous-data" value="no" required> No - dataset does not include Indigenous status data</label>
+                                    <label><input type="radio" name="indigenous-data" value="uncertain" required> Uncertain - Indigenous status may be included but not explicitly identified</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="indigenous-requirements" style="display: none;">
+                            <div class="question-group">
+                                <h3>Indigenous Data Sovereignty principles</h3>
+                                <p>Indigenous Data Sovereignty is the right of Indigenous peoples to autonomously decide what, how and why Indigenous data and information are collected, accessed and used.</p>
+
+                                <div class="sub-question">
+                                    <h4>Leadership and expertise</h4>
+                                    <p>How does your project incorporate Indigenous leadership and expertise?</p>
+                                    <div class="checkbox-group">
+                                        <label><input type="checkbox" name="indigenous-leadership" value="indigenous-led"> Project is led by Aboriginal or Torres Strait Islander experts</label>
+                                        <label><input type="checkbox" name="indigenous-leadership" value="indigenous-team"> Team includes Aboriginal and Torres Strait Islander researchers or policymakers</label>
+                                        <label><input type="checkbox" name="indigenous-leadership" value="indigenous-advisors"> Aboriginal and Torres Strait Islander advisors or consultants engaged</label>
+                                        <label><input type="checkbox" name="indigenous-leadership" value="indigenous-governance"> Indigenous governance structures involved in oversight</label>
+                                        <label><input type="checkbox" name="indigenous-leadership" value="none"> None of the above</label>
+                                    </div>
+                                </div>
+
+                                <div class="sub-question">
+                                    <h4>Cultural frameworks and values</h4>
+                                    <p>How does your project collect and use data that reflects Aboriginal and Torres Strait Islander values and frameworks?</p>
+                                    <div class="checkbox-group">
+                                        <label><input type="checkbox" name="cultural-frameworks" value="cultural-determinants"> Uses cultural determinants of health frameworks</label>
+                                        <label><input type="checkbox" name="cultural-frameworks" value="community-priorities"> Reflects Aboriginal and Torres Strait Islander community priorities</label>
+                                        <label><input type="checkbox" name="cultural-frameworks" value="culturally-appropriate"> Applies culturally appropriate research methodologies</label>
+                                        <label><input type="checkbox" name="cultural-frameworks" value="worldviews"> Incorporates Aboriginal and Torres Strait Islander worldviews</label>
+                                        <label><input type="checkbox" name="cultural-frameworks" value="none"> None of the above</label>
+                                    </div>
+                                </div>
+
+                                <div class="sub-question">
+                                    <h4>Community collaboration</h4>
+                                    <p>Are you collaborating and co-designing with Aboriginal and Torres Strait Islander groups?</p>
+                                    <div class="radio-group">
+                                        <label><input type="radio" name="community-collaboration" value="acchos" required> Yes - collaborating with Aboriginal Community Controlled Health Organisations (ACCHOs)</label>
+                                        <label><input type="radio" name="community-collaboration" value="other-groups" required> Yes - collaborating with other Aboriginal and Torres Strait Islander groups</label>
+                                        <label><input type="radio" name="community-collaboration" value="planned" required> No, but collaboration is planned</label>
+                                        <label><input type="radio" name="community-collaboration" value="no" required> No collaboration planned</label>
+                                    </div>
+                                    <textarea name="collaboration-details" placeholder="Describe your collaboration approach and how it empowers Indigenous Data Sovereignty..." class="form-control" rows="3"></textarea>
+                                </div>
+
+                                <div class="sub-question">
+                                    <h4>Benefits for Aboriginal and Torres Strait Islander communities</h4>
+                                    <p>How will this project benefit Aboriginal and Torres Strait Islander communities?</p>
+                                    <textarea name="indigenous-benefits" placeholder="Describe specific benefits, capacity building opportunities, research investment, and advocacy support this project will provide..." class="form-control" rows="4" required></textarea>
+                                </div>
+
+                                <div class="sub-question">
+                                    <h4>Ethical review requirements</h4>
+                                    <p>For research about Aboriginal and Torres Strait Islander peoples, approval from a registered Aboriginal HREC is required.</p>
+                                    <div class="radio-group">
+                                        <label><input type="radio" name="aboriginal-hrec" value="obtained" required> Approval already obtained from Aboriginal HREC</label>
+                                        <label><input type="radio" name="aboriginal-hrec" value="planned" required> Approval from Aboriginal HREC is planned</label>
+                                        <label><input type="radio" name="aboriginal-hrec" value="not-applicable" required> Not applicable - not research purpose</label>
+                                    </div>
+                                    <p class="small text-muted">Relevant Aboriginal HRECs include the Aboriginal Health & Medical Research Council (AH&MRC) or the Research Ethics Committee of the Australian Institute of Aboriginal and Torres Strait Islander Studies (AIATSIS).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Risk Assessment -->
+                    <div class="assessment-section" data-component-theme="portalThemeColorRed">
+                        <h2>Risk of not proceeding</h2>
+                        <p>Consider the risks and missed opportunities if this synthetic data project does not proceed.</p>
+
+                        <div class="question-group">
+                            <h3>Missed benefits assessment</h3>
+                            <div class="sub-question">
+                                <h4>Benefits that may be lost</h4>
+                                <p>What meaningful benefits might be lost to health consumers if this project does not proceed?</p>
+                                <textarea name="missed-benefits" placeholder="Describe specific benefits to health outcomes, service improvements, or research advances that would be lost..." class="form-control" rows="4" required></textarea>
+                            </div>
+
+                            <div class="sub-question">
+                                <h4>Alternative approaches feasibility</h4>
+                                <p>Could these benefits be achieved through alternative approaches with similar or better outcomes?</p>
+                                <div class="radio-group">
+                                    <label><input type="radio" name="alternatives-feasible" value="no" required> No - synthetic data is the only viable approach</label>
+                                    <label><input type="radio" name="alternatives-feasible" value="difficult" required> Possibly, but alternatives would be significantly more difficult or costly</label>
+                                    <label><input type="radio" name="alternatives-feasible" value="yes" required> Yes - similar benefits could be achieved through other means</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Overall Assessment -->
+                    <div class="assessment-section" data-component-theme="portalThemeColorPurple">
+                        <h2>Overall impact assessment</h2>
+
+                        <div class="question-group">
+                            <h3>Summary evaluation</h3>
+                            <div class="sub-question">
+                                <h4>Potential negative impacts identified</h4>
+                                <p>Summarise any significant negative impacts identified through this assessment:</p>
+                                <textarea name="negative-impacts" placeholder="List and describe any potential negative impacts on individuals, communities, or stakeholder groups..." class="form-control" rows="4"></textarea>
+                            </div>
+
+                            <div class="sub-question">
+                                <h4>Mitigation strategies</h4>
+                                <p>Describe how identified negative impacts will be mitigated:</p>
+                                <textarea name="mitigation-strategies" placeholder="Detail specific strategies, safeguards, and monitoring approaches to address negative impacts..." class="form-control" rows="4" required></textarea>
+                            </div>
+
+                            <div class="sub-question">
+                                <h4>Overall recommendation</h4>
+                                <p>Based on this comprehensive impact assessment, what is your recommendation?</p>
+                                <div class="radio-group">
+                                    <label><input type="radio" name="overall-recommendation" value="proceed" required> Proceed - benefits outweigh risks and impacts can be adequately managed</label>
+                                    <label><input type="radio" name="overall-recommendation" value="conditional" required> Conditional approval - proceed with specific additional safeguards</label>
+                                    <label><input type="radio" name="overall-recommendation" value="revise" required> Revise - significant changes needed before proceeding</label>
+                                    <label><input type="radio" name="overall-recommendation" value="reject" required> Do not proceed - risks and negative impacts are too significant</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" id="save-assessment" class="button1">Save Assessment</button>
+                            <button type="button" id="export-assessment" class="button1">Export as PDF</button>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="assessment-guidance">
+                    <h2>Assessment guidance and resources</h2>
+
+                    <div class="guidance-section">
+                        <h3>Relevant resources for impact assessment</h3>
+                        <p>Consider consulting these resources to inform your assessment:</p>
+                        <ul>
+                            <li><a href="#" target="_blank">Office of the Information Commissioner (OAIC) Guide to undertaking Privacy Impact Assessments</a></li>
+                            <li><a href="#" target="_blank">The Lowitja Institute Information Sheet: Indigenous Data Governance and Sovereignty</a></li>
+                            <li><a href="#" target="_blank">NHMRC National Statement on Ethical Conduct in Human Research - Chapter 4.7 Aboriginal and Torres Strait Islander Peoples</a></li>
+                            <li><a href="#" target="_blank">NHMRC Values and Ethics Guidelines for Ethical Conduct in Aboriginal and Torres Strait Islander Peoples</a></li>
+                            <li><a href="#" target="_blank">NHMRC Keeping Research on Track II: Guidelines for researchers and stakeholders</a></li>
+                            <li><a href="#" target="_blank">Australian Institute of Aboriginal and Torres Strait Islander Studies Guidelines for Ethical Research in Indigenous Studies</a></li>
+                            <li><a href="#" target="_blank">Cultural and Indigenous Research Centre Australia Aboriginal Privacy Insights Report</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="guidance-section">
+                        <h3>Additional organisational policies</h3>
+                        <p>Your assessment should also consider:</p>
+                        <ul>
+                            <li>Privacy Impact Assessment guides or frameworks used by your organisation</li>
+                            <li>AI assessment frameworks and data ethics guides</li>
+                            <li>Cultural competency and Indigenous engagement policies</li>
+                            <li>Community consultation and stakeholder engagement procedures</li>
+                            <li>Risk management and governance frameworks</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="assessment-downloads mb-4">
+                    <h3>Download assessment templates</h3>
+                    <p>Access downloadable templates and forms to support your impact assessment:</p>
+                    <div class="download-buttons">
+                        <a href="#" class="button1 me-2" onclick="generateTemplate('impact-assessment-checklist')">Download Impact Assessment Checklist</a>
+                        <a href="#" class="button1 me-2" onclick="generateTemplate('indigenous-sovereignty-guide')">Download Indigenous Data Sovereignty Guide</a>
+                        <a href="#" class="button1" onclick="generateTemplate('ethics-evaluation-form')">Download Ethics Evaluation Form</a>
+                    </div>
+                </div>
+
+                <div class="step-navigation">
+                    <div class="nav-buttons">
+                        <a href="../use-case-checklist/UseCaseChecklist.en-US.webpage.copy.html" class="nav-button nav-previous">← Use Case Assessment</a>
+                        <a href="../AssessmentTools.en-US.webpage.copy.html" class="nav-button nav-next">Assessment Tools Overview →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Show/hide Indigenous requirements section
+        document.querySelectorAll('input[name="indigenous-data"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const section = document.getElementById('indigenous-requirements');
+                if (this.value === 'yes') {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        });
+
+        // Show/hide decision-making detail
+        document.querySelectorAll('input[name="decision-making"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const detail = document.getElementById('decision-making-detail');
+                if (this.value === 'yes') {
+                    detail.style.display = 'block';
+                } else {
+                    detail.style.display = 'none';
+                }
+            });
+        });
+
+        // Template generation functionality
+        function generateTemplate(templateType) {
+            console.log('Generating template:', templateType);
+            alert('Template generation feature will be implemented with backend functionality.');
+        }
+
+        // Save assessment functionality
+        document.getElementById('save-assessment').addEventListener('click', function() {
+            alert('Assessment save functionality will be implemented with backend integration.');
+        });
+
+        // Export assessment functionality
+        document.getElementById('export-assessment').addEventListener('click', function() {
+            alert('PDF export functionality will be implemented with backend integration.');
+        });
+    </script>
+</body>
+</html>

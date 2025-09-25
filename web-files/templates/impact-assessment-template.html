@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impact Assessment Template - SynD-DGF</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            color: #333;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #004d9f;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .section {
+            margin-bottom: 30px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            page-break-inside: avoid;
+        }
+        .section-header {
+            background: #f8f9fa;
+            padding: 10px;
+            margin: -20px -20px 20px -20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .answer-space {
+            border: 1px solid #ccc;
+            min-height: 80px;
+            padding: 10px;
+            margin-top: 5px;
+        }
+        .small-answer {
+            min-height: 40px;
+        }
+        .checkbox-option {
+            margin: 5px 0;
+        }
+        .rating-scale {
+            display: flex;
+            gap: 15px;
+            margin: 10px 0;
+        }
+        .indigenous-section {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+        }
+        .warning-box {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        @media print {
+            body { margin: 0; }
+            .section { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>SynD-DGF Impact Assessment Template</h1>
+        <p><strong>Synthetic Health Data Governance Framework</strong></p>
+        <p>Assessment Date: __________________ &nbsp;&nbsp;&nbsp; Assessor: __________________</p>
+    </div>
+
+    <div class="project-details">
+        <h2>Project Information</h2>
+        <p><strong>Project Title:</strong> _________________________________________________</p>
+        <p><strong>Organisation:</strong> _________________________________________________</p>
+        <p><strong>Accountable Decision-Maker:</strong> _________________________________________________</p>
+        <p><strong>Assessment Period:</strong> From ____________ To ____________</p>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <h2>Core Impact Considerations</h2>
+        </div>
+
+        <div class="question">
+            <h3>Public Interest</h3>
+            <p>Will the synthetic data use case be in the public interest?</p>
+            <p><strong>Project Objective Assessment:</strong></p>
+            <div class="answer-space"></div>
+            <p><strong>Access and Use Assessment:</strong></p>
+            <div class="answer-space"></div>
+        </div>
+
+        <div class="question">
+            <h3>Resourcing</h3>
+            <p>What will be the resourcing impacts on the organisation, both in expenses and time? Will this project create a high opportunity cost?</p>
+            <p><strong>Resource Requirements:</strong> (Check all that apply)</p>
+            <div class="checkbox-option">☐ Technical staff time for data generation and management</div>
+            <div class="checkbox-option">☐ Governance and oversight resources</div>
+            <div class="checkbox-option">☐ Technical infrastructure and storage costs</div>
+            <div class="checkbox-option">☐ Community consultation and engagement resources</div>
+            <div class="checkbox-option">☐ Compliance and legal review costs</div>
+            <div class="checkbox-option">☐ Ongoing maintenance and support</div>
+
+            <p><strong>Opportunity Cost Assessment:</strong></p>
+            <div class="answer-space"></div>
+        </div>
+
+        <div class="question">
+            <h3>Beneficiaries</h3>
+            <p>Will the synthetic data use case be for the benefit of many or a few? Can we maximise the utility of the data to be shared?</p>
+            <p><strong>Beneficiary Groups:</strong> (Check all that apply)</p>
+            <div class="checkbox-option">☐ Patients and health consumers (broad population)</div>
+            <div class="checkbox-option">☐ Patients with specific conditions or demographics</div>
+            <div class="checkbox-option">☐ Healthcare providers and clinicians</div>
+            <div class="checkbox-option">☐ Health organisations and systems</div>
+            <div class="checkbox-option">☐ Researchers and academic community</div>
+            <div class="checkbox-option">☐ Policymakers and health authorities</div>
+            <div class="checkbox-option">☐ Industry and technology developers</div>
+            <div class="checkbox-option">☐ International health community</div>
+
+            <p><strong>Utility Maximisation Strategy:</strong></p>
+            <div class="answer-space"></div>
+        </div>
+
+        <div class="question">
+            <h3>Community Expectations and Trust</h3>
+            <p>Will the synthetic data use case meet community expectations about how their data will be handled? Will the data sharing take place in a manner that maintains or builds trust with stakeholders?</p>
+            <p><strong>Community Expectations Assessment:</strong></p>
+            <div class="answer-space"></div>
+
+            <p><strong>Trust Impact:</strong></p>
+            <p>☐ Builds trust through transparent, beneficial use of synthetic data</p>
+            <p>☐ Maintains current trust levels with responsible governance</p>
+            <p>☐ May risk trust if not carefully managed or communicated</p>
+            <p>☐ Could undermine trust due to controversial or unclear benefits</p>
+        </div>
+
+        <div class="question">
+            <h3>Privacy Impacts</h3>
+            <p>A Privacy Impact Assessment (PIA) will be needed for high-risk projects involving data sharing for linkage prior to creating a synthetic dataset, and where re-identification risk cannot be lowered to a very low level.</p>
+
+            <p><strong>PIA Requirement:</strong></p>
+            <p>☐ Yes - high-risk project with data sharing/linkage before synthetic generation</p>
+            <p>☐ No - low-risk project with minimal privacy implications</p>
+            <p>☐ Uncertain - requires further risk assessment</p>
+
+            <p><strong>Re-identification Risk Level:</strong></p>
+            <p>☐ Very low - robust synthetic generation with strong privacy protections</p>
+            <p>☐ Low - good synthetic generation with adequate protections</p>
+            <p>☐ Moderate - some residual risks that need management</p>
+            <p>☐ High - significant risks that cannot be adequately lowered</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <h2>Data Ethics</h2>
+            <p>Does the synthetic data use case raise concerns with regard to ethical considerations, in terms of the potential for harmful impacts on individuals, particular cohorts or sections of the community?</p>
+        </div>
+
+        <div class="question">
+            <h3>Sensitive Data Types</h3>
+            <p>Which types of sensitive data are included in your source dataset? (Check all that apply)</p>
+            <div class="checkbox-option">☐ Health information (including physical and mental health)</div>
+            <div class="checkbox-option">☐ Disability status</div>
+            <div class="checkbox-option">☐ Address or housing status</div>
+            <div class="checkbox-option">☐ Alcohol and drug use</div>
+            <div class="checkbox-option">☐ Sexuality or gender identity</div>
+            <div class="checkbox-option">☐ Data about children</div>
+            <div class="checkbox-option">☐ Data about family violence / AVO's</div>
+            <div class="checkbox-option">☐ Aboriginality</div>
+            <div class="checkbox-option">☐ Ethnicity</div>
+            <div class="checkbox-option">☐ Language background other than English</div>
+            <div class="checkbox-option">☐ Religion</div>
+            <div class="checkbox-option">☐ Trade union membership</div>
+            <div class="checkbox-option">☐ Text-based fields / unstructured data</div>
+            <div class="checkbox-option">☐ Staff information</div>
+            <div class="checkbox-option">☐ Practice performance</div>
+        </div>
+
+        <div class="question">
+            <h3>Ethical Risk Scenarios</h3>
+            <p>Do any of these scenarios apply to your project? (Check all that apply)</p>
+            <div class="checkbox-option">☐ Data linkage across multiple data sources and/or platforms</div>
+            <div class="checkbox-option">☐ Legislation (other than privacy laws) protecting this specific type of data</div>
+            <div class="checkbox-option">☐ High risk technologies will be applied to the data (e.g., generative AI)</div>
+            <div class="checkbox-option">☐ The data or results will be published or shared with an external party</div>
+            <div class="checkbox-option">☐ Data about services to be commissioned, where organisation may be eligible to bid</div>
+        </div>
+
+        <div class="question">
+            <h3>Ethics of Synthetic Data</h3>
+            <p><strong>Incorrect Recognition Mitigation:</strong></p>
+            <p>How will you mitigate the risk of individuals incorrectly believing they recognise someone in the synthetic dataset?</p>
+            <div class="answer-space"></div>
+
+            <p><strong>Bias and Representativeness:</strong></p>
+            <p>How will you address bias in the reference data and ensure the synthetic data is representative?</p>
+            <div class="answer-space"></div>
+
+            <p><strong>Decision-Making Implications:</strong></p>
+            <p>Will the synthetic data be used to make policy or operational decisions that could have consequences for individuals or communities?</p>
+            <p>☐ Yes - synthetic data will inform decisions affecting people or services</p>
+            <p>☐ No - purely research or analysis purposes without direct decision-making</p>
+            <p>☐ Uncertain - may indirectly influence decisions</p>
+
+            <p><strong>If yes, describe potential consequences and quality assurance measures:</strong></p>
+            <div class="answer-space"></div>
+        </div>
+    </div>
+
+    <div class="section indigenous-section">
+        <div class="section-header">
+            <h2>Indigenous Data Sovereignty</h2>
+            <p>Does the data include data about indigenous status?</p>
+        </div>
+
+        <div class="warning-box">
+            <p><strong>Indigenous Data Sovereignty Requirements:</strong> Synthetic data use cases involving data about Aboriginal and Torres Strait Islander peoples are subject to additional considerations beyond the standard framework requirements.</p>
+        </div>
+
+        <div class="question">
+            <h3>Indigenous Data Inclusion</h3>
+            <p>Does your source dataset include data about Aboriginal and Torres Strait Islander peoples?</p>
+            <p>☐ Yes - dataset includes Aboriginal and Torres Strait Islander data</p>
+            <p>☐ No - dataset does not include Indigenous status data</p>
+            <p>☐ Uncertain - Indigenous status may be included but not explicitly identified</p>
+        </div>
+
+        <div class="question">
+            <h3>Indigenous Leadership and Expertise (Complete if Indigenous data is included)</h3>
+            <p>How does your project incorporate Indigenous leadership and expertise? (Check all that apply)</p>
+            <div class="checkbox-option">☐ Project is led by Aboriginal or Torres Strait Islander experts</div>
+            <div class="checkbox-option">☐ Team includes Aboriginal and Torres Strait Islander researchers or policymakers</div>
+            <div class="checkbox-option">☐ Aboriginal and Torres Strait Islander advisors or consultants engaged</div>
+            <div class="checkbox-option">☐ Indigenous governance structures involved in oversight</div>
+        </div>
+
+        <div class="question">
+            <h3>Cultural Frameworks and Values</h3>
+            <p>How does your project collect and use data that reflects Aboriginal and Torres Strait Islander values and frameworks? (Check all that apply)</p>
+            <div class="checkbox-option">☐ Uses cultural determinants of health frameworks</div>
+            <div class="checkbox-option">☐ Reflects Aboriginal and Torres Strait Islander community priorities</div>
+            <div class="checkbox-option">☐ Applies culturally appropriate research methodologies</div>
+            <div class="checkbox-option">☐ Incorporates Aboriginal and Torres Strait Islander worldviews</div>
+        </div>
+
+        <div class="question">
+            <h3>Community Collaboration</h3>
+            <p>Are you collaborating and co-designing with Aboriginal and Torres Strait Islander groups?</p>
+            <p>☐ Yes - collaborating with Aboriginal Community Controlled Health Organisations (ACCHOs)</p>
+            <p>☐ Yes - collaborating with other Aboriginal and Torres Strait Islander groups</p>
+            <p>☐ No, but collaboration is planned</p>
+            <p>☐ No collaboration planned</p>
+
+            <p><strong>Collaboration Details:</strong></p>
+            <div class="answer-space"></div>
+        </div>
+
+        <div class="question">
+            <h3>Benefits for Aboriginal and Torres Strait Islander Communities</h3>
+            <p>How will this project benefit Aboriginal and Torres Strait Islander communities?</p>
+            <div class="answer-space"></div>
+        </div>
+
+        <div class="question">
+            <h3>Ethical Review Requirements</h3>
+            <p>For research about Aboriginal and Torres Strait Islander peoples, approval from a registered Aboriginal HREC is required.</p>
+            <p>☐ Approval already obtained from Aboriginal HREC</p>
+            <p>☐ Approval from Aboriginal HREC is planned</p>
+            <p>☐ Not applicable - not research purpose</p>
+
+            <p><strong>HREC Details:</strong> _______________________________________________</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <h2>Risk of Not Proceeding</h2>
+        </div>
+
+        <div class="question">
+            <h3>Missed Benefits Assessment</h3>
+            <p>What meaningful benefits might be lost to health consumers if this project does not proceed?</p>
+            <div class="answer-space"></div>
+        </div>
+
+        <div class="question">
+            <h3>Alternative Approaches Feasibility</h3>
+            <p>Could these benefits be achieved through alternative approaches with similar or better outcomes?</p>
+            <p>☐ No - synthetic data is the only viable approach</p>
+            <p>☐ Possibly, but alternatives would be significantly more difficult or costly</p>
+            <p>☐ Yes - similar benefits could be achieved through other means</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <h2>Overall Impact Assessment</h2>
+        </div>
+
+        <div class="question">
+            <h3>Potential Negative Impacts Identified</h3>
+            <p>Summarise any significant negative impacts identified through this assessment:</p>
+            <div class="answer-space"></div>
+        </div>
+
+        <div class="question">
+            <h3>Mitigation Strategies</h3>
+            <p>Describe how identified negative impacts will be mitigated:</p>
+            <div class="answer-space"></div>
+        </div>
+
+        <div class="question">
+            <h3>Overall Recommendation</h3>
+            <p>Based on this comprehensive impact assessment, what is your recommendation?</p>
+            <p>☐ Proceed - benefits outweigh risks and impacts can be adequately managed</p>
+            <p>☐ Conditional approval - proceed with specific additional safeguards</p>
+            <p>☐ Revise - significant changes needed before proceeding</p>
+            <p>☐ Do not proceed - risks and negative impacts are too significant</p>
+
+            <p><strong>Recommendation Rationale:</strong></p>
+            <div class="answer-space"></div>
+        </div>
+
+        <div class="question">
+            <h3>Decision-Maker Approval</h3>
+            <p><strong>Accountable Decision-Maker Name:</strong> _________________________________________________</p>
+            <p><strong>Signature:</strong> _________________________ &nbsp;&nbsp;&nbsp; <strong>Date:</strong> _____________</p>
+            <p><strong>Next Steps:</strong></p>
+            <div class="answer-space small-answer"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p><small>SynD-DGF Impact Assessment Template v1.0 | Digital Health CRC</small></p>
+    </div>
+</body>
+</html>

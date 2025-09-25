@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment Tools - SynD-DGF</title>
+    <meta name="description" content="Interactive assessment tools to support implementation of the SynD-DGF framework including use case evaluation, risk assessment, compliance checklists, and quality metrics.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #2A324B;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .tool-card {
+            border: 1px solid #C7CCDB;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        .tool-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .button1 {
+            background: linear-gradient(135deg, #2A324B 0%, #36454F 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        .button1:hover {
+            background: linear-gradient(135deg, #36454F 0%, #2A324B 100%);
+            color: white;
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+        .breadcrumb {
+            background: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: "›";
+            color: #36454F;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2A324B;">
+        <div class="container">
+            <a class="navbar-brand" href="../home/Home.en-US.webpage.copy.html">SynD-DGF</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="../home/Home.en-US.webpage.copy.html">Home</a>
+                <a class="nav-link" href="../framework-overview/FrameworkOverview.en-US.webpage.copy.html">Framework</a>
+                <a class="nav-link active" href="AssessmentTools.en-US.webpage.copy.html">Assessment Tools</a>
+                <a class="nav-link" href="../resources/Resources.en-US.webpage.copy.html">Resources</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="container mt-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../home/Home.en-US.webpage.copy.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Assessment Tools</li>
+            </ol>
+        </nav>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <h1>Assessment tools</h1>
+                
+                <div class="tools-intro">
+                    <p class="lead">Interactive tools to support your implementation of the SynD-DGF framework. These practical assessment instruments help evaluate use cases, assess risks, ensure compliance, and monitor quality throughout your synthetic data project lifecycle.</p>
+                </div>
+
+                <!-- Framework Integration Panel -->
+                {% include 'Framework Integration Panel' %}
+
+                <div class="tools-grid">
+                    <div class="tool-category" data-component-theme="portalThemeColorBlue">
+                        <h2>Core assessment tools</h2>
+                        <p>Essential assessments required for all synthetic data projects under the SynD-DGF framework.</p>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="tool-card primary-tool">
+                                    <div class="tool-header">
+                                        <div class="tool-icon">📋</div>
+                                        <h3><a href="use-case-checklist/UseCaseChecklist.en-US.webpage.copy.html">Use case assessment checklist</a></h3>
+                                        <span class="tool-badge required">Required</span>
+                                    </div>
+                                    <p>Comprehensive evaluation covering the three mandatory tests for synthetic data projects: public benefit purpose, community notification, and synthetic data suitability.</p>
+                                    <div class="tool-details">
+                                        <div class="detail-item">
+                                            <strong>Framework Step:</strong> Step 1 - Use Case Assessment
+                                        </div>
+                                        <div class="detail-item">
+                                            <strong>Completion Time:</strong> 30-45 minutes
+                                        </div>
+                                        <div class="detail-item">
+                                            <strong>Output:</strong> Pass/fail determination and detailed assessment report
+                                        </div>
+                                    </div>
+                                    <div class="tool-actions">
+                                        <a href="use-case-checklist/UseCaseChecklist.en-US.webpage.copy.html" class="button1">Start Assessment</a>
+                                        <a href="../resources/Resources.en-US.webpage.copy.html" class="button2">View Guide</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="tool-card primary-tool">
+                                    <div class="tool-header">
+                                        <div class="tool-icon">🔍</div>
+                                        <h3><a href="impact-assessment/ImpactAssessmentEnhanced.en-US.webpage.copy.html">Impact assessment</a></h3>
+                                        <span class="tool-badge required">Required</span>
+                                    </div>
+                                    <p>Comprehensive evaluation of ethical, social, cultural implications, and Indigenous data sovereignty considerations including community impacts and risk mitigation planning.</p>
+                                    <div class="tool-details">
+                                        <div class="detail-item">
+                                            <strong>Framework Step:</strong> Step 1 - Use Case Assessment
+                                        </div>
+                                        <div class="detail-item">
+                                            <strong>Completion Time:</strong> 45-75 minutes
+                                        </div>
+                                        <div class="detail-item">
+                                            <strong>Output:</strong> Comprehensive impact analysis report with Indigenous sovereignty assessment
+                                        </div>
+                                    </div>
+                                    <div class="tool-actions">
+                                        <a href="impact-assessment/ImpactAssessmentEnhanced.en-US.webpage.copy.html" class="button1">Start Assessment</a>
+                                        <a href="../resources/Resources.en-US.webpage.copy.html" class="button2">View Guide</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tool-category" data-component-theme="portalThemeColorGreen">
+                        <h2>Risk evaluation tools</h2>
+                        <p>Specialised tools for assessing and managing privacy and re-identification risks throughout the project lifecycle.</p>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="tool-card">
+                                    <div class="tool-header">
+                                        <div class="tool-icon">⚠️</div>
+                                        <h3><a href="risk-evaluation-tool/RiskEvaluationTool.en-US.webpage.copy.html">Risk evaluation tool</a></h3>
+                                        <span class="tool-badge recommended">Recommended</span>
+                                    </div>
+                                    <p>Systematic evaluation of re-identification risks, privacy threats, and vulnerability assessments for synthetic data generation and use.</p>
+                                    <div class="tool-details">
+                                        <div class="detail-item">
+                                            <strong>Framework Step:</strong> Step 4 - Assess Re-identification Risks
+                                        </div>
+                                        <div class="detail-item">
+                                            <strong>Completion Time:</strong> 20-30 minutes
+                                        </div>
+                                        <div class="detail-item">
+                                            <strong>Output:</strong> Risk matrix and mitigation priority rankings
+                                        </div>
+                                    </div>
+                                    <div class="tool-actions">
+                                        <a href="risk-evaluation-tool/RiskEvaluationTool.en-US.webpage.copy.html" class="button1">Start Evaluation</a>
+                                        <a href="../resources/Resources.en-US.webpage.copy.html" class="button2">View Guide</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="tool-card">
+                                    <div class="tool-header">
+                                        <div class="tool-icon">📊</div>
+                                        <h3><a href="quality-metrics-tool/QualityMetricsTool.en-US.webpage.copy.html">Quality metrics tool</a></h3>
+                                        <span class="tool-badge recommended">Recommended</span>
+                                    </div>
+                                    <p>Evaluate synthetic data quality across multiple dimensions including statistical fidelity, utility preservation, and privacy protection metrics.</p>
+                                    <div class="tool-details">
+                                        <div class="detail-item">
+                                            <strong>Framework Step:</strong> Step 3 - Generate Synthetic Data
+                                        </div>
+                                        <div class="detail-item">
+                                            <strong>Completion Time:</strong> 15-25 minutes
+                                        </div>
+                                        <div class="detail-item">
+                                            <strong>Output:</strong> Quality scorecard and improvement recommendations
+                                        </div>
+                                    </div>
+                                    <div class="tool-actions">
+                                        <a href="quality-metrics-tool/QualityMetricsTool.en-US.webpage.copy.html" class="button1">Start Evaluation</a>
+                                        <a href="../resources/Resources.en-US.webpage.copy.html" class="button2">View Guide</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tool-category" data-component-theme="portalThemeColorOrange">
+                        <h2>Compliance and governance tools</h2>
+                        <p>Tools to ensure ongoing compliance with regulatory requirements and governance frameworks.</p>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="tool-card">
+                                    <div class="tool-header">
+                                        <div class="tool-icon">✅</div>
+                                        <h3><a href="compliance-checklist-tool/ComplianceChecklistTool.en-US.webpage.copy.html">Compliance checklist tool</a></h3>
+                                        <span class="tool-badge optional">Optional</span>
+                                    </div>
+                                    <p>Comprehensive compliance checklist covering legal requirements, ethical obligations, technical standards, and governance processes across all framework steps.</p>
+                                    <div class="tool-details">
+                                        <div class="detail-item">
+                                            <strong>Framework Step:</strong> All steps - ongoing compliance monitoring
+                                        </div>
+                                        <div class="detail-item">
+                                            <strong>Completion Time:</strong> 30-45 minutes (initial), 10-15 minutes (updates)
+                                        </div>
+                                        <div class="detail-item">
+                                            <strong>Output:</strong> Compliance dashboard and action item tracking
+                                        </div>
+                                    </div>
+                                    <div class="tool-actions">
+                                        <a href="compliance-checklist-tool/ComplianceChecklistTool.en-US.webpage.copy.html" class="button1">Start Checklist</a>
+                                        <a href="../resources/Resources.en-US.webpage.copy.html" class="button2">View Guide</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="tool-card">
+                                    <div class="tool-header">
+                                        <div class="tool-icon">📋</div>
+                                        <h3><a href="assessment-outcomes/AssessmentOutcomes.en-US.webpage.copy.html">Assessment outcomes and documentation</a></h3>
+                                        <span class="tool-badge required">Required</span>
+                                    </div>
+                                    <p>Document assessment outcomes, decisions, and maintain comprehensive records for accountability, compliance monitoring, and future project reviews.</p>
+                                    <div class="tool-details">
+                                        <div class="detail-item">
+                                            <strong>Framework Step:</strong> Step 1 completion - assessment documentation
+                                        </div>
+                                        <div class="detail-item">
+                                            <strong>Completion Time:</strong> 20-30 minutes
+                                        </div>
+                                        <div class="detail-item">
+                                            <strong>Output:</strong> Formal assessment outcomes record and decision documentation
+                                        </div>
+                                    </div>
+                                    <div class="tool-actions">
+                                        <a href="assessment-outcomes/AssessmentOutcomes.en-US.webpage.copy.html" class="button1">Document Outcomes</a>
+                                        <a href="../resources/Resources.en-US.webpage.copy.html" class="button2">View Guide</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tools-workflow">
+                    <h2>Assessment workflow guidance</h2>
+                    <div class="workflow-steps">
+                        <div class="workflow-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h3>Start with core assessments</h3>
+                                <p>Complete both the Use Case Assessment Checklist and Impact Assessment before proceeding with your project. These determine whether your project can proceed under the framework and must address all three mandatory tests and comprehensive impact considerations.</p>
+                            </div>
+                        </div>
+
+                        <div class="workflow-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h3>Document assessment outcomes</h3>
+                                <p>Use the Assessment Outcomes and Documentation tool to formally record your assessment results, decisions, and rationale. This creates the official record for accountability and compliance monitoring.</p>
+                            </div>
+                        </div>
+
+                        <div class="workflow-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h3>Use specialised tools as needed</h3>
+                                <p>Apply the Risk Evaluation Tool and Quality Metrics Tool at appropriate framework steps to ensure comprehensive risk management and quality assurance throughout your project lifecycle.</p>
+                            </div>
+                        </div>
+
+                        <div class="workflow-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h3>Maintain ongoing compliance</h3>
+                                <p>Use the Compliance Checklist Tool throughout your project lifecycle to track regulatory requirements, governance obligations, and ensure continuous adherence to framework standards.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="downloadable-templates" data-component-theme="portalThemeColorPurple">
+                    <h2>Downloadable assessment templates</h2>
+                    <p>Access standardised templates and forms to support offline assessment work and record-keeping requirements.</p>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="template-card">
+                                <h3>Use case assessment template</h3>
+                                <p>Printable form with all three mandatory tests and comprehensive question sets based on Appendix 4 criteria.</p>
+                                <a href="../../web-files/templates/use-case-assessment-template.html" class="button1" target="_blank">Download Template</a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="template-card">
+                                <h3>Impact assessment template</h3>
+                                <p>Comprehensive form covering all impact considerations including Indigenous data sovereignty requirements from Appendix 5.</p>
+                                <a href="../../web-files/templates/impact-assessment-template.html" class="button1" target="_blank">Download Template</a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="template-card">
+                                <h3>Assessment outcomes form</h3>
+                                <p>Standardised documentation template for recording final assessment decisions and maintaining compliance records.</p>
+                                <a href="assessment-outcomes/AssessmentOutcomes.en-US.webpage.copy.html" class="button1">Access Form</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="assessment-support">
+                    <h2>Assessment support and guidance</h2>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="support-card">
+                                <h3>Getting started</h3>
+                                <p>New to the assessment tools? Start with our step-by-step guide to using assessments effectively.</p>
+                                <a href="../resources/Resources.en-US.webpage.copy.html" class="button1">Getting Started Guide</a>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="support-card">
+                                <h3>Best practices</h3>
+                                <p>Learn from experienced practitioners about common pitfalls and strategies for successful assessments.</p>
+                                <a href="../resources/Resources.en-US.webpage.copy.html" class="button1">Best Practices</a>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="support-card">
+                                <h3>Expert consultation</h3>
+                                <p>Need help with complex assessments? Connect with our network of synthetic data governance experts.</p>
+                                <a href="../about/contact/Contact.en-US.webpage.copy.html" class="button1">Get Expert Help</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="related-tools">
+                    <h2>Related decision support tools</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="tool-card">
+                                <h3><a href="../jurisdiction-mapper/JurisdictionMapper.en-US.webpage.copy.html">Jurisdiction mapper</a></h3>
+                                <p>Identify applicable legal frameworks and compliance requirements for your project context.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="tool-card">
+                                <h3><a href="../legal-pathways-wizard/LegalPathwaysWizard.en-US.webpage.copy.html">Legal pathways wizard</a></h3>
+                                <p>Get step-by-step guidance through complex legal compliance processes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-navigation">
+                    <div class="nav-buttons">
+                        <a href="../decision-support-overview/DecisionSupportOverview.en-US.webpage.copy.html" class="nav-button nav-previous">← Decision Support Tools</a>
+                        <a href="use-case-checklist/UseCaseChecklist.en-US.webpage.copy.html" class="nav-button nav-next">Start with Use Case Assessment →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

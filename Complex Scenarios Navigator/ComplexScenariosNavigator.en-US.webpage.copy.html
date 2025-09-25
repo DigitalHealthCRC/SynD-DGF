@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complex Scenarios Navigator - SynD-DGF</title>
+    <meta name="description" content="Interactive decision tree for navigating complex synthetic health data scenarios that require additional assessment beyond the standard framework.">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="breadcrumb">
+                    <a href="../web-pages/decision-support-overview/DecisionSupportOverview.en-US.webpage.copy.html">Decision Support</a> > <span>Complex Scenarios Navigator</span>
+                </nav>
+
+                <h1>Complex scenarios navigator</h1>
+                
+                <div class="navigator-intro">
+                    <p class="lead">Use this interactive decision tree when your synthetic data project doesn't fit the standard 5-step framework pathway or requires additional assessment.</p>
+                    
+                    <div class="complexity-indicators">
+                        <h2>When your project is "complex"</h2>
+                        <p>Your project requires additional assessment if any of these apply:</p>
+                        <div class="complexity-grid">
+                            <div class="complexity-card">
+                                <h3>Cross-organisational data</h3>
+                                <ul>
+                                    <li>Source data held by multiple organisations</li>
+                                    <li>Data linkage required before synthetic generation</li>
+                                    <li>Shared governance arrangements needed</li>
+                                </ul>
+                            </div>
+                            <div class="complexity-card">
+                                <h3>Third-party involvement</h3>
+                                <ul>
+                                    <li>External synthetic data generation services</li>
+                                    <li>Cloud-based processing platforms</li>
+                                    <li>International service providers</li>
+                                </ul>
+                            </div>
+                            <div class="complexity-card">
+                                <h3>Higher privacy risks</h3>
+                                <ul>
+                                    <li>Re-identification risk above "very low"</li>
+                                    <li>Highly sensitive or rare conditions</li>
+                                    <li>Small population datasets</li>
+                                </ul>
+                            </div>
+                            <div class="complexity-card">
+                                <h3>Special populations</h3>
+                                <ul>
+                                    <li>Indigenous health data</li>
+                                    <li>Vulnerable or marginalised groups</li>
+                                    <li>Children and adolescent data</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="decision-tree">
+                    <h2>Interactive decision tree</h2>
+                    <p>Answer the questions below to determine the appropriate pathway for your complex scenario:</p>
+                    
+                    <div class="tree-container">
+                        <div class="decision-node active" id="start-node">
+                            <div class="node-content">
+                                <h3>Starting assessment</h3>
+                                <p>What type of complexity does your project involve?</p>
+                                <div class="node-options">
+                                    <button class="option-btn" data-target="multi-org">Multiple organisations involved</button>
+                                    <button class="option-btn" data-target="third-party">Third-party service providers</button>
+                                    <button class="option-btn" data-target="high-risk">Higher re-identification risks</button>
+                                    <button class="option-btn" data-target="special-pop">Special populations</button>
+                                    <button class="option-btn" data-target="international">International data sharing</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="decision-node" id="multi-org">
+                            <div class="node-content">
+                                <h3>Multi-organisational scenarios</h3>
+                                <p>Does your project require data from multiple organisations?</p>
+                                <div class="scenario-details">
+                                    <h4>Additional requirements needed:</h4>
+                                    <ul>
+                                        <li>Data sharing agreements between all participating organisations</li>
+                                        <li>Governance framework for shared decision-making</li>
+                                        <li>Clear data custodian responsibilities</li>
+                                        <li>Unified privacy impact assessment</li>
+                                        <li>Cross-jurisdictional legal compliance review</li>
+                                    </ul>
+                                </div>
+                                <div class="node-options">
+                                    <button class="option-btn" data-target="linkage-required">Data linkage required before synthetic generation</button>
+                                    <button class="option-btn" data-target="separate-generation">Separate synthetic generation from each organisation</button>
+                                    <button class="option-btn" data-target="federated-approach">Federated synthetic data generation</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="decision-node" id="linkage-required">
+                            <div class="node-content">
+                                <h3>Data linkage scenario</h3>
+                                <p>Your project requires linking datasets before synthetic data generation.</p>
+                                <div class="critical-requirements">
+                                    <h4>🚨 Critical requirements</h4>
+                                    <ul>
+                                        <li><strong>Legal basis:</strong> Must establish lawful basis for data linkage under privacy laws</li>
+                                        <li><strong>Linkage authority:</strong> May require specialised linkage unit or approved linkage protocols</li>
+                                        <li><strong>Enhanced security:</strong> Secure linkage environment with restricted access</li>
+                                        <li><strong>Data minimisation:</strong> Link only essential fields, remove identifiers after linkage</li>
+                                        <li><strong>Governance oversight:</strong> Independent oversight committee or data linkage authority approval</li>
+                                    </ul>
+                                </div>
+                                <div class="node-options">
+                                    <button class="option-btn" data-target="linkage-pathway">Proceed with linkage pathway assessment</button>
+                                    <button class="option-btn" data-target="alternative-approach">Consider alternative approaches</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="decision-node" id="third-party">
+                            <div class="node-content">
+                                <h3>Third-party service providers</h3>
+                                <p>Your project involves external service providers for synthetic data generation.</p>
+                                <div class="risk-assessment">
+                                    <h4>Additional risk factors to assess:</h4>
+                                    <ul>
+                                        <li><strong>Data location:</strong> Where will source data be processed?</li>
+                                        <li><strong>Provider qualifications:</strong> Technical expertise and security certifications</li>
+                                        <li><strong>Data retention:</strong> How long will provider retain source data and models?</li>
+                                        <li><strong>Subcontractors:</strong> Will provider engage additional parties?</li>
+                                        <li><strong>Incident response:</strong> Provider's data breach and incident procedures</li>
+                                    </ul>
+                                </div>
+                                <div class="node-options">
+                                    <button class="option-btn" data-target="cloud-provider">Cloud-based processing platform</button>
+                                    <button class="option-btn" data-target="specialist-service">Specialist synthetic data service</button>
+                                    <button class="option-btn" data-target="research-collaboration">Research collaboration partner</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="decision-node" id="cloud-provider">
+                            <div class="node-content">
+                                <h3>Cloud-based processing</h3>
+                                <p>Using cloud platforms for synthetic data generation requires enhanced safeguards.</p>
+                                <div class="cloud-requirements">
+                                    <h4>Mandatory requirements:</h4>
+                                    <ul>
+                                        <li><strong>Australian hosting:</strong> Data must remain within Australian jurisdiction</li>
+                                        <li><strong>Encryption:</strong> End-to-end encryption for data in transit and at rest</li>
+                                        <li><strong>Access controls:</strong> Multi-factor authentication and role-based access</li>
+                                        <li><strong>Audit trails:</strong> Comprehensive logging of all data access and processing</li>
+                                        <li><strong>Contractual protections:</strong> Strong data protection clauses and liability provisions</li>
+                                        <li><strong>Regular assessments:</strong> Ongoing security and compliance reviews</li>
+                                    </ul>
+                                </div>
+                                <div class="recommendations">
+                                    <h4>Recommended next steps:</h4>
+                                    <ol>
+                                        <li>Complete cloud security assessment using government frameworks</li>
+                                        <li>Negotiate comprehensive data processing agreement</li>
+                                        <li>Implement enhanced monitoring and assurance procedures</li>
+                                        <li>Establish incident response and data breach protocols</li>
+                                        <li>Consider additional insurance and liability coverage</li>
+                                    </ol>
+                                </div>
+                                <div class="node-options">
+                                    <button class="option-btn" data-target="proceed-cloud">Proceed with cloud processing</button>
+                                    <button class="option-btn" data-target="on-premises">Consider on-premises alternatives</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="decision-node" id="high-risk">
+                            <div class="node-content">
+                                <h3>Higher re-identification risks</h3>
+                                <p>Your project has re-identification risks assessed as more than "very low".</p>
+                                <div class="risk-mitigation">
+                                    <h4>⚠️ Project must be paused</h4>
+                                    <p>Projects with higher than very low re-identification risk cannot proceed without additional safeguards.</p>
+                                    
+                                    <h4>Required actions:</h4>
+                                    <ul>
+                                        <li><strong>Enhanced de-identification:</strong> Apply stronger privacy-preserving techniques</li>
+                                        <li><strong>Legal pathway determination:</strong> Establish lawful basis for higher-risk data processing</li>
+                                        <li><strong>Additional safeguards:</strong> Implement enhanced security and access controls</li>
+                                        <li><strong>Ongoing monitoring:</strong> More frequent risk reassessment and monitoring</li>
+                                        <li><strong>Stakeholder consultation:</strong> Engage with privacy regulators and community representatives</li>
+                                    </ul>
+                                </div>
+                                <div class="node-options">
+                                    <button class="option-btn" data-target="risk-mitigation">Access risk mitigation strategies</button>
+                                    <button class="option-btn" data-target="legal-pathways">Explore legal pathways</button>
+                                    <button class="option-btn" data-target="alternative-methods">Consider alternative methods</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="decision-node" id="special-pop">
+                            <div class="node-content">
+                                <h3>Special populations</h3>
+                                <p>Your project involves data about Indigenous peoples or other special populations.</p>
+                                <div class="special-considerations">
+                                    <h4>Indigenous data sovereignty requirements:</h4>
+                                    <ul>
+                                        <li><strong>Community consultation:</strong> Engage with relevant Aboriginal Community Controlled Health Organisations</li>
+                                        <li><strong>Cultural protocols:</strong> Follow established Indigenous data governance frameworks</li>
+                                        <li><strong>Community benefit:</strong> Demonstrate clear benefit to Indigenous communities</li>
+                                        <li><strong>Data ownership:</strong> Respect Indigenous peoples' rights to control data about their communities</li>
+                                        <li><strong>Ethical oversight:</strong> Additional ethics review by appropriate Indigenous ethics committees</li>
+                                    </ul>
+                                    
+                                    <h4>Other vulnerable populations:</h4>
+                                    <ul>
+                                        <li>Enhanced consent and consultation requirements</li>
+                                        <li>Additional safeguards against discrimination and stigmatisation</li>
+                                        <li>Community advocacy group engagement</li>
+                                        <li>Specialised ethics committee review</li>
+                                    </ul>
+                                </div>
+                                <div class="node-options">
+                                    <button class="option-btn" data-target="indigenous-pathway">Indigenous data governance pathway</button>
+                                    <button class="option-btn" data-target="vulnerable-groups">Other vulnerable populations pathway</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="decision-node" id="indigenous-pathway">
+                            <div class="node-content">
+                                <h3>Indigenous data governance pathway</h3>
+                                <p>Specific requirements for projects involving Aboriginal and Torres Strait Islander health data.</p>
+                                <div class="indigenous-requirements">
+                                    <h4>Mandatory consultation and approval steps:</h4>
+                                    <ol>
+                                        <li><strong>Community engagement:</strong> Early consultation with affected Indigenous communities</li>
+                                        <li><strong>ACCHO involvement:</strong> Engagement with relevant Aboriginal Community Controlled Health Organisations</li>
+                                        <li><strong>Cultural review:</strong> Assessment by Indigenous data governance experts</li>
+                                        <li><strong>Ethics approval:</strong> Review by Indigenous-specific ethics committee or advisory group</li>
+                                        <li><strong>Data sharing protocols:</strong> Agreement on appropriate data sharing and use limitations</li>
+                                        <li><strong>Community benefit sharing:</strong> Clear plans for sharing research benefits with communities</li>
+                                    </ol>
+                                    
+                                    <h4>Key frameworks to follow:</h4>
+                                    <ul>
+                                        <li>NHMRC Ethical Conduct in Research with Aboriginal and Torres Strait Islander Peoples and Communities</li>
+                                        <li>Australian Institute of Aboriginal and Torres Strait Islander Studies (AIATSIS) Guidelines</li>
+                                        <li>Maiam nayri Wingara Indigenous Data Sovereignty Collective principles</li>
+                                        <li>Relevant state and territory Indigenous data protocols</li>
+                                    </ul>
+                                </div>
+                                <div class="pathway-completion">
+                                    <h4>✅ Completion requirements</h4>
+                                    <p>Before proceeding, ensure all consultation and approval steps are completed and documented.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="decision-node" id="international">
+                            <div class="node-content">
+                                <h3>International data sharing</h3>
+                                <p>Your project involves sharing synthetic data with international partners or organisations.</p>
+                                <div class="international-requirements">
+                                    <h4>Additional legal and regulatory considerations:</h4>
+                                    <ul>
+                                        <li><strong>Cross-border restrictions:</strong> Australian privacy laws generally restrict international data transfers</li>
+                                        <li><strong>Adequacy assessments:</strong> Evaluate privacy protections in destination countries</li>
+                                        <li><strong>Treaty obligations:</strong> Consider any relevant international agreements or treaties</li>
+                                        <li><strong>Foreign law compliance:</strong> Ensure compliance with destination country privacy laws</li>
+                                        <li><strong>Enhanced safeguards:</strong> Additional contractual and technical protections may be required</li>
+                                    </ul>
+                                    
+                                    <h4>Recommended approach:</h4>
+                                    <ol>
+                                        <li>Conduct detailed legal analysis of cross-border transfer requirements</li>
+                                        <li>Assess privacy protections in destination country</li>
+                                        <li>Implement enhanced contractual safeguards</li>
+                                        <li>Consider additional technical protections (e.g., stronger de-identification)</li>
+                                        <li>Establish ongoing monitoring and compliance procedures</li>
+                                    </ol>
+                                </div>
+                                <div class="node-options">
+                                    <button class="option-btn" data-target="adequacy-countries">Adequate privacy protection countries</button>
+                                    <button class="option-btn" data-target="enhanced-safeguards">Enhanced safeguards required</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pathway-summary">
+                    <h2>Your pathway summary</h2>
+                    <div id="pathway-results" class="pathway-results">
+                        <p>Complete the decision tree above to receive personalised guidance for your complex scenario.</p>
+                    </div>
+                </div>
+
+                <div class="additional-resources">
+                    <h2>Additional resources</h2>
+                    <div class="resource-grid">
+                        <div class="resource-card">
+                            <h3>Legal pathways wizard</h3>
+                            <p>Detailed guidance on establishing lawful basis for complex synthetic data projects.</p>
+                            <a href="/decision-support/legal-pathways" class="button1">Access Wizard</a>
+                        </div>
+                        <div class="resource-card">
+                            <h3>Risk mitigation planner</h3>
+                            <p>Systematic approach to implementing risk mitigation strategies for higher-risk scenarios.</p>
+                            <a href="/decision-support/risk-mitigation" class="button1">Access Planner</a>
+                        </div>
+                        <div class="resource-card">
+                            <h3>Framework appendices</h3>
+                            <p>Detailed technical guidance and checklists for all aspects of synthetic data governance.</p>
+                            <a href="/resources/appendices" class="button1">View Appendices</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="navigation-links">
+                    <div class="nav-buttons">
+                        <a href="../web-pages/decision-support-overview/DecisionSupportOverview.en-US.webpage.copy.html" class="nav-button nav-previous">← Decision Support Overview</a>
+                        <a href="/decision-support/legal-pathways" class="nav-button nav-next">Legal Pathways Wizard →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

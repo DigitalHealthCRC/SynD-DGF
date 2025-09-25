@@ -1,0 +1,731 @@
+<!-- Related Resources Section Component -->
+<section class="related-resources-section" aria-label="Related resources">
+  <div class="related-resources-container">
+
+    <div class="section-header">
+      <h3 class="section-title">
+        <span class="title-icon">📚</span>
+        Related resources
+      </h3>
+      <p class="section-description">Discover additional resources relevant to this content</p>
+    </div>
+
+    <!-- Quick Access Resources -->
+    <div class="resource-category quick-access" id="quick-access-resources">
+      <div class="category-header">
+        <span class="category-icon">⚡</span>
+        <h4 class="category-title">Quick access</h4>
+      </div>
+      <div class="resource-grid" id="quick-access-grid">
+        <!-- Dynamic content -->
+      </div>
+    </div>
+
+    <!-- Documentation Resources -->
+    <div class="resource-category documentation" id="documentation-resources">
+      <div class="category-header">
+        <span class="category-icon">📄</span>
+        <h4 class="category-title">Documentation</h4>
+      </div>
+      <div class="resource-grid" id="documentation-grid">
+        <!-- Dynamic content -->
+      </div>
+    </div>
+
+    <!-- Assessment Resources -->
+    <div class="resource-category assessment" id="assessment-resources">
+      <div class="category-header">
+        <span class="category-icon">📋</span>
+        <h4 class="category-title">Assessment tools</h4>
+      </div>
+      <div class="resource-grid" id="assessment-grid">
+        <!-- Dynamic content -->
+      </div>
+    </div>
+
+    <!-- Legal & Compliance Resources -->
+    <div class="resource-category legal" id="legal-resources">
+      <div class="category-header">
+        <span class="category-icon">⚖️</span>
+        <h4 class="category-title">Legal & compliance</h4>
+      </div>
+      <div class="resource-grid" id="legal-grid">
+        <!-- Dynamic content -->
+      </div>
+    </div>
+
+    <!-- Technical Resources -->
+    <div class="resource-category technical" id="technical-resources">
+      <div class="category-header">
+        <span class="category-icon">🔧</span>
+        <h4 class="category-title">Technical guidance</h4>
+      </div>
+      <div class="resource-grid" id="technical-grid">
+        <!-- Dynamic content -->
+      </div>
+    </div>
+
+    <!-- View All Resources Link -->
+    <div class="view-all-section">
+      <a href="/web-pages/resources/Resources.en-US.webpage.copy.html" class="view-all-link">
+        <span class="link-icon">🗂️</span>
+        <span class="link-text">View all resources</span>
+        <span class="link-arrow">→</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const currentPath = window.location.pathname;
+
+    // Resource database organized by category and relevance
+    const resourceDatabase = {
+        // Quick access resources (always relevant)
+        quickAccess: [
+            {
+                title: 'Framework overview',
+                url: '/web-pages/framework-overview/FrameworkOverview.en-US.webpage.copy.html',
+                description: 'Complete framework process guide',
+                tags: ['framework', 'overview', 'process'],
+                relevance: 'high'
+            },
+            {
+                title: 'Glossary',
+                url: '/web-pages/resources/appendices/glossary/Glossary.en-US.webpage.copy.html',
+                description: 'Key terminology and definitions',
+                tags: ['glossary', 'definitions', 'terminology'],
+                relevance: 'high'
+            },
+            {
+                title: 'Assessment tools overview',
+                url: '/web-pages/assessment-tools/AssessmentTools.en-US.webpage.copy.html',
+                description: 'Interactive assessment tools',
+                tags: ['assessment', 'tools', 'interactive'],
+                relevance: 'high'
+            }
+        ],
+
+        // Documentation resources
+        documentation: [
+            {
+                title: 'About synthetic data',
+                url: '/web-pages/resources/appendices/about-synthetic-data/AboutSyntheticData.en-US.webpage.copy.html',
+                description: 'Foundation concepts and principles',
+                tags: ['synthetic-data', 'concepts', 'foundation'],
+                relevance: { '/framework-overview': 'high', '/step-1': 'high' }
+            },
+            {
+                title: 'Policy & legal framework',
+                url: '/web-pages/resources/appendices/policy-legal-framework/PolicyLegalFramework.en-US.webpage.copy.html',
+                description: 'Legal foundations and compliance',
+                tags: ['policy', 'legal', 'compliance', 'framework'],
+                relevance: { '/step-1': 'high', '/step-4': 'medium', '/step-5': 'high' }
+            },
+            {
+                title: 'Use case assessment criteria',
+                url: '/web-pages/resources/appendices/use-case-assessment/UseCaseAssessment.en-US.webpage.copy.html',
+                description: 'Detailed assessment methodology',
+                tags: ['use-case', 'assessment', 'criteria', 'methodology'],
+                relevance: { '/step-1': 'high', '/assessment-tools': 'high' }
+            },
+            {
+                title: 'Impact assessment framework',
+                url: '/web-pages/resources/appendices/impact-assessment/ImpactAssessment.en-US.webpage.copy.html',
+                description: 'Privacy, ethical, and social impact evaluation',
+                tags: ['impact', 'privacy', 'ethics', 'assessment'],
+                relevance: { '/step-1': 'high', '/step-4': 'medium' }
+            },
+            {
+                title: 'Technical assessment criteria',
+                url: '/web-pages/resources/appendices/technical-assessment/TechnicalAssessment.en-US.webpage.copy.html',
+                description: 'Quality frameworks and validation',
+                tags: ['technical', 'quality', 'validation', 'criteria'],
+                relevance: { '/step-2': 'high', '/step-3': 'high' }
+            },
+            {
+                title: 'De-identification techniques',
+                url: '/web-pages/resources/appendices/deidentification-techniques/DeidentificationTechniques.en-US.webpage.copy.html',
+                description: 'Privacy-preserving methods guide',
+                tags: ['deidentification', 'privacy', 'techniques', 'methods'],
+                relevance: { '/step-2': 'high', '/step-3': 'high', '/step-4': 'high' }
+            },
+            {
+                title: 'Safety assessment protocols',
+                url: '/web-pages/resources/appendices/safety-assessment/SafetyAssessment.en-US.webpage.copy.html',
+                description: 'Safety and risk assessment procedures',
+                tags: ['safety', 'risk', 'protocols', 'procedures'],
+                relevance: { '/step-2': 'medium', '/step-4': 'high', '/step-5': 'high' }
+            },
+            {
+                title: 'Assessment outcomes documentation',
+                url: '/web-pages/resources/appendices/assessment-outcomes/AssessmentOutcomes.en-US.webpage.copy.html',
+                description: 'Standardised forms and audit trails',
+                tags: ['outcomes', 'documentation', 'forms', 'audit'],
+                relevance: { '/step-5': 'high', '/assessment-tools': 'medium' }
+            }
+        ],
+
+        // Assessment tools
+        assessment: [
+            {
+                title: 'Use case assessment tool',
+                url: '/web-pages/assessment-tools/use-case-assessment-tool/UseCaseAssessmentTool.en-US.webpage.copy.html',
+                description: 'Interactive use case evaluation',
+                tags: ['tool', 'use-case', 'assessment', 'interactive'],
+                relevance: { '/step-1': 'high', '/framework-overview': 'medium' }
+            },
+            {
+                title: 'Impact assessment tool',
+                url: '/web-pages/assessment-tools/impact-assessment/ImpactAssessment.en-US.webpage.copy.html',
+                description: 'Privacy and ethical impact evaluation',
+                tags: ['tool', 'impact', 'privacy', 'ethics'],
+                relevance: { '/step-1': 'high', '/step-4': 'medium' }
+            },
+            {
+                title: 'Risk evaluation tool',
+                url: '/web-pages/assessment-tools/risk-evaluation-tool/RiskEvaluationTool.en-US.webpage.copy.html',
+                description: 'Comprehensive risk assessment',
+                tags: ['tool', 'risk', 'evaluation', 'assessment'],
+                relevance: { '/step-2': 'medium', '/step-4': 'high', '/step-5': 'medium' }
+            },
+            {
+                title: 'Quality metrics tool',
+                url: '/web-pages/assessment-tools/quality-metrics-tool/QualityMetricsTool.en-US.webpage.copy.html',
+                description: 'Data quality evaluation',
+                tags: ['tool', 'quality', 'metrics', 'data'],
+                relevance: { '/step-2': 'high', '/step-3': 'high' }
+            },
+            {
+                title: 'Compliance checklist tool',
+                url: '/web-pages/assessment-tools/compliance-checklist-tool/ComplianceChecklistTool.en-US.webpage.copy.html',
+                description: 'Regulatory compliance verification',
+                tags: ['tool', 'compliance', 'checklist', 'regulatory'],
+                relevance: { '/step-4': 'high', '/step-5': 'high' }
+            }
+        ],
+
+        // Legal & compliance resources
+        legal: [
+            {
+                title: 'Lawful pathways guide',
+                url: '/web-pages/resources/appendices/lawful-pathways/LawfulPathways.en-US.webpage.copy.html',
+                description: 'Legal pathway guidance for data sharing',
+                tags: ['legal', 'pathways', 'data-sharing', 'guidance'],
+                relevance: { '/step-1': 'high', '/decision-support': 'high' }
+            },
+            {
+                title: 'Privacy obligations matrix',
+                url: '/web-pages/resources/appendices/privacy-obligations/PrivacyObligations.en-US.webpage.copy.html',
+                description: 'Jurisdiction-specific requirements',
+                tags: ['privacy', 'obligations', 'jurisdiction', 'requirements'],
+                relevance: { '/step-4': 'high', '/step-5': 'high' }
+            },
+            {
+                title: 'Legal pathways wizard',
+                url: '/web-pages/legal-pathways-wizard/LegalPathwaysWizard.en-US.webpage.copy.html',
+                description: 'Interactive legal pathway selection',
+                tags: ['wizard', 'legal', 'pathways', 'interactive'],
+                relevance: { '/step-1': 'medium', '/decision-support': 'high' }
+            },
+            {
+                title: 'Jurisdiction mapper',
+                url: '/web-pages/jurisdiction-mapper/JurisdictionMapper.en-US.webpage.copy.html',
+                description: 'Map privacy obligations by jurisdiction',
+                tags: ['jurisdiction', 'mapping', 'privacy', 'obligations'],
+                relevance: { '/step-1': 'medium', '/step-5': 'medium' }
+            }
+        ],
+
+        // Technical guidance
+        technical: [
+            {
+                title: 'Technical assessment criteria',
+                url: '/web-pages/resources/appendices/technical-assessment/TechnicalAssessment.en-US.webpage.copy.html',
+                description: 'Technical evaluation and quality frameworks',
+                tags: ['technical', 'assessment', 'quality', 'frameworks'],
+                relevance: { '/step-2': 'high', '/step-3': 'high' }
+            },
+            {
+                title: 'De-identification techniques',
+                url: '/web-pages/resources/appendices/deidentification-techniques/DeidentificationTechniques.en-US.webpage.copy.html',
+                description: 'Privacy-preserving data methods',
+                tags: ['deidentification', 'privacy', 'technical', 'methods'],
+                relevance: { '/step-2': 'high', '/step-3': 'high', '/step-4': 'medium' }
+            },
+            {
+                title: 'Quality metrics tool',
+                url: '/web-pages/assessment-tools/quality-metrics-tool/QualityMetricsTool.en-US.webpage.copy.html',
+                description: 'Technical quality measurement',
+                tags: ['quality', 'metrics', 'technical', 'measurement'],
+                relevance: { '/step-2': 'high', '/step-3': 'high' }
+            },
+            {
+                title: 'Risk mitigation planner',
+                url: '/web-pages/risk-mitigation-planner/RiskMitigationPlanner.en-US.webpage.copy.html',
+                description: 'Technical risk mitigation strategies',
+                tags: ['risk', 'mitigation', 'technical', 'strategies'],
+                relevance: { '/step-4': 'medium', '/step-5': 'high' }
+            }
+        ]
+    };
+
+    // Page context mapping for enhanced relevance
+    const pageContext = {
+        '/framework-overview': {
+            primaryCategory: 'quickAccess',
+            secondaryCategories: ['documentation', 'assessment'],
+            tags: ['framework', 'overview', 'process']
+        },
+        '/step-1-use-case-assessment': {
+            primaryCategory: 'assessment',
+            secondaryCategories: ['documentation', 'legal'],
+            tags: ['use-case', 'assessment', 'step-1']
+        },
+        '/step-2-assess-source-data': {
+            primaryCategory: 'technical',
+            secondaryCategories: ['assessment', 'documentation'],
+            tags: ['source-data', 'technical', 'step-2']
+        },
+        '/step-3-generate-synthetic-data': {
+            primaryCategory: 'technical',
+            secondaryCategories: ['assessment', 'documentation'],
+            tags: ['generation', 'technical', 'step-3']
+        },
+        '/step-4-assess-reidentification-risks': {
+            primaryCategory: 'assessment',
+            secondaryCategories: ['legal', 'technical'],
+            tags: ['reidentification', 'risk', 'step-4']
+        },
+        '/step-5-manage-residual-risks': {
+            primaryCategory: 'legal',
+            secondaryCategories: ['assessment', 'technical'],
+            tags: ['residual-risks', 'management', 'step-5']
+        },
+        '/assessment-tools': {
+            primaryCategory: 'assessment',
+            secondaryCategories: ['documentation', 'technical'],
+            tags: ['tools', 'assessment', 'interactive']
+        },
+        '/decision-support-overview': {
+            primaryCategory: 'legal',
+            secondaryCategories: ['assessment', 'documentation'],
+            tags: ['decision-support', 'legal', 'guidance']
+        }
+    };
+
+    function initializeRelatedResources() {
+        const context = pageContext[currentPath] || getDefaultContext();
+
+        populateResourceCategory('quick-access-grid', resourceDatabase.quickAccess, context, 3);
+        populateResourceCategory('documentation-grid', resourceDatabase.documentation, context, 4);
+        populateResourceCategory('assessment-grid', resourceDatabase.assessment, context, 3);
+        populateResourceCategory('legal-grid', resourceDatabase.legal, context, 3);
+        populateResourceCategory('technical-grid', resourceDatabase.technical, context, 3);
+
+        hideEmptyCategories();
+    }
+
+    function populateResourceCategory(gridId, resources, context, maxItems) {
+        const grid = document.getElementById(gridId);
+        if (!grid) return;
+
+        // Filter and score resources by relevance
+        const scoredResources = resources
+            .map(resource => ({
+                ...resource,
+                score: calculateRelevanceScore(resource, context)
+            }))
+            .filter(resource => resource.score > 0)
+            .sort((a, b) => b.score - a.score)
+            .slice(0, maxItems);
+
+        if (scoredResources.length === 0) {
+            grid.parentElement.style.display = 'none';
+            return;
+        }
+
+        grid.innerHTML = '';
+        scoredResources.forEach(resource => {
+            const resourceElement = createResourceCard(resource);
+            grid.appendChild(resourceElement);
+        });
+    }
+
+    function calculateRelevanceScore(resource, context) {
+        let score = 0;
+
+        // Base relevance from resource definition
+        if (resource.relevance) {
+            if (typeof resource.relevance === 'string') {
+                score += resource.relevance === 'high' ? 3 : resource.relevance === 'medium' ? 2 : 1;
+            } else if (resource.relevance[currentPath]) {
+                const relevance = resource.relevance[currentPath];
+                score += relevance === 'high' ? 3 : relevance === 'medium' ? 2 : 1;
+            }
+        }
+
+        // Tag matching bonus
+        if (resource.tags && context.tags) {
+            const matchingTags = resource.tags.filter(tag =>
+                context.tags.some(contextTag =>
+                    tag.includes(contextTag) || contextTag.includes(tag)
+                )
+            );
+            score += matchingTags.length * 0.5;
+        }
+
+        // Category priority bonus
+        const categoryKey = Object.keys(resourceDatabase).find(key =>
+            resourceDatabase[key].includes(resource)
+        );
+        if (categoryKey === context.primaryCategory) {
+            score += 2;
+        } else if (context.secondaryCategories?.includes(categoryKey)) {
+            score += 1;
+        }
+
+        return score;
+    }
+
+    function createResourceCard(resource) {
+        const card = document.createElement('div');
+        card.className = 'resource-card';
+
+        card.innerHTML = `
+            <a href="${resource.url}" class="resource-link">
+                <div class="resource-content">
+                    <h5 class="resource-title">${resource.title}</h5>
+                    <p class="resource-description">${resource.description}</p>
+                    <div class="resource-tags">
+                        ${resource.tags.slice(0, 3).map(tag =>
+                            `<span class="resource-tag">${tag}</span>`
+                        ).join('')}
+                    </div>
+                </div>
+                <div class="resource-arrow">→</div>
+            </a>
+        `;
+
+        return card;
+    }
+
+    function getDefaultContext() {
+        return {
+            primaryCategory: 'quickAccess',
+            secondaryCategories: ['documentation'],
+            tags: ['general']
+        };
+    }
+
+    function hideEmptyCategories() {
+        const categories = document.querySelectorAll('.resource-category');
+        categories.forEach(category => {
+            const grid = category.querySelector('.resource-grid');
+            if (!grid || grid.children.length === 0) {
+                category.style.display = 'none';
+            }
+        });
+    }
+
+    // Initialize on page load
+    initializeRelatedResources();
+});
+</script>
+
+<style>
+.related-resources-section {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 30px;
+    margin: 40px 0;
+    border: 1px solid #e0e0e0;
+}
+
+.related-resources-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #495057;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.title-icon {
+    font-size: 1.8rem;
+}
+
+.section-description {
+    color: #6c757d;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.resource-category {
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.resource-category:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.category-icon {
+    font-size: 1.3rem;
+}
+
+.category-title {
+    color: #495057;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+}
+
+.resource-card {
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.resource-card:hover {
+    border-color: #007bff;
+    box-shadow: 0 3px 12px rgba(0,123,255,0.15);
+    transform: translateY(-2px);
+}
+
+.resource-link {
+    display: flex;
+    align-items: center;
+    padding: 18px;
+    color: #495057;
+    text-decoration: none;
+    height: 100%;
+}
+
+.resource-link:hover {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.resource-content {
+    flex-grow: 1;
+}
+
+.resource-title {
+    color: #212529;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.resource-description {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.resource-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.resource-tag {
+    background: #e9ecef;
+    color: #495057;
+    font-size: 0.75rem;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+.resource-arrow {
+    color: #007bff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-left: 15px;
+    transition: transform 0.3s ease;
+}
+
+.resource-link:hover .resource-arrow {
+    transform: translateX(3px);
+}
+
+.resource-link:hover .resource-title {
+    color: #007bff;
+}
+
+.view-all-section {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 2px solid #e0e0e0;
+}
+
+.view-all-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #007bff;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.view-all-link:hover {
+    background: #0056b3;
+    color: white;
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+.link-icon {
+    font-size: 1.1rem;
+}
+
+.link-arrow {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.view-all-link:hover .link-arrow {
+    transform: translateX(3px);
+}
+
+/* Category-specific styling */
+.resource-category.quick-access {
+    border-left: 4px solid #28a745;
+}
+
+.resource-category.documentation {
+    border-left: 4px solid #007bff;
+}
+
+.resource-category.assessment {
+    border-left: 4px solid #ffc107;
+}
+
+.resource-category.legal {
+    border-left: 4px solid #dc3545;
+}
+
+.resource-category.technical {
+    border-left: 4px solid #6c757d;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .related-resources-section {
+        padding: 20px;
+        margin: 30px 0;
+    }
+
+    .resource-category {
+        padding: 20px;
+    }
+
+    .resource-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 1.3rem;
+    }
+
+    .category-title {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .resource-link {
+        padding: 15px;
+    }
+
+    .resource-title {
+        font-size: 0.95rem;
+    }
+
+    .resource-description {
+        font-size: 0.85rem;
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    .resource-card,
+    .resource-arrow,
+    .view-all-link {
+        transition: none;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .resource-card {
+        border-width: 2px;
+    }
+
+    .resource-link:focus {
+        outline: 3px solid currentColor;
+        outline-offset: 2px;
+    }
+}
+
+/* Print styles */
+@media print {
+    .related-resources-section {
+        background: white;
+        box-shadow: none;
+    }
+
+    .resource-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    .view-all-section {
+        display: none;
+    }
+}
+</style>

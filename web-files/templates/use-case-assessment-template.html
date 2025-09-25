@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Use Case Assessment Template - SynD-DGF</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            color: #333;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #004d9f;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .test-section {
+            margin-bottom: 30px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            page-break-inside: avoid;
+        }
+        .test-header {
+            background: #f8f9fa;
+            padding: 10px;
+            margin: -20px -20px 20px -20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .answer-space {
+            border: 1px solid #ccc;
+            min-height: 60px;
+            padding: 10px;
+            margin-top: 5px;
+        }
+        .checkbox-option {
+            margin: 5px 0;
+        }
+        .result-box {
+            border: 2px solid #004d9f;
+            padding: 15px;
+            margin-top: 20px;
+            background: #f0f8ff;
+        }
+        @media print {
+            body { margin: 0; }
+            .test-section { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>SynD-DGF Use Case Assessment Template</h1>
+        <p><strong>Synthetic Health Data Governance Framework</strong></p>
+        <p>Assessment Date: __________________ &nbsp;&nbsp;&nbsp; Assessor: __________________</p>
+    </div>
+
+    <div class="project-details">
+        <h2>Project Information</h2>
+        <p><strong>Project Title:</strong> _________________________________________________</p>
+        <p><strong>Organisation:</strong> _________________________________________________</p>
+        <p><strong>Accountable Decision-Maker:</strong> _________________________________________________</p>
+        <p><strong>Contact Details:</strong> _________________________________________________</p>
+    </div>
+
+    <div class="test-section">
+        <div class="test-header">
+            <h2>Test 1: Clear 'Public Benefit' Purpose</h2>
+            <p><strong>Requirement:</strong> The use case is for a clear 'public benefit' purpose related to providing health services, and where the expected benefits from the use case are related to consumer health or health system outcomes.</p>
+        </div>
+
+        <div class="question">
+            <h3>1.1 Primary Purpose of Project</h3>
+            <p>What is the main purpose of your synthetic data project? (Check all that apply)</p>
+            <div class="checkbox-option">☐ Research-related activities for public benefit purpose</div>
+            <div class="checkbox-option">☐ Healthcare system management, planning and funding activities</div>
+            <div class="checkbox-option">☐ Education and training activities for beneficial purposes</div>
+            <div class="checkbox-option">☐ Healthcare technology development for public benefit</div>
+            <div class="checkbox-option">☐ Other (specify): _________________________________</div>
+        </div>
+
+        <div class="question">
+            <h3>1.2 Public Benefit Description</h3>
+            <p>Describe how your project's outcomes will directly benefit consumer health or the health system:</p>
+            <div class="answer-space"></div>
+        </div>
+
+        <div class="question">
+            <h3>1.3 Target Beneficiaries</h3>
+            <p>Who will benefit from this project? (Check all that apply)</p>
+            <div class="checkbox-option">☐ Patients and health consumers</div>
+            <div class="checkbox-option">☐ Healthcare providers and clinicians</div>
+            <div class="checkbox-option">☐ Health organisations and systems</div>
+            <div class="checkbox-option">☐ Researchers and academic community</div>
+            <div class="checkbox-option">☐ Policymakers and health authorities</div>
+            <div class="checkbox-option">☐ Broader community or population</div>
+        </div>
+
+        <div class="result-box">
+            <h3>Test 1 Assessment Result</h3>
+            <p>☐ <strong>PASS</strong> - Clear public benefit purpose established</p>
+            <p>☐ <strong>FAIL</strong> - Public benefit purpose unclear or insufficient</p>
+            <p><strong>Rationale:</strong></p>
+            <div class="answer-space"></div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <div class="test-header">
+            <h2>Test 2: De-identified Dataset Objective</h2>
+            <p><strong>Requirement:</strong> The stated aim for creating and managing the synthetic dataset is to achieve a 'de-identified' dataset for the use case, that significantly minimises the risk to individuals compared to if the source dataset (i.e. real data) was used for the use case.</p>
+        </div>
+
+        <div class="question">
+            <h3>2.1 De-identification Objective</h3>
+            <p>Is your primary aim to create a de-identified dataset that significantly reduces privacy risks compared to using real data?</p>
+            <p>☐ Yes, de-identification is the primary objective</p>
+            <p>☐ No, other objectives take priority</p>
+            <p>☐ Partially, but other factors are equally important</p>
+        </div>
+
+        <div class="question">
+            <h3>2.2 Risk Reduction Methods</h3>
+            <p>How will synthetic data significantly reduce risks compared to using the source dataset? (Check all that apply)</p>
+            <div class="checkbox-option">☐ Eliminates direct individual records from analysis</div>
+            <div class="checkbox-option">☐ Introduces statistical noise to prevent exact matching</div>
+            <div class="checkbox-option">☐ Uses privacy-preserving generation techniques</div>
+            <div class="checkbox-option">☐ Preserves only aggregate patterns, not individual details</div>
+            <div class="checkbox-option">☐ Enables controlled access without exposing source data</div>
+            <div class="checkbox-option">☐ Other: _________________________________</div>
+        </div>
+
+        <div class="question">
+            <h3>2.3 Risk Comparison</h3>
+            <p>Provide a detailed explanation of how synthetic data reduces individual privacy risks compared to using real data for your specific use case:</p>
+            <div class="answer-space"></div>
+        </div>
+
+        <div class="result-box">
+            <h3>Test 2 Assessment Result</h3>
+            <p>☐ <strong>PASS</strong> - Synthetic data objective clearly focused on de-identification and risk reduction</p>
+            <p>☐ <strong>FAIL</strong> - De-identification is not the primary objective or risks are not significantly reduced</p>
+            <p><strong>Rationale:</strong></p>
+            <div class="answer-space"></div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <div class="test-header">
+            <h2>Test 3: Community Expectations and Notification</h2>
+            <p><strong>Requirement:</strong> The organisation that collected and holds the source data has set expectations with health consumers about how their health information will be used through suitable public messaging.</p>
+        </div>
+
+        <div class="question">
+            <h3>3.1 Public Messaging About Data Use</h3>
+            <p>Has the data custodian organisation communicated publicly about how health information will be used?</p>
+            <p>☐ Yes, public messaging has been provided</p>
+            <p>☐ No, no public messaging has been provided</p>
+            <p>☐ No, but public messaging is planned before synthetic data generation</p>
+        </div>
+
+        <div class="question">
+            <h3>3.2 Communication Methods</h3>
+            <p>How has the data custodian (or will they) communicate about data use? (Check all that apply)</p>
+            <div class="checkbox-option">☐ Organisation website or public announcements</div>
+            <div class="checkbox-option">☐ Privacy policy or collection notices</div>
+            <div class="checkbox-option">☐ Patient information materials</div>
+            <div class="checkbox-option">☐ Media releases or news articles</div>
+            <div class="checkbox-option">☐ Direct communication with key stakeholders</div>
+            <div class="checkbox-option">☐ Community consultation sessions</div>
+            <div class="checkbox-option">☐ Other: _________________________________</div>
+        </div>
+
+        <div class="question">
+            <h3>3.3 Content of Public Messaging</h3>
+            <p>Does the public messaging include: (Check all that have been or will be addressed)</p>
+            <div class="checkbox-option">☐ Clear explanation of what synthetic data is and how it protects privacy</div>
+            <div class="checkbox-option">☐ Information about how health data will be used for research and analysis</div>
+            <div class="checkbox-option">☐ Description of public benefit purposes</div>
+            <div class="checkbox-option">☐ Assurances about privacy protection measures</div>
+            <div class="checkbox-option">☐ Opportunities for community feedback on data governance</div>
+            <div class="checkbox-option">☐ Information about opt-out or objection processes where applicable</div>
+        </div>
+
+        <div class="question">
+            <h3>3.4 Consumer Expectations Alignment</h3>
+            <p>Describe how the proposed synthetic data use aligns with reasonable consumer expectations about health data use:</p>
+            <div class="answer-space"></div>
+        </div>
+
+        <div class="result-box">
+            <h3>Test 3 Assessment Result</h3>
+            <p>☐ <strong>PASS</strong> - Adequate public messaging about data use has been provided and consumer expectations are met</p>
+            <p>☐ <strong>FAIL</strong> - Public messaging is insufficient or does not align with consumer expectations</p>
+            <p><strong>Rationale:</strong></p>
+            <div class="answer-space"></div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <div class="test-header">
+            <h2>Overall Assessment Result</h2>
+        </div>
+
+        <div class="result-box">
+            <h3>Final Use Case Assessment Outcome</h3>
+            <p>☐ <strong>PASS</strong> - All three tests satisfied, project may proceed to Step 2</p>
+            <p>☐ <strong>FAIL</strong> - One or more tests not satisfied, alternative lawful privacy pathway required</p>
+
+            <p><strong>Overall Assessment Rationale:</strong></p>
+            <div class="answer-space"></div>
+
+            <p><strong>Next Steps:</strong></p>
+            <div class="answer-space"></div>
+
+            <p><strong>Decision-Maker Signature:</strong> _________________________ &nbsp;&nbsp;&nbsp; <strong>Date:</strong> _____________</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p><small>SynD-DGF Use Case Assessment Template v1.0 | Digital Health CRC</small></p>
+    </div>
+</body>
+</html>

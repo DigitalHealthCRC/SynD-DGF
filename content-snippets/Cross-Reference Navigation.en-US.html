@@ -1,0 +1,531 @@
+<!-- Cross-Reference Navigation Component -->
+<nav class="cross-reference-nav" aria-label="Cross-reference navigation">
+  <div class="cross-ref-container">
+
+    <!-- Related Appendices Section -->
+    <div class="cross-ref-section appendices-section" id="related-appendices">
+      <div class="section-header">
+        <span class="section-icon">📚</span>
+        <h4 class="section-title">Related appendices</h4>
+      </div>
+      <div class="cross-ref-items" id="appendices-list">
+        <!-- Dynamic content will be inserted here -->
+      </div>
+    </div>
+
+    <!-- Assessment Tools Section -->
+    <div class="cross-ref-section tools-section" id="related-tools">
+      <div class="section-header">
+        <span class="section-icon">🛠️</span>
+        <h4 class="section-title">Recommended tools</h4>
+      </div>
+      <div class="cross-ref-items" id="tools-list">
+        <!-- Dynamic content will be inserted here -->
+      </div>
+    </div>
+
+    <!-- Next Steps Section -->
+    <div class="cross-ref-section next-steps-section" id="next-steps">
+      <div class="section-header">
+        <span class="section-icon">➡️</span>
+        <h4 class="section-title">Next steps</h4>
+      </div>
+      <div class="cross-ref-items" id="next-steps-list">
+        <!-- Dynamic content will be inserted here -->
+      </div>
+    </div>
+
+    <!-- Related Pages Section -->
+    <div class="cross-ref-section related-pages-section" id="related-pages">
+      <div class="section-header">
+        <span class="section-icon">🔗</span>
+        <h4 class="section-title">Related pages</h4>
+      </div>
+      <div class="cross-ref-items" id="related-pages-list">
+        <!-- Dynamic content will be inserted here -->
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const currentPath = window.location.pathname;
+
+    // Cross-reference mapping for different page types
+    const crossReferences = {
+        // Framework Overview
+        '/framework-overview': {
+            appendices: [
+                { id: 1, title: 'About synthetic data', url: '/web-pages/resources/appendices/about-synthetic-data/AboutSyntheticData.en-US.webpage.copy.html', description: 'Foundation concepts for synthetic data' },
+                { id: 2, title: 'Glossary', url: '/web-pages/resources/appendices/glossary/Glossary.en-US.webpage.copy.html', description: 'Key terminology and definitions' },
+                { id: 3, title: 'Policy & legal framework', url: '/web-pages/resources/appendices/policy-legal-framework/PolicyLegalFramework.en-US.webpage.copy.html', description: 'Legal foundations and compliance requirements' }
+            ],
+            tools: [
+                { title: 'Use Case Assessment Tool', url: '/web-pages/assessment-tools/use-case-assessment-tool/UseCaseAssessmentTool.en-US.webpage.copy.html', description: 'Evaluate your use case suitability' },
+                { title: 'Decision Support Overview', url: '/web-pages/decision-support-overview/DecisionSupportOverview.en-US.webpage.copy.html', description: 'Guided decision-making tools' }
+            ],
+            nextSteps: [
+                { title: 'Step 1: Assess Use Case', url: '/web-pages/step-1-use-case-assessment/Step1UseCaseAssessment.en-US.webpage.copy.html', description: 'Begin with use case evaluation' }
+            ],
+            relatedPages: [
+                { title: 'About the Framework', url: '/web-pages/about/about-framework/AboutFramework.en-US.webpage.copy.html', description: 'Background and development process' },
+                { title: 'Methodology', url: '/web-pages/about/methodology/Methodology.en-US.webpage.copy.html', description: 'Framework development methodology' }
+            ]
+        },
+
+        // Step 1: Use Case Assessment
+        '/step-1-use-case-assessment': {
+            appendices: [
+                { id: 4, title: 'Use case assessment', url: '/web-pages/resources/appendices/use-case-assessment/UseCaseAssessment.en-US.webpage.copy.html', description: 'Detailed criteria and scoring methodology' },
+                { id: 5, title: 'Impact assessment', url: '/web-pages/resources/appendices/impact-assessment/ImpactAssessment.en-US.webpage.copy.html', description: 'Privacy, ethical, and social impact evaluation' },
+                { id: 9, title: 'Lawful pathways', url: '/web-pages/resources/appendices/lawful-pathways/LawfulPathways.en-US.webpage.copy.html', description: 'Legal pathway guidance for data sharing' }
+            ],
+            tools: [
+                { title: 'Use Case Assessment Tool', url: '/web-pages/assessment-tools/use-case-assessment-tool/UseCaseAssessmentTool.en-US.webpage.copy.html', description: 'Interactive use case evaluation form' },
+                { title: 'Impact Assessment Tool', url: '/web-pages/assessment-tools/impact-assessment/ImpactAssessment.en-US.webpage.copy.html', description: 'Assess privacy and ethical implications' },
+                { title: 'Legal Pathways Wizard', url: '/web-pages/legal-pathways-wizard/LegalPathwaysWizard.en-US.webpage.copy.html', description: 'Determine appropriate legal pathways' }
+            ],
+            nextSteps: [
+                { title: 'Step 2: Assess Source Data', url: '/web-pages/step-2-assess-source-data/Step2AssessSourceData.en-US.webpage.copy.html', description: 'Evaluate your source dataset characteristics' }
+            ],
+            relatedPages: [
+                { title: 'Framework Overview', url: '/web-pages/framework-overview/FrameworkOverview.en-US.webpage.copy.html', description: 'Return to framework overview' }
+            ]
+        },
+
+        // Step 2: Assess Source Data
+        '/step-2-assess-source-data': {
+            appendices: [
+                { id: 6, title: 'Technical assessment', url: '/web-pages/resources/appendices/technical-assessment/TechnicalAssessment.en-US.webpage.copy.html', description: 'Technical evaluation criteria and quality frameworks' },
+                { id: 7, title: 'De-identification techniques', url: '/web-pages/resources/appendices/deidentification-techniques/DeidentificationTechniques.en-US.webpage.copy.html', description: 'Traditional and modern privacy-preserving methods' },
+                { id: 10, title: 'Safety assessment', url: '/web-pages/resources/appendices/safety-assessment/SafetyAssessment.en-US.webpage.copy.html', description: 'Safety protocols and risk assessment procedures' }
+            ],
+            tools: [
+                { title: 'Quality Metrics Tool', url: '/web-pages/assessment-tools/quality-metrics-tool/QualityMetricsTool.en-US.webpage.copy.html', description: 'Evaluate data quality characteristics' },
+                { title: 'Risk Evaluation Tool', url: '/web-pages/assessment-tools/risk-evaluation-tool/RiskEvaluationTool.en-US.webpage.copy.html', description: 'Assess data risks and vulnerabilities' }
+            ],
+            nextSteps: [
+                { title: 'Step 3: Generate Synthetic Data', url: '/web-pages/step-3-generate-synthetic-data/Step3GenerateSyntheticData.en-US.webpage.copy.html', description: 'Proceed to synthetic data generation' }
+            ],
+            relatedPages: [
+                { title: 'Step 1: Use Case Assessment', url: '/web-pages/step-1-use-case-assessment/Step1UseCaseAssessment.en-US.webpage.copy.html', description: 'Previous step: use case evaluation' }
+            ]
+        },
+
+        // Step 3: Generate Synthetic Data
+        '/step-3-generate-synthetic-data': {
+            appendices: [
+                { id: 6, title: 'Technical assessment', url: '/web-pages/resources/appendices/technical-assessment/TechnicalAssessment.en-US.webpage.copy.html', description: 'Quality frameworks and validation methodologies' },
+                { id: 7, title: 'De-identification techniques', url: '/web-pages/resources/appendices/deidentification-techniques/DeidentificationTechniques.en-US.webpage.copy.html', description: 'Privacy-preserving data generation methods' },
+                { id: 10, title: 'Safety assessment', url: '/web-pages/resources/appendices/safety-assessment/SafetyAssessment.en-US.webpage.copy.html', description: 'Safety protocols during data generation' }
+            ],
+            tools: [
+                { title: 'Quality Metrics Tool', url: '/web-pages/assessment-tools/quality-metrics-tool/QualityMetricsTool.en-US.webpage.copy.html', description: 'Monitor synthetic data quality' },
+                { title: 'Risk Evaluation Tool', url: '/web-pages/assessment-tools/risk-evaluation-tool/RiskEvaluationTool.en-US.webpage.copy.html', description: 'Ongoing risk monitoring' }
+            ],
+            nextSteps: [
+                { title: 'Step 4: Assess Re-identification Risks', url: '/web-pages/step-4-assess-reidentification-risks/Step4AssessReidentificationRisks.en-US.webpage.copy.html', description: 'Evaluate privacy risks in synthetic data' }
+            ],
+            relatedPages: [
+                { title: 'Step 2: Assess Source Data', url: '/web-pages/step-2-assess-source-data/Step2AssessSourceData.en-US.webpage.copy.html', description: 'Previous step: source data assessment' }
+            ]
+        },
+
+        // Step 4: Assess Re-identification Risks
+        '/step-4-assess-reidentification-risks': {
+            appendices: [
+                { id: 7, title: 'De-identification techniques', url: '/web-pages/resources/appendices/deidentification-techniques/DeidentificationTechniques.en-US.webpage.copy.html', description: 'Privacy protection methods and evaluation' },
+                { id: 10, title: 'Safety assessment', url: '/web-pages/resources/appendices/safety-assessment/SafetyAssessment.en-US.webpage.copy.html', description: 'Comprehensive safety and privacy assessment' },
+                { id: 12, title: 'Privacy obligations', url: '/web-pages/resources/appendices/privacy-obligations/PrivacyObligations.en-US.webpage.copy.html', description: 'Jurisdiction-specific privacy requirements' }
+            ],
+            tools: [
+                { title: 'Risk Evaluation Tool', url: '/web-pages/assessment-tools/risk-evaluation-tool/RiskEvaluationTool.en-US.webpage.copy.html', description: 'Comprehensive risk assessment' },
+                { title: 'Compliance Checklist Tool', url: '/web-pages/assessment-tools/compliance-checklist-tool/ComplianceChecklistTool.en-US.webpage.copy.html', description: 'Verify compliance requirements' },
+                { title: 'Risk Mitigation Planner', url: '/web-pages/risk-mitigation-planner/RiskMitigationPlanner.en-US.webpage.copy.html', description: 'Plan risk mitigation strategies' }
+            ],
+            nextSteps: [
+                { title: 'Step 5: Manage Residual Risks', url: '/web-pages/step-5-manage-residual-risks/Step5ManageResidualRisks.en-US.webpage.copy.html', description: 'Final step: ongoing risk management' }
+            ],
+            relatedPages: [
+                { title: 'Step 3: Generate Synthetic Data', url: '/web-pages/step-3-generate-synthetic-data/Step3GenerateSyntheticData.en-US.webpage.copy.html', description: 'Previous step: data generation' }
+            ]
+        },
+
+        // Step 5: Manage Residual Risks
+        '/step-5-manage-residual-risks': {
+            appendices: [
+                { id: 10, title: 'Safety assessment', url: '/web-pages/resources/appendices/safety-assessment/SafetyAssessment.en-US.webpage.copy.html', description: 'Ongoing safety protocols and monitoring' },
+                { id: 11, title: 'Assessment outcomes', url: '/web-pages/resources/appendices/assessment-outcomes/AssessmentOutcomes.en-US.webpage.copy.html', description: 'Documentation and audit trail requirements' },
+                { id: 12, title: 'Privacy obligations', url: '/web-pages/resources/appendices/privacy-obligations/PrivacyObligations.en-US.webpage.copy.html', description: 'Ongoing compliance obligations' }
+            ],
+            tools: [
+                { title: 'Risk Mitigation Planner', url: '/web-pages/risk-mitigation-planner/RiskMitigationPlanner.en-US.webpage.copy.html', description: 'Ongoing risk management planning' },
+                { title: 'Compliance Checklist Tool', url: '/web-pages/assessment-tools/compliance-checklist-tool/ComplianceChecklistTool.en-US.webpage.copy.html', description: 'Ongoing compliance monitoring' },
+                { title: 'Assessment Outcomes', url: '/web-pages/assessment-tools/assessment-outcomes/AssessmentOutcomes.en-US.webpage.copy.html', description: 'Document final assessments' }
+            ],
+            nextSteps: [
+                { title: 'Framework Overview', url: '/web-pages/framework-overview/FrameworkOverview.en-US.webpage.copy.html', description: 'Return to framework overview' }
+            ],
+            relatedPages: [
+                { title: 'Step 4: Assess Re-identification Risks', url: '/web-pages/step-4-assess-reidentification-risks/Step4AssessReidentificationRisks.en-US.webpage.copy.html', description: 'Previous step: risk assessment' }
+            ]
+        },
+
+        // Assessment Tools Pages
+        '/assessment-tools': {
+            appendices: [
+                { id: 4, title: 'Use case assessment', url: '/web-pages/resources/appendices/use-case-assessment/UseCaseAssessment.en-US.webpage.copy.html', description: 'Detailed assessment criteria' },
+                { id: 5, title: 'Impact assessment', url: '/web-pages/resources/appendices/impact-assessment/ImpactAssessment.en-US.webpage.copy.html', description: 'Impact evaluation frameworks' },
+                { id: 6, title: 'Technical assessment', url: '/web-pages/resources/appendices/technical-assessment/TechnicalAssessment.en-US.webpage.copy.html', description: 'Technical evaluation criteria' }
+            ],
+            tools: [
+                { title: 'Use Case Assessment Tool', url: '/web-pages/assessment-tools/use-case-assessment-tool/UseCaseAssessmentTool.en-US.webpage.copy.html', description: 'Interactive use case evaluation' },
+                { title: 'Impact Assessment Tool', url: '/web-pages/assessment-tools/impact-assessment/ImpactAssessment.en-US.webpage.copy.html', description: 'Privacy and ethical impact assessment' },
+                { title: 'Risk Evaluation Tool', url: '/web-pages/assessment-tools/risk-evaluation-tool/RiskEvaluationTool.en-US.webpage.copy.html', description: 'Comprehensive risk evaluation' }
+            ],
+            relatedPages: [
+                { title: 'Framework Overview', url: '/web-pages/framework-overview/FrameworkOverview.en-US.webpage.copy.html', description: 'Framework process overview' },
+                { title: 'Decision Support', url: '/web-pages/decision-support-overview/DecisionSupportOverview.en-US.webpage.copy.html', description: 'Decision support tools' }
+            ]
+        },
+
+        // Decision Support Pages
+        '/decision-support-overview': {
+            appendices: [
+                { id: 8, title: 'Complex scenarios', url: '/web-pages/resources/appendices/complex-scenarios/ComplexScenarios.en-US.webpage.copy.html', description: 'Decision tree for complex scenarios' },
+                { id: 9, title: 'Lawful pathways', url: '/web-pages/resources/appendices/lawful-pathways/LawfulPathways.en-US.webpage.copy.html', description: 'Detailed legal pathway guidance' },
+                { id: 12, title: 'Privacy obligations', url: '/web-pages/resources/appendices/privacy-obligations/PrivacyObligations.en-US.webpage.copy.html', description: 'Jurisdiction mapping and obligations' }
+            ],
+            tools: [
+                { title: 'Complex Scenarios Navigator', url: '/Complex Scenarios Navigator/ComplexScenariosNavigator.en-US.webpage.copy.html', description: 'Navigate complex implementation scenarios' },
+                { title: 'Legal Pathways Wizard', url: '/web-pages/legal-pathways-wizard/LegalPathwaysWizard.en-US.webpage.copy.html', description: 'Determine appropriate legal pathways' },
+                { title: 'Risk Mitigation Planner', url: '/web-pages/risk-mitigation-planner/RiskMitigationPlanner.en-US.webpage.copy.html', description: 'Plan comprehensive risk mitigation' }
+            ],
+            relatedPages: [
+                { title: 'Assessment Tools', url: '/web-pages/assessment-tools/AssessmentTools.en-US.webpage.copy.html', description: 'Practical assessment tools' },
+                { title: 'Framework Overview', url: '/web-pages/framework-overview/FrameworkOverview.en-US.webpage.copy.html', description: 'Framework process overview' }
+            ]
+        }
+    };
+
+    // Initialize cross-references for current page
+    function initializeCrossReferences() {
+        const pageRefs = crossReferences[currentPath] || getDefaultReferences();
+
+        populateSection('appendices-list', pageRefs.appendices || [], 'appendix');
+        populateSection('tools-list', pageRefs.tools || [], 'tool');
+        populateSection('next-steps-list', pageRefs.nextSteps || [], 'next-step');
+        populateSection('related-pages-list', pageRefs.relatedPages || [], 'page');
+
+        // Hide empty sections
+        hideEmptySections();
+    }
+
+    function populateSection(containerId, items, itemType) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+
+        if (items.length === 0) {
+            container.parentElement.style.display = 'none';
+            return;
+        }
+
+        container.innerHTML = '';
+
+        items.forEach(item => {
+            const itemElement = createCrossRefItem(item, itemType);
+            container.appendChild(itemElement);
+        });
+    }
+
+    function createCrossRefItem(item, itemType) {
+        const div = document.createElement('div');
+        div.className = `cross-ref-item ${itemType}-item`;
+
+        const link = document.createElement('a');
+        link.href = item.url;
+        link.className = 'cross-ref-link';
+
+        const icon = document.createElement('span');
+        icon.className = 'item-icon';
+        icon.textContent = getItemIcon(itemType, item);
+
+        const content = document.createElement('div');
+        content.className = 'item-content';
+
+        const title = document.createElement('span');
+        title.className = 'item-title';
+        title.textContent = item.title;
+
+        const description = document.createElement('span');
+        description.className = 'item-description';
+        description.textContent = item.description;
+
+        content.appendChild(title);
+        content.appendChild(description);
+
+        link.appendChild(icon);
+        link.appendChild(content);
+        div.appendChild(link);
+
+        return div;
+    }
+
+    function getItemIcon(itemType, item) {
+        switch (itemType) {
+            case 'appendix':
+                return item.id ? item.id.toString() : '📄';
+            case 'tool':
+                return '🛠️';
+            case 'next-step':
+                return '➡️';
+            case 'page':
+                return '🔗';
+            default:
+                return '📄';
+        }
+    }
+
+    function getDefaultReferences() {
+        // Fallback references for pages not explicitly mapped
+        return {
+            appendices: [
+                { id: 1, title: 'About synthetic data', url: '/web-pages/resources/appendices/about-synthetic-data/AboutSyntheticData.en-US.webpage.copy.html', description: 'Foundation concepts' },
+                { id: 2, title: 'Glossary', url: '/web-pages/resources/appendices/glossary/Glossary.en-US.webpage.copy.html', description: 'Key terminology' }
+            ],
+            relatedPages: [
+                { title: 'Framework Overview', url: '/web-pages/framework-overview/FrameworkOverview.en-US.webpage.copy.html', description: 'Return to framework overview' },
+                { title: 'Resources', url: '/web-pages/resources/Resources.en-US.webpage.copy.html', description: 'All available resources' }
+            ]
+        };
+    }
+
+    function hideEmptySections() {
+        const sections = document.querySelectorAll('.cross-ref-section');
+        sections.forEach(section => {
+            const items = section.querySelector('.cross-ref-items');
+            if (!items || items.children.length === 0) {
+                section.style.display = 'none';
+            }
+        });
+    }
+
+    // Initialize on page load
+    initializeCrossReferences();
+});
+</script>
+
+<style>
+.cross-reference-nav {
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 25px;
+    margin: 30px 0;
+}
+
+.cross-ref-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
+
+.cross-ref-section {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.section-icon {
+    font-size: 1.2rem;
+}
+
+.section-title {
+    color: #495057;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.cross-ref-items {
+    display: grid;
+    gap: 12px;
+}
+
+.cross-ref-item {
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.cross-ref-item:hover {
+    border-color: #007bff;
+    box-shadow: 0 2px 8px rgba(0,123,255,0.15);
+    transform: translateY(-1px);
+}
+
+.cross-ref-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    color: #495057;
+    text-decoration: none;
+    width: 100%;
+}
+
+.cross-ref-link:hover {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.item-icon {
+    width: 32px;
+    height: 32px;
+    background: #e9ecef;
+    color: #495057;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.appendix-item .item-icon {
+    background: #007bff;
+    color: white;
+}
+
+.tool-item .item-icon {
+    background: #28a745;
+}
+
+.next-step-item .item-icon {
+    background: #ffc107;
+    color: #212529;
+}
+
+.page-item .item-icon {
+    background: #6c757d;
+    color: white;
+}
+
+.cross-ref-link:hover .item-icon {
+    transform: scale(1.1);
+}
+
+.item-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex-grow: 1;
+}
+
+.item-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #212529;
+}
+
+.item-description {
+    font-size: 0.85rem;
+    color: #6c757d;
+    line-height: 1.4;
+}
+
+.cross-ref-link:hover .item-title {
+    color: #007bff;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .cross-ref-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .cross-ref-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .cross-ref-section {
+        padding: 18px;
+    }
+}
+
+/* Special styling for framework steps */
+.framework-step-nav .cross-ref-container {
+    grid-template-columns: 1fr;
+}
+
+.framework-step-nav .appendices-section {
+    border-left: 4px solid #007bff;
+}
+
+.framework-step-nav .tools-section {
+    border-left: 4px solid #28a745;
+}
+
+.framework-step-nav .next-steps-section {
+    border-left: 4px solid #ffc107;
+}
+
+.framework-step-nav .related-pages-section {
+    border-left: 4px solid #6c757d;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    .cross-ref-item,
+    .item-icon {
+        transition: none;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .cross-ref-item {
+        border-width: 2px;
+    }
+
+    .cross-ref-link {
+        border: 1px solid transparent;
+    }
+
+    .cross-ref-link:focus {
+        border-color: currentColor;
+        outline: 2px solid currentColor;
+        outline-offset: 2px;
+    }
+}
+
+/* Print styles */
+@media print {
+    .cross-reference-nav {
+        background: white;
+        border: 1px solid #000;
+        box-shadow: none;
+    }
+
+    .cross-ref-item:hover {
+        transform: none;
+        box-shadow: none;
+    }
+}
+</style>

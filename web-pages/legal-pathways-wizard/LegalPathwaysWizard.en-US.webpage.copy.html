@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Pathways Wizard - SynD-DGF</title>
+    <meta name="description" content="Interactive wizard for determining the appropriate legal pathway for synthetic health data projects under Australian privacy laws.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #2A324B;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #2A324B 0%, #36454F 100%);
+            color: white;
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+        .wizard-step {
+            border-left: 4px solid #F7C59F;
+            padding: 20px;
+            margin-bottom: 30px;
+            background: #FFF7D9;
+            border-radius: 8px;
+        }
+        .pathway-card {
+            border: 2px solid #F7C59F;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: white;
+            transition: all 0.3s ease;
+        }
+        .pathway-card:hover {
+            background: #FFFDD0;
+            transform: translateY(-2px);
+        }
+        .button1 {
+            background: linear-gradient(135deg, #2A324B 0%, #36454F 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        .button1:hover {
+            background: linear-gradient(135deg, #FF7F50 0%, #F7C59F 100%);
+            color: white;
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+        .nav-button {
+            background: #F7C59F;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .nav-button:hover {
+            background: #FF7F50;
+            color: white;
+            text-decoration: none;
+        }
+        .nav-button.prev-button {
+            background: #6c757d;
+        }
+        .nav-button.prev-button:hover {
+            background: #495057;
+        }
+        .breadcrumb {
+            background: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: "›";
+            color: #F7C59F;
+        }
+        .option-label, .option-item {
+            display: block;
+            padding: 10px;
+            margin-bottom: 8px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .option-label:hover, .option-item:hover {
+            background: #FFFDD0;
+            border-color: #F7C59F;
+        }
+        .pathway-section {
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            background: white;
+        }
+        .pathway-header {
+            background: #FFF7D9;
+            padding: 15px;
+            border-bottom: 1px solid #dee2e6;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .pathway-content {
+            padding: 20px;
+            display: none;
+        }
+        .pathway-content.active {
+            display: block;
+        }
+        .resource-card {
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #F7C59F;">
+        <div class="container">
+            <a class="navbar-brand" href="../home/Home.en-US.webpage.copy.html">SynD-DGF</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="../home/Home.en-US.webpage.copy.html">Home</a>
+                <a class="nav-link" href="../framework-overview/FrameworkOverview.en-US.webpage.copy.html">Framework</a>
+                <a class="nav-link" href="../assessment-tools/AssessmentTools.en-US.webpage.copy.html">Assessment Tools</a>
+                <a class="nav-link" href="../resources/Resources.en-US.webpage.copy.html">Resources</a>
+                <a class="nav-link active" href="../decision-support-overview/DecisionSupportOverview.en-US.webpage.copy.html">Decision Support</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="container mt-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../home/Home.en-US.webpage.copy.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="../decision-support-overview/DecisionSupportOverview.en-US.webpage.copy.html">Decision Support</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Legal Pathways Wizard</li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <h1>Legal pathways wizard</h1>
+                
+                <div class="wizard-intro">
+                    <p class="lead">Find the right legal pathway for your synthetic health data project under Australian privacy laws.</p>
+                    
+                    <div class="pathway-overview">
+                        <h2>Four main legal pathways</h2>
+                        <p>Australian privacy law provides four main pathways for lawful synthetic health data generation:</p>
+                        <div class="pathways-grid">
+                            <div class="pathway-card" data-pathway="directly-related">
+                                <h3>Directly related uses</h3>
+                                <p>Health service provision and system management activities</p>
+                                <div class="pathway-indicator directly-related"></div>
+                            </div>
+                            <div class="pathway-card" data-pathway="consent">
+                                <h3>Consent-based approaches</h3>
+                                <p>Valid consent for secondary data use</p>
+                                <div class="pathway-indicator consent"></div>
+                            </div>
+                            <div class="pathway-card" data-pathway="hrec">
+                                <h3>HREC approval</h3>
+                                <p>Human Research Ethics Committee pathways</p>
+                                <div class="pathway-indicator hrec"></div>
+                            </div>
+                            <div class="pathway-card" data-pathway="deidentification">
+                                <h3>De-identification standards</h3>
+                                <p>Technical and legal de-identification requirements</p>
+                                <div class="pathway-indicator deidentification"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wizard-assessment">
+                    <h2>Pathway assessment wizard</h2>
+                    <p>Answer the questions below to determine the most appropriate legal pathway for your project:</p>
+                    
+                    <div class="wizard-container">
+                        <div class="wizard-step active" id="step-1">
+                            <div class="step-content">
+                                <h3>Step 1: Organisation type and purpose</h3>
+                                <p>What type of organisation are you and what is your primary purpose for creating synthetic data?</p>
+                                
+                                <div class="question-group">
+                                    <h4>Organisation type:</h4>
+                                    <div class="option-group">
+                                        <label class="option-label">
+                                            <input type="radio" name="org-type" value="public-health">
+                                            <span class="option-text">Public health service or health department</span>
+                                            <span class="option-description">Hospitals, health districts, state health departments</span>
+                                        </label>
+                                        <label class="option-label">
+                                            <input type="radio" name="org-type" value="private-health">
+                                            <span class="option-text">Private healthcare provider</span>
+                                            <span class="option-description">Private hospitals, clinics, health insurers</span>
+                                        </label>
+                                        <label class="option-label">
+                                            <input type="radio" name="org-type" value="research-org">
+                                            <span class="option-text">Research organisation</span>
+                                            <span class="option-description">Universities, medical research institutes</span>
+                                        </label>
+                                        <label class="option-label">
+                                            <input type="radio" name="org-type" value="other-org">
+                                            <span class="option-text">Other organisation</span>
+                                            <span class="option-description">Government agencies, private companies</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="question-group">
+                                    <h4>Primary purpose for synthetic data:</h4>
+                                    <div class="option-group">
+                                        <label class="option-label">
+                                            <input type="radio" name="primary-purpose" value="service-delivery">
+                                            <span class="option-text">Health service delivery</span>
+                                            <span class="option-description">Direct patient care, clinical decision support</span>
+                                        </label>
+                                        <label class="option-label">
+                                            <input type="radio" name="primary-purpose" value="system-management">
+                                            <span class="option-text">Health system management</span>
+                                            <span class="option-description">Service planning, quality improvement, resource allocation</span>
+                                        </label>
+                                        <label class="option-label">
+                                            <input type="radio" name="primary-purpose" value="research">
+                                            <span class="option-text">Research and development</span>
+                                            <span class="option-description">Medical research, health outcomes studies</span>
+                                        </label>
+                                        <label class="option-label">
+                                            <input type="radio" name="primary-purpose" value="training">
+                                            <span class="option-text">Training and education</span>
+                                            <span class="option-description">Staff training, student education, system testing</span>
+                                        </label>
+                                        <label class="option-label">
+                                            <input type="radio" name="primary-purpose" value="commercial">
+                                            <span class="option-text">Commercial purposes</span>
+                                            <span class="option-description">Product development, market research</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="step-navigation">
+                                    <button class="nav-button next-button" onclick="nextStep()">Next →</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="wizard-step" id="step-2">
+                            <div class="step-content">
+                                <h3>Step 2: Data collection context</h3>
+                                <p>How was the original health information collected and for what purpose?</p>
+                                
+                                <div class="question-group">
+                                    <h4>Original data collection purpose:</h4>
+                                    <div class="option-group">
+                                        <label class="option-label">
+                                            <input type="radio" name="collection-purpose" value="patient-care">
+                                            <span class="option-text">Patient care and treatment</span>
+                                            <span class="option-description">Clinical records, diagnostic information</span>
+                                        </label>
+                                        <label class="option-label">
+                                            <input type="radio" name="collection-purpose" value="admin-systems">
+                                            <span class="option-text">Health system administration</span>
+                                            <span class="option-description">Claims data, service utilisation records</span>
+                                        </label>
+                                        <label class="option-label">
+                                            <input type="radio" name="collection-purpose" value="research-collection">
+                                            <span class="option-text">Research studies</span>
+                                            <span class="option-description">Clinical trials, research cohorts</span>
+                                        </label>
+                                        <label class="option-label">
+                                            <input type="radio" name="collection-purpose" value="registry">
+                                            <span class="option-text">Disease registries</span>
+                                            <span class="option-description">Cancer registries, disease surveillance</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="question-group">
+                                    <h4>Consent status:</h4>
+                                    <div class="option-group">
+                                        <label class="option-label">
+                                            <input type="radio" name="consent-status" value="broad-consent">
+                                            <span class="option-text">Broad consent obtained</span>
+                                            <span class="option-description">Consent includes secondary use for research/system improvement</span>
+                                        </label>
+                                        <label class="option-label">
+                                            <input type="radio" name="consent-status" value="specific-consent">
+                                            <span class="option-text">Specific consent obtained</span>
+                                            <span class="option-description">Consent limited to original collection purpose</span>
+                                        </label>
+                                        <label class="option-label">
+                                            <input type="radio" name="consent-status" value="no-consent">
+                                            <span class="option-text">No explicit consent</span>
+                                            <span class="option-description">Data collected under legal authority or implied consent</span>
+                                        </label>
+                                        <label class="option-label">
+                                            <input type="radio" name="consent-status" value="unknown-consent">
+                                            <span class="option-text">Consent status unknown</span>
+                                            <span class="option-description">Historical data with unclear consent arrangements</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="step-navigation">
+                                    <button class="nav-button prev-button" onclick="prevStep()">← Previous</button>
+                                    <button class="nav-button next-button" onclick="nextStep()">Next →</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="wizard-step" id="step-3">
+                            <div class="step-content">
+                                <h3>Step 3: Data characteristics and risks</h3>
+                                <p>What are the key characteristics of your source data and intended synthetic data use?</p>
+                                
+                                <div class="question-group">
+                                    <h4>Data sensitivity level:</h4>
+                                    <div class="option-group">
+                                        <label class="option-label">
+                                            <input type="radio" name="data-sensitivity" value="routine-health">
+                                            <span class="option-text">Routine health information</span>
+                                            <span class="option-description">Standard clinical data, common conditions</span>
+                                        </label>
+                                        <label class="option-label">
+                                            <input type="radio" name="data-sensitivity" value="sensitive-health">
+                                            <span class="option-text">Sensitive health information</span>
+                                            <span class="option-description">Mental health, genetic data, substance abuse</span>
+                                        </label>
+                                        <label class="option-label">
+                                            <input type="radio" name="data-sensitivity" value="highly-sensitive">
+                                            <span class="option-text">Highly sensitive information</span>
+                                            <span class="option-description">Rare diseases, small populations, identifiable characteristics</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="question-group">
+                                    <h4>Population characteristics:</h4>
+                                    <div class="checkbox-group">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="population" value="indigenous">
+                                            <span class="checkbox-text">Aboriginal and Torres Strait Islander peoples</span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="population" value="children">
+                                            <span class="checkbox-text">Children and adolescents (under 18)</span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="population" value="vulnerable">
+                                            <span class="checkbox-text">Other vulnerable populations</span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="population" value="small-cohort">
+                                            <span class="checkbox-text">Small cohort (less than 1000 individuals)</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="question-group">
+                                    <h4>Re-identification risk assessment:</h4>
+                                    <div class="option-group">
+                                        <label class="option-label">
+                                            <input type="radio" name="reidentification-risk" value="very-low">
+                                            <span class="option-text">Very low risk</span>
+                                            <span class="option-description">Comprehensive de-identification, large populations</span>
+                                        </label>
+                                        <label class="option-label">
+                                            <input type="radio" name="reidentification-risk" value="low">
+                                            <span class="option-text">Low risk</span>
+                                            <span class="option-description">Good de-identification, some distinctive characteristics</span>
+                                        </label>
+                                        <label class="option-label">
+                                            <input type="radio" name="reidentification-risk" value="moderate">
+                                            <span class="option-text">Moderate risk</span>
+                                            <span class="option-description">Limited de-identification, smaller populations</span>
+                                        </label>
+                                        <label class="option-label">
+                                            <input type="radio" name="reidentification-risk" value="high">
+                                            <span class="option-text">High risk</span>
+                                            <span class="option-description">Difficult to de-identify, distinctive characteristics</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="step-navigation">
+                                    <button class="nav-button prev-button" onclick="prevStep()">← Previous</button>
+                                    <button class="nav-button next-button" onclick="nextStep()">Next →</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="wizard-step" id="step-4">
+                            <div class="step-content">
+                                <h3>Step 4: Usage and sharing intentions</h3>
+                                <p>How do you intend to use and share the synthetic data?</p>
+                                
+                                <div class="question-group">
+                                    <h4>Intended data sharing:</h4>
+                                    <div class="option-group">
+                                        <label class="option-label">
+                                            <input type="radio" name="data-sharing" value="internal-only">
+                                            <span class="option-text">Internal use only</span>
+                                            <span class="option-description">Within your organisation only</span>
+                                        </label>
+                                        <label class="option-label">
+                                            <input type="radio" name="data-sharing" value="collaborative">
+                                            <span class="option-text">Collaborative research</span>
+                                            <span class="option-description">Sharing with known research partners</span>
+                                        </label>
+                                        <label class="option-label">
+                                            <input type="radio" name="data-sharing" value="public-release">
+                                            <span class="option-text">Public data release</span>
+                                            <span class="option-description">Open dataset or broad research community access</span>
+                                        </label>
+                                        <label class="option-label">
+                                            <input type="radio" name="data-sharing" value="commercial">
+                                            <span class="option-text">Commercial partnerships</span>
+                                            <span class="option-description">Sharing with commercial entities</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="question-group">
+                                    <h4>Geographic scope:</h4>
+                                    <div class="option-group">
+                                        <label class="option-label">
+                                            <input type="radio" name="geographic-scope" value="local">
+                                            <span class="option-text">Local/state jurisdiction</span>
+                                            <span class="option-description">Within Australian state or territory</span>
+                                        </label>
+                                        <label class="option-label">
+                                            <input type="radio" name="geographic-scope" value="national">
+                                            <span class="option-text">National (Australia)</span>
+                                            <span class="option-description">Across Australian jurisdictions</span>
+                                        </label>
+                                        <label class="option-label">
+                                            <input type="radio" name="geographic-scope" value="international">
+                                            <span class="option-text">International</span>
+                                            <span class="option-description">Sharing with overseas researchers or organisations</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="question-group">
+                                    <h4>Timeline and urgency:</h4>
+                                    <div class="option-group">
+                                        <label class="option-label">
+                                            <input type="radio" name="timeline" value="immediate">
+                                            <span class="option-text">Immediate need</span>
+                                            <span class="option-description">Required within 1-3 months</span>
+                                        </label>
+                                        <label class="option-label">
+                                            <input type="radio" name="timeline" value="standard">
+                                            <span class="option-text">Standard timeline</span>
+                                            <span class="option-description">3-12 months acceptable</span>
+                                        </label>
+                                        <label class="option-label">
+                                            <input type="radio" name="timeline" value="flexible">
+                                            <span class="option-text">Flexible timeline</span>
+                                            <span class="option-description">12+ months acceptable for comprehensive approval</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="step-navigation">
+                                    <button class="nav-button prev-button" onclick="prevStep()">← Previous</button>
+                                    <button class="nav-button generate-results" onclick="generateResults()">Generate pathway recommendation →</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="wizard-step" id="results">
+                            <div class="step-content">
+                                <h3>Your recommended legal pathway</h3>
+                                <div id="pathway-results" class="pathway-results">
+                                    <!-- Results will be generated here -->
+                                </div>
+                                
+                                <div class="pathway-actions">
+                                    <h4>Next steps</h4>
+                                    <div id="next-steps" class="next-steps">
+                                        <!-- Next steps will be generated here -->
+                                    </div>
+                                </div>
+
+                                <div class="step-navigation">
+                                    <button class="nav-button prev-button" onclick="restartWizard()">🔄 Start over</button>
+                                    <button class="nav-button next-button" onclick="exportResults()">📋 Export results</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pathway-details">
+                    <h2>Detailed pathway information</h2>
+                    
+                    <div class="pathway-accordion">
+                        <div class="pathway-section" data-pathway="directly-related">
+                            <div class="pathway-header">
+                                <h3>Directly related uses pathway</h3>
+                                <span class="toggle-icon">▼</span>
+                            </div>
+                            <div class="pathway-content">
+                                <div class="pathway-overview">
+                                    <h4>When this pathway applies</h4>
+                                    <p>This pathway is available when synthetic data generation is directly related to the original purpose for which health information was collected.</p>
+                                    
+                                    <h4>Key requirements</h4>
+                                    <ul>
+                                        <li><strong>Direct relationship:</strong> Synthetic data use must be directly related to original collection purpose</li>
+                                        <li><strong>Health service provision:</strong> Supporting direct patient care or clinical decision making</li>
+                                        <li><strong>Health system management:</strong> Service planning, quality improvement, resource allocation</li>
+                                        <li><strong>Organisational authority:</strong> Must be undertaken by authorised health service provider</li>
+                                    </ul>
+                                    
+                                    <h4>Examples of directly related uses</h4>
+                                    <ul>
+                                        <li>Creating synthetic data for clinical decision support systems</li>
+                                        <li>Generating test data for health information system development</li>
+                                        <li>Training data for clinical prediction models used in patient care</li>
+                                        <li>Quality improvement initiatives using synthetic patient populations</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="pathway-process">
+                                    <h4>Implementation process</h4>
+                                    <ol>
+                                        <li><strong>Assess direct relationship:</strong> Document clear connection to original collection purpose</li>
+                                        <li><strong>Organisational approval:</strong> Obtain internal governance approval</li>
+                                        <li><strong>Privacy assessment:</strong> Complete privacy impact assessment if required</li>
+                                        <li><strong>Technical safeguards:</strong> Implement appropriate de-identification and security measures</li>
+                                        <li><strong>Documentation:</strong> Maintain records of decision-making process</li>
+                                    </ol>
+                                </div>
+                                
+                                <div class="pathway-timeline">
+                                    <h4>Typical timeline</h4>
+                                    <p><strong>2-6 weeks:</strong> Internal assessment and approval process</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pathway-section" data-pathway="consent">
+                            <div class="pathway-header">
+                                <h3>Consent-based pathway</h3>
+                                <span class="toggle-icon">▼</span>
+                            </div>
+                            <div class="pathway-content">
+                                <div class="pathway-overview">
+                                    <h4>When this pathway applies</h4>
+                                    <p>This pathway requires obtaining valid consent from individuals for synthetic data generation and use beyond the original collection purpose.</p>
+                                    
+                                    <h4>Key requirements</h4>
+                                    <ul>
+                                        <li><strong>Valid consent:</strong> Must meet legal requirements for voluntary, informed, specific consent</li>
+                                        <li><strong>Clear purpose:</strong> Specific description of synthetic data use and sharing intentions</li>
+                                        <li><strong>Withdrawal rights:</strong> Ability for individuals to withdraw consent</li>
+                                        <li><strong>Consent management:</strong> Systems to track and honour consent decisions</li>
+                                    </ul>
+                                    
+                                    <h4>Consent considerations</h4>
+                                    <ul>
+                                        <li><strong>Prospective consent:</strong> Easier to obtain for new data collection</li>
+                                        <li><strong>Retrospective consent:</strong> Challenging for existing datasets</li>
+                                        <li><strong>Broad consent:</strong> May cover future synthetic data uses</li>
+                                        <li><strong>Dynamic consent:</strong> Ongoing consent management platforms</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="pathway-process">
+                                    <h4>Implementation process</h4>
+                                    <ol>
+                                        <li><strong>Consent framework design:</strong> Develop appropriate consent processes and materials</li>
+                                        <li><strong>Ethics review:</strong> May require Human Research Ethics Committee review</li>
+                                        <li><strong>Consent collection:</strong> Implement consent processes</li>
+                                        <li><strong>Consent management:</strong> Establish systems to track and honour consent</li>
+                                        <li><strong>Synthetic data generation:</strong> Proceed only with consented data</li>
+                                    </ol>
+                                </div>
+                                
+                                <div class="pathway-timeline">
+                                    <h4>Typical timeline</h4>
+                                    <p><strong>3-9 months:</strong> Consent framework development and implementation</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pathway-section" data-pathway="hrec">
+                            <div class="pathway-header">
+                                <h3>Human Research Ethics Committee (HREC) pathway</h3>
+                                <span class="toggle-icon">▼</span>
+                            </div>
+                            <div class="pathway-content">
+                                <div class="pathway-overview">
+                                    <h4>When this pathway applies</h4>
+                                    <p>This pathway is required when synthetic data generation constitutes human research that cannot be covered by other pathways.</p>
+                                    
+                                    <h4>Key requirements</h4>
+                                    <ul>
+                                        <li><strong>HREC approval:</strong> Formal ethics committee review and approval</li>
+                                        <li><strong>Research merit:</strong> Demonstrated scientific or social value</li>
+                                        <li><strong>Risk-benefit assessment:</strong> Favourable risk-benefit balance</li>
+                                        <li><strong>Ongoing oversight:</strong> Compliance with HREC conditions</li>
+                                    </ul>
+                                    
+                                    <h4>HREC types and requirements</h4>
+                                    <ul>
+                                        <li><strong>Institutional HRECs:</strong> University or hospital-based committees</li>
+                                        <li><strong>Centralised HRECs:</strong> Multi-site research review</li>
+                                        <li><strong>Specialist HRECs:</strong> Indigenous health, specific populations</li>
+                                        <li><strong>Low and negligible risk review:</strong> Expedited review processes</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="pathway-process">
+                                    <h4>Implementation process</h4>
+                                    <ol>
+                                        <li><strong>Research protocol development:</strong> Detailed research plan and methodology</li>
+                                        <li><strong>HREC application:</strong> Submit comprehensive application with supporting documents</li>
+                                        <li><strong>Ethics review:</strong> HREC assessment and potential revision requests</li>
+                                        <li><strong>Approval conditions:</strong> Implement any specific HREC requirements</li>
+                                        <li><strong>Ongoing compliance:</strong> Regular reporting and compliance monitoring</li>
+                                    </ol>
+                                </div>
+                                
+                                <div class="pathway-timeline">
+                                    <h4>Typical timeline</h4>
+                                    <p><strong>2-6 months:</strong> HREC application, review and approval process</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pathway-section" data-pathway="deidentification">
+                            <div class="pathway-header">
+                                <h3>De-identification standards pathway</h3>
+                                <span class="toggle-icon">▼</span>
+                            </div>
+                            <div class="pathway-content">
+                                <div class="pathway-overview">
+                                    <h4>When this pathway applies</h4>
+                                    <p>This pathway applies when synthetic data can be generated to meet legal standards for de-identified information under privacy laws.</p>
+                                    
+                                    <h4>Key requirements</h4>
+                                    <ul>
+                                        <li><strong>Technical de-identification:</strong> Application of statistical disclosure control techniques</li>
+                                        <li><strong>Legal de-identification:</strong> Information not reasonably able to identify an individual</li>
+                                        <li><strong>Risk assessment:</strong> Formal evaluation of re-identification risks</li>
+                                        <li><strong>Ongoing protection:</strong> Safeguards against re-identification</li>
+                                    </ul>
+                                    
+                                    <h4>De-identification techniques</h4>
+                                    <ul>
+                                        <li><strong>Statistical methods:</strong> K-anonymity, L-diversity, T-closeness</li>
+                                        <li><strong>Differential privacy:</strong> Mathematical privacy guarantees</li>
+                                        <li><strong>Synthetic data methods:</strong> Generative models with privacy controls</li>
+                                        <li><strong>Data perturbation:</strong> Noise addition and data modification</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="pathway-process">
+                                    <h4>Implementation process</h4>
+                                    <ol>
+                                        <li><strong>Risk assessment:</strong> Evaluate re-identification risks in source data</li>
+                                        <li><strong>Technique selection:</strong> Choose appropriate de-identification methods</li>
+                                        <li><strong>Implementation:</strong> Apply de-identification techniques to synthetic data generation</li>
+                                        <li><strong>Validation:</strong> Test and validate privacy protections</li>
+                                        <li><strong>Documentation:</strong> Maintain evidence of de-identification process</li>
+                                    </ol>
+                                </div>
+                                
+                                <div class="pathway-timeline">
+                                    <h4>Typical timeline</h4>
+                                    <p><strong>1-4 months:</strong> Technical implementation and validation</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="additional-resources">
+                    <h2>Additional resources</h2>
+                    <div class="resource-links">
+                        <div class="resource-card">
+                            <h3>Privacy law compliance guide</h3>
+                            <p>Comprehensive guide to Australian privacy law requirements for health data.</p>
+                            <a href="#" title="Coming Soon" class="button1">Access Guide</a>
+                        </div>
+                        <div class="resource-card">
+                            <h3>HREC application templates</h3>
+                            <p>Templates and guidance for Human Research Ethics Committee applications.</p>
+                            <a href="#" title="Coming Soon" class="button1">Download Templates</a>
+                        </div>
+                        <div class="resource-card">
+                            <h3>De-identification technical guide</h3>
+                            <p>Technical guidance on implementing de-identification techniques.</p>
+                            <a href="#" title="Coming Soon" class="button1">View Guide</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="navigation-links">
+                    <div class="nav-buttons">
+                        <a href="../decision-support-overview/DecisionSupportOverview.en-US.webpage.copy.html" class="nav-button nav-previous">← Decision Support Overview</a>
+                        <a href="../risk-mitigation-planner/RiskMitigationPlanner.en-US.webpage.copy.html" class="nav-button nav-next">Risk Mitigation Planner →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+// Legal Pathways Wizard - Complete functionality
+document.addEventListener('DOMContentLoaded', function() {
+    let currentStep = 1;
+    let wizardData = {};
+
+    // Initialize wizard functionality
+    initializeWizard();
+
+    function initializeWizard() {
+        // Pathway card interactions
+        const pathwayCards = document.querySelectorAll('.pathway-card');
+        pathwayCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const pathway = this.getAttribute('data-pathway');
+                showPathwayDetails(pathway);
+            });
+        });
+
+        // Accordion functionality
+        const pathwaySections = document.querySelectorAll('.pathway-section');
+        pathwaySections.forEach(section => {
+            const header = section.querySelector('.pathway-header');
+            if (header) {
+                header.addEventListener('click', function() {
+                    section.classList.toggle('expanded');
+
+                    // Update toggle icon
+                    const icon = section.querySelector('.toggle-icon');
+                    if (icon) {
+                        icon.textContent = section.classList.contains('expanded') ? '▲' : '▼';
+                    }
+                });
+            }
+        });
+
+        // Initialize step display
+        showStep(1);
+
+        // Form validation setup
+        setupFormValidation();
+    }
+
+    function nextStep() {
+        if (validateCurrentStep()) {
+            collectStepData();
+            currentStep++;
+            showStep(currentStep);
+        }
+    }
+
+    function prevStep() {
+        if (currentStep > 1) {
+            currentStep--;
+            showStep(currentStep);
+        }
+    }
+
+    function showStep(stepNumber) {
+        // Hide all steps
+        document.querySelectorAll('.wizard-step').forEach(step => {
+            step.classList.remove('active');
+            step.style.display = 'none';
+        });
+
+        // Show current step
+        const targetStep = document.getElementById(`step-${stepNumber}`) || document.getElementById(stepNumber);
+        if (targetStep) {
+            targetStep.classList.add('active');
+            targetStep.style.display = 'block';
+        }
+
+        // Update progress indicator
+        updateProgressIndicator();
+    }
+
+    function validateCurrentStep() {
+        const currentStepElement = document.querySelector('.wizard-step.active') ||
+                                  document.querySelector('.wizard-step[style*="block"]');
+        if (!currentStepElement) return true;
+
+        const requiredInputs = currentStepElement.querySelectorAll('input[type="radio"]');
+        const groups = {};
+
+        // Group radio buttons by name
+        requiredInputs.forEach(input => {
+            if (!groups[input.name]) {
+                groups[input.name] = [];
+            }
+            groups[input.name].push(input);
+        });
+
+        // Check each group has a selection
+        for (let groupName in groups) {
+            const hasSelection = groups[groupName].some(input => input.checked);
+            if (!hasSelection) {
+                showValidationError(`Please select an option for ${groupName.replace('-', ' ')}`);
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    function collectStepData() {
+        const currentStepElement = document.querySelector('.wizard-step.active') ||
+                                  document.querySelector('.wizard-step[style*="block"]');
+        if (!currentStepElement) return;
+
+        const inputs = currentStepElement.querySelectorAll('input');
+
+        inputs.forEach(input => {
+            if (input.type === 'radio' && input.checked) {
+                wizardData[input.name] = input.value;
+            } else if (input.type === 'checkbox' && input.checked) {
+                if (!wizardData[input.name]) {
+                    wizardData[input.name] = [];
+                }
+                wizardData[input.name].push(input.value);
+            }
+        });
+    }
+
+    function generateResults() {
+        if (validateCurrentStep()) {
+            collectStepData();
+
+            // Analyze responses and determine recommended pathway
+            const recommendation = analyzeResponses();
+
+            // Display results
+            displayResults(recommendation);
+
+            // Show results step
+            showStep('results');
+        }
+    }
+
+    function analyzeResponses() {
+        let pathwayScores = {
+            'directly-related': 0,
+            'consent': 0,
+            'hrec': 0,
+            'deidentification': 0
+        };
+
+        // Score based on organisation type and purpose
+        if (wizardData['org-type'] === 'public-health' || wizardData['org-type'] === 'private-health') {
+            pathwayScores['directly-related'] += 3;
+        }
+
+        if (wizardData['primary-purpose'] === 'service-delivery' || wizardData['primary-purpose'] === 'system-management') {
+            pathwayScores['directly-related'] += 4;
+        } else if (wizardData['primary-purpose'] === 'research') {
+            pathwayScores['hrec'] += 3;
+            pathwayScores['consent'] += 2;
+        } else if (wizardData['primary-purpose'] === 'commercial') {
+            pathwayScores['consent'] += 3;
+            pathwayScores['deidentification'] += 2;
+        }
+
+        // Score based on consent status
+        if (wizardData['consent-status'] === 'broad-consent') {
+            pathwayScores['consent'] += 4;
+        } else if (wizardData['consent-status'] === 'no-consent') {
+            pathwayScores['directly-related'] += 2;
+            pathwayScores['hrec'] += 2;
+            pathwayScores['deidentification'] += 3;
+        }
+
+        // Score based on data sensitivity and risk
+        if (wizardData['reidentification-risk'] === 'very-low') {
+            pathwayScores['deidentification'] += 4;
+        } else if (wizardData['reidentification-risk'] === 'high') {
+            pathwayScores['hrec'] += 3;
+            pathwayScores['consent'] += 2;
+        }
+
+        // Find highest scoring pathway
+        let recommendedPathway = Object.keys(pathwayScores).reduce((a, b) =>
+            pathwayScores[a] > pathwayScores[b] ? a : b
+        );
+
+        return {
+            primary: recommendedPathway,
+            scores: pathwayScores,
+            alternatives: getAlternativePathways(pathwayScores, recommendedPathway)
+        };
+    }
+
+    function getAlternativePathways(scores, primary) {
+        const sortedPathways = Object.entries(scores)
+            .filter(([pathway]) => pathway !== primary)
+            .sort(([,a], [,b]) => b - a)
+            .slice(0, 2);
+
+        return sortedPathways.map(([pathway]) => pathway);
+    }
+
+    function displayResults(recommendation) {
+        const resultsContainer = document.getElementById('pathway-results');
+        if (!resultsContainer) return;
+
+        const pathwayNames = {
+            'directly-related': 'Directly related uses',
+            'consent': 'Consent-based approach',
+            'hrec': 'HREC approval',
+            'deidentification': 'De-identification standards'
+        };
+
+        const pathwayDescriptions = {
+            'directly-related': 'Your synthetic data use appears to be directly related to the original purpose of health data collection.',
+            'consent': 'Your project would benefit from obtaining specific consent for synthetic data generation and use.',
+            'hrec': 'Your project requires Human Research Ethics Committee review and approval.',
+            'deidentification': 'Your project can proceed using de-identification standards under privacy law.'
+        };
+
+        // Display primary recommendation
+        resultsContainer.innerHTML = `
+            <div class="primary-recommendation">
+                <h4>🎯 Primary recommended pathway</h4>
+                <div class="pathway-result primary">
+                    <h5>${pathwayNames[recommendation.primary]}</h5>
+                    <p>${pathwayDescriptions[recommendation.primary]}</p>
+                    <div class="confidence-score">
+                        <strong>Confidence level:</strong> ${getConfidenceLevel(recommendation.scores[recommendation.primary])}
+                    </div>
+                </div>
+            </div>
+
+            <div class="alternative-recommendations">
+                <h4>Alternative pathways to consider</h4>
+                ${recommendation.alternatives.map(pathway => `
+                    <div class="pathway-result alternative">
+                        <h6>${pathwayNames[pathway]}</h6>
+                        <p>${pathwayDescriptions[pathway]}</p>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+    }
+
+    function getConfidenceLevel(score) {
+        if (score >= 8) return 'High';
+        if (score >= 5) return 'Medium';
+        return 'Low - consider multiple pathways';
+    }
+
+    function showValidationError(message) {
+        // Remove existing error messages
+        const existingErrors = document.querySelectorAll('.validation-error');
+        existingErrors.forEach(error => error.remove());
+
+        // Create new error message
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'validation-error';
+        errorDiv.textContent = message;
+        errorDiv.style.cssText = `
+            background: #f8d7da;
+            color: #721c24;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+            border-left: 4px solid #dc3545;
+        `;
+
+        // Insert before current step navigation
+        const currentStep = document.querySelector('.wizard-step.active') ||
+                           document.querySelector('.wizard-step[style*="block"]');
+        if (currentStep) {
+            const navigation = currentStep.querySelector('.step-navigation');
+            if (navigation) {
+                navigation.parentNode.insertBefore(errorDiv, navigation);
+            }
+        }
+
+        // Remove after 5 seconds
+        setTimeout(() => {
+            if (errorDiv.parentNode) {
+                errorDiv.remove();
+            }
+        }, 5000);
+    }
+
+    function updateProgressIndicator() {
+        // Could add a progress bar here
+    }
+
+    function showPathwayDetails(pathway) {
+        const section = document.querySelector(`[data-pathway="${pathway}"]`);
+        if (section) {
+            section.classList.add('expanded');
+            const icon = section.querySelector('.toggle-icon');
+            if (icon) {
+                icon.textContent = '▲';
+            }
+
+            // Scroll to section
+            section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    }
+
+    function restartWizard() {
+        currentStep = 1;
+        wizardData = {};
+
+        // Clear all form inputs
+        document.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(input => {
+            input.checked = false;
+        });
+
+        // Clear results
+        const resultsContainer = document.getElementById('pathway-results');
+        if (resultsContainer) {
+            resultsContainer.innerHTML = '';
+        }
+
+        // Show first step
+        showStep(1);
+    }
+
+    function exportResults() {
+        const resultsContainer = document.getElementById('pathway-results');
+        if (!resultsContainer || !resultsContainer.textContent.trim()) {
+            alert('Please complete the wizard to generate results before exporting.');
+            return;
+        }
+
+        const resultsText = generateResultsText();
+        const blob = new Blob([resultsText], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'legal-pathway-recommendation.txt';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    }
+
+    function generateResultsText() {
+        const results = document.getElementById('pathway-results')?.textContent || '';
+
+        return `
+LEGAL PATHWAY RECOMMENDATION
+Generated: ${new Date().toLocaleString()}
+
+${results}
+
+WIZARD RESPONSES:
+${Object.entries(wizardData).map(([key, value]) =>
+    `${key.replace('-', ' ')}: ${Array.isArray(value) ? value.join(', ') : value}`
+).join('\n')}
+
+This recommendation is generated based on the SynD-DGF Legal Pathways Wizard.
+Please consult with legal and privacy experts for specific implementation guidance.
+        `.trim();
+    }
+
+    function setupFormValidation() {
+        // Add change listeners to form inputs for real-time validation feedback
+        document.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(input => {
+            input.addEventListener('change', function() {
+                // Remove validation errors when user makes selections
+                const errors = document.querySelectorAll('.validation-error');
+                errors.forEach(error => error.remove());
+            });
+        });
+    }
+
+    // Make functions available globally for button onclick handlers
+    window.nextStep = nextStep;
+    window.prevStep = prevStep;
+    window.generateResults = generateResults;
+    window.restartWizard = restartWizard;
+    window.exportResults = exportResults;
+});
+    </script>
+</body>
+</html>
