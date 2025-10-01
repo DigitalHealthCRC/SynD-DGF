@@ -6,5 +6,10 @@
 	],
 	"settings": {
 		"claudeCodeChat.permissions.yoloMode": false
+	},
+	"extensions": {
+		"recommendations": [
+			"anthropic.claude-code"
+		]
 	}
 }
