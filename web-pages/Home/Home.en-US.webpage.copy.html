@@ -1,16 +1,665 @@
 <style>
 @import url('../../web-files/synd-design-system.css');
 
-/* Responsive grid for step cards */
+/* ===================================
+   HERO SECTION - MODERN & DRAMATIC
+   =================================== */
+.hero-modern {
+    background: linear-gradient(135deg, #1a1f35 0%, #2A324B 50%, #36454F 100%);
+    color: white;
+    padding: 8rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-modern::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(6, 148, 148, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(247, 197, 159, 0.15) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.hero-modern .hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-modern h1 {
+    font-size: 4.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: white;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.hero-modern .hero-subtitle {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.95;
+    font-weight: 600;
+    color: #F7C59F;
+}
+
+.hero-modern .hero-description {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.hero-modern .hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+/* ===================================
+   MODERN BUTTON STYLES
+   =================================== */
+.btn-modern-primary {
+    background: linear-gradient(135deg, #F7C59F 0%, #E5B087 100%);
+    color: white;
+    padding: 1.25rem 3rem;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 8px 24px rgba(247, 197, 159, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-block;
+    border: none;
+}
+
+.btn-modern-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(247, 197, 159, 0.5);
+    background: linear-gradient(135deg, #FFD7B5 0%, #F7C59F 100%);
+}
+
+.btn-modern-secondary {
+    background: transparent;
+    color: white;
+    padding: 1.25rem 3rem;
+    text-decoration: none;
+    border: 3px solid white;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-block;
+}
+
+.btn-modern-secondary:hover {
+    background: white;
+    color: #2A324B;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.3);
+}
+
+.btn-modern-accent {
+    background: linear-gradient(135deg, #069494 0%, #047878 100%);
+    color: white;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 700;
+    box-shadow: 0 4px 16px rgba(6, 148, 148, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-block;
+}
+
+.btn-modern-accent:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(6, 148, 148, 0.4);
+    background: linear-gradient(135deg, #07B0B0 0%, #069494 100%);
+}
+
+.btn-modern-large {
+    padding: 1.25rem 3rem;
+    font-size: 1.15rem;
+}
+
+/* ===================================
+   SECTION LAYOUT & HEADERS
+   =================================== */
+.section-modern {
+    padding: 6rem 0;
+}
+
+.section-modern-alt {
+    background: linear-gradient(135deg, #FFF9E6 0%, #FFF7D9 100%);
+    padding: 6rem 0;
+    position: relative;
+}
+
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section-header-modern {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header-modern h2 {
+    color: #2A324B;
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.section-header-modern p {
+    font-size: 1.35rem;
+    color: #36454F;
+    max-width: 850px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.section-footer-modern {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+/* ===================================
+   STEP CARDS - DRAMATIC REDESIGN
+   =================================== */
+.step-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+.step-card-modern {
+    background: white;
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    border: 2px solid transparent;
+    overflow: hidden;
+}
+
+.step-card-modern::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    transition: height 0.3s ease;
+}
+
+.step-card-modern:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.15);
+    border-color: currentColor;
+}
+
+.step-card-modern:hover::before {
+    height: 8px;
+}
+
+/* Step card colour variants */
+.step-card-teal::before {
+    background: linear-gradient(135deg, #069494 0%, #04C4C4 100%);
+}
+
+.step-card-teal:hover {
+    border-color: #069494;
+}
+
+.step-card-blue::before {
+    background: linear-gradient(135deg, #0066CC 0%, #0088FF 100%);
+}
+
+.step-card-blue:hover {
+    border-color: #0066CC;
+}
+
+.step-card-gold::before {
+    background: linear-gradient(135deg, #FFD700 0%, #FFC700 100%);
+}
+
+.step-card-gold:hover {
+    border-color: #FFD700;
+}
+
+.step-card-coral::before {
+    background: linear-gradient(135deg, #FF7F50 0%, #FF9770 100%);
+}
+
+.step-card-coral:hover {
+    border-color: #FF7F50;
+}
+
+.step-card-purple::before {
+    background: linear-gradient(135deg, #6A5ACD 0%, #8A7AED 100%);
+}
+
+.step-card-purple:hover {
+    border-color: #6A5ACD;
+}
+
+.step-card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.step-badge {
+    position: absolute;
+    top: -0.5rem;
+    right: 0;
+    background: linear-gradient(135deg, #F7C59F 0%, #E5B087 100%);
+    color: white;
+    font-weight: 800;
+    font-size: 0.9rem;
+    padding: 0.4rem 0.9rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(247, 197, 159, 0.3);
+}
+
+.step-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1.5rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s ease;
+}
+
+.step-card-modern:hover .step-icon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+}
+
+.step-icon i {
+    width: 40px;
+    height: 40px;
+    color: white;
+}
+
+.step-icon-teal {
+    background: linear-gradient(135deg, #069494 0%, #04C4C4 100%);
+}
+
+.step-icon-blue {
+    background: linear-gradient(135deg, #0066CC 0%, #0088FF 100%);
+}
+
+.step-icon-gold {
+    background: linear-gradient(135deg, #FFD700 0%, #FFC700 100%);
+}
+
+.step-icon-coral {
+    background: linear-gradient(135deg, #FF7F50 0%, #FF9770 100%);
+}
+
+.step-icon-purple {
+    background: linear-gradient(135deg, #6A5ACD 0%, #8A7AED 100%);
+}
+
+.step-card-modern h3 {
+    color: #2A324B;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    flex: 1;
+}
+
+.step-card-modern p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #36454F;
+    margin-bottom: 2rem;
+}
+
+/* ===================================
+   TOOL CARDS - MODERN DESIGN
+   =================================== */
+.tool-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2.5rem;
+}
+
+.tool-card-modern {
+    background: white;
+    border-radius: 16px;
+    padding: 3rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+}
+
+.tool-card-modern:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.15);
+    border-color: #F7C59F;
+}
+
+.tool-icon-large {
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.tool-card-modern:hover .tool-icon-large {
+    transform: scale(1.15) rotate(-5deg);
+}
+
+.tool-icon-large i {
+    width: 80px;
+    height: 80px;
+}
+
+.tool-icon-teal i {
+    color: #069494;
+}
+
+.tool-icon-purple i {
+    color: #6A5ACD;
+}
+
+.tool-icon-coral i {
+    color: #FF7F50;
+}
+
+.tool-icon-blue i {
+    color: #0066CC;
+}
+
+.tool-card-modern h3 {
+    color: #2A324B;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.tool-card-modern p {
+    text-align: left;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #36454F;
+    margin-bottom: 2rem;
+}
+
+/* ===================================
+   RESOURCE CARDS
+   =================================== */
+.resource-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+.resource-card-modern {
+    background: white;
+    border-radius: 16px;
+    padding: 3rem 2.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+}
+
+.resource-card-modern:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.15);
+}
+
+.resource-card-teal:hover {
+    border-color: #069494;
+}
+
+.resource-card-coral:hover {
+    border-color: #FF7F50;
+}
+
+.resource-card-purple:hover {
+    border-color: #6A5ACD;
+}
+
+.resource-icon-large {
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.resource-card-modern:hover .resource-icon-large {
+    transform: scale(1.15);
+}
+
+.resource-icon-large i {
+    width: 80px;
+    height: 80px;
+}
+
+.resource-card-modern h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.resource-card-modern p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #36454F;
+    margin-bottom: 2.5rem;
+}
+
+/* ===================================
+   CALL TO ACTION SECTION
+   =================================== */
+.cta-modern {
+    background: linear-gradient(135deg, #1a1f35 0%, #2A324B 50%, #36454F 100%);
+    color: white;
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-modern::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(6, 148, 148, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(106, 90, 205, 0.12) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.cta-modern .cta-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.cta-modern h2 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: white;
+    letter-spacing: -0.02em;
+}
+
+.cta-modern .cta-subtitle {
+    font-size: 1.35rem;
+    margin-bottom: 3.5rem;
+    opacity: 0.95;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.cta-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.cta-card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 2.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cta-card:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-8px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+}
+
+.cta-card h4 {
+    color: white;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.cta-card p {
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    line-height: 1.6;
+    font-size: 1.05rem;
+}
+
+.cta-card a {
+    background: white;
+    color: #2A324B;
+    padding: 0.9rem 2rem;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 700;
+    display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(255, 255, 255, 0.2);
+}
+
+.cta-card a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.3);
+    background: #F7C59F;
+    color: white;
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
 @media (min-width: 769px) and (max-width: 1024px) {
     .step-cards-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 768px) {
+    .hero-modern {
+        padding: 5rem 0;
+    }
+
+    .hero-modern h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-modern .hero-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .hero-modern .hero-description {
+        font-size: 1.05rem;
+    }
+
+    .section-header-modern h2 {
+        font-size: 2.5rem;
+    }
+
+    .section-header-modern p {
+        font-size: 1.15rem;
+    }
+
+    .section-modern,
+    .section-modern-alt {
+        padding: 4rem 0;
+    }
+
     .step-cards-grid {
-        grid-template-columns: 1fr !important;
+        grid-template-columns: 1fr;
+    }
+
+    .tool-cards-grid,
+    .resource-cards-grid,
+    .cta-cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-modern h2 {
+        font-size: 2.5rem;
+    }
+
+    .cta-modern .cta-subtitle {
+        font-size: 1.15rem;
+    }
+
+    .step-badge {
+        position: static;
+        display: inline-block;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-modern h1 {
+        font-size: 2.2rem;
+    }
+
+    .section-header-modern h2 {
+        font-size: 2rem;
+    }
+
+    .btn-modern-primary,
+    .btn-modern-secondary {
+        padding: 1rem 2rem;
+        font-size: 1rem;
     }
 }
 </style>
@@ -18,172 +667,199 @@
 <script src="https://unpkg.com/lucide@latest"></script>
 
 <!-- Hero Section -->
-<div style="background: linear-gradient(135deg, #2A324B 0%, #36454F 100%); color: white; padding: 4rem 0; text-align: center;">
-  <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
-    <h1 style="font-size: 2.5rem; margin-bottom: 1rem; color: white;">SynD-DGF</h1>
-    <p style="font-size: 1.25rem; margin-bottom: 1rem; opacity: 0.9;">Comprehensive Synthetic Health Data Governance Framework</p>
-    <p style="margin-bottom: 2rem;">Navigate privacy compliance, technical standards, and regulatory requirements with our evidence-based 5-step framework and interactive decision support tools.</p>
-    <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-      <a href="../framework-overview/FrameworkOverview.en-US.webpage.copy.html" style="background: #F7C59F; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 6px; font-weight: 600;">Start with Framework</a>
-      <a href="../decision-support-overview/DecisionSupportOverview.en-US.webpage.copy.html" style="background: transparent; color: white; padding: 1rem 2rem; text-decoration: none; border: 2px solid white; border-radius: 6px; font-weight: 600;">Decision Support Tools</a>
+<div class="hero-modern">
+  <div class="hero-container">
+    <h1>SynD-DGF</h1>
+    <p class="hero-subtitle">Comprehensive Synthetic Health Data Governance Framework</p>
+    <p class="hero-description">Navigate privacy compliance, technical standards, and regulatory requirements with our evidence-based 5-step framework and interactive decision support tools.</p>
+    <div class="hero-buttons">
+      <a href="../framework-overview/FrameworkOverview.en-US.webpage.copy.html" class="btn-modern-primary">Start with Framework</a>
+      <a href="../decision-support-overview/DecisionSupportOverview.en-US.webpage.copy.html" class="btn-modern-secondary">Decision Support Tools</a>
     </div>
   </div>
 </div>
 
 <!-- Framework Steps -->
-<div style="padding: 4rem 0;">
-  <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
-    <div style="text-align: center; margin-bottom: 3rem;">
-      <h2 style="color: #2A324B; font-size: 2.5rem; margin-bottom: 1rem;">Evidence-based 5-step framework</h2>
-      <p style="font-size: 1.25rem; color: #36454F; max-width: 800px; margin: 0 auto;">Systematic approach to synthetic health data governance based on comprehensive analysis of Australian privacy law, technical standards, and stakeholder consultation.</p>
+<div class="section-modern">
+  <div class="section-container">
+    <div class="section-header-modern">
+      <h2>Evidence-based 5-step framework</h2>
+      <p>Systematic approach to synthetic health data governance based on comprehensive analysis of Australian privacy law, technical standards, and stakeholder consultation.</p>
     </div>
 
-    <div class="step-cards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-      <div style="background: white; border: 1px solid #C7CCDB; border-radius: 8px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 5px solid #069494;">
-        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-          <div style="background: var(--color-primary); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem;"><i data-lucide="clipboard-check"></i></div>
-          <h3 style="color: #069494; margin: 0;">Assess use case</h3>
+    <div class="step-cards-grid">
+      <div class="step-card-modern step-card-teal">
+        <div class="step-card-header">
+          <div class="step-icon step-icon-teal">
+            <i data-lucide="clipboard-check"></i>
+          </div>
+          <h3>Assess use case</h3>
+          <span class="step-badge">STEP 1</span>
         </div>
-        <p style="margin-bottom: 1.5rem;">Determine if synthetic data generation is appropriate and lawful for your intended use case through public benefit assessment and community notification evaluation.</p>
-        <a href="../step-1-use-case-assessment/Step1UseCaseAssessment.en-US.webpage.copy.html" class="btn-synd btn-synd-accent">Start Assessment</a>
+        <p>Determine if synthetic data generation is appropriate and lawful for your intended use case through public benefit assessment and community notification evaluation.</p>
+        <a href="../step-1-use-case-assessment/Step1UseCaseAssessment.en-US.webpage.copy.html" class="btn-modern-accent">Start Assessment</a>
       </div>
 
-      <div style="background: white; border: 1px solid #C7CCDB; border-radius: 8px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 5px solid #0066CC;">
-        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-          <div style="background: var(--color-secondary); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem;"><i data-lucide="database"></i></div>
-          <h3 style="color: #2A324B; margin: 0;">Assess source data</h3>
+      <div class="step-card-modern step-card-blue">
+        <div class="step-card-header">
+          <div class="step-icon step-icon-blue">
+            <i data-lucide="database"></i>
+          </div>
+          <h3>Assess source data</h3>
+          <span class="step-badge">STEP 2</span>
         </div>
-        <p style="margin-bottom: 1.5rem;">Evaluate source data characteristics, quality, and preparation requirements for effective synthetic data generation and privacy protection.</p>
-        <a href="../step-2-assess-source-data/Step2AssessSourceData.en-US.webpage.copy.html" class="btn-synd btn-synd-accent">Assess Data</a>
+        <p>Evaluate source data characteristics, quality, and preparation requirements for effective synthetic data generation and privacy protection.</p>
+        <a href="../step-2-assess-source-data/Step2AssessSourceData.en-US.webpage.copy.html" class="btn-modern-accent">Assess Data</a>
       </div>
 
-      <div style="background: white; border: 1px solid #C7CCDB; border-radius: 8px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 5px solid #FFD700;">
-        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-          <div style="background: var(--color-warning); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem;"><i data-lucide="settings"></i></div>
-          <h3 style="color: #FFD700; margin: 0;">Generate synthetic data</h3>
+      <div class="step-card-modern step-card-gold">
+        <div class="step-card-header">
+          <div class="step-icon step-icon-gold">
+            <i data-lucide="settings"></i>
+          </div>
+          <h3>Generate synthetic data</h3>
+          <span class="step-badge">STEP 3</span>
         </div>
-        <p style="margin-bottom: 1.5rem;">Select and configure appropriate synthetic data generation methods, from rule-based to advanced machine learning approaches.</p>
-        <a href="../step-3-generate-synthetic-data/Step3GenerateSyntheticData.en-US.webpage.copy.html" class="btn-synd btn-synd-accent">Generate Data</a>
+        <p>Select and configure appropriate synthetic data generation methods, from rule-based to advanced machine learning approaches.</p>
+        <a href="../step-3-generate-synthetic-data/Step3GenerateSyntheticData.en-US.webpage.copy.html" class="btn-modern-accent">Generate Data</a>
       </div>
 
-      <div style="background: white; border: 1px solid #C7CCDB; border-radius: 8px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 5px solid #FF7F50;">
-        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-          <div style="background: var(--color-danger); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem;"><i data-lucide="search"></i></div>
-          <h3 style="color: #FF7F50; margin: 0;">Assess re-identification risks</h3>
+      <div class="step-card-modern step-card-coral">
+        <div class="step-card-header">
+          <div class="step-icon step-icon-coral">
+            <i data-lucide="search"></i>
+          </div>
+          <h3>Assess re-identification risks</h3>
+          <span class="step-badge">STEP 4</span>
         </div>
-        <p style="margin-bottom: 1.5rem;">Evaluate and mitigate privacy risks using advanced de-identification techniques and comprehensive risk assessment methodologies.</p>
-        <a href="../step-4-assess-reidentification-risks/Step4AssessReidentificationRisks.en-US.webpage.copy.html" class="btn-synd btn-synd-accent">Assess Risks</a>
+        <p>Evaluate and mitigate privacy risks using advanced de-identification techniques and comprehensive risk assessment methodologies.</p>
+        <a href="../step-4-assess-reidentification-risks/Step4AssessReidentificationRisks.en-US.webpage.copy.html" class="btn-modern-accent">Assess Risks</a>
       </div>
 
-      <div style="background: white; border: 1px solid #C7CCDB; border-radius: 8px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 5px solid #6A5ACD;">
-        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-          <div style="background: var(--color-info); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem;"><i data-lucide="shield-check"></i></div>
-          <h3 style="color: #6A5ACD; margin: 0;">Manage residual risks</h3>
+      <div class="step-card-modern step-card-purple">
+        <div class="step-card-header">
+          <div class="step-icon step-icon-purple">
+            <i data-lucide="shield-check"></i>
+          </div>
+          <h3>Manage residual risks</h3>
+          <span class="step-badge">STEP 5</span>
         </div>
-        <p style="margin-bottom: 1.5rem;">Implement ongoing safeguards using the Five Safes Framework with comprehensive monitoring and compliance assurance.</p>
-        <a href="../step-5-manage-residual-risks/Step5ManageResidualRisks.en-US.webpage.copy.html" class="btn-synd btn-synd-accent">Manage Risks</a>
+        <p>Implement ongoing safeguards using the Five Safes Framework with comprehensive monitoring and compliance assurance.</p>
+        <a href="../step-5-manage-residual-risks/Step5ManageResidualRisks.en-US.webpage.copy.html" class="btn-modern-accent">Manage Risks</a>
       </div>
     </div>
 
-    <div style="text-align: center; margin-top: 3rem;">
-      <a href="../framework-overview/FrameworkOverview.en-US.webpage.copy.html" style="background: #F7C59F; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.1rem;">View Complete Framework</a>
+    <div class="section-footer-modern">
+      <a href="../framework-overview/FrameworkOverview.en-US.webpage.copy.html" class="btn-modern-primary btn-modern-large">View Complete Framework</a>
     </div>
   </div>
 </div>
 
 <!-- Decision Support Tools -->
-<div style="background: #FFF7D9; padding: 4rem 0;">
-  <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
-    <div style="text-align: center; margin-bottom: 3rem;">
-      <h2 style="color: #2A324B; font-size: 2.5rem; margin-bottom: 1rem;">Advanced decision support tools</h2>
-      <p style="font-size: 1.25rem; color: #36454F; max-width: 800px; margin: 0 auto;">Navigate complex scenarios with our interactive tools designed for real-world synthetic health data governance challenges.</p>
+<div class="section-modern-alt">
+  <div class="section-container">
+    <div class="section-header-modern">
+      <h2>Advanced decision support tools</h2>
+      <p>Navigate complex scenarios with our interactive tools designed for real-world synthetic health data governance challenges.</p>
     </div>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
-      <div style="background: white; border-radius: 8px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center;">
-        <div style="font-size: 3rem; margin-bottom: 1rem;"><i data-lucide="compass"></i></div>
-        <h3 style="color: #2A324B; margin-bottom: 1rem;">Complex Scenarios Navigator</h3>
-        <p style="margin-bottom: 1.5rem; text-align: left;">Interactive decision tree for complex scenarios requiring additional assessment considerations, including multi-organisational projects and Indigenous data considerations.</p>
-        <a href="../Complex Scenarios Navigator/ComplexScenariosNavigator.en-US.webpage.copy.html" class="btn-synd btn-synd-primary">Navigate Complex Scenarios</a>
+    <div class="tool-cards-grid">
+      <div class="tool-card-modern">
+        <div class="tool-icon-large tool-icon-teal">
+          <i data-lucide="compass"></i>
+        </div>
+        <h3>Complex Scenarios Navigator</h3>
+        <p>Interactive decision tree for complex scenarios requiring additional assessment considerations, including multi-organisational projects and Indigenous data considerations.</p>
+        <a href="../Complex Scenarios Navigator/ComplexScenariosNavigator.en-US.webpage.copy.html" class="btn-modern-primary">Navigate Complex Scenarios</a>
       </div>
 
-      <div style="background: white; border-radius: 8px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center;">
-        <div style="font-size: 3rem; margin-bottom: 1rem;"><i data-lucide="scale"></i></div>
-        <h3 style="color: #2A324B; margin-bottom: 1rem;">Legal Pathways Wizard</h3>
-        <p style="margin-bottom: 1.5rem; text-align: left;">4-step wizard to determine the appropriate legal pathway for your synthetic data project under Australian privacy law and regulatory frameworks.</p>
-        <a href="../legal-pathways-wizard/LegalPathwaysWizard.en-US.webpage.copy.html" class="btn-synd btn-synd-primary">Find Legal Pathway</a>
+      <div class="tool-card-modern">
+        <div class="tool-icon-large tool-icon-purple">
+          <i data-lucide="scale"></i>
+        </div>
+        <h3>Legal Pathways Wizard</h3>
+        <p>4-step wizard to determine the appropriate legal pathway for your synthetic data project under Australian privacy law and regulatory frameworks.</p>
+        <a href="../legal-pathways-wizard/LegalPathwaysWizard.en-US.webpage.copy.html" class="btn-modern-primary">Find Legal Pathway</a>
       </div>
 
-      <div style="background: white; border-radius: 8px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center;">
-        <div style="font-size: 3rem; margin-bottom: 1rem;"><i data-lucide="shield"></i></div>
-        <h3 style="color: #2A324B; margin-bottom: 1rem;">Risk Mitigation Planner</h3>
-        <p style="margin-bottom: 1.5rem; text-align: left;">Comprehensive risk assessment and mitigation planning tool for higher-risk scenarios with technical, organisational, and legal safeguards.</p>
-        <a href="../risk-mitigation-planner/RiskMitigationPlanner.en-US.webpage.copy.html" class="btn-synd btn-synd-primary">Plan Risk Mitigation</a>
+      <div class="tool-card-modern">
+        <div class="tool-icon-large tool-icon-coral">
+          <i data-lucide="shield"></i>
+        </div>
+        <h3>Risk Mitigation Planner</h3>
+        <p>Comprehensive risk assessment and mitigation planning tool for higher-risk scenarios with technical, organisational, and legal safeguards.</p>
+        <a href="../risk-mitigation-planner/RiskMitigationPlanner.en-US.webpage.copy.html" class="btn-modern-primary">Plan Risk Mitigation</a>
       </div>
     </div>
 
-    <div style="text-align: center; margin-top: 3rem;">
-      <a href="../decision-support-overview/DecisionSupportOverview.en-US.webpage.copy.html" style="background: #F7C59F; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.1rem;">View All Decision Support Tools</a>
+    <div class="section-footer-modern">
+      <a href="../decision-support-overview/DecisionSupportOverview.en-US.webpage.copy.html" class="btn-modern-primary btn-modern-large">View All Decision Support Tools</a>
     </div>
   </div>
 </div>
 
 <!-- Resources -->
-<div style="padding: 4rem 0;">
-  <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
-    <div style="text-align: center; margin-bottom: 3rem;">
-      <h2 style="color: #2A324B; font-size: 2.5rem; margin-bottom: 1rem;">Comprehensive resources and tools</h2>
-      <p style="font-size: 1.25rem; color: #36454F; max-width: 800px; margin: 0 auto;">Access practical assessment tools, comprehensive framework documentation, and evidence-based guidance for implementation.</p>
+<div class="section-modern">
+  <div class="section-container">
+    <div class="section-header-modern">
+      <h2>Comprehensive resources and tools</h2>
+      <p>Access practical assessment tools, comprehensive framework documentation, and evidence-based guidance for implementation.</p>
     </div>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-      <div style="background: white; border-radius: 8px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center;">
-        <div style="font-size: 4rem; margin-bottom: 1.5rem; color: #069494;"><i data-lucide="clipboard-list"></i></div>
-        <h3 style="color: #069494; margin-bottom: 1rem;">Assessment Tools</h3>
-        <p style="margin-bottom: 2rem;">Interactive assessment forms and checklists for use case evaluation, risk assessment, compliance checking, and data quality metrics.</p>
-        <a href="../assessment-tools/AssessmentTools.en-US.webpage.copy.html" class="btn-synd btn-synd-primary">Access Assessment Tools</a>
+    <div class="resource-cards-grid">
+      <div class="resource-card-modern resource-card-teal">
+        <div class="resource-icon-large tool-icon-teal">
+          <i data-lucide="clipboard-list"></i>
+        </div>
+        <h3>Assessment Tools</h3>
+        <p>Interactive assessment forms and checklists for use case evaluation, risk assessment, compliance checking, and data quality metrics.</p>
+        <a href="../assessment-tools/AssessmentTools.en-US.webpage.copy.html" class="btn-modern-primary">Access Assessment Tools</a>
       </div>
 
-      <div style="background: white; border-radius: 8px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center;">
-        <div style="font-size: 4rem; margin-bottom: 1.5rem; color: #FF7F50;"><i data-lucide="book-open"></i></div>
-        <h3 style="color: #FF7F50; margin-bottom: 1rem;">Framework Resources</h3>
-        <p style="margin-bottom: 2rem;">Complete framework documentation with all 12 appendices covering legal analysis, technical guidance, implementation templates, and stakeholder consultation materials.</p>
-        <a href="../resources/Resources.en-US.webpage.copy.html" class="btn-synd btn-synd-primary">Browse Resources</a>
+      <div class="resource-card-modern resource-card-coral">
+        <div class="resource-icon-large tool-icon-coral">
+          <i data-lucide="book-open"></i>
+        </div>
+        <h3>Framework Resources</h3>
+        <p>Complete framework documentation with all 12 appendices covering legal analysis, technical guidance, implementation templates, and stakeholder consultation materials.</p>
+        <a href="../resources/Resources.en-US.webpage.copy.html" class="btn-modern-primary">Browse Resources</a>
       </div>
 
-      <div style="background: white; border-radius: 8px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center;">
-        <div style="font-size: 4rem; margin-bottom: 1.5rem; color: #6A5ACD;"><i data-lucide="microscope"></i></div>
-        <h3 style="color: #6A5ACD; margin-bottom: 1rem;">Evidence-based Framework</h3>
-        <p style="margin-bottom: 2rem;">Comprehensive analysis of Australian privacy law, international best practices, technical standards, and extensive stakeholder consultation with health sector experts.</p>
-        <a href="../about/About.en-US.webpage.copy.html" class="btn-synd btn-synd-primary">Learn About Framework</a>
+      <div class="resource-card-modern resource-card-purple">
+        <div class="resource-icon-large tool-icon-purple">
+          <i data-lucide="microscope"></i>
+        </div>
+        <h3>Evidence-based Framework</h3>
+        <p>Comprehensive analysis of Australian privacy law, international best practices, technical standards, and extensive stakeholder consultation with health sector experts.</p>
+        <a href="../about/About.en-US.webpage.copy.html" class="btn-modern-primary">Learn About Framework</a>
       </div>
     </div>
   </div>
 </div>
 
 <!-- Call to Action -->
-<div style="background: linear-gradient(135deg, #2A324B 0%, #36454F 100%); color: white; padding: 4rem 0;">
-  <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem; text-align: center;">
-    <h2 style="font-size: 2.5rem; margin-bottom: 1rem; color: white;">Ready to get started?</h2>
-    <p style="font-size: 1.25rem; margin-bottom: 2.5rem; opacity: 0.95; max-width: 700px; margin-left: auto; margin-right: auto;">Choose your starting point based on your experience and current needs with synthetic health data governance.</p>
+<div class="cta-modern">
+  <div class="cta-container">
+    <h2>Ready to get started?</h2>
+    <p class="cta-subtitle">Choose your starting point based on your experience and current needs with synthetic health data governance.</p>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 900px; margin: 0 auto;">
-      <div style="background: rgba(255,255,255,0.1); border-radius: 8px; padding: 2rem; border: 1px solid rgba(255,255,255,0.2);">
-        <h4 style="color: white; margin-bottom: 1rem; font-size: 1.25rem;">New to Synthetic Data?</h4>
-        <p style="margin-bottom: 1.5rem; opacity: 0.9;">Start with our framework overview to understand the complete process and requirements.</p>
-        <a href="../framework-overview/FrameworkOverview.en-US.webpage.copy.html" style="background: white; color: #2A324B; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 6px; font-weight: 600;">Begin with Framework</a>
+    <div class="cta-cards-grid">
+      <div class="cta-card">
+        <h4>New to Synthetic Data?</h4>
+        <p>Start with our framework overview to understand the complete process and requirements.</p>
+        <a href="../framework-overview/FrameworkOverview.en-US.webpage.copy.html">Begin with Framework</a>
       </div>
 
-      <div style="background: rgba(255,255,255,0.1); border-radius: 8px; padding: 2rem; border: 1px solid rgba(255,255,255,0.2);">
-        <h4 style="color: white; margin-bottom: 1rem; font-size: 1.25rem;">Have a Specific Project?</h4>
-        <p style="margin-bottom: 1.5rem; opacity: 0.9;">Use our decision support tools to navigate complex scenarios and legal requirements.</p>
-        <a href="../decision-support-overview/DecisionSupportOverview.en-US.webpage.copy.html" style="background: white; color: #2A324B; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 6px; font-weight: 600;">Get Decision Support</a>
+      <div class="cta-card">
+        <h4>Have a Specific Project?</h4>
+        <p>Use our decision support tools to navigate complex scenarios and legal requirements.</p>
+        <a href="../decision-support-overview/DecisionSupportOverview.en-US.webpage.copy.html">Get Decision Support</a>
       </div>
 
-      <div style="background: rgba(255,255,255,0.1); border-radius: 8px; padding: 2rem; border: 1px solid rgba(255,255,255,0.2);">
-        <h4 style="color: white; margin-bottom: 1rem; font-size: 1.25rem;">Ready to Assess?</h4>
-        <p style="margin-bottom: 1.5rem; opacity: 0.9;">Jump straight into our interactive assessment tools and compliance checklists.</p>
-        <a href="../step-1-use-case-assessment/Step1UseCaseAssessment.en-US.webpage.copy.html" style="background: white; color: #2A324B; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 6px; font-weight: 600;">Start Assessment</a>
+      <div class="cta-card">
+        <h4>Ready to Assess?</h4>
+        <p>Jump straight into our interactive assessment tools and compliance checklists.</p>
+        <a href="../step-1-use-case-assessment/Step1UseCaseAssessment.en-US.webpage.copy.html">Start Assessment</a>
       </div>
     </div>
   </div>
