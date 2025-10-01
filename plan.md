@@ -439,3 +439,141 @@ The website already exceeds the framework in user experience and interactivity -
 **Phase 3.1 Status:** ✅ COMPLETE - Assessment tool enhancement with framework integration
 **Next Priority:** Phase 3.2 Advanced Search implementation
 **Review Date:** December 2025
+
+---
+
+## 11. UX Improvements Implementation (October 2025)
+
+### Phase 3.3: User Experience Optimization ✅ COMPLETED
+
+#### Overview:
+Comprehensive UX audit and improvement implementation focusing on navigation consistency, typography, responsive design, and accessibility enhancements across all pages.
+
+#### Critical Issues Resolved (6 implementations):
+
+1. **Navigation Consistency** ✅
+   - Fixed Complex Scenarios Navigator availability messaging (Home page line 88)
+   - Updated from "Coming Soon" to active functional link
+   - Ensures consistency with Decision Support Overview page
+
+2. **Broken Link Corrections** ✅
+   - Fixed Framework Overview broken link (line 384)
+   - Corrected path from `/decision-support/complex-scenarios` to relative path
+   - Users can now access decision tree navigator successfully
+
+3. **Typography Optimization** ✅
+   - Reduced hero heading sizes from 3rem (48px) to 2.5rem (40px)
+   - Applied to Home page and Framework Overview
+   - Improved visual balance and mobile readability
+
+4. **Back-to-Top Navigation** ✅
+   - Implemented floating back-to-top buttons on 5 long-form pages:
+     - Step 1: Use Case Assessment (1965 lines)
+     - Step 2: Assess Source Data (687 lines)
+     - Step 4: Assess Re-identification Risks (583 lines)
+     - Step 5: Manage Residual Risks (723 lines)
+     - Resources page (485 lines)
+   - Button appears after 200px scroll
+   - Smooth scroll animation to top
+
+5. **Button Hierarchy Enhancement** ✅
+   - Implemented visual distinction between primary and secondary CTAs
+   - Added `.button2` class for Assessment Tools page
+   - Primary buttons: Solid gradient background (#2A324B)
+   - Secondary buttons: White background with border outline
+   - 10px margin spacing between button groups
+
+6. **Responsive Grid Improvements** ✅
+   - Enhanced Home page step cards grid with proper breakpoints
+   - Mobile (<768px): Single column layout
+   - Tablet (769-1024px): Two-column grid
+   - Desktop (>1024px): Auto-fit flexible columns
+   - Prevents awkward card wrapping on iPad-sized screens
+
+#### Technical Implementation Details:
+
+**Back-to-Top Button Code:**
+```javascript
+// Floating button with smooth scroll
+window.onscroll = function() {
+    const backToTop = document.getElementById('backToTop');
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        backToTop.style.display = "block";
+    } else {
+        backToTop.style.display = "none";
+    }
+};
+```
+
+**Responsive Grid CSS:**
+```css
+@media (min-width: 769px) and (max-width: 1024px) {
+    .step-cards-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+```
+
+**Secondary Button Styling:**
+```css
+.button2 {
+    background: white;
+    color: #2A324B;
+    border: 2px solid #2A324B;
+    padding: 12px 25px;
+}
+```
+
+#### Files Modified:
+- `web-pages/Home/Home.en-US.webpage.copy.html` (3 changes)
+- `web-pages/framework-overview/FrameworkOverview.en-US.webpage.copy.html` (2 changes)
+- `web-pages/step-1-use-case-assessment/Step1UseCaseAssessment.en-US.webpage.copy.html` (1 change)
+- `web-pages/step-2-assess-source-data/Step2AssessSourceData.en-US.webpage.copy.html` (1 change)
+- `web-pages/step-4-assess-reidentification-risks/Step4AssessReidentificationRisks.en-US.webpage.copy.html` (1 change)
+- `web-pages/step-5-manage-residual-risks/Step5ManageResidualRisks.en-US.webpage.copy.html` (1 change)
+- `web-pages/resources/Resources.en-US.webpage.copy.html` (1 change)
+- `web-pages/assessment-tools/AssessmentTools.en-US.webpage.copy.html` (1 change)
+
+#### User Experience Impact:
+
+**Improved Navigation:**
+- Eliminated confusion about feature availability
+- Fixed broken user journeys to critical tools
+- Enhanced long-form content navigation with back-to-top functionality
+
+**Better Visual Hierarchy:**
+- Clearer distinction between primary and secondary actions
+- More balanced typography across viewport sizes
+- Professional, consistent design language
+
+**Enhanced Responsiveness:**
+- Optimized layouts for tablet devices (769-1024px)
+- Single-column mobile layouts prevent content crowding
+- Improved touch target sizing and spacing
+
+#### Quality Assurance:
+- All changes maintain Australian English conventions
+- Consistent with existing design language (#F7C59F accent colour, #2A324B primary)
+- No breaking changes to existing functionality
+- Backward compatible with all supported browsers
+
+#### Additional Recommendations Identified (Not Implemented):
+
+**Important Improvements (8 items):**
+- Standardize paragraph spacing across step pages (1.25rem standard)
+- Add progress indicators on step pages showing 1-5 completion
+- Remove redundant "Getting Started" sections
+- Add anchor links for quick navigation on long pages
+
+**Minor Enhancements (8 items):**
+- Improve link discoverability with hover underlines
+- Add tooltips for technical terms
+- Standardize button sizing across all pages
+- Improve contrast on warning boxes (WCAG AA compliance)
+
+---
+
+**Phase 3.3 Status:** ✅ COMPLETE - User experience optimization implemented
+**Total Changes:** 11 file modifications, 6 critical issues resolved
+**Impact:** Enhanced navigation, typography, and responsive design across 8 pages
+**Review Date:** January 2026

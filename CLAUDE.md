@@ -187,3 +187,19 @@ The resources section now follows a hierarchical structure:
 - Updated dropdown menus with proper categorisation
 - Visual status indicators showing content availability
 - Enhanced mobile and desktop navigation experience
+
+## Recent UX improvements (October 2025)
+
+### User experience enhancements implemented:
+1. **Navigation consistency** - Fixed Complex Scenarios Navigator availability messaging across Home and Decision Support pages
+2. **Link corrections** - Resolved broken links in Framework Overview to Complex Scenarios Navigator
+3. **Typography optimization** - Reduced hero heading sizes from 3rem to 2.5rem for better visual balance
+4. **Navigation aids** - Added floating back-to-top buttons on all long-form pages (Steps 1-5, Resources)
+5. **Button hierarchy** - Implemented visual distinction between primary and secondary CTAs on Assessment Tools page
+6. **Responsive design** - Enhanced mobile and tablet layouts for step card grids with proper breakpoints
+
+### Technical implementation details:
+- Back-to-top buttons appear after 200px scroll with smooth animation
+- Secondary buttons (`.button2`) use outlined style vs solid primary buttons
+- Mobile breakpoints: <768px (single column), 769-1024px (two columns)
+- All changes maintain Australian English conventions and existing design language
