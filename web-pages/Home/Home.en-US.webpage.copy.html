@@ -1,4 +1,6 @@
 <style>
+@import url('../../web-files/synd-design-system.css');
+
 /* Responsive grid for step cards */
 @media (min-width: 769px) and (max-width: 1024px) {
     .step-cards-grid {
@@ -12,6 +14,8 @@
     }
 }
 </style>
+
+<script src="https://unpkg.com/lucide@latest"></script>
 
 <!-- Hero Section -->
 <div style="background: linear-gradient(135deg, #2A324B 0%, #36454F 100%); color: white; padding: 4rem 0; text-align: center;">
@@ -37,47 +41,47 @@
     <div class="step-cards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
       <div style="background: white; border: 1px solid #C7CCDB; border-radius: 8px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 5px solid #069494;">
         <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-          <div style="background: #069494; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem;">1</div>
+          <div style="background: var(--color-primary); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem;"><i data-lucide="clipboard-check"></i></div>
           <h3 style="color: #069494; margin: 0;">Assess use case</h3>
         </div>
         <p style="margin-bottom: 1.5rem;">Determine if synthetic data generation is appropriate and lawful for your intended use case through public benefit assessment and community notification evaluation.</p>
-        <a href="../step-1-use-case-assessment/Step1UseCaseAssessment.en-US.webpage.copy.html" style="background: #F7C59F; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 6px; font-weight: 600;">Start Assessment</a>
+        <a href="../step-1-use-case-assessment/Step1UseCaseAssessment.en-US.webpage.copy.html" class="btn-synd btn-synd-accent">Start Assessment</a>
       </div>
 
       <div style="background: white; border: 1px solid #C7CCDB; border-radius: 8px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 5px solid #0066CC;">
         <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-          <div style="background: #F7C59F; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem;">2</div>
+          <div style="background: var(--color-secondary); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem;"><i data-lucide="database"></i></div>
           <h3 style="color: #2A324B; margin: 0;">Assess source data</h3>
         </div>
         <p style="margin-bottom: 1.5rem;">Evaluate source data characteristics, quality, and preparation requirements for effective synthetic data generation and privacy protection.</p>
-        <a href="../step-2-assess-source-data/Step2AssessSourceData.en-US.webpage.copy.html" style="background: #F7C59F; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 6px; font-weight: 600;">Assess Data</a>
+        <a href="../step-2-assess-source-data/Step2AssessSourceData.en-US.webpage.copy.html" class="btn-synd btn-synd-accent">Assess Data</a>
       </div>
 
       <div style="background: white; border: 1px solid #C7CCDB; border-radius: 8px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 5px solid #FFD700;">
         <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-          <div style="background: #FFD700; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem;">3</div>
+          <div style="background: var(--color-warning); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem;"><i data-lucide="settings"></i></div>
           <h3 style="color: #FFD700; margin: 0;">Generate synthetic data</h3>
         </div>
         <p style="margin-bottom: 1.5rem;">Select and configure appropriate synthetic data generation methods, from rule-based to advanced machine learning approaches.</p>
-        <a href="../step-3-generate-synthetic-data/Step3GenerateSyntheticData.en-US.webpage.copy.html" style="background: #F7C59F; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 6px; font-weight: 600;">Generate Data</a>
+        <a href="../step-3-generate-synthetic-data/Step3GenerateSyntheticData.en-US.webpage.copy.html" class="btn-synd btn-synd-accent">Generate Data</a>
       </div>
 
       <div style="background: white; border: 1px solid #C7CCDB; border-radius: 8px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 5px solid #FF7F50;">
         <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-          <div style="background: #FF7F50; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem;">4</div>
+          <div style="background: var(--color-danger); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem;"><i data-lucide="search"></i></div>
           <h3 style="color: #FF7F50; margin: 0;">Assess re-identification risks</h3>
         </div>
         <p style="margin-bottom: 1.5rem;">Evaluate and mitigate privacy risks using advanced de-identification techniques and comprehensive risk assessment methodologies.</p>
-        <a href="../step-4-assess-reidentification-risks/Step4AssessReidentificationRisks.en-US.webpage.copy.html" style="background: #F7C59F; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 6px; font-weight: 600;">Assess Risks</a>
+        <a href="../step-4-assess-reidentification-risks/Step4AssessReidentificationRisks.en-US.webpage.copy.html" class="btn-synd btn-synd-accent">Assess Risks</a>
       </div>
 
       <div style="background: white; border: 1px solid #C7CCDB; border-radius: 8px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 5px solid #6A5ACD;">
         <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-          <div style="background: #6A5ACD; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem;">5</div>
+          <div style="background: var(--color-info); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem;"><i data-lucide="shield-check"></i></div>
           <h3 style="color: #6A5ACD; margin: 0;">Manage residual risks</h3>
         </div>
         <p style="margin-bottom: 1.5rem;">Implement ongoing safeguards using the Five Safes Framework with comprehensive monitoring and compliance assurance.</p>
-        <a href="../step-5-manage-residual-risks/Step5ManageResidualRisks.en-US.webpage.copy.html" style="background: #F7C59F; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 6px; font-weight: 600;">Manage Risks</a>
+        <a href="../step-5-manage-residual-risks/Step5ManageResidualRisks.en-US.webpage.copy.html" class="btn-synd btn-synd-accent">Manage Risks</a>
       </div>
     </div>
 
@@ -97,24 +101,24 @@
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
       <div style="background: white; border-radius: 8px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center;">
-        <div style="font-size: 3rem; margin-bottom: 1rem;">🧭</div>
+        <div style="font-size: 3rem; margin-bottom: 1rem;"><i data-lucide="compass"></i></div>
         <h3 style="color: #2A324B; margin-bottom: 1rem;">Complex Scenarios Navigator</h3>
         <p style="margin-bottom: 1.5rem; text-align: left;">Interactive decision tree for complex scenarios requiring additional assessment considerations, including multi-organisational projects and Indigenous data considerations.</p>
-        <a href="../Complex Scenarios Navigator/ComplexScenariosNavigator.en-US.webpage.copy.html" style="background: #F7C59F; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 6px; font-weight: 600;">Navigate Complex Scenarios</a>
+        <a href="../Complex Scenarios Navigator/ComplexScenariosNavigator.en-US.webpage.copy.html" class="btn-synd btn-synd-primary">Navigate Complex Scenarios</a>
       </div>
 
       <div style="background: white; border-radius: 8px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center;">
-        <div style="font-size: 3rem; margin-bottom: 1rem;">⚖️</div>
+        <div style="font-size: 3rem; margin-bottom: 1rem;"><i data-lucide="scale"></i></div>
         <h3 style="color: #2A324B; margin-bottom: 1rem;">Legal Pathways Wizard</h3>
         <p style="margin-bottom: 1.5rem; text-align: left;">4-step wizard to determine the appropriate legal pathway for your synthetic data project under Australian privacy law and regulatory frameworks.</p>
-        <a href="../legal-pathways-wizard/LegalPathwaysWizard.en-US.webpage.copy.html" style="background: #F7C59F; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 6px; font-weight: 600;">Find Legal Pathway</a>
+        <a href="../legal-pathways-wizard/LegalPathwaysWizard.en-US.webpage.copy.html" class="btn-synd btn-synd-primary">Find Legal Pathway</a>
       </div>
 
       <div style="background: white; border-radius: 8px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center;">
-        <div style="font-size: 3rem; margin-bottom: 1rem;">🛡️</div>
+        <div style="font-size: 3rem; margin-bottom: 1rem;"><i data-lucide="shield"></i></div>
         <h3 style="color: #2A324B; margin-bottom: 1rem;">Risk Mitigation Planner</h3>
         <p style="margin-bottom: 1.5rem; text-align: left;">Comprehensive risk assessment and mitigation planning tool for higher-risk scenarios with technical, organisational, and legal safeguards.</p>
-        <a href="../risk-mitigation-planner/RiskMitigationPlanner.en-US.webpage.copy.html" style="background: #F7C59F; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 6px; font-weight: 600;">Plan Risk Mitigation</a>
+        <a href="../risk-mitigation-planner/RiskMitigationPlanner.en-US.webpage.copy.html" class="btn-synd btn-synd-primary">Plan Risk Mitigation</a>
       </div>
     </div>
 
@@ -134,24 +138,24 @@
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
       <div style="background: white; border-radius: 8px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center;">
-        <div style="font-size: 4rem; margin-bottom: 1.5rem; color: #069494;">📋</div>
+        <div style="font-size: 4rem; margin-bottom: 1.5rem; color: #069494;"><i data-lucide="clipboard-list"></i></div>
         <h3 style="color: #069494; margin-bottom: 1rem;">Assessment Tools</h3>
         <p style="margin-bottom: 2rem;">Interactive assessment forms and checklists for use case evaluation, risk assessment, compliance checking, and data quality metrics.</p>
-        <a href="../assessment-tools/AssessmentTools.en-US.webpage.copy.html" style="background: #F7C59F; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 6px; font-weight: 600; width: 100%; display: inline-block;">Access Assessment Tools</a>
+        <a href="../assessment-tools/AssessmentTools.en-US.webpage.copy.html" class="btn-synd btn-synd-primary">Access Assessment Tools</a>
       </div>
 
       <div style="background: white; border-radius: 8px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center;">
-        <div style="font-size: 4rem; margin-bottom: 1.5rem; color: #FF7F50;">📚</div>
+        <div style="font-size: 4rem; margin-bottom: 1.5rem; color: #FF7F50;"><i data-lucide="book-open"></i></div>
         <h3 style="color: #FF7F50; margin-bottom: 1rem;">Framework Resources</h3>
         <p style="margin-bottom: 2rem;">Complete framework documentation with all 12 appendices covering legal analysis, technical guidance, implementation templates, and stakeholder consultation materials.</p>
-        <a href="../resources/Resources.en-US.webpage.copy.html" style="background: #F7C59F; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 6px; font-weight: 600; width: 100%; display: inline-block;">Browse Resources</a>
+        <a href="../resources/Resources.en-US.webpage.copy.html" class="btn-synd btn-synd-primary">Browse Resources</a>
       </div>
 
       <div style="background: white; border-radius: 8px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center;">
-        <div style="font-size: 4rem; margin-bottom: 1.5rem; color: #6A5ACD;">🔬</div>
+        <div style="font-size: 4rem; margin-bottom: 1.5rem; color: #6A5ACD;"><i data-lucide="microscope"></i></div>
         <h3 style="color: #6A5ACD; margin-bottom: 1rem;">Evidence-based Framework</h3>
         <p style="margin-bottom: 2rem;">Comprehensive analysis of Australian privacy law, international best practices, technical standards, and extensive stakeholder consultation with health sector experts.</p>
-        <a href="../about/About.en-US.webpage.copy.html" style="background: #F7C59F; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 6px; font-weight: 600; width: 100%; display: inline-block;">Learn About Framework</a>
+        <a href="../about/About.en-US.webpage.copy.html" class="btn-synd btn-synd-primary">Learn About Framework</a>
       </div>
     </div>
   </div>
@@ -184,3 +188,7 @@
     </div>
   </div>
 </div>
+
+<script>
+    lucide.createIcons();
+</script>
