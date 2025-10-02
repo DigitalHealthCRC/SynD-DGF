@@ -14,7 +14,8 @@
       "Bash(git commit:*)",
       "Bash(git push:*)",
       "Bash(do wc:*)",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "Read(//c/Users/Amir/OneDrive - Digital Health CRC Limited/Projects/SynD/framework/powerpage/synd-gf---synd-gf/**)"
     ],
     "deny": [],
     "ask": []

@@ -1,7 +1,8 @@
 # SynD-DGF Website Comprehensive Map
 
-**Generated:** September 23, 2025
+**Generated:** October 2, 2025
 **Framework Version:** 2.0
+**Total Pages:** 43
 **Purpose:** Comprehensive mapping of the SynD-DGF (Synthetic Health Data Governance Framework) website structure, content, navigation, and resources with complete framework implementation (100% coverage).
 
 ---
@@ -18,7 +19,89 @@ The SynD-DGF website is a comprehensive content management system focused on syn
 
 ---
 
-## 1. Site Architecture Overview
+## 1. Complete Page Structure Tree
+
+### Visual Site Map (43 pages total)
+
+```
+SynD-DGF Website Root
+│
+├── 🏠 Home
+│
+├── 📋 Framework Section (7 pages)
+│   ├── Framework Overview
+│   ├── Step 1: Use Case Assessment
+│   ├── Step 2: Assess Source Data
+│   ├── Step 3: Generate Synthetic Data
+│   ├── Step 4: Assess Reidentification Risks
+│   └── Step 5: Manage Residual Risks
+│
+├── 🛠️ Decision Support Section (5 pages)
+│   ├── Decision Support Overview
+│   ├── Complex Scenarios Navigator
+│   ├── Legal Pathways Wizard
+│   ├── Risk Mitigation Planner
+│   └── Jurisdiction Mapper
+│
+├── 📊 Assessment Tools Section (7 pages)
+│   ├── Assessment Tools Overview
+│   ├── Use Case Checklist
+│   ├── Use Case Assessment Tool
+│   ├── Impact Assessment (2 versions)
+│   │   ├── Impact Assessment (standard)
+│   │   └── Impact Assessment Enhanced
+│   ├── Risk Evaluation Tool
+│   ├── Quality Metrics Tool
+│   └── Compliance Checklist Tool
+│
+├── 📚 Resources Section (13 pages)
+│   ├── Resources Overview
+│   └── Appendices (12 pages)
+│       ├── Appendix 1: About Synthetic Data
+│       ├── Appendix 2: Glossary
+│       ├── Appendix 3: Policy and Legal Framework
+│       ├── Appendix 4: Use Case Assessment
+│       ├── Appendix 5: Impact Assessment
+│       ├── Appendix 6: Technical Assessment
+│       ├── Appendix 7: Deidentification Techniques
+│       ├── Appendix 8: Complex Scenarios
+│       ├── Appendix 9: Lawful Pathways
+│       ├── Appendix 10: Safety Assessment
+│       ├── Appendix 11: Assessment Outcomes (2 versions)
+│       │   ├── Assessment Outcomes (appendix)
+│       │   └── Assessment Outcomes (tool)
+│       └── Appendix 12: Privacy Obligations
+│
+├── ℹ️ About Section (5 pages)
+│   ├── About Overview
+│   ├── About Framework
+│   ├── Methodology
+│   ├── Stakeholder Consultation
+│   └── Contact
+│
+└── 🔧 Utility Pages (4 pages)
+    ├── Search
+    ├── Profile
+    ├── Access Denied
+    └── Page Not Found
+```
+
+### Page Count Summary
+
+| Section | Pages | Status |
+|---------|-------|--------|
+| Home | 1 | ✅ Complete |
+| Framework | 7 | ✅ Complete |
+| Decision Support | 5 | ✅ Complete |
+| Assessment Tools | 7 | ✅ Complete |
+| Resources | 13 | ✅ Complete |
+| About | 5 | ✅ Complete |
+| Utility | 4 | ✅ Complete |
+| **Total** | **43** | **100% Complete** |
+
+---
+
+## 2. Site Architecture Overview
 
 ### Repository Structure
 ```
@@ -45,7 +128,129 @@ SynD-DGF/
 
 ---
 
-## 2. Navigation Structure
+## 2. Detailed File Path Mapping
+
+### Home Section (1 page)
+```
+/web-pages/Home/
+└── Home.en-US.webpage.copy.html
+```
+
+### Framework Section (7 pages)
+```
+/web-pages/
+├── framework-overview/
+│   └── FrameworkOverview.en-US.webpage.copy.html
+├── step-1-use-case-assessment/
+│   └── Step1UseCaseAssessment.en-US.webpage.copy.html
+├── step-2-assess-source-data/
+│   └── Step2AssessSourceData.en-US.webpage.copy.html
+├── step-3-generate-synthetic-data/
+│   └── Step3GenerateSyntheticData.en-US.webpage.copy.html
+├── step-4-assess-reidentification-risks/
+│   └── Step4AssessReidentificationRisks.en-US.webpage.copy.html
+└── step-5-manage-residual-risks/
+    └── Step5ManageResidualRisks.en-US.webpage.copy.html
+```
+
+### Decision Support Section (5 pages)
+```
+/web-pages/
+├── decision-support-overview/
+│   └── DecisionSupportOverview.en-US.webpage.copy.html
+├── legal-pathways-wizard/
+│   └── LegalPathwaysWizard.en-US.webpage.copy.html
+├── risk-mitigation-planner/
+│   └── RiskMitigationPlanner.en-US.webpage.copy.html
+└── jurisdiction-mapper/
+    └── JurisdictionMapper.en-US.webpage.copy.html
+
+/Complex Scenarios Navigator/
+└── ComplexScenariosNavigator.en-US.webpage.copy.html
+```
+
+### Assessment Tools Section (7 pages)
+```
+/web-pages/assessment-tools/
+├── AssessmentTools.en-US.webpage.copy.html (Overview)
+├── use-case-checklist/
+│   └── UseCaseChecklist.en-US.webpage.copy.html
+├── use-case-assessment-tool/
+│   └── UseCaseAssessmentTool.en-US.webpage.copy.html
+├── impact-assessment/
+│   ├── ImpactAssessment.en-US.webpage.copy.html
+│   └── ImpactAssessmentEnhanced.en-US.webpage.copy.html
+├── risk-evaluation-tool/
+│   └── RiskEvaluationTool.en-US.webpage.copy.html
+├── quality-metrics-tool/
+│   └── QualityMetricsTool.en-US.webpage.copy.html
+├── compliance-checklist-tool/
+│   └── ComplianceChecklistTool.en-US.webpage.copy.html
+└── assessment-outcomes/
+    └── AssessmentOutcomes.en-US.webpage.copy.html
+```
+
+### Resources Section (13 pages)
+```
+/web-pages/resources/
+├── Resources.en-US.webpage.copy.html (Overview)
+└── appendices/
+    ├── about-synthetic-data/
+    │   └── AboutSyntheticData.en-US.webpage.copy.html
+    ├── glossary/
+    │   └── Glossary.en-US.webpage.copy.html
+    ├── policy-legal-framework/
+    │   └── PolicyLegalFramework.en-US.webpage.copy.html
+    ├── use-case-assessment/
+    │   └── UseCaseAssessment.en-US.webpage.copy.html
+    ├── impact-assessment/
+    │   └── ImpactAssessment.en-US.webpage.copy.html
+    ├── technical-assessment/
+    │   └── TechnicalAssessment.en-US.webpage.copy.html
+    ├── deidentification-techniques/
+    │   └── DeidentificationTechniques.en-US.webpage.copy.html
+    ├── complex-scenarios/
+    │   └── ComplexScenarios.en-US.webpage.copy.html
+    ├── lawful-pathways/
+    │   └── LawfulPathways.en-US.webpage.copy.html
+    ├── safety-assessment/
+    │   └── SafetyAssessment.en-US.webpage.copy.html
+    ├── assessment-outcomes/
+    │   └── AssessmentOutcomes.en-US.webpage.copy.html
+    └── privacy-obligations/
+        └── PrivacyObligations.en-US.webpage.copy.html
+```
+
+### About Section (5 pages)
+```
+/web-pages/about/
+├── About.en-US.webpage.copy.html (Overview)
+├── about-framework/
+│   └── AboutFramework.en-US.webpage.copy.html
+├── methodology/
+│   └── Methodology.en-US.webpage.copy.html
+├── stakeholder-consultation/
+│   └── StakeholderConsultation.en-US.webpage.copy.html
+└── contact/
+    └── Contact.en-US.webpage.copy.html
+```
+
+### Utility Pages (4 pages)
+```
+/web-pages/
+├── Search/
+│   └── Search.en-US.webpage.copy.html
+├── Profile/
+│   └── Profile.en-US.webpage.copy.html
+├── Access Denied/
+│   └── Access Denied.en-US.webpage.copy.html
+└── Page Not Found/
+    └── Page Not Found.en-US.webpage.copy.html
+```
+
+---
+
+## 3. Navigation Structure
 
 ### Primary Navigation (Main Menu)
 Located in: `content-snippets/Main Navigation.en-US.html`
@@ -94,9 +299,9 @@ Comprehensive footer with all major sections and links, plus:
 
 ---
 
-## 3. Core Pages Analysis
+## 4. Core Pages Analysis
 
-### 3.1 Home Page (`/web-pages/Home/Home.en-US.webpage.copy.html`)
+### 4.1 Home Page (`/web-pages/Home/Home.en-US.webpage.copy.html`)
 
 **Purpose:** Primary landing page introducing the framework
 **Key Elements:**
@@ -114,7 +319,7 @@ Comprehensive footer with all major sections and links, plus:
 - Links to About section
 - Direct links to each framework step
 
-### 3.2 Framework Pages
+### 4.2 Framework Pages
 
 #### Framework Overview (`/web-pages/framework-overview/FrameworkOverview.en-US.webpage.copy.html`)
 **Purpose:** Comprehensive overview of the 5-step framework
@@ -139,7 +344,7 @@ Comprehensive footer with all major sections and links, plus:
 - Links to relevant assessment tools
 - Technical and legal considerations
 
-### 3.3 Decision Support System
+### 4.3 Decision Support System
 
 #### Decision Support Overview (`/web-pages/decision-support-overview/DecisionSupportOverview.en-US.webpage.copy.html`)
 **Purpose:** Central hub for decision support tools
@@ -171,7 +376,7 @@ Comprehensive footer with all major sections and links, plus:
    - Australian privacy law navigation
    - State and territory specific requirements
 
-### 3.4 Assessment Tools
+### 4.4 Assessment Tools
 
 #### Assessment Tools Overview (`/web-pages/assessment-tools/AssessmentTools.en-US.webpage.copy.html`)
 **Purpose:** Central hub for practical assessment instruments
@@ -188,30 +393,113 @@ Comprehensive footer with all major sections and links, plus:
    - Framework Step: Step 1
    - Duration: 30-45 minutes
    - Output: Pass/fail determination
+   - **Scoring Method:** Binary pass/fail for 3 mandatory tests
+     - Test 1: Public benefit purpose (pass/fail)
+     - Test 2: De-identification objective (pass/fail)
+     - Test 3: Community notification (pass/fail)
+     - **Overall Result:** All 3 tests must pass to proceed with framework
+     - **Conditional Outcomes:** Failure on any test requires alternative privacy pathway or project revision
 
-2. **Impact Assessment** (`/web-pages/assessment-tools/impact-assessment/`)
+2. **Use Case Assessment Tool** (`/web-pages/assessment-tools/use-case-assessment-tool/`)
+   - Status: Recommended
+   - Framework Step: Step 1
+   - Duration: 20-30 minutes
+   - Output: Suitability score (0-100) with recommendations
+   - **Scoring Method:** Weighted multi-factor assessment across 5 dimensions
+     - Purpose & Context (20%): Primary purpose alignment, organisation type, sharing scope
+     - Data Characteristics (20%): Data types, dataset size, sensitivity level
+     - Technical Requirements (25%): Statistical fidelity needs, technical expertise, computational resources
+     - Risk & Compliance (20%): Privacy regulations, re-identification risk tolerance, ethics approval status
+     - Resource Assessment (15%): Timeline, budget, ongoing support needs
+   - **Score Ranges:**
+     - 85-100: Highly suitable - proceed with implementation
+     - 70-84: Suitable - proceed with some enhancements
+     - 55-69: Moderately suitable - address identified gaps
+     - <55: Low suitability - consider alternatives or significant revision
+
+3. **Impact Assessment** (`/web-pages/assessment-tools/impact-assessment/`)
    - Status: Required
    - Framework Step: Step 1
    - Duration: 45-60 minutes
    - Covers: Ethics, Indigenous data sovereignty, community impacts
+   - **Scoring Method:** Qualitative assessment with categorical ratings
+     - Core Considerations: Public interest, resourcing, beneficiaries, community trust, privacy impacts
+     - Data Ethics: Sensitive data assessment, ethical risk scenarios, bias mitigation
+     - Indigenous Data Sovereignty: Leadership, cultural frameworks, community collaboration (conditional)
+     - Risk of Not Proceeding: Missed benefits, alternative feasibility
+   - **Overall Recommendation:**
+     - Proceed: Benefits outweigh risks, impacts adequately managed
+     - Conditional: Proceed with specific additional safeguards
+     - Revise: Significant changes needed before proceeding
+     - Reject: Risks and negative impacts too significant
+   - **Output:** Comprehensive impact report with mitigation strategies
 
-3. **Risk Evaluation Tool** (`/web-pages/assessment-tools/risk-evaluation-tool/`)
+4. **Risk Evaluation Tool** (`/web-pages/assessment-tools/risk-evaluation-tool/`)
    - Status: Recommended
    - Framework Step: Step 4
    - Duration: 20-30 minutes
    - Output: Risk matrix and mitigation priorities
+   - **Scoring Method:** Multi-dimensional risk assessment across 4 categories
+     - Data Characteristics Risks: Source sensitivity, dataset size, population rarity, generation method, privacy mechanisms
+     - Threat Assessment: Attack scenarios (linkage, membership inference, attribute inference, model inversion) rated Low/Medium/High/Very High
+     - Environmental Risks: Access controls, auxiliary data availability, technical security, governance controls
+     - Impact Assessment: Individual impacts (privacy violation, discrimination, social harm), organisational impacts
+   - **Risk Level Calculation:**
+     - Low Risk: Standard safeguards sufficient, routine monitoring
+     - Medium Risk: Additional controls needed, enhanced monitoring
+     - High Risk: Comprehensive mitigation essential, frequent review
+     - Critical Risk: Project may not be suitable for synthetic data
+   - **Output:** Risk evaluation report with prioritised mitigation recommendations
 
-4. **Quality Metrics Tool** (`/web-pages/assessment-tools/quality-metrics-tool/`)
+5. **Quality Metrics Tool** (`/web-pages/assessment-tools/quality-metrics-tool/`)
    - Status: Recommended
    - Framework Step: Step 3
    - Duration: 15-25 minutes
    - Output: Quality scorecard
+   - **Scoring Method:** Three-dimensional quality assessment
+     - **Statistical Fidelity Metrics (33%)**
+       - Univariate statistics: Mean preservation, variance preservation, distribution shape (KS test)
+       - Multivariate relationships: Correlation accuracy, covariance matrix similarity
+       - Higher-order relationships: Conditional distributions, interaction effects
+       - Extreme values: Outlier preservation, range preservation
+     - **Utility Preservation Metrics (33%)**
+       - Analysis-specific utility: Primary analysis accuracy, model performance preservation
+       - Domain-specific utility: Clinical patterns, epidemiological measures, temporal patterns
+       - Feature importance consistency
+     - **Privacy Protection Metrics (34%)**
+       - Membership inference protection
+       - Attribute inference protection
+       - Formal privacy guarantees (differential privacy implementation, privacy budget management)
+       - Nearest record distance
+   - **Quality Ratings per Metric:**
+     - Excellent: 90-100% quality score
+     - Good: 75-89% quality score
+     - Acceptable: 60-74% quality score
+     - Poor: <60% quality score
+   - **Output:** Comprehensive quality scorecard with dimension-specific scores and improvement recommendations
 
-5. **Compliance Checklist Tool** (`/web-pages/assessment-tools/compliance-checklist-tool/`)
+6. **Compliance Checklist Tool** (`/web-pages/assessment-tools/compliance-checklist-tool/`)
    - Status: Optional
    - Framework Step: All steps
    - Duration: 30-45 minutes (initial)
    - Output: Compliance dashboard
+   - **Scoring Method:** Checklist-based compliance tracking across framework steps
+     - **Step 1 Compliance:** Public benefit assessment, community notification, impact assessment (3 categories, 8 items)
+     - **Step 2 Compliance:** Data governance, technical safeguards (2 categories, 6 items)
+     - **Step 3 Compliance:** Generation standards, documentation requirements (2 categories, 5 items)
+     - **Step 4 Compliance:** Risk assessment, risk documentation (2 categories, 5 items)
+     - **Step 5 Compliance:** Risk mitigation, ongoing governance (2 categories, 5 items)
+     - **Cross-cutting Requirements:** Legal/regulatory, documentation and records (2 categories, 6 items)
+   - **Requirement Levels:**
+     - Mandatory: Must be completed to proceed (legal/framework requirement)
+     - Conditional: Required if specific conditions apply
+     - Recommended: Best practice (strongly advised)
+   - **Compliance Calculation:**
+     - Overall Progress: Percentage of applicable items completed
+     - Completed Items: Count of checked items
+     - Pending Items: Count of unchecked items
+     - Critical Issues: Count of unchecked mandatory items
+   - **Output:** Compliance dashboard with priority actions and audit trail documentation
 
 #### Standalone Assessment Tools (`/assessment-tools/`)
 Additional HTML tools available:
@@ -222,7 +510,7 @@ Additional HTML tools available:
 - `use-case-assessment-tool.html`
 - `use-case-checklist.html`
 
-### 3.5 Resources Section
+### 4.5 Resources Section
 
 #### Resources Overview (`/web-pages/resources/Resources.en-US.webpage.copy.html`)
 **Purpose:** Comprehensive resource library with multi-tiered organisation
@@ -272,7 +560,7 @@ Additional HTML tools available:
    - Indigenous data governance (CARE Principles, Maiam nayri Wingara)
    - Technical standards (ISO/IEC 27001, NIST Privacy Framework)
 
-### 3.6 About Section
+### 4.6 About Section
 
 #### About Pages:
 1. **About Framework** (`/web-pages/about/about-framework/`)
@@ -280,7 +568,7 @@ Additional HTML tools available:
 3. **Stakeholder Consultation** (`/web-pages/about/stakeholder-consultation/`)
 4. **Contact** (`/web-pages/about/contact/`)
 
-### 3.7 Utility Pages
+### 4.7 Utility Pages
 - **Search** (`/web-pages/Search/`)
 - **Profile** (`/web-pages/Profile/`)
 - **Access Denied** (`/web-pages/Access Denied/`)
@@ -288,7 +576,7 @@ Additional HTML tools available:
 
 ---
 
-## 4. Resources Directory Analysis
+## 5. Resources Directory Analysis
 
 ### Web Files Resources (`/web-files/resources/`)
 **Contains:** 15 PDF files of the framework documentation
@@ -305,7 +593,7 @@ Additional HTML tools available:
 
 ---
 
-## 5. Content Snippets Analysis
+## 6. Content Snippets Analysis
 
 ### Available Content Components (`/content-snippets/`)
 1. **Enhanced Breadcrumbs** - Site breadcrumb navigation
@@ -323,7 +611,7 @@ Additional HTML tools available:
 
 ---
 
-## 6. Link Analysis and Internal Structure
+## 7. Link Analysis and Internal Structure
 
 ### Internal Link Patterns
 - **Relative paths** used throughout (e.g., `../framework-overview/`)
@@ -347,7 +635,7 @@ Additional HTML tools available:
 
 ---
 
-## 7. Technical Architecture
+## 8. Technical Architecture
 
 ### Framework Technologies:
 - **Bootstrap 5.3.0** for responsive design
@@ -369,7 +657,7 @@ Additional HTML tools available:
 
 ---
 
-## 8. User Pathways and Journey Analysis
+## 9. User Pathways and Journey Analysis
 
 ### Primary User Journeys:
 
@@ -400,7 +688,7 @@ Additional HTML tools available:
 
 ---
 
-## 9. Content Status and Availability
+## 10. Content Status and Availability
 
 ### Available Content:
 ✅ **Complete Framework (5 steps)**
@@ -426,7 +714,7 @@ Additional HTML tools available:
 
 ---
 
-## 10. Recommendations for Future Development
+## 11. Recommendations for Future Development
 
 ### Content Development Priorities:
 1. **Phase 2.2: Enhanced Navigation** ✅ COMPLETE - Cross-references and related resources sections
@@ -451,7 +739,7 @@ Additional HTML tools available:
 
 ---
 
-## 11. Framework Documentation Mapping
+## 12. Framework Documentation Mapping
 
 ### PDF Resources Available:
 The `/web-files/resources/` directory contains the complete framework documentation split into 15 parts:
@@ -464,7 +752,7 @@ This documentation represents the authoritative source material that the website
 
 ---
 
-## 12. Maintenance and Update Guidelines
+## 13. Maintenance and Update Guidelines
 
 ### Content Update Process:
 1. **Direct HTML editing** for immediate changes
@@ -501,9 +789,13 @@ The content architecture supports multiple user types and experience levels, fro
 
 ---
 
-**Document Version:** 1.2
-**Last Updated:** September 23, 2025
+**Document Version:** 1.3
+**Last Updated:** October 2, 2025
+**Total Pages:** 43
 **Implementation Status:** All Phases Complete (100% framework coverage + complete feature set)
 **Current Status:** Complete framework implementation with all 12 appendices operational
-**Next Phase:** Phase 3.2 Advanced Search implementation
+**Recent Updates:**
+- Phase 3.3: UX improvements (navigation consistency, typography, back-to-top buttons, responsive design)
+- Added comprehensive page structure tree and detailed file path mapping
+**Next Phase:** Phase 3.4 Advanced Search implementation
 **Next Review:** December 2025
