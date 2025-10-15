@@ -15,7 +15,19 @@
       "Bash(git push:*)",
       "Bash(do wc:*)",
       "Bash(git checkout:*)",
-      "Read(//c/Users/Amir/OneDrive - Digital Health CRC Limited/Projects/SynD/framework/powerpage/synd-gf---synd-gf/**)"
+      "Read(//c/Users/Amir/OneDrive - Digital Health CRC Limited/Projects/SynD/framework/powerpage/synd-gf---synd-gf/**)",
+      "Bash(git merge:*)",
+      "Bash(git stash:*)",
+      "Bash(python:*)",
+      "Bash(pac:*)",
+      "Bash(powershell.exe:*)",
+      "Bash(bash:*)",
+      "Read(//c/Users/Amir/AppData/Roaming/Code/User/globalStorage/microsoft-isvexptools.powerplatform-vscode/pac/tools/logs/**)",
+      "Read(//c/Users/Amir/OneDrive - Digital Health CRC Limited/Projects/SynD/framework/powerpage//**)",
+      "Bash(cat:*)",
+      "Bash(awk:*)",
+      "Bash(git restore:*)",
+      "Bash(git ls-tree:*)"
     ],
     "deny": [],
     "ask": []
