@@ -29,7 +29,7 @@ export default {
     const corsHeaders = {
       'Access-Control-Allow-Origin': isAllowed ? origin : allowedOrigins[0],
       'Access-Control-Allow-Methods': 'POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type',
+      'Access-Control-Allow-Headers': 'Content-Type, X-Client-ID',
       'Access-Control-Max-Age': '86400',
     };
 
