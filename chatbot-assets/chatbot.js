@@ -213,31 +213,40 @@
      */
     async initializeChatKit() {
       try {
-        // Wait for ChatKit custom element to be defined
-        if (!customElements.get('openai-chatkit')) {
-          console.log('Waiting for ChatKit custom element to be defined...');
-          await customElements.whenDefined('openai-chatkit');
+        // Wait for ChatKit library to be available
+        if (typeof window.OpenAIChatkit === 'undefined') {
+          console.log('Waiting for ChatKit library to load...');
+          await new Promise((resolve, reject) => {
+            const timeout = setTimeout(() => reject(new Error('ChatKit library failed to load')), 10000);
+            const checkInterval = setInterval(() => {
+              if (typeof window.OpenAIChatkit !== 'undefined') {
+                clearInterval(checkInterval);
+                clearTimeout(timeout);
+                resolve();
+              }
+            }, 100);
+          });
         }
 
-        // Get client secret first
-        const clientSecret = await this.getClientSecret();
+        const { Chatkit } = window.OpenAIChatkit;
 
-        // Create ChatKit web component
-        const chatkit = document.createElement('openai-chatkit');
-        chatkit.id = 'synd-chatkit';
-        chatkit.style.width = '100%';
-        chatkit.style.height = '100%';
+        // Clear body and create container
+        this.bodyEl.innerHTML = '<div id="chatkit-container" style="width: 100%; height: 100%;"></div>';
 
-        // Clear body and add ChatKit element
-        this.bodyEl.innerHTML = '';
-        this.bodyEl.appendChild(chatkit);
-
-        // Configure ChatKit with options
-        chatkit.setOptions({
-          api: {
-            clientToken: clientSecret
-          }
+        // Initialize ChatKit with constructor
+        const chatkit = new Chatkit({
+          theme: 'light',
+          container: document.getElementById('chatkit-container'),
+          integration: async () => {
+            // This function must return the client_secret string
+            const clientSecret = await this.getClientSecret();
+            console.log('Providing client secret to ChatKit');
+            return clientSecret;
+          },
         });
+
+        // Mount the widget
+        chatkit.mount();
 
         this.isInitialized = true;
         console.log('ChatKit initialized successfully');
