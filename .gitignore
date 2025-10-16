@@ -53,3 +53,17 @@ yarn-error.log*
 *.tmp
 *.bak
 .cache/
+
+# Cloudflare Worker
+cloudflare-worker/node_modules/
+cloudflare-worker/.wrangler/
+cloudflare-worker/dist/
+cloudflare-worker/.env
+cloudflare-worker/.dev.vars
+
+# Secrets (NEVER commit these!)
+*.key
+*.pem
+.env
+.env.local
+.env.*.local

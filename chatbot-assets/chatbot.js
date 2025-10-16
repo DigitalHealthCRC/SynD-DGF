@@ -1,0 +1,374 @@
+/**
+ * SynD-DGF ChatKit Widget JavaScript
+ *
+ * Handles ChatKit initialization, token management, and UI interactions
+ */
+
+(function() {
+  'use strict';
+
+  // Configuration
+  const CONFIG = {
+    // Cloudflare Worker URL (deployed)
+    WORKER_URL: 'https://synd-dgf-chatkit-token.synd-dgf.workers.dev',
+
+    // Local testing URL (uncomment for local development)
+    // WORKER_URL: 'http://localhost:8787',
+
+    // Session token cache duration (15 minutes)
+    TOKEN_CACHE_DURATION: 15 * 60 * 1000,
+
+    // Retry configuration
+    MAX_RETRIES: 3,
+    RETRY_DELAY: 1000,
+
+    // ChatKit configuration
+    CHATKIT_CONFIG: {
+      theme: {
+        primaryColor: '#069494',
+        secondaryColor: '#F7C59F',
+        fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif'
+      },
+      placeholder: 'Ask about synthetic data governance...',
+      greeting: 'Hello! I\'m here to help you navigate the SynD-DGF framework. Ask me anything about synthetic health data governance, privacy compliance, or technical standards.',
+      showTimestamps: true,
+      allowFileUpload: false
+    }
+  };
+
+  class SyndChatbot {
+    constructor() {
+      this.isOpen = false;
+      this.isInitialized = false;
+      this.sessionToken = null;
+      this.tokenExpiry = null;
+      this.retryCount = 0;
+
+      this.init();
+    }
+
+    /**
+     * Initialize the chatbot UI
+     */
+    init() {
+      // Create chat bubble
+      this.createChatBubble();
+
+      // Create chat widget
+      this.createChatWidget();
+
+      // Load widget state from localStorage
+      this.loadState();
+
+      // Listen for storage events (multi-tab sync)
+      window.addEventListener('storage', (e) => {
+        if (e.key === 'synd-chat-open') {
+          this.isOpen = e.newValue === 'true';
+          this.updateUI();
+        }
+      });
+    }
+
+    /**
+     * Create the chat bubble button
+     */
+    createChatBubble() {
+      const bubble = document.createElement('button');
+      bubble.className = 'synd-chat-bubble';
+      bubble.setAttribute('aria-label', 'Open chat assistant');
+      bubble.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+      `;
+
+      bubble.addEventListener('click', () => this.toggle());
+
+      document.body.appendChild(bubble);
+      this.bubble = bubble;
+    }
+
+    /**
+     * Create the chat widget container
+     */
+    createChatWidget() {
+      const widget = document.createElement('div');
+      widget.className = 'synd-chat-widget';
+      widget.setAttribute('role', 'dialog');
+      widget.setAttribute('aria-labelledby', 'synd-chat-title');
+      widget.innerHTML = `
+        <div class="synd-chat-header">
+          <div class="synd-chat-header-content">
+            <div class="synd-chat-avatar">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 20h9"></path>
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+              </svg>
+            </div>
+            <div class="synd-chat-header-text">
+              <h3 id="synd-chat-title">SynD-DGF Assistant</h3>
+              <p>Synthetic Data Governance</p>
+            </div>
+          </div>
+          <button class="synd-chat-close" aria-label="Close chat">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="synd-chat-body" id="synd-chat-body">
+          <div class="synd-chat-loading">
+            <div class="synd-chat-spinner"></div>
+            <p>Initialising assistant...</p>
+          </div>
+        </div>
+      `;
+
+      // Close button handler
+      const closeBtn = widget.querySelector('.synd-chat-close');
+      closeBtn.addEventListener('click', () => this.close());
+
+      document.body.appendChild(widget);
+      this.widget = widget;
+      this.bodyEl = widget.querySelector('#synd-chat-body');
+    }
+
+    /**
+     * Toggle chat open/closed
+     */
+    toggle() {
+      if (this.isOpen) {
+        this.close();
+      } else {
+        this.open();
+      }
+    }
+
+    /**
+     * Open the chat widget
+     */
+    async open() {
+      this.isOpen = true;
+      this.saveState();
+      this.updateUI();
+
+      // Initialize ChatKit if not already done
+      if (!this.isInitialized) {
+        await this.initializeChatKit();
+      }
+    }
+
+    /**
+     * Close the chat widget
+     */
+    close() {
+      this.isOpen = false;
+      this.saveState();
+      this.updateUI();
+    }
+
+    /**
+     * Update UI based on state
+     */
+    updateUI() {
+      if (this.isOpen) {
+        this.widget.classList.add('open');
+        this.bubble.classList.add('open');
+        this.bubble.setAttribute('aria-label', 'Close chat assistant');
+      } else {
+        this.widget.classList.remove('open');
+        this.bubble.classList.remove('open');
+        this.bubble.setAttribute('aria-label', 'Open chat assistant');
+      }
+    }
+
+    /**
+     * Save state to localStorage
+     */
+    saveState() {
+      try {
+        localStorage.setItem('synd-chat-open', this.isOpen);
+      } catch (e) {
+        console.warn('Could not save chat state:', e);
+      }
+    }
+
+    /**
+     * Load state from localStorage
+     */
+    loadState() {
+      try {
+        const savedState = localStorage.getItem('synd-chat-open');
+        if (savedState === 'true') {
+          this.open();
+        }
+      } catch (e) {
+        console.warn('Could not load chat state:', e);
+      }
+    }
+
+    /**
+     * Initialize ChatKit widget
+     */
+    async initializeChatKit() {
+      try {
+        // Check if ChatKit script is loaded
+        if (typeof window.initChatKit !== 'function') {
+          throw new Error('ChatKit library not loaded');
+        }
+
+        // Create container for ChatKit
+        this.bodyEl.innerHTML = '<div id="chatkit-container"></div>';
+        const container = this.bodyEl.querySelector('#chatkit-container');
+
+        // Initialize ChatKit
+        await window.initChatKit({
+          element: container,
+          api: {
+            getClientSecret: () => this.getClientSecret()
+          },
+          config: CONFIG.CHATKIT_CONFIG
+        });
+
+        this.isInitialized = true;
+        console.log('ChatKit initialized successfully');
+
+      } catch (error) {
+        console.error('Failed to initialize ChatKit:', error);
+        this.showError(error.message);
+      }
+    }
+
+    /**
+     * Get client secret from Cloudflare Worker
+     */
+    async getClientSecret() {
+      // Check if we have a valid cached token
+      if (this.sessionToken && this.tokenExpiry && Date.now() < this.tokenExpiry) {
+        console.log('Using cached session token');
+        return this.sessionToken;
+      }
+
+      // Fetch new token with retry logic
+      return this.fetchTokenWithRetry();
+    }
+
+    /**
+     * Fetch token with exponential backoff retry
+     */
+    async fetchTokenWithRetry() {
+      for (let attempt = 0; attempt < CONFIG.MAX_RETRIES; attempt++) {
+        try {
+          const response = await fetch(CONFIG.WORKER_URL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-Client-ID': this.getClientId()
+            },
+            credentials: 'omit'
+          });
+
+          if (!response.ok) {
+            const errorData = await response.json().catch(() => ({}));
+            throw new Error(errorData.message || `HTTP ${response.status}: ${response.statusText}`);
+          }
+
+          const data = await response.json();
+
+          // Cache the token
+          this.sessionToken = data.client_secret;
+          this.tokenExpiry = Date.now() + CONFIG.TOKEN_CACHE_DURATION;
+
+          console.log('Successfully fetched session token');
+          return data.client_secret;
+
+        } catch (error) {
+          console.error(`Token fetch attempt ${attempt + 1} failed:`, error);
+
+          // If this was the last attempt, throw
+          if (attempt === CONFIG.MAX_RETRIES - 1) {
+            throw new Error(`Failed to get session token after ${CONFIG.MAX_RETRIES} attempts: ${error.message}`);
+          }
+
+          // Wait before retrying (exponential backoff)
+          await this.sleep(CONFIG.RETRY_DELAY * Math.pow(2, attempt));
+        }
+      }
+    }
+
+    /**
+     * Get or create a client ID for rate limiting
+     */
+    getClientId() {
+      try {
+        let clientId = localStorage.getItem('synd-chat-client-id');
+        if (!clientId) {
+          clientId = this.generateUUID();
+          localStorage.setItem('synd-chat-client-id', clientId);
+        }
+        return clientId;
+      } catch (e) {
+        return this.generateUUID();
+      }
+    }
+
+    /**
+     * Generate a simple UUID
+     */
+    generateUUID() {
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        const r = Math.random() * 16 | 0;
+        const v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+      });
+    }
+
+    /**
+     * Sleep utility
+     */
+    sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    /**
+     * Show error state
+     */
+    showError(message) {
+      this.bodyEl.innerHTML = `
+        <div class="synd-chat-error">
+          <div class="synd-chat-error-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+          </div>
+          <h3>Connection error</h3>
+          <p>${this.escapeHtml(message)}</p>
+          <p style="font-size: 12px; margin-top: 8px;">Please check your internet connection and try again.</p>
+          <button onclick="location.reload()">Reload page</button>
+        </div>
+      `;
+    }
+
+    /**
+     * Escape HTML to prevent XSS
+     */
+    escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+  }
+
+  // Initialize chatbot when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      window.syndChatbot = new SyndChatbot();
+    });
+  } else {
+    window.syndChatbot = new SyndChatbot();
+  }
+
+})();
