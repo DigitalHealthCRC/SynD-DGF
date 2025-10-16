@@ -213,22 +213,24 @@
      */
     async initializeChatKit() {
       try {
-        // Check if ChatKit script is loaded
-        if (typeof window.initChatKit !== 'function') {
-          throw new Error('ChatKit library not loaded');
-        }
+        // Create ChatKit web component
+        const chatkit = document.createElement('openai-chatkit');
+        chatkit.id = 'synd-chatkit';
+        chatkit.style.width = '100%';
+        chatkit.style.height = '100%';
 
-        // Create container for ChatKit
-        this.bodyEl.innerHTML = '<div id="chatkit-container"></div>';
-        const container = this.bodyEl.querySelector('#chatkit-container');
+        // Clear body and add ChatKit element
+        this.bodyEl.innerHTML = '';
+        this.bodyEl.appendChild(chatkit);
 
-        // Initialize ChatKit
-        await window.initChatKit({
-          element: container,
+        // Get client secret
+        const clientSecret = await this.getClientSecret();
+
+        // Configure ChatKit with options
+        chatkit.setOptions({
           api: {
-            getClientSecret: () => this.getClientSecret()
-          },
-          config: CONFIG.CHATKIT_CONFIG
+            clientToken: clientSecret
+          }
         });
 
         this.isInitialized = true;
