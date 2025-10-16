@@ -213,6 +213,15 @@
      */
     async initializeChatKit() {
       try {
+        // Wait for ChatKit custom element to be defined
+        if (!customElements.get('openai-chatkit')) {
+          console.log('Waiting for ChatKit custom element to be defined...');
+          await customElements.whenDefined('openai-chatkit');
+        }
+
+        // Get client secret first
+        const clientSecret = await this.getClientSecret();
+
         // Create ChatKit web component
         const chatkit = document.createElement('openai-chatkit');
         chatkit.id = 'synd-chatkit';
@@ -222,9 +231,6 @@
         // Clear body and add ChatKit element
         this.bodyEl.innerHTML = '';
         this.bodyEl.appendChild(chatkit);
-
-        // Get client secret
-        const clientSecret = await this.getClientSecret();
 
         // Configure ChatKit with options
         chatkit.setOptions({
