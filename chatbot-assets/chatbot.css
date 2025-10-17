@@ -103,8 +103,8 @@
    CHAT HEADER
    =================================== */
 .synd-chat-header {
-    background: linear-gradient(135deg, #069494 0%, #04C4C4 100%);
-    color: white;
+    background: linear-gradient(135deg, #022391 0%, #2354f3 100%);
+    color: rgb(147, 201, 245);
     padding: 20px 24px;
     display: flex;
     align-items: center;
@@ -133,7 +133,7 @@
 .synd-chat-avatar svg {
     width: 24px;
     height: 24px;
-    color: #069494;
+    color: #022391;
 }
 
 .synd-chat-header-text h3 {
