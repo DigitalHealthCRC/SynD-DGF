@@ -2,39 +2,47 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## ⚠️ CRITICAL: NOT A POWER PAGES PROJECT
+
+**THIS PROJECT IS NO LONGER USING MICROSOFT POWER PAGES.**
+
+- This is a **standalone static website** project
+- HTML files are standalone and DO NOT use Power Pages template includes
+- DO NOT reference Power Pages deployment, Power Pages templates, or Power Pages infrastructure
+- DO NOT use absolute paths like `/chatbot-assets/` - always use relative paths like `../../chatbot-assets/`
+- Pages are individual `.en-US.webpage.copy.html` files that can be opened directly in a browser
+- The `web-templates/` and `content-snippets/` directories contain legacy structure but are NOT actively used for template includes
+
 ## Project overview
 
-SynD-DGF (Synthetic Data Governance Framework) is a content management system focused on navigating legal and technical data governance in synthetic health data. The project provides guidance resources, AI-powered assistance, and educational content about privacy compliance, technical standards, and regulatory insights.
+SynD-DGF (Synthetic Data Governance Framework) is a standalone static website focused on navigating legal and technical data governance in synthetic health data. The project provides guidance resources, AI-powered assistance, and educational content about privacy compliance, technical standards, and regulatory insights.
 
 ## Repository structure
 
-The codebase follows a content-based architecture with these main directories:
+The codebase follows a standalone static website architecture:
 
-- **`web-pages/`** - Contains webpage definitions with localized content (.en-US.webpage.copy.html) and custom JavaScript (.en-US.customjs.js)
-- **`content-snippets/`** - Reusable content components like headers, footers, search elements, and site metadata
-- **`web-templates/`** - Template files including the default studio template
-- **`basic-forms/`** and **`advanced-forms/`** - Form definition directories (currently empty)
-- **`lists/`** - List management directory (currently empty)
+- **`web-pages/`** - **PRIMARY:** All standalone HTML page files (.en-US.webpage.copy.html) - these are complete, self-contained pages
+- **`chatbot-assets/`** - ChatKit chatbot CSS and JavaScript files (currently only used on Home page)
+- **`assets/`** - Static assets like images (sloth3.ico avatar, etc.)
+- **`content-snippets/`** - **LEGACY:** Not actively used for template includes (kept for reference only)
+- **`web-templates/`** - **LEGACY:** Not actively used for template includes (kept for reference only)
 - **`web-files/`** - Static file assets directory
 
-## Content management architecture
+## Page architecture
 
-### Page structure
-Each web page consists of:
-- `.en-US.webpage.copy.html` - Main HTML content with localization
-- `.en-US.customjs.js` - Page-specific JavaScript (may be empty)
+### Standalone pages
+Each web page is a **complete, self-contained HTML file**:
+- `.en-US.webpage.copy.html` - Complete HTML page (NOT a template fragment)
+- Can be opened directly in a browser (file:// or via web server)
+- Contains all CSS, HTML, and script references inline
+- **Must use relative paths** for all assets (e.g., `../../chatbot-assets/chatbot.css`)
+- Do NOT use absolute paths like `/chatbot-assets/` - they won't work when opening files directly
 
-### Content components
-The `content-snippets/` directory contains modular content pieces:
-- Site branding (Site name, Logo, etc.)
-- Navigation elements (Header, Mobile Header, Search)
-- Search functionality (SearchTitle, SearchNoResults, SearchResultsCount)
-- Footer content
-
-### Template system
-Uses a simple template inclusion system:
-- Default template includes `{% include 'Page Copy' %}`
-- Supports component theming with `data-component-theme` attributes
+### Legacy template references
+**IGNORE THESE** - they are not actively used:
+- Template includes like `{% include 'Page Copy' %}` are legacy syntax
+- `data-component-theme` attributes are legacy theming
+- The site does NOT use a template/include system
 
 ## Development workflow
 
@@ -50,7 +58,12 @@ Uses a simple template inclusion system:
 - Update individual page files for page-specific content
 
 ### No build system
-This project does not use traditional build tools (no package.json, npm scripts, or build configurations found). Changes are made directly to HTML and JavaScript files.
+This is a **static website** - no build tools, no Power Pages deployment, no template processing:
+- Changes are made directly to HTML and JavaScript files
+- Files can be opened directly in browser for testing
+- No deployment pipeline required - just upload files to any web server or hosting service
+- **Always use relative paths** for all assets (../../chatbot-assets/, ../assets/, etc.)
+- Never use absolute paths like /chatbot-assets/ - they only work on deployed servers with specific routing
 
 ## Key pages and functionality
 
