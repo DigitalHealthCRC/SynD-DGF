@@ -103,7 +103,7 @@
               <img src="../../assets/sloth3.ico" alt="Dr Tell Avatar" width="32" height="32">
             </div>
             <div class="synd-chat-header-text">
-              <h3 id="synd-chat-title">Dr Tell</h3>
+              <h3 id="synd-chat-title">Dr Zib</h3>
               <p>Synthetic Data Governance Framework Assistant</p>
             </div>
           </div>
