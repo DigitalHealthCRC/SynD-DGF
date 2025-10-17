@@ -225,9 +225,27 @@ openai-chatkit [class*="Reasoning"] {
 
 /* Hide status messages containing thinking text */
 openai-chatkit [role="status"][aria-label*="thinking"],
-openai-chatkit [role="status"][aria-label*="Thinking"] {
+openai-chatkit [role="status"][aria-label*="Thinking"],
+openai-chatkit [role="status"][aria-label*="Thought"],
+openai-chatkit [role="status"][aria-label*="thought"] {
     display: none !important;
     visibility: hidden !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+}
+
+/* Hide thinking time displays and thought indicators */
+openai-chatkit [data-testid*="thinking"],
+openai-chatkit [data-testid*="thought"],
+openai-chatkit [data-testid*="Thought"],
+openai-chatkit [class*="thought"],
+openai-chatkit [class*="Thought"],
+openai-chatkit [id*="thought"],
+openai-chatkit [id*="Thought"] {
+    display: none !important;
+    visibility: hidden !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
 }
 
 /* ===================================

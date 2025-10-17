@@ -100,7 +100,7 @@
         <div class="synd-chat-header">
           <div class="synd-chat-header-content">
             <div class="synd-chat-avatar">
-              <img src="../assets/sloth3.ico" alt="Dr Tell Avatar" width="32" height="32">
+              <img src="../../assets/sloth3.ico" alt="Dr Tell Avatar" width="32" height="32">
             </div>
             <div class="synd-chat-header-text">
               <h3 id="synd-chat-title">Dr Tell</h3>
