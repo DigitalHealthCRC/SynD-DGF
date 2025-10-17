@@ -106,8 +106,8 @@
               </svg>
             </div>
             <div class="synd-chat-header-text">
-              <h3 id="synd-chat-title">SynD-DGF Assistant</h3>
-              <p>Synthetic Data Governance</p>
+              <h3 id="synd-chat-title">Dr Tell</h3>
+              <p>Synthetic Data Governance Framework Assistant</p>
             </div>
           </div>
           <button class="synd-chat-close" aria-label="Close chat">
