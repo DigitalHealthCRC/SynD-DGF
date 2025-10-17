@@ -14,7 +14,7 @@
     width: 64px;
     height: 64px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #069494 0%, #04C4C4 100%);
+    background: linear-gradient(135deg, #022391 0%, #2354f3 100%);
     cursor: pointer;
     box-shadow: 0 8px 24px rgba(6, 148, 148, 0.4);
     display: flex;
@@ -29,7 +29,7 @@
 .synd-chat-bubble:hover {
     transform: scale(1.1);
     box-shadow: 0 12px 32px rgba(6, 148, 148, 0.5);
-    background: linear-gradient(135deg, #07B0B0 0%, #05E5E5 100%);
+    background: linear-gradient(135deg, #022391 0%, #2354f3 100%);
 }
 
 .synd-chat-bubble:active {
@@ -52,7 +52,7 @@
     position: absolute;
     top: -4px;
     right: -4px;
-    background: #FF7F50;
+    background: #2354f3;
     color: white;
     font-size: 12px;
     font-weight: 700;
@@ -210,7 +210,7 @@ openai-chatkit {
     width: 48px;
     height: 48px;
     border: 4px solid #E5E7EB;
-    border-top-color: #069494;
+    border-top-color: #022391;
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
@@ -270,7 +270,7 @@ openai-chatkit {
 }
 
 .synd-chat-error button {
-    background: linear-gradient(135deg, #069494 0%, #04C4C4 100%);
+    background: linear-gradient(135deg, #022391 0%, #2354f3 100%);
     color: white;
     border: none;
     padding: 12px 24px;
@@ -303,7 +303,7 @@ openai-chatkit {
 }
 
 .synd-chat-footer a {
-    color: #069494;
+    color: #022391;
     text-decoration: none;
     font-weight: 600;
 }
@@ -362,7 +362,7 @@ openai-chatkit {
    =================================== */
 .synd-chat-bubble:focus,
 .synd-chat-close:focus {
-    outline: 3px solid #F7C59F;
+    outline: 3px solid #2354f3;
     outline-offset: 2px;
 }
 
