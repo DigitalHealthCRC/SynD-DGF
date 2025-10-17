@@ -64,6 +64,9 @@ export default {
         throw new Error('CHATKIT_WORKFLOW_ID not configured');
       }
 
+      // Get unique client ID from request header (generated per browser)
+      const clientId = request.headers.get('X-Client-ID');
+
       // Call OpenAI ChatKit Sessions API directly
       // Reference: https://openai.github.io/chatkit-js/guides/authentication/
       const sessionResponse = await fetch('https://api.openai.com/v1/chatkit/sessions', {
@@ -74,7 +77,7 @@ export default {
           'OpenAI-Beta': 'chatkit_beta=v1'
         },
         body: JSON.stringify({
-          user: 'anonymous',
+          user: clientId || 'anonymous', // Use client ID to isolate conversations per browser
           workflow: {
             id: env.CHATKIT_WORKFLOW_ID
           }
