@@ -101,8 +101,8 @@
       widget.innerHTML = `
         <div class="synd-chat-header">
           <div class="synd-chat-header-content">
-            <div class="synd-chat-avatar">
-              <img src="../../assets/sloth3.ico" alt="Dr Tell Avatar" width="32" height="32">
+            <div class="synd-chat-avatar" id="sloth-avatar-container">
+              <!-- Animated sloth will be injected here -->
             </div>
             <div class="synd-chat-header-text">
               <h3 id="synd-chat-title">Dr Zib</h3>
@@ -142,6 +142,19 @@
       document.body.appendChild(widget);
       this.widget = widget;
       this.bodyEl = widget.querySelector('#synd-chat-body');
+
+      // Initialize animated sloth avatar
+      this.initSlothAvatar();
+    }
+
+    /**
+     * Initialize the animated sloth avatar
+     */
+    initSlothAvatar() {
+      const avatarContainer = document.getElementById('sloth-avatar-container');
+      if (avatarContainer && window.SlothAvatar) {
+        this.slothAvatar = new window.SlothAvatar(avatarContainer);
+      }
     }
 
     /**
