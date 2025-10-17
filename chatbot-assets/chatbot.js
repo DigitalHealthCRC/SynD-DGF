@@ -100,10 +100,7 @@
         <div class="synd-chat-header">
           <div class="synd-chat-header-content">
             <div class="synd-chat-avatar">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 20h9"></path>
-                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
-              </svg>
+              <img src="../assets/sloth3.ico" alt="Dr Tell Avatar" width="32" height="32">
             </div>
             <div class="synd-chat-header-text">
               <h3 id="synd-chat-title">Dr Tell</h3>

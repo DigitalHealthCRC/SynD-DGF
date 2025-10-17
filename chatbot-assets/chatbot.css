@@ -128,6 +128,13 @@
     align-items: center;
     justify-content: center;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.synd-chat-avatar img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
 }
 
 .synd-chat-avatar svg {
