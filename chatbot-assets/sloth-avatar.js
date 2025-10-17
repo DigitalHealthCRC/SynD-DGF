@@ -16,7 +16,7 @@ class SlothAvatar {
 
   render() {
     this.container.innerHTML = `
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="sloth-avatar">
+      <svg viewBox="8 10 84 84" xmlns="http://www.w3.org/2000/svg" class="sloth-avatar">
         <!-- Sloth Head (rounded) -->
         <ellipse cx="50" cy="52" rx="42" ry="42" fill="#9B8B6F" />
 
