@@ -194,6 +194,43 @@ openai-chatkit {
 }
 
 /* ===================================
+   HIDE CHATKIT THINKING/REASONING
+   =================================== */
+/* Hide thinking indicators using shadow DOM parts */
+openai-chatkit::part(thinking),
+openai-chatkit::part(reasoning),
+openai-chatkit::part(thinking-indicator) {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Hide thinking-related elements by attribute */
+openai-chatkit [data-thinking],
+openai-chatkit [data-reasoning],
+openai-chatkit [data-thinking-state] {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Hide thinking-related elements by class */
+openai-chatkit .thinking-indicator,
+openai-chatkit .reasoning-display,
+openai-chatkit [class*="thinking"],
+openai-chatkit [class*="Thinking"],
+openai-chatkit [class*="reasoning"],
+openai-chatkit [class*="Reasoning"] {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Hide status messages containing thinking text */
+openai-chatkit [role="status"][aria-label*="thinking"],
+openai-chatkit [role="status"][aria-label*="Thinking"] {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* ===================================
    LOADING STATE
    =================================== */
 .synd-chat-loading {
