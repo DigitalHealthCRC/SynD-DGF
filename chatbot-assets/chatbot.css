@@ -149,12 +149,6 @@
     transition: cx 0.1s ease-out, cy 0.1s ease-out;
 }
 
-.synd-chat-avatar svg {
-    width: 24px;
-    height: 24px;
-    color: #022391;
-}
-
 .synd-chat-header-text h3 {
     margin: 0;
     font-size: 16px;
