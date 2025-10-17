@@ -155,6 +155,13 @@
     opacity: 0.9;
 }
 
+.synd-chat-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.synd-chat-new,
 .synd-chat-close {
     background: transparent;
     border: none;
@@ -168,8 +175,14 @@
     justify-content: center;
 }
 
+.synd-chat-new:hover,
 .synd-chat-close:hover {
     background: rgba(255, 255, 255, 0.2);
+}
+
+.synd-chat-new svg {
+    width: 18px;
+    height: 18px;
 }
 
 .synd-chat-close svg {
@@ -416,6 +429,7 @@ openai-chatkit [id*="Thought"] {
    ACCESSIBILITY
    =================================== */
 .synd-chat-bubble:focus,
+.synd-chat-new:focus,
 .synd-chat-close:focus {
     outline: 3px solid #2354f3;
     outline-offset: 2px;

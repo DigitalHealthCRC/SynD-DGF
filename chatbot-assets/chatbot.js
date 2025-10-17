@@ -43,6 +43,8 @@
       this.sessionToken = null;
       this.tokenExpiry = null;
       this.retryCount = 0;
+      this.threadId = null;
+      this.chatkitWidget = null;
 
       this.init();
     }
@@ -107,12 +109,19 @@
               <p>Synthetic Data Governance Framework Assistant</p>
             </div>
           </div>
-          <button class="synd-chat-close" aria-label="Close chat">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-          </button>
+          <div class="synd-chat-actions">
+            <button class="synd-chat-new" aria-label="Start new chat" title="Start new conversation">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5v14M5 12h14"></path>
+              </svg>
+            </button>
+            <button class="synd-chat-close" aria-label="Close chat">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
         </div>
         <div class="synd-chat-body" id="synd-chat-body">
           <div class="synd-chat-loading">
@@ -126,9 +135,24 @@
       const closeBtn = widget.querySelector('.synd-chat-close');
       closeBtn.addEventListener('click', () => this.close());
 
+      // New chat button handler
+      const newChatBtn = widget.querySelector('.synd-chat-new');
+      newChatBtn.addEventListener('click', () => this.startNewChat());
+
       document.body.appendChild(widget);
       this.widget = widget;
       this.bodyEl = widget.querySelector('#synd-chat-body');
+    }
+
+    /**
+     * Start a new chat conversation
+     */
+    startNewChat() {
+      if (confirm('Start a new conversation? Your current chat history will be cleared.')) {
+        this.clearThread();
+        // Reload the page to restart ChatKit with a fresh conversation
+        location.reload();
+      }
     }
 
     /**
@@ -206,6 +230,56 @@
     }
 
     /**
+     * Save thread ID to localStorage for persistence across pages
+     */
+    saveThreadId(threadId) {
+      try {
+        this.threadId = threadId;
+        if (threadId) {
+          localStorage.setItem('synd-chat-thread-id', threadId);
+          console.log('Thread ID saved:', threadId);
+        }
+      } catch (e) {
+        console.warn('Could not save thread ID:', e);
+      }
+    }
+
+    /**
+     * Load thread ID from localStorage
+     */
+    loadThreadId() {
+      try {
+        const savedThreadId = localStorage.getItem('synd-chat-thread-id');
+        if (savedThreadId) {
+          this.threadId = savedThreadId;
+          console.log('Thread ID loaded:', savedThreadId);
+          return savedThreadId;
+        }
+      } catch (e) {
+        console.warn('Could not load thread ID:', e);
+      }
+      return null;
+    }
+
+    /**
+     * Clear thread ID to start a new conversation
+     */
+    clearThread() {
+      try {
+        this.threadId = null;
+        localStorage.removeItem('synd-chat-thread-id');
+        console.log('Thread ID cleared');
+
+        // Reset ChatKit widget with new thread
+        if (this.chatkitWidget && this.chatkitWidget.setThreadId) {
+          this.chatkitWidget.setThreadId(null);
+        }
+      } catch (e) {
+        console.warn('Could not clear thread ID:', e);
+      }
+    }
+
+    /**
      * Initialize ChatKit widget
      */
     async initializeChatKit() {
@@ -220,6 +294,9 @@
         const chatkit = document.createElement('openai-chatkit');
         chatkit.style.width = '100%';
         chatkit.style.height = '100%';
+
+        // Store reference to chatkit widget
+        this.chatkitWidget = chatkit;
 
         // Configure the widget with getClientSecret callback
         chatkit.setOptions({
@@ -243,6 +320,27 @@
         // Clear body and mount the widget
         this.bodyEl.innerHTML = '';
         this.bodyEl.appendChild(chatkit);
+
+        // Listen for thread changes to persist thread ID
+        chatkit.addEventListener('chatkit.thread.change', (event) => {
+          console.log('Thread changed:', event.detail);
+          if (event.detail && event.detail.threadId) {
+            this.saveThreadId(event.detail.threadId);
+          }
+        });
+
+        // Load existing thread ID and restore conversation
+        const existingThreadId = this.loadThreadId();
+        if (existingThreadId) {
+          console.log('Restoring previous conversation...');
+          // Use setTimeout to ensure ChatKit is fully initialized
+          setTimeout(() => {
+            if (chatkit.setThreadId) {
+              chatkit.setThreadId(existingThreadId);
+              console.log('Previous conversation restored');
+            }
+          }, 500);
+        }
 
         this.isInitialized = true;
         console.log('ChatKit widget mounted successfully');
