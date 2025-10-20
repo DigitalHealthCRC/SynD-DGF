@@ -22,11 +22,11 @@
     MAX_RETRIES: 3,
     RETRY_DELAY: 1000,
 
-    // ChatKit configuration
+    // ChatKit configuration - Forest Canopy theme
     CHATKIT_CONFIG: {
       theme: {
-        primaryColor: '#069494',
-        secondaryColor: '#F7C59F',
+        primaryColor: '#2d4a2b',
+        secondaryColor: '#7d8471',
         fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif'
       },
       placeholder: 'Ask about synthetic data governance...',
