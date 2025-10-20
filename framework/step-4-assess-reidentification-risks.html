@@ -1,139 +1,17 @@
-<!DOCTYPE html>
-<html lang="en-AU">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Step 4: Assess Re-identification Risks - SynD-DGF</title>
-    <meta name="description" content="Comprehensive guidance for assessing and mitigating re-identification risks in synthetic health data using established techniques and methodologies.">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6;
-            color: #2A324B;
-        }
-        .navbar-brand {
-            font-weight: bold;
-            font-size: 1.5rem;
-        }
-        .step-intro {
-            background: linear-gradient(135deg, #FFFDD0 0%, #B0E0E6 100%);
-            border-radius: 10px;
-            padding: 30px;
-            margin-bottom: 30px;
-            border-left: 5px solid #FF7F50;
-        }
-        .risk-card, .technique-card, .methodology-step {
-            background: white;
-            border: 1px solid #C7CCDB;
-            border-radius: 10px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .technique-details, .step-content {
-            border-left: 3px solid #FF7F50;
-            padding-left: 20px;
-            margin-bottom: 25px;
-        }
-        .assessment-tool, .uniqueness-calculator {
-            background: #FFF7D9;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 15px;
-            border-left: 4px solid #ffc107;
-        }
-        .inference-testing {
-            background: #e7f3ff;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 15px;
-            border-left: 4px solid #007bff;
-        }
-        .button1 {
-            background: linear-gradient(135deg, #004d9f 0%, #0066cc 100%);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-block;
-            transition: all 0.3s ease;
-            border: none;
-        }
-        .button1:hover {
-            background: linear-gradient(135deg, #003d7a 0%, #0052a3 100%);
-            color: white;
-            text-decoration: none;
-            transform: translateY(-2px);
-        }
-        .criteria-checklist {
-            background: #FFF7D9;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-        .criteria-item {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-        .criteria-item input {
-            margin-right: 10px;
-        }
-        .nav-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #dee2e6;
-        }
-        .nav-button {
-            background: #6c757d;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        .nav-button:hover {
-            background: #545b62;
-            color: white;
-            text-decoration: none;
-        }
-        .breadcrumb {
-            background: none;
-            padding: 0;
-            margin-bottom: 20px;
-        }
-        .breadcrumb-item + .breadcrumb-item::before {
-            content: "›";
-            color: #6c757d;
-        }
-        .risk-level {
-            border: 1px solid #C7CCDB;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 15px;
-        }
-        .risk-level.very-low {
-            border-left: 4px solid #28a745;
-            background: #f8fff8;
-        }
-        .risk-level.low {
-            border-left: 4px solid #ffc107;
-            background: #fffcf0;
-        }
-        .risk-level.medium-high {
-            border-left: 4px solid #dc3545;
-            background: #fff8f8;
-        }
-    </style>
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- SynD-DGF Unified Design System - Forest Canopy Theme -->
+<link rel="stylesheet" href="../assets/css/synd-design-system.css">
+<link rel="stylesheet" href="../assets/css/synd-additional-components.css">
+
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #069494;">
+    <nav class="navbar navbar-expand-lg navbar-dark" >
         <div class="container">
             <a class="navbar-brand" href="../index.html">SynD-DGF</a>
             <div class="navbar-nav ms-auto">
@@ -145,16 +23,79 @@
         </div>
     </nav>
 
-    <!-- Breadcrumb -->
-    <div class="container mt-4">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
-                <li class="breadcrumb-item"><a href="../framework.html">Framework</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Step 4: Assess Re-identification Risks</li>
-            </ol>
-        </nav>
+    <!-- Enhanced Breadcrumbs with Framework Context -->
+<nav class="enhanced-breadcrumbs" aria-label="Breadcrumb navigation">
+  <div class="breadcrumb-container">
+    <div class="framework-context" id="framework-context" style="display: none;">
+      <div class="context-header">
+        <span class="context-icon">📋</span>
+        <span class="context-title">Framework Step</span>
+      </div>
+      <div class="step-progress">
+        <div class="step-indicator" data-step="1"><span class="step-number">1</span><span class="step-name">Use Case</span></div>
+        <div class="step-indicator" data-step="2"><span class="step-number">2</span><span class="step-name">Source Data</span></div>
+        <div class="step-indicator" data-step="3"><span class="step-number">3</span><span class="step-name">Generate Data</span></div>
+        <div class="step-indicator" data-step="4"><span class="step-number">4</span><span class="step-name">Risk Assessment</span></div>
+        <div class="step-indicator" data-step="5"><span class="step-number">5</span><span class="step-name">Risk Management</span></div>
+      </div>
     </div>
+    <ol class="breadcrumb-list">
+      <li class="breadcrumb-item"><a href="/" class="breadcrumb-link"><span class="breadcrumb-icon">🏠</span><span class="breadcrumb-text">Home</span></a></li>
+      <li class="breadcrumb-item current" id="current-page"><span class="breadcrumb-text">Step 4: Assess Re-identification Risks</span></li>
+    </ol>
+    <div class="page-actions">
+      <button class="action-button" onclick="printPage()" title="Print this page"><span class="action-icon">🖨️</span></button>
+      <button class="action-button" onclick="sharePage()" title="Share this page"><span class="action-icon">📤</span></button>
+      <button class="action-button" onclick="bookmarkPage()" title="Bookmark this page"><span class="action-icon">🔖</span></button>
+    </div>
+  </div>
+</nav>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const breadcrumbList = document.querySelector('.breadcrumb-list');
+    const currentPageItem = document.getElementById('current-page');
+    const frameworkContext = document.getElementById('framework-context');
+
+    function buildBreadcrumbs() {
+        const breadcrumbs = [{ url: '/framework-overview', text: 'Framework', icon: '📋' }];
+        const li = document.createElement('li');
+        li.className = 'breadcrumb-item dynamic-breadcrumb';
+        const link = document.createElement('a');
+        link.href = breadcrumbs[0].url;
+        link.className = 'breadcrumb-link';
+        link.innerHTML = `<span class="breadcrumb-icon">${breadcrumbs[0].icon}</span><span class="breadcrumb-text">${breadcrumbs[0].text}</span>`;
+        li.appendChild(link);
+        breadcrumbList.insertBefore(li, currentPageItem);
+        showFrameworkContext(4);
+    }
+
+    function showFrameworkContext(currentStep) {
+        frameworkContext.style.display = 'block';
+        document.querySelectorAll('.step-indicator').forEach((indicator, index) => {
+            const stepNumber = index + 1;
+            indicator.classList.remove('completed', 'current', 'upcoming');
+            if (stepNumber < currentStep) indicator.classList.add('completed');
+            else if (stepNumber === currentStep) indicator.classList.add('current');
+            else indicator.classList.add('upcoming');
+        });
+    }
+
+    buildBreadcrumbs();
+});
+
+function printPage() { window.print(); }
+function sharePage() {
+    if (navigator.share) navigator.share({ title: document.title, url: window.location.href });
+    else navigator.clipboard.writeText(window.location.href).then(() => alert('Page URL copied to clipboard'));
+}
+function bookmarkPage() {
+    let bookmarks = JSON.parse(localStorage.getItem('synd-bookmarks') || '[]');
+    bookmarks.push({ title: document.title, url: window.location.href, timestamp: new Date().toISOString() });
+    localStorage.setItem('synd-bookmarks', JSON.stringify(bookmarks));
+    alert('Page bookmarked successfully');
+}
+</script>
 
     <div class="container">
         <div class="row">
@@ -371,7 +312,7 @@
                                     <li><strong>Administrative attributes:</strong> Provider identifiers, episode numbers</li>
                                 </ul>
                                 <div class="assessment-tool">
-                                    <a href="../assessment-tools.html" class="button1">Use Quasi-identifier Checklist</a>
+                                    <a href="../assessment-tools.html" class="btn-modern-primary">Use Quasi-identifier Checklist</a>
                                 </div>
                             </div>
                         </div>
@@ -552,7 +493,7 @@
                         <div class="outcome-proceed">
                             <h3>✓ Proceed to Step 5</h3>
                             <p>Your synthetic data meets the required privacy standards. Continue to implement comprehensive safeguards for data use and sharing.</p>
-                            <a href="step-5-manage-residual-risks.html" class="button1">Continue to Step 5</a>
+                            <a href="step-5-manage-residual-risks.html" class="btn-modern-primary">Continue to Step 5</a>
                         </div>
                         <div class="outcome-complex">
                             <h3>⚠️ Complex scenario - additional assessment required</h3>
@@ -563,7 +504,130 @@
                                 <li><strong>Additional safeguards:</strong> Enhanced controls and monitoring must be implemented</li>
                                 <li><strong>Legal review:</strong> Seek legal advice on privacy compliance for higher-risk scenarios</li>
                             </ul>
-                            <p><a href="../resources.html" class="button1">Access Complex Scenarios Guide</a></p>
+                            <p><a href="../resources.html" class="btn-modern-primary">Access Complex Scenarios Guide</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content Tagging, Cross-Reference, Related Resources -->
+<div class="content-tagging-system" id="content-tagging-system">
+  <div class="page-tags-section" id="page-tags">
+    <div class="tags-header"><span class="tags-icon">🏷️</span><span class="tags-label">Content tags:</span></div>
+    <div class="tags-container" id="current-page-tags"></div>
+  </div>
+</div>
+
+<nav class="cross-reference-nav" aria-label="Cross-reference navigation">
+  <div class="cross-ref-container">
+    <div class="cross-ref-section appendices-section" id="related-appendices">
+      <div class="section-header"><span class="section-icon">📚</span><h4 class="section-title">Related appendices</h4></div>
+      <div class="cross-ref-items" id="appendices-list"></div>
+    </div>
+    <div class="cross-ref-section tools-section" id="related-tools">
+      <div class="section-header"><span class="section-icon">🛠️</span><h4 class="section-title">Recommended tools</h4></div>
+      <div class="cross-ref-items" id="tools-list"></div>
+    </div>
+    <div class="cross-ref-section next-steps-section" id="next-steps">
+      <div class="section-header"><span class="section-icon">➡️</span><h4 class="section-title">Next steps</h4></div>
+      <div class="cross-ref-items" id="next-steps-list"></div>
+    </div>
+  </div>
+</nav>
+
+<section class="related-resources-section" aria-label="Related resources">
+  <div class="related-resources-container">
+    <div class="section-header">
+      <h3 class="section-title"><span class="title-icon">📚</span>Related resources</h3>
+      <p class="section-description">Discover additional resources relevant to this content</p>
+    </div>
+    <div class="resource-category quick-access" id="quick-access-resources">
+      <div class="category-header"><span class="category-icon">⚡</span><h4 class="category-title">Quick access</h4></div>
+      <div class="resource-grid" id="quick-access-grid"></div>
+    </div>
+    <div class="resource-category documentation" id="documentation-resources">
+      <div class="category-header"><span class="category-icon">📄</span><h4 class="category-title">Documentation</h4></div>
+      <div class="resource-grid" id="documentation-grid"></div>
+    </div>
+  </div>
+</section>
+
+                <div class="common-scenarios">
+                    <h2>Common scenarios and guidance</h2>
+                    <div class="scenario-accordion">
+                        <div class="scenario-item">
+                            <button class="scenario-header" data-toggle="collapse" data-target="#scenario1">
+                                <h3>High uniqueness in synthetic data</h3>
+                                <span class="toggle-icon">+</span>
+                            </button>
+                            <div id="scenario1" class="scenario-content collapse">
+                                <p><strong>Situation:</strong> Risk assessment shows >10% of synthetic records are unique on key quasi-identifiers.</p>
+                                <p><strong>Guidance:</strong></p>
+                                <ul>
+                                    <li>Apply additional generalisation to quasi-identifying attributes (age groups, broader geographies)</li>
+                                    <li>Consider increasing k-anonymity threshold (e.g., from k=5 to k=10)</li>
+                                    <li>Suppress records with very rare characteristic combinations</li>
+                                    <li>Retrain generation model with stronger privacy parameters</li>
+                                    <li>Evaluate if data utility remains acceptable after additional privacy measures</li>
+                                </ul>
+                                <p><strong>Related tool:</strong> <a href="../tools/risk-evaluation.html">Risk Evaluation Tool</a></p>
+                            </div>
+                        </div>
+
+                        <div class="scenario-item">
+                            <button class="scenario-header" data-toggle="collapse" data-target="#scenario2">
+                                <h3>Membership inference vulnerabilities</h3>
+                                <span class="toggle-icon">+</span>
+                            </button>
+                            <div id="scenario2" class="scenario-content collapse">
+                                <p><strong>Situation:</strong> Membership inference attacks achieve >65% accuracy in identifying training set membership.</p>
+                                <p><strong>Guidance:</strong></p>
+                                <ul>
+                                    <li>Indicates potential model overfitting to training data</li>
+                                    <li>Retrain model with stronger regularisation or early stopping</li>
+                                    <li>Apply differential privacy during model training</li>
+                                    <li>Use smaller training dataset subsamples</li>
+                                    <li>Consider ensemble approaches to reduce memorisation</li>
+                                </ul>
+                                <p><strong>Key consideration:</strong> Membership inference risks are particularly concerning for small populations.</p>
+                            </div>
+                        </div>
+
+                        <div class="scenario-item">
+                            <button class="scenario-header" data-toggle="collapse" data-target="#scenario3">
+                                <h3>Balancing privacy and utility</h3>
+                                <span class="toggle-icon">+</span>
+                            </button>
+                            <div id="scenario3" class="scenario-content collapse">
+                                <p><strong>Situation:</strong> Privacy measures significantly reduce data utility for intended analyses.</p>
+                                <p><strong>Guidance:</strong></p>
+                                <ul>
+                                    <li>Prioritise privacy protection over utility - privacy cannot be compromised</li>
+                                    <li>Evaluate if alternative analytical approaches can work with more private data</li>
+                                    <li>Consider using access controls rather than additional de-identification</li>
+                                    <li>Test if specific analyses can tolerate the privacy-utility tradeoff</li>
+                                    <li>Document limitations for data users and adjust expectations</li>
+                                </ul>
+                                <p><strong>Important:</strong> If utility is insufficient, synthetic data may not be appropriate for your use case.</p>
+                            </div>
+                        </div>
+
+                        <div class="scenario-item">
+                            <button class="scenario-header" data-toggle="collapse" data-target="#scenario4">
+                                <h3>External data linkage risks</h3>
+                                <span class="toggle-icon">+</span>
+                            </button>
+                            <div id="scenario4" class="scenario-content collapse">
+                                <p><strong>Situation:</strong> Synthetic data could be linked with publicly available or external datasets.</p>
+                                <p><strong>Guidance:</strong></p>
+                                <ul>
+                                    <li>Identify external datasets that could be used for linkage attacks</li>
+                                    <li>Test linkage vulnerability using known external data sources</li>
+                                    <li>Apply additional generalisation to attributes present in external datasets</li>
+                                    <li>Consider temporal perturbation for date-based linkage protection</li>
+                                    <li>Document known linkage vulnerabilities and implement access controls</li>
+                                </ul>
+                                <p><strong>Related resource:</strong> <a href="../resources/appendices/deidentification-techniques.html">Appendix 7: De-identification Techniques</a></p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -580,6 +644,116 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+// Content Tagging
+document.addEventListener('DOMContentLoaded', function() {
+    const tags = ['step-4', 'risk-assessment', 'privacy', 'reidentification', 'deidentification', 'k-anonymity'];
+    const container = document.getElementById('current-page-tags');
+    tags.forEach(tag => {
+        const el = document.createElement('span');
+        el.className = 'content-tag';
+        el.textContent = tag.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+        container.appendChild(el);
+    });
+});
+
+// Cross-Reference Navigation
+document.addEventListener('DOMContentLoaded', function() {
+    const refs = {
+        appendices: [
+            { id: 6, title: 'Technical assessment', url: '/web-pages/../resources/appendices/technical-assessment.html', description: 'Risk assessment methodologies' },
+            { id: 7, title: 'De-identification techniques', url: '/web-pages/../resources/appendices/deidentification-techniques.html', description: 'Comprehensive privacy protection methods' }
+        ],
+        tools: [
+            { title: 'Risk Evaluation Tool', url: '/web-pages/../tools/risk-evaluation.html', description: 'Systematic re-identification risk assessment' }
+        ],
+        nextSteps: [
+            { title: 'Step 5: Manage Residual Risks', url: '/web-pages/step-5-manage-residual-risks.html', description: 'Implement comprehensive safeguards' }
+        ]
+    };
+
+    function populate(id, items, type) {
+        const container = document.getElementById(id);
+        if (!container || !items || items.length === 0) {
+            if (container) container.parentElement.style.display = 'none';
+            return;
+        }
+        items.forEach(item => {
+            const div = document.createElement('div');
+            div.className = `cross-ref-item ${type}-item`;
+            div.innerHTML = `<a href="${item.url}" class="cross-ref-link">
+                <span class="item-icon">${type === 'appendix' ? item.id : type === 'tool' ? '🛠️' : '➡️'}</span>
+                <div class="item-content">
+                    <span class="item-title">${item.title}</span>
+                    <span class="item-description">${item.description}</span>
+                </div>
+            </a>`;
+            container.appendChild(div);
+        });
+    }
+
+    populate('appendices-list', refs.appendices, 'appendix');
+    populate('tools-list', refs.tools, 'tool');
+    populate('next-steps-list', refs.nextSteps, 'next-step');
+});
+
+// Related Resources
+document.addEventListener('DOMContentLoaded', function() {
+    const resources = {
+        quickAccess: [
+            { title: 'Framework overview', url: '/web-pages/../framework.html', description: 'Complete framework guide', tags: ['framework'] },
+            { title: 'Assessment tools', url: '/web-pages/../assessment-tools.html', description: 'Interactive tools', tags: ['tools'] }
+        ],
+        documentation: [
+            { title: 'De-identification guide', url: '/web-pages/../resources/appendices/deidentification-techniques.html', description: 'Privacy protection methods', tags: ['privacy', 'techniques'] }
+        ]
+    };
+
+    function populateResources(gridId, items) {
+        const grid = document.getElementById(gridId);
+        if (!grid || !items || items.length === 0) {
+            if (grid) grid.parentElement.style.display = 'none';
+            return;
+        }
+        items.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'resource-card';
+            card.innerHTML = `<a href="${item.url}" class="resource-link">
+                <div class="resource-content">
+                    <h5 class="resource-title">${item.title}</h5>
+                    <p class="resource-description">${item.description}</p>
+                    <div class="resource-tags">${item.tags.map(tag => `<span class="resource-tag">${tag}</span>`).join('')}</div>
+                </div>
+                <div class="resource-arrow">→</div>
+            </a>`;
+            grid.appendChild(card);
+        });
+    }
+
+    populateResources('quick-access-grid', resources.quickAccess);
+    populateResources('documentation-grid', resources.documentation);
+});
+
+// Accordion functionality
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.scenario-header').forEach(header => {
+        header.addEventListener('click', function() {
+            const target = document.querySelector(this.getAttribute('data-target'));
+            const icon = this.querySelector('.toggle-icon');
+            if (target.classList.contains('show')) {
+                target.classList.remove('show');
+                icon.textContent = '+';
+            } else {
+                document.querySelectorAll('.scenario-content').forEach(sc => sc.classList.remove('show'));
+                document.querySelectorAll('.toggle-icon').forEach(ti => ti.textContent = '+');
+                target.classList.add('show');
+                icon.textContent = '−';
+            }
+        });
+    });
+});
+</script>
 
     <!-- Back to Top Button -->
     <button onclick="scrollToTop()" id="backToTop" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 99; background: #F7C59F; color: white; border: none; padding: 15px 18px; border-radius: 50%; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.2); font-size: 1.2rem; font-weight: bold;">↑</button>

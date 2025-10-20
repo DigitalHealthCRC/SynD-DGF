@@ -1,272 +1,22 @@
-<!DOCTYPE html>
-<html lang="en-AU">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Risk Evaluation Tool - SynD-DGF</title>
-    <meta name="description" content="Systematic evaluation of re-identification risks, privacy threats, and vulnerability assessments for synthetic data generation and use under the SynD-DGF framework.">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-        .navbar-brand {
-            font-weight: bold;
-            font-size: 1.5rem;
-        }
-        .breadcrumb {
-            background: none;
-            padding: 0;
-            margin-bottom: 20px;
-        }
-        .breadcrumb-item + .breadcrumb-item::before {
-            content: "›";
-            color: #36454F;
-        }
-        .button1 {
-            background: linear-gradient(135deg, #2A324B 0%, #36454F 100%);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-block;
-            transition: all 0.3s ease;
-            border: none;
-        }
-        .button1:hover {
-            background: linear-gradient(135deg, #36454F 0%, #2A324B 100%);
-            color: white;
-            text-decoration: none;
-            transform: translateY(-2px);
-        }
-        .button2 {
-            background: #36454F;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-block;
-            transition: all 0.3s ease;
-            border: none;
-        }
-        .button2:hover {
-            background: #2A324B;
-            color: white;
-            text-decoration: none;
-            transform: translateY(-2px);
-        }
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-        /* Framework Integration Styles */
-        .framework-integration {
-            background: #FFF7D9;
-            border-radius: 15px;
-            padding: 30px;
-            margin: 40px 0;
-            border-left: 5px solid #dc3545;
-        }
+<!-- SynD-DGF Unified Design System - Forest Canopy Theme -->
+<link rel="stylesheet" href="../assets/css/synd-design-system.css">
 
-        .framework-integration h2 {
-            color: #dc3545;
-            margin-bottom: 20px;
-        }
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
 
-        .resource-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 25px;
-        }
-
-        .resource-card {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-        }
-
-        .resource-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-        }
-
-        .resource-icon {
-            font-size: 2rem;
-            flex-shrink: 0;
-        }
-
-        .resource-content h3 {
-            margin: 0 0 10px 0;
-            font-size: 1.1rem;
-        }
-
-        .resource-content h3 a {
-            color: #004d9f;
-            text-decoration: none;
-        }
-
-        .resource-content h3 a:hover {
-            text-decoration: underline;
-        }
-
-        .resource-content p {
-            margin: 0 0 10px 0;
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        .resource-tag {
-            display: inline-block;
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        .resource-tag.safety { background: #fff3cd; color: #856404; }
-        .resource-tag.legal { background: #d1ecf1; color: #0c5460; }
-        .resource-tag.technical { background: #e2e3e5; color: #383d41; }
-        .resource-tag.framework { background: #d4edda; color: #155724; }
-
-        /* Enhanced Assessment Features Styles */
-        .assessment-features {
-            background: #fff;
-            border-radius: 15px;
-            padding: 30px;
-            margin: 40px 0;
-            border: 1px solid #e0e0e0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        .assessment-features h2 {
-            color: #004d9f;
-            margin-bottom: 20px;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 25px;
-        }
-
-        .feature-item {
-            text-align: center;
-            padding: 20px;
-            background: #FFF7D9;
-            border-radius: 10px;
-            transition: background 0.3s ease;
-        }
-
-        .feature-item:hover {
-            background: #e9ecef;
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        .feature-content h3 {
-            margin: 0 0 10px 0;
-            color: #333;
-            font-size: 1.2rem;
-        }
-
-        .feature-content p {
-            margin: 0 0 15px 0;
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        .save-status {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            font-size: 0.9rem;
-        }
-
-        .status-indicator {
-            font-size: 1.2rem;
-            color: #36454F;
-        }
-
-        .status-indicator.saving { color: #ffc107; }
-        .status-indicator.saved { color: #28a745; }
-        .status-indicator.error { color: #dc3545; }
-
-        .feature-button {
-            background: #069494;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .feature-button:hover:not(:disabled) {
-            background: #003d7a;
-        }
-
-        .feature-button:disabled {
-            background: #36454F;
-            cursor: not-allowed;
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background: #e9ecef;
-            border-radius: 4px;
-            overflow: hidden;
-            margin: 10px 0 5px 0;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #28a745, #20c997);
-            transition: width 0.3s ease;
-        }
-
-        .progress-text {
-            font-size: 0.8rem;
-            color: #666;
-        }
-
-        /* Framework Integration Styles */
-        .framework-note {
-            display: block;
-            color: #007bff;
-            font-size: 0.8rem;
-            font-weight: 500;
-            margin-top: 5px;
-            padding: 5px 10px;
-            background: #e7f3ff;
-            border-radius: 12px;
-            border-left: 3px solid #007bff;
-        }
-    </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #069494;">
+    <nav class="navbar navbar-expand-lg navbar-dark" >
         <div class="container">
             <a class="navbar-brand" href="../../index.html">SynD-DGF</a>
             <div class="navbar-nav ms-auto">
                 <a class="nav-link" href="../../index.html">Home</a>
                 <a class="nav-link" href="../../framework.html">Framework</a>
-                <a class="nav-link active" href="../AssessmentTools.html">Assessment Tools</a>
+                <a class="nav-link active" href="../assessment-tools.html">Assessment Tools</a>
                 <a class="nav-link" href="../../resources.html">Resources</a>
             </div>
         </div>
@@ -277,7 +27,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
-                <li class="breadcrumb-item"><a href="../AssessmentTools.html">Assessment Tools</a></li>
+                <li class="breadcrumb-item"><a href="../assessment-tools.html">Assessment Tools</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Risk Evaluation Tool</li>
             </ol>
         </nav>
@@ -708,7 +458,7 @@
                     </div>
 
                     <div class="form-actions">
-                        <button type="button" id="calculateRisk" class="button1">Calculate Risk Assessment</button>
+                        <button type="button" id="calculateRisk" class="btn-modern-primary">Calculate Risk Assessment</button>
                         <button type="reset" id="resetForm" class="button2">Reset Form</button>
                     </div>
                 </form>
@@ -722,8 +472,8 @@
                     <div id="resultsContent" class="results-content"></div>
                     
                     <div class="results-actions">
-                        <button type="button" id="exportRiskReport" class="button1">Export Risk Report</button>
-                        <button type="button" id="saveRiskAssessment" class="button1">Save Assessment</button>
+                        <button type="button" id="exportRiskReport" class="btn-modern-primary">Export Risk Report</button>
+                        <button type="button" id="saveRiskAssessment" class="btn-modern-primary">Save Assessment</button>
                         <button type="button" id="newRiskAssessment" class="button2">New Assessment</button>
                     </div>
                 </div>
@@ -756,7 +506,7 @@
 
                 <div class="tool-navigation">
                     <div class="nav-buttons">
-                        <a href="../AssessmentTools.html" class="nav-button nav-previous">← Assessment Tools</a>
+                        <a href="../assessment-tools.html" class="nav-button nav-previous">← Assessment Tools</a>
                         <a href="../quality-metrics-tool/QualityMetricsTool.html" class="nav-button nav-next">Quality Metrics Tool →</a>
                     </div>
                 </div>

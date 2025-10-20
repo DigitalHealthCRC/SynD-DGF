@@ -106,11 +106,23 @@ This is a **static website** - no build tools, no compilation, no bundling:
 
 ## Styling and theming
 
-- Uses Bootstrap-like CSS classes (`row`, `col-md-*`, `container`)
-- Custom button styling with `.button1` class
-- Component theming system with `portalThemeColor*` themes
-- Responsive design with flexbox layouts
-- Uses CDN-hosted images from hubblecontent.osi.office.net
+**Unified CSS Design System (October 2025):**
+- **Single CSS file:** `assets/css/synd-design-system.css` - unified design system for entire website
+- **Forest Canopy theme:** Natural, professional colour palette inspired by earth tones
+- **Colour palette:**
+  - Forest Green (#2d4a2b) - Primary navigation, buttons, headings
+  - Sage (#7d8471) - Secondary elements, accents
+  - Olive (#a4ac86) - Light accents, hover states
+  - Ivory (#faf9f6) - Backgrounds, cards
+- **No inline styles:** All styling through external CSS file
+- **Component classes:**
+  - `.btn-modern-primary`, `.btn-modern-secondary`, `.btn-modern-accent` - Button variants
+  - `.step-card-modern`, `.tool-card-modern`, `.resource-card-modern` - Card components
+  - `.hero-modern`, `.hero-framework` - Hero sections with Forest Green gradient
+  - `.section-modern`, `.section-modern-alt` - Page sections
+- **Responsive design:** Mobile-first with breakpoints at 480px, 768px, 1024px
+- **Bootstrap 5.3:** Loaded via CDN for grid and utilities
+- **Legacy CSS archived:** Old individual page CSS files moved to `_legacy/css/`
 
 ## Content focus areas
 
@@ -231,7 +243,36 @@ The resources section now follows a hierarchical structure:
 
 ## Recent UX improvements (October 2025)
 
-### User experience enhancements implemented:
+### CSS Unification & Forest Canopy Theme (October 2025)
+**Major architectural improvement** - Complete CSS consolidation and theme standardisation:
+
+**Before:**
+- 49 HTML files with inline `<style>` blocks (100-700 lines each)
+- 15 separate CSS files with massive duplication
+- Mixed colour schemes (teal #069494, blue #0066CC, peach #F7C59F, etc.)
+- Inconsistent navigation colours across pages
+- Total ~19,600 lines of duplicated CSS
+
+**After:**
+- Single unified `synd-design-system.css` (1,800 lines)
+- Forest Canopy theme throughout (Forest Green #2d4a2b, Sage #7d8471, Olive #a4ac86)
+- All 42 HTML pages updated to use unified CSS
+- Consistent Forest Green navigation across entire site
+- Zero inline styles (except chatbot integration)
+
+**Benefits:**
+- Professional, cohesive appearance across all pages
+- Single source of truth for all styling
+- Change once, applies everywhere
+- Better performance (browser caches one CSS file)
+- Easy maintenance and updates
+- Natural, earthy theme suits health/sustainability context
+
+**Files affected:** 42 HTML pages across all sections (root, framework, tools, decision support, about, resources)
+
+**Archives:** 15 old CSS files moved to `_legacy/css/`, HTML backups in `_legacy/html-backups/`
+
+### User experience enhancements (October 2025):
 1. **Navigation consistency** - Fixed Complex Scenarios Navigator availability messaging across Home and Decision Support pages
 2. **Link corrections** - Resolved broken links in Framework Overview to Complex Scenarios Navigator
 3. **Typography optimization** - Reduced hero heading sizes from 3rem to 2.5rem for better visual balance

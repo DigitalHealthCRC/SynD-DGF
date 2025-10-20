@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Use Case Assessment Tool | SynD-DGF</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #2A324B 0%, #36454F 100%);
+            color: white;
+            padding: 60px 0;
+        }
+        
+        .assessment-section {
+            background: #FFF7D9;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 5px solid #F7C59F;
+        }
+        
+        .question-group {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #C7CCDB;
+        }
+        
+        .question-title {
+            color: #2A324B;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .form-check {
+            margin-bottom: 10px;
+        }
+        
+        .assessment-results {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 30px;
+            border: 2px solid #F7C59F;
+        }
+        
+        .result-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .suitability-score {
+            font-size: 3rem;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .score-excellent { color: #28a745; }
+        .score-good { color: #17a2b8; }
+        .score-fair { color: #ffc107; }
+        .score-poor { color: #dc3545; }
+        
+        .recommendation-high { 
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            border-left: 5px solid #28a745;
+        }
+        
+        .recommendation-medium { 
+            background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%);
+            border-left: 5px solid #17a2b8;
+        }
+        
+        .recommendation-low { 
+            background: linear-gradient(135deg, #fff3cd 0%, #fdeaa7 100%);
+            border-left: 5px solid #ffc107;
+        }
+        
+        .recommendation-none { 
+            background: linear-gradient(135deg, #f8d7da 0%, #f1b0b7 100%);
+            border-left: 5px solid #dc3545;
+        }
+        
+        .factor-analysis {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .factor-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px solid #C7CCDB;
+        }
+        
+        .factor-title {
+            color: #2A324B;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .factor-score {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .score-bar {
+            flex-grow: 1;
+            height: 8px;
+            background: #dee2e6;
+            border-radius: 4px;
+            margin: 0 10px;
+            overflow: hidden;
+        }
+        
+        .score-fill {
+            height: 100%;
+            transition: width 0.5s ease;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #2A324B 0%, #36454F 100%);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+        
+        .btn-outline-primary {
+            color: #2A324B;
+            border-color: #2A324B;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+        
+        .btn-outline-primary:hover {
+            background: #069494;
+            border-color: #2A324B;
+        }
+        
+        .progress-indicator {
+            position: sticky;
+            top: 20px;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .progress-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+        }
+        
+        .progress-step.active {
+            opacity: 1;
+            font-weight: 600;
+        }
+        
+        .progress-step.completed {
+            opacity: 1;
+            color: #28a745;
+        }
+        
+        .step-number {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #dee2e6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        
+        .step-number.active {
+            background: #069494;
+            color: white;
+        }
+        
+        .step-number.completed {
+            background: #28a745;
+            color: white;
+        }
+        
+        .hidden { display: none; }
+        
+        /* Framework Integration Styles */
+        .framework-note {
+            display: block;
+            color: #007bff;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-top: 5px;
+            padding: 5px 10px;
+            background: #e7f3ff;
+            border-radius: 12px;
+            border-left: 3px solid #007bff;
+        }
+
+        .question-title {
+            position: relative;
+        }
+
+        .form-check-input[data-framework-guidance] + .form-check-label {
+            position: relative;
+        }
+
+        .form-check-input[data-framework-guidance] + .form-check-label::after {
+            content: "📖";
+            position: absolute;
+            right: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8rem;
+            opacity: 0.6;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .form-check-input[data-framework-guidance]:focus + .form-check-label::after,
+        .form-check-input[data-framework-guidance] + .form-check-label:hover::after {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section { padding: 40px 0; }
+            .assessment-section { padding: 20px; }
+            .factor-analysis { grid-template-columns: 1fr; }
+            .action-buttons { flex-direction: column; }
+
+            .form-check-input[data-framework-guidance] + .form-check-label::after {
+                right: -20px;
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2A324B;">
+        <div class="container">
+            <a class="navbar-brand" href="../../index.html">SynD-DGF</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="../../index.html">Home</a>
+                <a class="nav-link" href="../../framework.html">Framework</a>
+                <a class="nav-link active" href="../AssessmentTools.html">Assessment Tools</a>
+                <a class="nav-link" href="../../resources.html">Resources</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="container mt-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb" style="background: none; padding: 0; margin-bottom: 20px;">
+                <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="../AssessmentTools.html">Assessment Tools</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Use Case Assessment Tool</li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 mb-4">Use Case Assessment Tool</h1>
+                    <p class="lead">Comprehensive evaluation to determine if synthetic data is appropriate for your specific use case and to identify key considerations for implementation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container my-5">
+        <div class="row">
+            <!-- Progress Indicator -->
+            <div class="col-lg-3">
+                <div class="progress-indicator">
+                    <h5 class="mb-3">Assessment Progress</h5>
+                    <div class="progress-step" id="step-indicator-1">
+                        <div class="step-number">1</div>
+                        <span>Purpose & Context</span>
+                    </div>
+                    <div class="progress-step" id="step-indicator-2">
+                        <div class="step-number">2</div>
+                        <span>Data Characteristics</span>
+                    </div>
+                    <div class="progress-step" id="step-indicator-3">
+                        <div class="step-number">3</div>
+                        <span>Technical Requirements</span>
+                    </div>
+                    <div class="progress-step" id="step-indicator-4">
+                        <div class="step-number">4</div>
+                        <span>Risk & Compliance</span>
+                    </div>
+                    <div class="progress-step" id="step-indicator-5">
+                        <div class="step-number">5</div>
+                        <span>Resource Assessment</span>
+                    </div>
+                    <div class="progress-step" id="step-indicator-results">
+                        <div class="step-number">✓</div>
+                        <span>Results & Recommendations</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Assessment Form -->
+            <div class="col-lg-9">
+                <!-- Framework Integration Panel -->
+                {% include 'Framework Integration Panel' %}
+
+                <!-- Assessment Outcomes Integration -->
+                {% include 'Assessment Outcomes Integration' %}
+
+                <form id="use-case-assessment-form">
+                    <!-- Section 1: Purpose and Context -->
+                    <div class="assessment-section" id="section-1">
+                        <h2 class="h3 mb-4" style="color: #2A324B;">1. Purpose and Context</h2>
+                        
+                        <div class="question-group" data-framework-refs="public-benefit">
+                            <div class="question-title">
+                                What is the primary purpose of your data use?
+                                <small class="framework-note">Framework requirement: Must demonstrate clear public benefit</small>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="primary_purpose" id="purpose_research" value="research" data-framework-guidance="public-benefit">
+                                <label class="form-check-label" for="purpose_research">Research and development</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="primary_purpose" id="purpose_analytics" value="analytics">
+                                <label class="form-check-label" for="purpose_analytics">Business analytics and insights</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="primary_purpose" id="purpose_ml" value="ml_training">
+                                <label class="form-check-label" for="purpose_ml">Machine learning model training</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="primary_purpose" id="purpose_testing" value="testing">
+                                <label class="form-check-label" for="purpose_testing">Software testing and development</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="primary_purpose" id="purpose_sharing" value="data_sharing">
+                                <label class="form-check-label" for="purpose_sharing">Data sharing and collaboration</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <div class="question-title">What type of organisation are you?</div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="organisation_type" id="org_healthcare" value="healthcare">
+                                <label class="form-check-label" for="org_healthcare">Healthcare provider or hospital</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="organisation_type" id="org_research" value="research">
+                                <label class="form-check-label" for="org_research">Research institution or university</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="organisation_type" id="org_government" value="government">
+                                <label class="form-check-label" for="org_government">Government agency</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="organisation_type" id="org_industry" value="industry">
+                                <label class="form-check-label" for="org_industry">Industry or commercial entity</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="organisation_type" id="org_ngo" value="ngo">
+                                <label class="form-check-label" for="org_ngo">Non-profit or NGO</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <div class="question-title">What is the intended scope of data sharing or publication?</div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="sharing_scope" id="scope_internal" value="internal">
+                                <label class="form-check-label" for="scope_internal">Internal use only within organisation</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="sharing_scope" id="scope_partners" value="partners">
+                                <label class="form-check-label" for="scope_partners">Sharing with trusted partners</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="sharing_scope" id="scope_research" value="research_community">
+                                <label class="form-check-label" for="scope_research">Research community access</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="sharing_scope" id="scope_public" value="public">
+                                <label class="form-check-label" for="scope_public">Public release or open data</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 2: Data Characteristics -->
+                    <div class="assessment-section" id="section-2">
+                        <h2 class="h3 mb-4" style="color: #2A324B;">2. Data Characteristics</h2>
+                        
+                        <div class="question-group">
+                            <div class="question-title">What type of health data are you working with?</div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="data_types" id="data_clinical" value="clinical">
+                                        <label class="form-check-label" for="data_clinical">Clinical records</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="data_types" id="data_genomics" value="genomics">
+                                        <label class="form-check-label" for="data_genomics">Genomic data</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="data_types" id="data_imaging" value="imaging">
+                                        <label class="form-check-label" for="data_imaging">Medical imaging</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="data_types" id="data_lab" value="laboratory">
+                                        <label class="form-check-label" for="data_lab">Laboratory results</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="data_types" id="data_pharma" value="pharmaceutical">
+                                        <label class="form-check-label" for="data_pharma">Pharmaceutical data</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="data_types" id="data_claims" value="claims">
+                                        <label class="form-check-label" for="data_claims">Insurance claims</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="data_types" id="data_wearable" value="wearable">
+                                        <label class="form-check-label" for="data_wearable">Wearable device data</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="data_types" id="data_survey" value="survey">
+                                        <label class="form-check-label" for="data_survey">Survey responses</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <div class="question-title">What is the size of your dataset?</div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="dataset_size" id="size_small" value="small">
+                                <label class="form-check-label" for="size_small">Small (< 1,000 records)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="dataset_size" id="size_medium" value="medium">
+                                <label class="form-check-label" for="size_medium">Medium (1,000 - 100,000 records)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="dataset_size" id="size_large" value="large">
+                                <label class="form-check-label" for="size_large">Large (100,000 - 1,000,000 records)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="dataset_size" id="size_very_large" value="very_large">
+                                <label class="form-check-label" for="size_very_large">Very large (> 1,000,000 records)</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <div class="question-title">How sensitive is your data?</div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="data_sensitivity" id="sensitivity_low" value="low">
+                                <label class="form-check-label" for="sensitivity_low">Low sensitivity (aggregated statistics, de-identified)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="data_sensitivity" id="sensitivity_medium" value="medium">
+                                <label class="form-check-label" for="sensitivity_medium">Medium sensitivity (clinical data with some identifiers)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="data_sensitivity" id="sensitivity_high" value="high">
+                                <label class="form-check-label" for="sensitivity_high">High sensitivity (detailed clinical records, genomic data)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="data_sensitivity" id="sensitivity_very_high" value="very_high">
+                                <label class="form-check-label" for="sensitivity_very_high">Very high sensitivity (rare conditions, unique characteristics)</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 3: Technical Requirements -->
+                    <div class="assessment-section" id="section-3">
+                        <h2 class="h3 mb-4" style="color: #2A324B;">3. Technical Requirements</h2>
+                        
+                        <div class="question-group" data-framework-refs="synthetic-suitability">
+                            <div class="question-title">
+                                What level of statistical fidelity do you require?
+                                <small class="framework-note">See Appendix 6: Technical Assessment for quality criteria</small>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="statistical_fidelity" id="fidelity_basic" value="basic" data-framework-guidance="synthetic-suitability">
+                                <label class="form-check-label" for="fidelity_basic">Basic (general patterns and distributions)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="statistical_fidelity" id="fidelity_moderate" value="moderate">
+                                <label class="form-check-label" for="fidelity_moderate">Moderate (correlations and associations)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="statistical_fidelity" id="fidelity_high" value="high">
+                                <label class="form-check-label" for="fidelity_high">High (complex relationships and interactions)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="statistical_fidelity" id="fidelity_exact" value="exact">
+                                <label class="form-check-label" for="fidelity_exact">Exact (precise statistical properties)</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <div class="question-title">Do you have access to synthetic data generation expertise?</div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="technical_expertise" id="expertise_none" value="none">
+                                <label class="form-check-label" for="expertise_none">No technical expertise available</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="technical_expertise" id="expertise_basic" value="basic">
+                                <label class="form-check-label" for="expertise_basic">Basic data science capabilities</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="technical_expertise" id="expertise_advanced" value="advanced">
+                                <label class="form-check-label" for="expertise_advanced">Advanced machine learning expertise</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="technical_expertise" id="expertise_expert" value="expert">
+                                <label class="form-check-label" for="expertise_expert">Specialised synthetic data expertise</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <div class="question-title">What computational resources are available?</div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="computational_resources" id="resources_limited" value="limited">
+                                <label class="form-check-label" for="resources_limited">Limited (desktop computers, basic tools)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="computational_resources" id="resources_moderate" value="moderate">
+                                <label class="form-check-label" for="resources_moderate">Moderate (dedicated servers, cloud services)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="computational_resources" id="resources_high" value="high">
+                                <label class="form-check-label" for="resources_high">High (HPC clusters, enterprise cloud)</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 4: Risk and Compliance -->
+                    <div class="assessment-section" id="section-4">
+                        <h2 class="h3 mb-4" style="color: #2A324B;">4. Risk and Compliance Considerations</h2>
+                        
+                        <div class="question-group" data-framework-refs="legal-compliance">
+                            <div class="question-title">
+                                Which privacy regulations apply to your use case?
+                                <small class="framework-note">See Appendix 3: Policy & Legal Framework for detailed guidance</small>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="privacy_regulations" id="reg_privacy_act" value="privacy_act" data-framework-guidance="legal-compliance">
+                                        <label class="form-check-label" for="reg_privacy_act">Privacy Act 1988 (Cth)</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="privacy_regulations" id="reg_gdpr" value="gdpr">
+                                        <label class="form-check-label" for="reg_gdpr">GDPR (European)</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="privacy_regulations" id="reg_hipaa" value="hipaa">
+                                        <label class="form-check-label" for="reg_hipaa">HIPAA (US)</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="privacy_regulations" id="reg_pipeda" value="pipeda">
+                                        <label class="form-check-label" for="reg_pipeda">PIPEDA (Canada)</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="privacy_regulations" id="reg_state" value="state_territory">
+                                        <label class="form-check-label" for="reg_state">State/Territory legislation</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="privacy_regulations" id="reg_unsure" value="unsure">
+                                        <label class="form-check-label" for="reg_unsure">Unsure/Need guidance</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <div class="question-title">What is the acceptable level of re-identification risk?</div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="reidentification_risk" id="risk_zero" value="zero">
+                                <label class="form-check-label" for="risk_zero">Zero tolerance (maximum privacy protection)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="reidentification_risk" id="risk_very_low" value="very_low">
+                                <label class="form-check-label" for="risk_very_low">Very low risk acceptable</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="reidentification_risk" id="risk_low" value="low">
+                                <label class="form-check-label" for="risk_low">Low risk acceptable for research benefit</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="reidentification_risk" id="risk_moderate" value="moderate">
+                                <label class="form-check-label" for="risk_moderate">Moderate risk acceptable with controls</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <div class="question-title">Do you have ethics approval or governance oversight?</div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="ethics_approval" id="ethics_yes" value="yes">
+                                <label class="form-check-label" for="ethics_yes">Yes, ethics approval obtained</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="ethics_approval" id="ethics_planned" value="planned">
+                                <label class="form-check-label" for="ethics_planned">Planned, will seek approval</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="ethics_approval" id="ethics_not_required" value="not_required">
+                                <label class="form-check-label" for="ethics_not_required">Not required for this use case</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="ethics_approval" id="ethics_unsure" value="unsure">
+                                <label class="form-check-label" for="ethics_unsure">Unsure about requirements</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 5: Resource Assessment -->
+                    <div class="assessment-section" id="section-5">
+                        <h2 class="h3 mb-4" style="color: #2A324B;">5. Resource Assessment</h2>
+                        
+                        <div class="question-group">
+                            <div class="question-title">What is your project timeline?</div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="project_timeline" id="timeline_immediate" value="immediate">
+                                <label class="form-check-label" for="timeline_immediate">Immediate (< 1 month)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="project_timeline" id="timeline_short" value="short">
+                                <label class="form-check-label" for="timeline_short">Short-term (1-6 months)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="project_timeline" id="timeline_medium" value="medium">
+                                <label class="form-check-label" for="timeline_medium">Medium-term (6-12 months)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="project_timeline" id="timeline_long" value="long">
+                                <label class="form-check-label" for="timeline_long">Long-term (> 12 months)</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <div class="question-title">What budget is available for synthetic data generation?</div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="budget" id="budget_none" value="none">
+                                <label class="form-check-label" for="budget_none">No dedicated budget (open-source tools only)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="budget" id="budget_low" value="low">
+                                <label class="form-check-label" for="budget_low">Low budget (< $10,000)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="budget" id="budget_medium" value="medium">
+                                <label class="form-check-label" for="budget_medium">Medium budget ($10,000 - $100,000)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="budget" id="budget_high" value="high">
+                                <label class="form-check-label" for="budget_high">High budget (> $100,000)</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <div class="question-title">How important is ongoing support and maintenance?</div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="ongoing_support" id="support_not_needed" value="not_needed">
+                                <label class="form-check-label" for="support_not_needed">Not needed (one-time generation)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="ongoing_support" id="support_periodic" value="periodic">
+                                <label class="form-check-label" for="support_periodic">Periodic updates (quarterly/annual)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="ongoing_support" id="support_regular" value="regular">
+                                <label class="form-check-label" for="support_regular">Regular updates (monthly)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="ongoing_support" id="support_continuous" value="continuous">
+                                <label class="form-check-label" for="support_continuous">Continuous generation and monitoring</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="action-buttons">
+                        <button type="button" class="btn btn-outline-primary" id="prev-section" style="display: none;">
+                            ← Previous Section
+                        </button>
+                        <button type="button" class="btn btn-primary" id="next-section">
+                            Next Section →
+                        </button>
+                        <button type="button" class="btn btn-primary" id="calculate-assessment" style="display: none;">
+                            Calculate Assessment
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Results Section -->
+                <div id="assessment-results" class="assessment-results hidden">
+                    <h2 class="h3 mb-4" style="color: #2A324B;">Assessment Results & Recommendations</h2>
+                    
+                    <div class="result-card">
+                        <div class="row">
+                            <div class="col-md-4 text-center">
+                                <h4>Overall Suitability Score</h4>
+                                <div class="suitability-score" id="overall-score">85</div>
+                                <div id="suitability-rating" class="fw-bold">Highly Suitable</div>
+                            </div>
+                            <div class="col-md-8">
+                                <h4>Recommendation</h4>
+                                <div id="primary-recommendation" class="recommendation-high p-3 rounded">
+                                    Synthetic data is highly suitable for your use case. Proceed with implementation following the SynD-DGF framework.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Factor Analysis -->
+                    <div class="factor-analysis" id="factor-analysis">
+                        <!-- Factor cards will be populated by JavaScript -->
+                    </div>
+
+                    <!-- Detailed Recommendations -->
+                    <div class="result-card">
+                        <h4 class="mb-3">Detailed Recommendations</h4>
+                        <div id="detailed-recommendations">
+                            <!-- Recommendations will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Next Steps -->
+                    <div class="result-card">
+                        <h4 class="mb-3">Recommended Next Steps</h4>
+                        <ol id="next-steps-list">
+                            <!-- Next steps will be populated by JavaScript -->
+                        </ol>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="action-buttons">
+                        <button type="button" class="btn btn-primary" id="save-assessment">
+                            Save Assessment
+                        </button>
+                        <button type="button" class="btn btn-outline-primary" id="export-assessment">
+                            Export Report
+                        </button>
+                        <a href="../../framework.html" class="btn btn-outline-primary" id="start-framework">
+                            Start SynD-DGF Process
+                        </a>
+                        <button type="button" class="btn btn-outline-primary" id="new-assessment">
+                            New Assessment
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Tool Navigation -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex justify-content-between align-items-center p-3" style="background: #FFF7D9; border-radius: 8px;">
+                    <a href="../AssessmentTools.html" class="btn btn-outline-primary">← Back to Assessment Tools</a>
+                    <a href="../use-case-checklist/UseCaseChecklist.html" class="btn btn-primary">Use Case Checklist →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"../assets/js/script>
+    <!-- Assessment Tool Functionality -->
+    <script src="UseCaseAssessmentTool.js"></script>
+
+    <!-- OpenAI ChatKit Chatbot -->
+    <link rel="stylesheet" href="../assets/chatbot/chatbot.css">
+    <script src="https://cdn.platform.openai.com/deployments/chatkit/chatkit.js" async></script>
+    <script src="../assets/chatbot/sloth-avatar.js"></script>
+    <script src="../assets/chatbot/chatbot.js"></script>
+</body>
+</html>

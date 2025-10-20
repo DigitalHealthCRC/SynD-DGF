@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appendix 11: Assessment Outcomes Forms - SynD-DGF</title>
+    <meta name="description" content="Comprehensive assessment outcomes documentation forms and templates for synthetic health data projects, including decision recording, audit trails, and quality assurance processes.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .appendix-header {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 10px;
+            padding: 40px;
+            margin-bottom: 40px;
+            border-left: 5px solid #28a745;
+        }
+        .appendix-number {
+            color: #28a745;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .appendix-title {
+            color: #333;
+            margin: 10px 0 20px 0;
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+        .key-concept {
+            background: #e8f5e8;
+            border: 2px solid #28a745;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+        .key-concept h4 {
+            color: #28a745;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .outcomes-section {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #28a745;
+        }
+        .outcomes-title {
+            color: #28a745;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .outcomes-icon {
+            background: #28a745;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        .outcomes-content {
+            color: #495057;
+            line-height: 1.7;
+        }
+        .form-template {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .form-template h5 {
+            color: #495057;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .form-field {
+            background: #fff;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 3px solid #007bff;
+            font-size: 0.95rem;
+        }
+        .field-label {
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 5px;
+        }
+        .field-description {
+            color: #6c757d;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+        .download-button {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            margin: 10px 5px;
+        }
+        .download-button:hover {
+            background: linear-gradient(135deg, #1e7e34 0%, #17a2b8 100%);
+            color: white;
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+        .download-button:before {
+            content: "📄 ";
+        }
+        .template-preview {
+            background: #e7f3ff;
+            border: 1px solid #007bff;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .template-preview h5 {
+            color: #007bff;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .preview-field {
+            background: #fff;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            border-left: 3px solid #007bff;
+            font-size: 0.9rem;
+        }
+        .warning-box {
+            background: #f8d7da;
+            border: 2px solid #dc3545;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .warning-box h5 {
+            color: #721c24;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .warning-box p {
+            color: #721c24;
+            margin: 0;
+        }
+        .documentation-box {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .documentation-box h5 {
+            color: #155724;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .documentation-list {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .documentation-list li {
+            color: #155724;
+            margin-bottom: 8px;
+        }
+        .framework-overview {
+            background: #f0f8ff;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            border-left: 5px solid #007bff;
+        }
+        .framework-overview h3 {
+            color: #007bff;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .outcome-metric {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid #28a745;
+        }
+        .metric-title {
+            color: #28a745;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .breadcrumb {
+            background: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: "›";
+            color: #6c757d;
+        }
+        .navigation-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .nav-button {
+            background: linear-gradient(135deg, #004d9f 0%, #0066cc 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        .nav-button:hover {
+            background: linear-gradient(135deg, #003d7a 0%, #0052a3 100%);
+            color: white;
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+        .nav-previous::before {
+            content: "← ";
+        }
+        .nav-next::after {
+            content: " →";
+        }
+        .resources-section {
+            background: #e8f5e8;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            border-left: 5px solid #28a745;
+        }
+        .resources-section h3 {
+            color: #28a745;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .resource-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .resource-links li {
+            background: white;
+            margin-bottom: 10px;
+            padding: 10px 15px;
+            border-radius: 6px;
+            border-left: 3px solid #28a745;
+        }
+        .resource-links a {
+            color: #28a745;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .resource-links a:hover {
+            text-decoration: underline;
+        }
+        .quality-box {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .quality-box h5 {
+            color: #856404;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .quality-steps {
+            list-style: decimal;
+            padding-left: 20px;
+            margin: 0;
+        }
+        .quality-steps li {
+            color: #856404;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        .archive-section {
+            background: #e2e3e5;
+            border: 1px solid #6c757d;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .archive-section h5 {
+            color: #495057;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .archive-list {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .archive-list li {
+            color: #495057;
+            margin-bottom: 8px;
+        }
+        @media (max-width: 768px) {
+            .appendix-title {
+                font-size: 2rem;
+            }
+            .outcomes-section {
+                padding: 20px;
+            }
+            .nav-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #069494;">
+        <div class="container">
+            <a class="navbar-brand" href="../../../../index.html">SynD-DGF</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="../../../../index.html">Home</a>
+                <a class="nav-link" href="../../../../framework.html">Framework</a>
+                <a class="nav-link" href="../../../../assessment-tools.html">Assessment Tools</a>
+                <a class="nav-link active" href="../resources.html">Resources</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="container mt-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../../../index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="../resources.html">Resources</a></li>
+                <li class="breadcrumb-item"><a href="../resources.html#appendices">Framework appendices</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Appendix 11</li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="appendix-header">
+                    <div class="appendix-number">Appendix 11</div>
+                    <h1 class="appendix-title">Assessment Outcomes Forms</h1>
+                    <p class="lead">Comprehensive documentation forms and templates for recording assessment outcomes, decisions, and audit trails throughout synthetic health data projects, ensuring accountability and regulatory compliance.</p>
+                </div>
+
+                <div class="key-concept">
+                    <h4>Documentation accountability framework</h4>
+                    <p>Assessment outcomes documentation provides the essential bridge between evaluation activities and governance accountability. These forms capture not just what decisions were made, but why they were made, who made them, and how they align with project objectives and regulatory requirements.</p>
+                    <p class="mt-3">Proper documentation enables continuous improvement, supports regulatory submissions, facilitates external audits, and ensures that assessment knowledge is preserved and transferable across project teams and organisations.</p>
+                </div>
+
+                <div class="framework-overview">
+                    <h3>Assessment outcomes documentation system</h3>
+                    <p>The documentation system comprises eight integrated components that ensure comprehensive coverage of all assessment activities and outcomes:</p>
+
+                    <div class="outcome-metric">
+                        <div class="metric-title">Use case assessment outcome forms</div>
+                        <div>Document use case evaluation results, feasibility determinations, and alignment with organisational objectives.</div>
+                    </div>
+
+                    <div class="outcome-metric">
+                        <div class="metric-title">Impact assessment documentation templates</div>
+                        <div>Record privacy impact assessment findings, risk evaluations, and mitigation strategy decisions.</div>
+                    </div>
+
+                    <div class="outcome-metric">
+                        <div class="metric-title">Technical assessment reporting forms</div>
+                        <div>Capture technical evaluation results, quality metrics, and performance validation outcomes.</div>
+                    </div>
+
+                    <div class="outcome-metric">
+                        <div class="metric-title">Safety assessment outcome records</div>
+                        <div>Document safety evaluation findings, risk assessments, and ongoing monitoring requirements.</div>
+                    </div>
+
+                    <div class="outcome-metric">
+                        <div class="metric-title">Decision recording and audit trail systems</div>
+                        <div>Maintain comprehensive records of all assessment decisions with supporting rationale and evidence.</div>
+                    </div>
+
+                    <div class="outcome-metric">
+                        <div class="metric-title">Quality assurance and review documentation</div>
+                        <div>Track quality assurance activities, peer reviews, and continuous improvement processes.</div>
+                    </div>
+
+                    <div class="outcome-metric">
+                        <div class="metric-title">Storage and archiving management</div>
+                        <div>Ensure appropriate retention, access control, and retrieval of assessment documentation.</div>
+                    </div>
+
+                    <div class="outcome-metric">
+                        <div class="metric-title">Governance integration and reporting</div>
+                        <div>Connect assessment outcomes with broader governance processes and stakeholder reporting requirements.</div>
+                    </div>
+                </div>
+
+                <!-- Use Case Assessment Outcomes -->
+                <div class="outcomes-section">
+                    <div class="outcomes-title">
+                        <div class="outcomes-icon">1</div>
+                        <span>Use case assessment outcome documentation</span>
+                    </div>
+                    <div class="outcomes-content">
+                        <p>Use case assessment outcomes capture the fundamental decisions about project viability, scope, and alignment with organisational objectives. These forms provide the foundational documentation for all subsequent assessment activities.</p>
+
+                        <div class="form-template">
+                            <h5>Use case assessment outcome form</h5>
+                            <div class="form-field">
+                                <div class="field-label">Project identification and scope</div>
+                                <div class="field-description">Unique project identifier, title, principal investigator, and detailed scope description</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Use case evaluation summary</div>
+                                <div class="field-description">Assessment of technical feasibility, resource requirements, and expected outcomes</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Strategic alignment assessment</div>
+                                <div class="field-description">Alignment with organisational objectives, research priorities, and strategic goals</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Stakeholder analysis and engagement</div>
+                                <div class="field-description">Identified stakeholders, engagement activities, and feedback incorporation</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Risk and benefit evaluation</div>
+                                <div class="field-description">Initial risk identification, benefit analysis, and overall risk-benefit assessment</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Recommendation and approval decision</div>
+                                <div class="field-description">Assessment committee recommendation, decision rationale, and any conditions or requirements</div>
+                            </div>
+                        </div>
+
+                        <div class="template-preview">
+                            <h5>Sample use case outcome record</h5>
+                            <div class="preview-field"><strong>Project:</strong> UCD-2025-003 - Paediatric emergency department synthetic data for system testing</div>
+                            <div class="preview-field"><strong>Assessment outcome:</strong> Approved with conditions</div>
+                            <div class="preview-field"><strong>Key conditions:</strong> Enhanced privacy protections for rare conditions, quarterly safety reviews</div>
+                            <div class="preview-field"><strong>Approval authority:</strong> Dr Sarah Mitchell, Ethics and Governance Committee Chair</div>
+                            <div class="preview-field"><strong>Next review date:</strong> Three months from implementation commencement</div>
+                        </div>
+
+                        <div class="download-button">Download use case assessment outcome form template</div>
+                        <div class="download-button">Download blank use case outcome record</div>
+
+                        <div class="documentation-box">
+                            <h5>Use case documentation requirements</h5>
+                            <ul class="documentation-list">
+                                <li>Complete assessment methodology and criteria applied</li>
+                                <li>Detailed stakeholder consultation records</li>
+                                <li>Strategic alignment evaluation with supporting evidence</li>
+                                <li>Risk-benefit analysis with quantitative measures where possible</li>
+                                <li>Decision rationale with reference to assessment criteria</li>
+                                <li>Conditions, requirements, or recommendations for implementation</li>
+                                <li>Review and approval sign-offs from appropriate authorities</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Impact Assessment Documentation -->
+                <div class="outcomes-section">
+                    <div class="outcomes-title">
+                        <div class="outcomes-icon">2</div>
+                        <span>Impact assessment documentation templates</span>
+                    </div>
+                    <div class="outcomes-content">
+                        <p>Impact assessment documentation captures privacy, ethical, and social impact evaluations with particular focus on risk identification, mitigation strategies, and ongoing monitoring requirements.</p>
+
+                        <div class="form-template">
+                            <h5>Privacy impact assessment outcome form</h5>
+                            <div class="form-field">
+                                <div class="field-label">Personal information scope and sensitivity</div>
+                                <div class="field-description">Types of personal information, sensitivity levels, and special category data identification</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Privacy risk assessment results</div>
+                                <div class="field-description">Identified privacy risks, likelihood and impact ratings, and risk scores</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Mitigation strategies and controls</div>
+                                <div class="field-description">Implemented privacy controls, technical safeguards, and procedural protections</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Consultation and stakeholder input</div>
+                                <div class="field-description">Privacy specialist consultation, stakeholder feedback, and community engagement outcomes</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Compliance assessment</div>
+                                <div class="field-description">Regulatory compliance evaluation, legal basis determination, and jurisdictional considerations</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Ongoing monitoring requirements</div>
+                                <div class="field-description">Monitoring activities, review schedules, and trigger events for reassessment</div>
+                            </div>
+                        </div>
+
+                        <div class="form-template">
+                            <h5>Social and ethical impact assessment form</h5>
+                            <div class="form-field">
+                                <div class="field-label">Community and population impact</div>
+                                <div class="field-description">Affected communities, potential benefits and harms, and equity considerations</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Cultural and social considerations</div>
+                                <div class="field-description">Cultural sensitivities, Indigenous data sovereignty, and social acceptability</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Ethical framework alignment</div>
+                                <div class="field-description">Alignment with ethical principles, institutional guidelines, and professional standards</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Benefit-harm analysis</div>
+                                <div class="field-description">Expected benefits, potential harms, and overall benefit-harm ratio assessment</div>
+                            </div>
+                        </div>
+
+                        <div class="download-button">Download privacy impact assessment outcome template</div>
+                        <div class="download-button">Download social impact assessment form</div>
+                        <div class="download-button">Download integrated impact assessment template</div>
+
+                        <div class="warning-box">
+                            <h5>Impact assessment integration</h5>
+                            <p>Impact assessments must be integrated across privacy, social, ethical, and technical domains. Isolated assessments may miss important interactions between different types of impacts, particularly where technical choices affect privacy outcomes or where social considerations influence technical design requirements.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Assessment Reporting -->
+                <div class="outcomes-section">
+                    <div class="outcomes-title">
+                        <div class="outcomes-icon">3</div>
+                        <span>Technical assessment reporting forms</span>
+                    </div>
+                    <div class="outcomes-content">
+                        <p>Technical assessment reports document the evaluation of synthetic data quality, technical performance, and validation results. These forms ensure technical decisions are transparent and technically sound.</p>
+
+                        <div class="form-template">
+                            <h5>Technical validation outcome report</h5>
+                            <div class="form-field">
+                                <div class="field-label">Data quality metrics and results</div>
+                                <div class="field-description">Statistical fidelity measures, utility benchmarks, and quality score assessments</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Technical performance evaluation</div>
+                                <div class="field-description">System performance metrics, scalability assessment, and technical limitations</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Validation methodology and results</div>
+                                <div class="field-description">Validation approaches used, testing datasets, and validation outcome measurements</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Domain expert review outcomes</div>
+                                <div class="field-description">Clinical or domain expert evaluation, plausibility assessment, and expert recommendations</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Technical recommendations</div>
+                                <div class="field-description">Technical improvement recommendations, implementation guidance, and performance optimisation suggestions</div>
+                            </div>
+                        </div>
+
+                        <div class="template-preview">
+                            <h5>Sample technical assessment outcome</h5>
+                            <div class="preview-field"><strong>Overall quality score:</strong> 8.7/10 (Excellent)</div>
+                            <div class="preview-field"><strong>Statistical fidelity:</strong> 92% correlation preservation across key clinical variables</div>
+                            <div class="preview-field"><strong>Utility validation:</strong> Suitable for intended research applications with minor limitations in rare event representation</div>
+                            <div class="preview-field"><strong>Expert review:</strong> Clinically plausible with appropriate temporal relationships maintained</div>
+                            <div class="preview-field"><strong>Recommendation:</strong> Approved for intended use with enhanced monitoring for rare condition representation</div>
+                        </div>
+
+                        <div class="download-button">Download technical validation report template</div>
+                        <div class="download-button">Download quality metrics assessment form</div>
+                        <div class="download-button">Download domain expert review template</div>
+
+                        <div class="quality-box">
+                            <h5>Technical assessment quality assurance</h5>
+                            <ol class="quality-steps">
+                                <li>Independent validation using different tools and methodologies</li>
+                                <li>Peer review of technical assessment procedures and results</li>
+                                <li>Domain expert validation of clinical or scientific plausibility</li>
+                                <li>Cross-validation against known benchmarks and standards</li>
+                                <li>Documentation review for completeness and technical accuracy</li>
+                                <li>Sign-off from qualified technical leads and domain experts</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Safety Assessment Outcomes -->
+                <div class="outcomes-section">
+                    <div class="outcomes-title">
+                        <div class="outcomes-icon">4</div>
+                        <span>Safety assessment outcome records</span>
+                    </div>
+                    <div class="outcomes-content">
+                        <p>Safety assessment outcomes document comprehensive safety evaluations including risk identification, testing results, monitoring requirements, and incident response preparedness.</p>
+
+                        <div class="form-template">
+                            <h5>Safety assessment outcome form</h5>
+                            <div class="form-field">
+                                <div class="field-label">Risk identification and categorisation</div>
+                                <div class="field-description">Identified risks across privacy, quality, misuse, and technical categories with risk ratings</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Safety testing results</div>
+                                <div class="field-description">Privacy testing outcomes, security assessment results, and vulnerability testing findings</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Five Safes framework assessment</div>
+                                <div class="field-description">Safe projects, people, settings, data, and outputs evaluation results</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Monitoring and maintenance requirements</div>
+                                <div class="field-description">Ongoing monitoring activities, review schedules, and maintenance procedures</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Incident response preparedness</div>
+                                <div class="field-description">Incident response procedures, team assignments, and communication protocols</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Safety approval and conditions</div>
+                                <div class="field-description">Safety approval decision, any conditions or limitations, and ongoing requirements</div>
+                            </div>
+                        </div>
+
+                        <div class="download-button">Download safety assessment outcome form</div>
+                        <div class="download-button">Download Five Safes assessment template</div>
+                        <div class="download-button">Download safety monitoring plan template</div>
+
+                        <div class="warning-box">
+                            <h5>Safety assessment ongoing requirements</h5>
+                            <p>Safety assessment is not a one-time activity. The outcome documentation must establish clear ongoing monitoring requirements, review schedules, and trigger events for safety reassessment. This includes changes in data use, new user groups, technical infrastructure updates, or emerging safety threats.</p>
+                        </div>
+
+                        <div class="documentation-box">
+                            <h5>Safety outcome documentation standards</h5>
+                            <ul class="documentation-list">
+                                <li>Comprehensive risk register with ongoing updates</li>
+                                <li>Quantitative safety testing results and metrics</li>
+                                <li>Independent safety assessment validation</li>
+                                <li>Clear safety approval conditions and limitations</li>
+                                <li>Detailed monitoring and review requirements</li>
+                                <li>Incident response procedures and contact information</li>
+                                <li>Integration with broader organisational safety frameworks</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Decision Recording and Audit Trail -->
+                <div class="outcomes-section">
+                    <div class="outcomes-title">
+                        <div class="outcomes-icon">5</div>
+                        <span>Decision recording and audit trail systems</span>
+                    </div>
+                    <div class="outcomes-content">
+                        <p>Comprehensive decision recording ensures accountability, enables review and appeal processes, and provides the audit trail necessary for regulatory compliance and continuous improvement.</p>
+
+                        <div class="form-template">
+                            <h5>Assessment decision record</h5>
+                            <div class="form-field">
+                                <div class="field-label">Decision identification and context</div>
+                                <div class="field-description">Decision reference number, date, type of assessment, and decision context</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Decision-making process</div>
+                                <div class="field-description">Assessment methodology, evaluation criteria, and decision-making procedures followed</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Evidence and information considered</div>
+                                <div class="field-description">Data sources, expert input, stakeholder feedback, and evidence base used</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Decision outcome and rationale</div>
+                                <div class="field-description">Decision made, supporting rationale, and alignment with assessment criteria</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Conditions and requirements</div>
+                                <div class="field-description">Any conditions, limitations, or ongoing requirements attached to the decision</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Decision authorities and approvals</div>
+                                <div class="field-description">Decision makers, approval authorities, and sign-off documentation</div>
+                            </div>
+                        </div>
+
+                        <div class="form-template">
+                            <h5>Audit trail documentation</h5>
+                            <div class="form-field">
+                                <div class="field-label">Timeline and sequence of activities</div>
+                                <div class="field-description">Chronological record of assessment activities, reviews, and decision points</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Participant roles and responsibilities</div>
+                                <div class="field-description">Assessment team members, their roles, qualifications, and contributions</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Information sources and validation</div>
+                                <div class="field-description">Data sources, validation methods, and quality assurance activities</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Changes and updates</div>
+                                <div class="field-description">Any changes to assessment scope, methodology, or requirements during the process</div>
+                            </div>
+                        </div>
+
+                        <div class="download-button">Download decision record template</div>
+                        <div class="download-button">Download audit trail documentation form</div>
+                        <div class="download-button">Download decision appeal process template</div>
+
+                        <div class="archive-section">
+                            <h5>Decision record management requirements</h5>
+                            <ul class="archive-list">
+                                <li>Unique decision reference numbers with systematic numbering</li>
+                                <li>Version control for decision records and supporting documentation</li>
+                                <li>Access controls ensuring appropriate confidentiality</li>
+                                <li>Retention schedules aligned with legal and regulatory requirements</li>
+                                <li>Search and retrieval capabilities for audit and review purposes</li>
+                                <li>Integration with broader project and organisational record systems</li>
+                                <li>Regular backup and disaster recovery for critical decision records</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quality Assurance and Review -->
+                <div class="outcomes-section">
+                    <div class="outcomes-title">
+                        <div class="outcomes-icon">6</div>
+                        <span>Quality assurance and review processes</span>
+                    </div>
+                    <div class="outcomes-content">
+                        <p>Quality assurance documentation ensures that assessment processes meet professional standards, are conducted with appropriate rigour, and continuously improve based on experience and feedback.</p>
+
+                        <div class="form-template">
+                            <h5>Quality assurance checklist</h5>
+                            <div class="form-field">
+                                <div class="field-label">Assessment methodology compliance</div>
+                                <div class="field-description">Verification that assessment followed approved methodologies and standards</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Documentation completeness review</div>
+                                <div class="field-description">Completeness check of all required documentation and supporting evidence</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Expert review validation</div>
+                                <div class="field-description">Independent expert review of assessment process and outcomes</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Stakeholder feedback incorporation</div>
+                                <div class="field-description">Evidence of appropriate stakeholder consultation and feedback integration</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Quality metrics and benchmarks</div>
+                                <div class="field-description">Achievement of quality metrics and comparison against established benchmarks</div>
+                            </div>
+                        </div>
+
+                        <div class="form-template">
+                            <h5>Peer review documentation</h5>
+                            <div class="form-field">
+                                <div class="field-label">Reviewer qualifications and independence</div>
+                                <div class="field-description">Peer reviewer credentials, expertise areas, and independence verification</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Review scope and methodology</div>
+                                <div class="field-description">Scope of peer review, methodology used, and review criteria applied</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Review findings and recommendations</div>
+                                <div class="field-description">Peer review outcomes, identified issues, and improvement recommendations</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Response and resolution</div>
+                                <div class="field-description">Response to peer review feedback and resolution of identified issues</div>
+                            </div>
+                        </div>
+
+                        <div class="download-button">Download quality assurance checklist</div>
+                        <div class="download-button">Download peer review template</div>
+                        <div class="download-button">Download continuous improvement log</div>
+
+                        <div class="quality-box">
+                            <h5>Quality assurance implementation</h5>
+                            <ol class="quality-steps">
+                                <li>Establish quality standards and metrics before assessment begins</li>
+                                <li>Implement ongoing quality monitoring throughout assessment process</li>
+                                <li>Conduct independent peer review of assessment outcomes</li>
+                                <li>Document quality assurance activities and findings</li>
+                                <li>Address identified quality issues before final approval</li>
+                                <li>Capture lessons learned for continuous improvement</li>
+                                <li>Report quality outcomes to governance and oversight bodies</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Storage and Archiving -->
+                <div class="outcomes-section">
+                    <div class="outcomes-title">
+                        <div class="outcomes-icon">7</div>
+                        <span>Storage and archiving requirements</span>
+                    </div>
+                    <div class="outcomes-content">
+                        <p>Proper storage and archiving of assessment documentation ensures long-term accessibility, regulatory compliance, and institutional memory preservation while maintaining appropriate security and access controls.</p>
+
+                        <div class="form-template">
+                            <h5>Document storage and classification</h5>
+                            <div class="form-field">
+                                <div class="field-label">Document classification and sensitivity</div>
+                                <div class="field-description">Security classification, sensitivity level, and access control requirements</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Storage location and systems</div>
+                                <div class="field-description">Primary and backup storage systems, cloud or on-premise solutions</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Access control and permissions</div>
+                                <div class="field-description">User access permissions, role-based access controls, and authentication requirements</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Retention schedule and disposal</div>
+                                <div class="field-description">Retention periods, review schedules, and secure disposal procedures</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Backup and disaster recovery</div>
+                                <div class="field-description">Backup procedures, disaster recovery plans, and business continuity measures</div>
+                            </div>
+                        </div>
+
+                        <div class="archive-section">
+                            <h5>Archiving standards and procedures</h5>
+                            <ul class="archive-list">
+                                <li>Standardised file naming conventions and metadata schemas</li>
+                                <li>Version control and change tracking for all archived documents</li>
+                                <li>Regular integrity checks and corruption detection</li>
+                                <li>Migration planning for format obsolescence and system changes</li>
+                                <li>Audit trails for document access and modification</li>
+                                <li>Integration with organisational records management systems</li>
+                                <li>Compliance with legal and regulatory retention requirements</li>
+                            </ul>
+                        </div>
+
+                        <div class="download-button">Download document storage template</div>
+                        <div class="download-button">Download retention schedule template</div>
+                        <div class="download-button">Download archive management checklist</div>
+
+                        <div class="warning-box">
+                            <h5>Long-term accessibility considerations</h5>
+                            <p>Assessment documentation may need to be accessible for many years after project completion for audit, appeal, or research purposes. Storage solutions must account for format evolution, system migrations, and ongoing accessibility requirements while maintaining security and integrity.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Governance Integration -->
+                <div class="outcomes-section">
+                    <div class="outcomes-title">
+                        <div class="outcomes-icon">8</div>
+                        <span>Governance integration and reporting</span>
+                    </div>
+                    <div class="outcomes-content">
+                        <p>Assessment outcomes must be integrated with broader governance processes, providing appropriate reporting to oversight bodies and enabling coordination with related governance activities.</p>
+
+                        <div class="form-template">
+                            <h5>Governance reporting template</h5>
+                            <div class="form-field">
+                                <div class="field-label">Executive summary of assessment outcomes</div>
+                                <div class="field-description">High-level summary of assessment results, key decisions, and significant findings</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Risk and compliance status</div>
+                                <div class="field-description">Risk assessment summary, compliance status, and any outstanding issues</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Resource and capacity implications</div>
+                                <div class="field-description">Resource requirements, capacity implications, and budget considerations</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Strategic alignment and benefits</div>
+                                <div class="field-description">Alignment with strategic objectives, expected benefits, and success metrics</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Recommendations and next steps</div>
+                                <div class="field-description">Recommendations for governance action, next steps, and decision requirements</div>
+                            </div>
+                        </div>
+
+                        <div class="form-template">
+                            <h5>Stakeholder communication plan</h5>
+                            <div class="form-field">
+                                <div class="field-label">Stakeholder identification and analysis</div>
+                                <div class="field-description">Key stakeholders, their interests, and communication requirements</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Communication strategy and channels</div>
+                                <div class="field-description">Communication approaches, channels, and timing for different stakeholder groups</div>
+                            </div>
+                            <div class="form-field">
+                                <div class="field-label">Transparency and confidentiality balance</div>
+                                <div class="field-description">Information to be shared publicly versus confidential elements requiring protection</div>
+                            </div>
+                        </div>
+
+                        <div class="download-button">Download governance reporting template</div>
+                        <div class="download-button">Download stakeholder communication plan</div>
+                        <div class="download-button">Download annual assessment summary template</div>
+
+                        <div class="documentation-box">
+                            <h5>Governance integration requirements</h5>
+                            <ul class="documentation-list">
+                                <li>Regular reporting schedules aligned with governance meeting cycles</li>
+                                <li>Integration with broader risk management and compliance reporting</li>
+                                <li>Coordination with ethics committees and oversight bodies</li>
+                                <li>Alignment with project management and delivery governance</li>
+                                <li>Connection to strategic planning and resource allocation processes</li>
+                                <li>Integration with external regulatory and audit requirements</li>
+                                <li>Stakeholder engagement and communication coordination</li>
+                            </ul>
+                        </div>
+
+                        <div class="quality-box">
+                            <h5>Governance reporting best practices</h5>
+                            <ol class="quality-steps">
+                                <li>Tailor reporting content and format to audience needs and expertise</li>
+                                <li>Provide clear executive summaries with key decision points highlighted</li>
+                                <li>Include quantitative metrics and benchmarks where appropriate</li>
+                                <li>Present balanced view including both achievements and challenges</li>
+                                <li>Provide clear recommendations with supporting rationale</li>
+                                <li>Ensure consistency across different reporting channels and audiences</li>
+                                <li>Follow up on governance decisions and track implementation progress</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resources-section">
+                    <h3>Further resources</h3>
+                    <ul class="resource-links">
+                        <li><a href="https://www.nhmrc.gov.au/about-us/publications/national-statement-ethical-conduct-human-research-2007-updated-2018" target="_blank" rel="noopener">NHMRC National Statement on Ethical Conduct in Human Research 2025</a></li>
+                        <li><a href="https://www.oaic.gov.au/privacy/guidance-and-advice/privacy-impact-assessments" target="_blank" rel="noopener">OAIC Privacy Impact Assessment Guidelines</a></li>
+                        <li><a href="https://www.iso.org/standard/73906.html" target="_blank" rel="noopener">ISO/IEC 27002 Information Security Controls</a></li>
+                        <li><a href="https://www.naa.gov.au/information-management/records-authorities" target="_blank" rel="noopener">National Archives of Australia Records Management</a></li>
+                        <li><a href="../use-case-assessment/UseCaseAssessment.html">Appendix 1: Use case assessment framework</a></li>
+                        <li><a href="../impact-assessment/ImpactAssessment.html">Appendix 5: Privacy Impact Assessment for synthetic data</a></li>
+                        <li><a href="../technical-assessment/TechnicalAssessment.html">Appendix 6: Technical Assessment and validation protocols</a></li>
+                        <li><a href="../safety-assessment/SafetyAssessment.html">Appendix 10: Safety Assessment protocols</a></li>
+                    </ul>
+                </div>
+
+                <div class="navigation-section">
+                    <h3>Related appendices</h3>
+                    <p>Explore other appendices that complement these assessment outcome forms:</p>
+                    <div class="nav-buttons">
+                        <a href="../safety-assessment/SafetyAssessment.html" class="nav-button nav-previous">Appendix 10: Safety assessment protocols</a>
+                        <a href="../resources.html#appendices" class="nav-button nav-next">Return to Resources</a>
+                    </div>
+                </div>
+
+                <div class="key-concept">
+                    <h4>Using these assessment outcome forms</h4>
+                    <p>These assessment outcome forms provide the documentation backbone for synthetic data governance. When implementing these forms:</p>
+                    <ul>
+                        <li>Adapt templates to match your organisational requirements and governance structures</li>
+                        <li>Ensure consistency across different assessment domains while allowing for domain-specific requirements</li>
+                        <li>Establish clear completion standards and quality assurance procedures before using forms</li>
+                        <li>Train assessment teams on proper form completion and documentation requirements</li>
+                        <li>Integrate forms with existing organisational systems and workflows</li>
+                        <li>Regularly review and update forms based on experience and changing requirements</li>
+                        <li>Maintain appropriate balance between comprehensiveness and usability</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- OpenAI ChatKit Chatbot -->
+    <link rel="stylesheet" href="../../assets/chatbot/chatbot.css">
+    <script src="https://cdn.platform.openai.com/deployments/chatkit/chatkit.js" async></script>
+    <script src="../../assets/chatbot/sloth-avatar.js"></script>
+    <script src="../../assets/chatbot/chatbot.js"></script>
+</body>
+</html>

@@ -1,164 +1,17 @@
-<!DOCTYPE html>
-<html lang="en-AU">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Step 3: Generate Synthetic Data - SynD-DGF</title>
-    <meta name="description" content="Comprehensive guidance for selecting appropriate models and generating high-quality synthetic health data whilst preserving privacy.">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6;
-            color: #2A324B;
-        }
-        .navbar-brand {
-            font-weight: bold;
-            font-size: 1.5rem;
-        }
-        .step-intro {
-            background: linear-gradient(135deg, #FFFDD0 0%, #F5F5DC 100%);
-            border-radius: 10px;
-            padding: 30px;
-            margin-bottom: 30px;
-            border-left: 5px solid #069494;
-        }
-        .model-card, .assessment-card {
-            background: white;
-            border: 1px solid #C7CCDB;
-            border-radius: 10px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .config-section, .process-step {
-            border-left: 3px solid #069494;
-            padding-left: 20px;
-            margin-bottom: 25px;
-        }
-        .preparation-step {
-            background: #FFF7D9;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            border-left: 4px solid #FFD700;
-        }
-        .technical-note {
-            background: #B0E0E6;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 15px;
-            border-left: 4px solid #2A324B;
-        }
-        .button1 {
-            background: linear-gradient(135deg, #2A324B 0%, #36454F 100%);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-block;
-            transition: all 0.3s ease;
-            border: none;
-        }
-        .button1:hover {
-            background: linear-gradient(135deg, #36454F 0%, #2A324B 100%);
-            color: white;
-            text-decoration: none;
-            transform: translateY(-2px);
-        }
-        .criteria-checklist {
-            background: #FFF7D9;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-        .criteria-item {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-        .criteria-item input {
-            margin-right: 10px;
-        }
-        .nav-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #dee2e6;
-        }
-        .nav-button {
-            background: #6c757d;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        .nav-button:hover {
-            background: #545b62;
-            color: white;
-            text-decoration: none;
-        }
-        .breadcrumb {
-            background: none;
-            padding: 0;
-            margin-bottom: 20px;
-        }
-        .breadcrumb-item + .breadcrumb-item::before {
-            content: "›";
-            color: #6c757d;
-        }
-        .complexity-level {
-            background: #28a745;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 15px;
-            font-size: 0.875rem;
-            font-weight: 600;
-        }
-        .complexity-level.medium {
-            background: #ffc107;
-            color: #2A324B;
-        }
-        .complexity-level.high {
-            background: #dc3545;
-        }
-        .security-alert {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-        .process-step {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 30px;
-        }
-        .step-number {
-            background: #28a745;
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            margin-right: 20px;
-            flex-shrink: 0;
-        }
-        .step-content {
-            flex: 1;
-        }
-    </style>
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- SynD-DGF Unified Design System - Forest Canopy Theme -->
+<link rel="stylesheet" href="../assets/css/synd-design-system.css">
+<link rel="stylesheet" href="../assets/css/synd-additional-components.css">
+
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #069494;">
+    <nav class="navbar navbar-expand-lg navbar-dark" >
         <div class="container">
             <a class="navbar-brand" href="../index.html">SynD-DGF</a>
             <div class="navbar-nav ms-auto">
@@ -170,16 +23,195 @@
         </div>
     </nav>
 
-    <!-- Breadcrumb -->
-    <div class="container mt-4">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
-                <li class="breadcrumb-item"><a href="../framework.html">Framework</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Step 3: Generate Synthetic Data</li>
-            </ol>
-        </nav>
+    <!-- Enhanced Breadcrumbs with Framework Context -->
+<nav class="enhanced-breadcrumbs" aria-label="Breadcrumb navigation">
+  <div class="breadcrumb-container">
+
+    <!-- Framework Step Context -->
+    <div class="framework-context" id="framework-context" style="display: none;">
+      <div class="context-header">
+        <span class="context-icon">📋</span>
+        <span class="context-title">Framework Step</span>
+      </div>
+      <div class="step-progress">
+        <div class="step-indicator" data-step="1">
+          <span class="step-number">1</span>
+          <span class="step-name">Use Case</span>
+        </div>
+        <div class="step-indicator" data-step="2">
+          <span class="step-number">2</span>
+          <span class="step-name">Source Data</span>
+        </div>
+        <div class="step-indicator" data-step="3">
+          <span class="step-number">3</span>
+          <span class="step-name">Generate Data</span>
+        </div>
+        <div class="step-indicator" data-step="4">
+          <span class="step-number">4</span>
+          <span class="step-name">Risk Assessment</span>
+        </div>
+        <div class="step-indicator" data-step="5">
+          <span class="step-number">5</span>
+          <span class="step-name">Risk Management</span>
+        </div>
+      </div>
     </div>
+
+    <!-- Standard Breadcrumbs -->
+    <ol class="breadcrumb-list">
+      <li class="breadcrumb-item">
+        <a href="/" class="breadcrumb-link">
+          <span class="breadcrumb-icon">🏠</span>
+          <span class="breadcrumb-text">Home</span>
+        </a>
+      </li>
+
+      <!-- Dynamic breadcrumbs will be inserted here by JavaScript -->
+      <li class="breadcrumb-item current" id="current-page">
+        <span class="breadcrumb-text">Step 3: Generate Synthetic Data</span>
+      </li>
+    </ol>
+
+    <!-- Page Actions -->
+    <div class="page-actions">
+      <button class="action-button" onclick="printPage()" title="Print this page">
+        <span class="action-icon">🖨️</span>
+      </button>
+      <button class="action-button" onclick="sharePage()" title="Share this page">
+        <span class="action-icon">📤</span>
+      </button>
+      <button class="action-button" onclick="bookmarkPage()" title="Bookmark this page">
+        <span class="action-icon">🔖</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const currentPath = window.location.pathname;
+    const breadcrumbList = document.querySelector('.breadcrumb-list');
+    const currentPageItem = document.getElementById('current-page');
+    const frameworkContext = document.getElementById('framework-context');
+
+    // Framework step mapping
+    const frameworkSteps = {
+        '/framework-overview': { section: 'framework', step: 0, title: 'Framework Overview' },
+        '/step-1-use-case-assessment': { section: 'framework', step: 1, title: 'Step 1: Assess Use Case' },
+        '/step-2-assess-source-data': { section: 'framework', step: 2, title: 'Step 2: Assess Source Data' },
+        '/step-3-generate-synthetic-data': { section: 'framework', step: 3, title: 'Step 3: Generate Synthetic Data' },
+        '/step-4-assess-reidentification-risks': { section: 'framework', step: 4, title: 'Step 4: Assess Re-identification Risks' },
+        '/step-5-manage-residual-risks': { section: 'framework', step: 5, title: 'Step 5: Manage Residual Risks' }
+    };
+
+    function buildBreadcrumbs() {
+        // For Step 3 page specifically
+        const breadcrumbs = [{
+            url: '/framework-overview',
+            text: 'Framework',
+            icon: '📋'
+        }];
+
+        const stepInfo = frameworkSteps['/step-3-generate-synthetic-data'];
+        if (stepInfo) {
+            showFrameworkContext(stepInfo.step);
+        }
+
+        insertBreadcrumbs(breadcrumbs);
+    }
+
+    function insertBreadcrumbs(breadcrumbs) {
+        // Remove existing dynamic breadcrumbs
+        const existingBreadcrumbs = breadcrumbList.querySelectorAll('.dynamic-breadcrumb');
+        existingBreadcrumbs.forEach(item => item.remove());
+
+        // Insert new breadcrumbs before current page
+        breadcrumbs.forEach((crumb) => {
+            const breadcrumbItem = createBreadcrumbItem(crumb);
+            breadcrumbList.insertBefore(breadcrumbItem, currentPageItem);
+        });
+    }
+
+    function createBreadcrumbItem(crumb) {
+        const li = document.createElement('li');
+        li.className = 'breadcrumb-item dynamic-breadcrumb';
+
+        const link = document.createElement('a');
+        link.href = crumb.url;
+        link.className = 'breadcrumb-link';
+
+        const icon = document.createElement('span');
+        icon.className = 'breadcrumb-icon';
+        icon.textContent = crumb.icon;
+
+        const text = document.createElement('span');
+        text.className = 'breadcrumb-text';
+        text.textContent = crumb.text;
+
+        link.appendChild(icon);
+        link.appendChild(text);
+        li.appendChild(link);
+
+        return li;
+    }
+
+    function showFrameworkContext(currentStep) {
+        frameworkContext.style.display = 'block';
+
+        // Update step indicators
+        const stepIndicators = frameworkContext.querySelectorAll('.step-indicator');
+        stepIndicators.forEach((indicator, index) => {
+            const stepNumber = index + 1;
+            indicator.classList.remove('completed', 'current', 'upcoming');
+
+            if (stepNumber < currentStep) {
+                indicator.classList.add('completed');
+            } else if (stepNumber === currentStep) {
+                indicator.classList.add('current');
+            } else {
+                indicator.classList.add('upcoming');
+            }
+        });
+    }
+
+    // Initialize breadcrumbs
+    buildBreadcrumbs();
+});
+
+// Page action functions
+function printPage() {
+    window.print();
+}
+
+function sharePage() {
+    if (navigator.share) {
+        navigator.share({
+            title: document.title,
+            url: window.location.href
+        });
+    } else {
+        // Fallback: copy URL to clipboard
+        navigator.clipboard.writeText(window.location.href).then(() => {
+            alert('Page URL copied to clipboard');
+        });
+    }
+}
+
+function bookmarkPage() {
+    // Store bookmark in localStorage
+    const bookmark = {
+        title: document.title,
+        url: window.location.href,
+        timestamp: new Date().toISOString()
+    };
+
+    let bookmarks = JSON.parse(localStorage.getItem('synd-bookmarks') || '[]');
+    bookmarks.push(bookmark);
+    localStorage.setItem('synd-bookmarks', JSON.stringify(bookmarks));
+
+    alert('Page bookmarked successfully');
+}
+</script>
 
     <div class="container">
         <div class="row">
@@ -572,7 +604,7 @@
                         <div class="outcome-proceed">
                             <h3>✓ Proceed to Step 4</h3>
                             <p>Your synthetic data is ready for re-identification risk assessment. Continue to evaluate and mitigate privacy risks.</p>
-                            <a href="step-4-assess-reidentification-risks.html" class="button1">Continue to Step 4</a>
+                            <a href="step-4-assess-reidentification-risks.html" class="btn-modern-primary">Continue to Step 4</a>
                         </div>
                         <div class="outcome-review">
                             <h3>↻ Address issues before proceeding</h3>
@@ -589,6 +621,163 @@
                     </div>
                 </div>
 
+                <!-- Content Tagging System Component -->
+<div class="content-tagging-system" id="content-tagging-system">
+  <div class="page-tags-section" id="page-tags">
+    <div class="tags-header">
+      <span class="tags-icon">🏷️</span>
+      <span class="tags-label">Content tags:</span>
+    </div>
+    <div class="tags-container" id="current-page-tags"></div>
+  </div>
+</div>
+
+<!-- Cross-Reference Navigation Component -->
+<nav class="cross-reference-nav" aria-label="Cross-reference navigation">
+  <div class="cross-ref-container">
+    <div class="cross-ref-section appendices-section" id="related-appendices">
+      <div class="section-header">
+        <span class="section-icon">📚</span>
+        <h4 class="section-title">Related appendices</h4>
+      </div>
+      <div class="cross-ref-items" id="appendices-list"></div>
+    </div>
+    <div class="cross-ref-section tools-section" id="related-tools">
+      <div class="section-header">
+        <span class="section-icon">🛠️</span>
+        <h4 class="section-title">Recommended tools</h4>
+      </div>
+      <div class="cross-ref-items" id="tools-list"></div>
+    </div>
+    <div class="cross-ref-section next-steps-section" id="next-steps">
+      <div class="section-header">
+        <span class="section-icon">➡️</span>
+        <h4 class="section-title">Next steps</h4>
+      </div>
+      <div class="cross-ref-items" id="next-steps-list"></div>
+    </div>
+    <div class="cross-ref-section related-pages-section" id="related-pages">
+      <div class="section-header">
+        <span class="section-icon">🔗</span>
+        <h4 class="section-title">Related pages</h4>
+      </div>
+      <div class="cross-ref-items" id="related-pages-list"></div>
+    </div>
+  </div>
+</nav>
+
+<!-- Related Resources Section Component -->
+<section class="related-resources-section" aria-label="Related resources">
+  <div class="related-resources-container">
+    <div class="section-header">
+      <h3 class="section-title">
+        <span class="title-icon">📚</span>
+        Related resources
+      </h3>
+      <p class="section-description">Discover additional resources relevant to this content</p>
+    </div>
+    <div class="resource-category quick-access" id="quick-access-resources">
+      <div class="category-header">
+        <span class="category-icon">⚡</span>
+        <h4 class="category-title">Quick access</h4>
+      </div>
+      <div class="resource-grid" id="quick-access-grid"></div>
+    </div>
+    <div class="resource-category documentation" id="documentation-resources">
+      <div class="category-header">
+        <span class="category-icon">📄</span>
+        <h4 class="category-title">Documentation</h4>
+      </div>
+      <div class="resource-grid" id="documentation-grid"></div>
+    </div>
+    <div class="resource-category technical" id="technical-resources">
+      <div class="category-header">
+        <span class="category-icon">🔧</span>
+        <h4 class="category-title">Technical guidance</h4>
+      </div>
+      <div class="resource-grid" id="technical-grid"></div>
+    </div>
+  </div>
+</section>
+
+                <div class="common-scenarios">
+                    <h2>Common scenarios and guidance</h2>
+                    <div class="scenario-accordion">
+                        <div class="scenario-item">
+                            <button class="scenario-header" data-toggle="collapse" data-target="#scenario1">
+                                <h3>Choosing between model complexity levels</h3>
+                                <span class="toggle-icon">+</span>
+                            </button>
+                            <div id="scenario1" class="scenario-content collapse">
+                                <p><strong>Situation:</strong> Uncertainty about whether to use simple rule-based, statistical, or machine learning approaches.</p>
+                                <p><strong>Guidance:</strong></p>
+                                <ul>
+                                    <li>Start simple: Begin with rule-based or statistical models before moving to complex ML approaches</li>
+                                    <li>Consider your team's technical expertise and available resources</li>
+                                    <li>Evaluate data complexity - high-dimensional data may benefit from ML approaches</li>
+                                    <li>Test utility preservation with simpler models first</li>
+                                </ul>
+                                <p><strong>Key consideration:</strong> More complex models aren't always better - choose the simplest approach that meets your needs.</p>
+                            </div>
+                        </div>
+
+                        <div class="scenario-item">
+                            <button class="scenario-header" data-toggle="collapse" data-target="#scenario2">
+                                <h3>Balancing privacy and utility</h3>
+                                <span class="toggle-icon">+</span>
+                            </button>
+                            <div id="scenario2" class="scenario-content collapse">
+                                <p><strong>Situation:</strong> Difficulty finding the right balance between privacy protection and data utility.</p>
+                                <p><strong>Guidance:</strong></p>
+                                <ul>
+                                    <li>Generate multiple synthetic datasets with different privacy parameters</li>
+                                    <li>Test each dataset's utility for your specific analytical use cases</li>
+                                    <li>Assess privacy risks using membership inference and other attacks</li>
+                                    <li>Document the privacy-utility tradeoff for stakeholder review</li>
+                                </ul>
+                                <p><strong>Related tool:</strong> <a href="../tools/quality-metrics.html">Quality Metrics Tool</a> for utility assessment</p>
+                            </div>
+                        </div>
+
+                        <div class="scenario-item">
+                            <button class="scenario-header" data-toggle="collapse" data-target="#scenario3">
+                                <h3>Using third-party generation tools</h3>
+                                <span class="toggle-icon">+</span>
+                            </button>
+                            <div id="scenario3" class="scenario-content collapse">
+                                <p><strong>Situation:</strong> Considering commercial or open-source synthetic data generation platforms.</p>
+                                <p><strong>Guidance:</strong></p>
+                                <ul>
+                                    <li>Evaluate vendor security and privacy practices thoroughly</li>
+                                    <li>Ensure you understand the generation methods and their privacy guarantees</li>
+                                    <li>Retain ability to assess re-identification risks independently</li>
+                                    <li>Document model configuration and generation parameters</li>
+                                    <li>Consider data sovereignty requirements for cloud-based tools</li>
+                                </ul>
+                                <p><strong>Important:</strong> Using third-party tools doesn't eliminate your privacy assessment obligations.</p>
+                            </div>
+                        </div>
+
+                        <div class="scenario-item">
+                            <button class="scenario-header" data-toggle="collapse" data-target="#scenario4">
+                                <h3>Longitudinal and time-series data</h3>
+                                <span class="toggle-icon">+</span>
+                            </button>
+                            <div id="scenario4" class="scenario-content collapse">
+                                <p><strong>Situation:</strong> Generating synthetic data that preserves temporal relationships and sequences.</p>
+                                <p><strong>Guidance:</strong></p>
+                                <ul>
+                                    <li>Use specialised sequential generation models (e.g., RNNs, transformers)</li>
+                                    <li>Ensure temporal consistency and realistic event sequences</li>
+                                    <li>Consider additional privacy risks from temporal patterns</li>
+                                    <li>Test that time-based analyses work correctly on synthetic data</li>
+                                </ul>
+                                <p><strong>Related resource:</strong> <a href="../resources/appendices/technical-assessment.html">Appendix 6: Technical Assessment</a> for temporal data considerations</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="step-navigation">
                     <div class="nav-buttons">
                         <a href="step-2-assess-source-data.html" class="nav-button nav-previous">← Step 2: Assess Source Data</a>
@@ -601,6 +790,147 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+// Content Tagging System
+document.addEventListener('DOMContentLoaded', function() {
+    const contentTags = { pages: { '/step-3-generate-synthetic-data': { primary: ['step-3', 'generation', 'models'], secondary: ['privacy', 'utility', 'configuration'] } } };
+    const pageTagsContainer = document.getElementById('current-page-tags');
+    const pageTags = [...(contentTags.pages[window.location.pathname]?.primary || []), ...(contentTags.pages[window.location.pathname]?.secondary || [])];
+    pageTags.forEach(tag => {
+        const tagEl = document.createElement('span');
+        tagEl.className = 'content-tag';
+        tagEl.textContent = tag.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+        pageTagsContainer.appendChild(tagEl);
+    });
+});
+
+// Cross-Reference Navigation
+document.addEventListener('DOMContentLoaded', function() {
+    const crossReferences = {
+        '/step-3-generate-synthetic-data': {
+            appendices: [
+                { id: 6, title: 'Technical assessment', url: '/web-pages/../resources/appendices/technical-assessment.html', description: 'Model selection and validation guidance' },
+                { id: 7, title: 'De-identification techniques', url: '/web-pages/../resources/appendices/deidentification-techniques.html', description: 'Privacy-preserving generation methods' }
+            ],
+            tools: [
+                { title: 'Quality Metrics Tool', url: '/web-pages/../tools/quality-metrics.html', description: 'Assess synthetic data utility' }
+            ],
+            nextSteps: [
+                { title: 'Step 4: Assess Re-identification Risks', url: '/web-pages/step-4-assess-reidentification-risks.html', description: 'Evaluate privacy risks in generated data' }
+            ],
+            relatedPages: [
+                { title: 'Framework Overview', url: '/web-pages/../framework.html', description: 'Return to framework overview' }
+            ]
+        }
+    };
+
+    function populateSection(containerId, items, itemType) {
+        const container = document.getElementById(containerId);
+        if (!container || !items || items.length === 0) {
+            if (container) container.parentElement.style.display = 'none';
+            return;
+        }
+        items.forEach(item => {
+            const div = document.createElement('div');
+            div.className = `cross-ref-item ${itemType}-item`;
+            div.innerHTML = `<a href="${item.url}" class="cross-ref-link">
+                <span class="item-icon">${itemType === 'appendix' ? item.id : '🛠️'}</span>
+                <div class="item-content">
+                    <span class="item-title">${item.title}</span>
+                    <span class="item-description">${item.description}</span>
+                </div>
+            </a>`;
+            container.appendChild(div);
+        });
+    }
+
+    const pageRefs = crossReferences[window.location.pathname] || crossReferences['/step-3-generate-synthetic-data'];
+    populateSection('appendices-list', pageRefs.appendices, 'appendix');
+    populateSection('tools-list', pageRefs.tools, 'tool');
+    populateSection('next-steps-list', pageRefs.nextSteps, 'next-step');
+    populateSection('related-pages-list', pageRefs.relatedPages, 'page');
+});
+
+// Related Resources
+document.addEventListener('DOMContentLoaded', function() {
+    const resourceDatabase = {
+        quickAccess: [
+            { title: 'Framework overview', url: '/web-pages/../framework.html', description: 'Complete framework process guide', tags: ['framework', 'overview'] },
+            { title: 'Assessment tools', url: '/web-pages/../assessment-tools.html', description: 'Interactive assessment tools', tags: ['tools', 'assessment'] }
+        ],
+        documentation: [
+            { title: 'Technical assessment', url: '/web-pages/../resources/appendices/technical-assessment.html', description: 'Model selection guidance', tags: ['technical', 'models'] }
+        ],
+        technical: [
+            { title: 'De-identification techniques', url: '/web-pages/../resources/appendices/deidentification-techniques.html', description: 'Privacy-preserving methods', tags: ['privacy', 'techniques'] }
+        ]
+    };
+
+    function populateResourceCategory(gridId, resources) {
+        const grid = document.getElementById(gridId);
+        if (!grid || !resources || resources.length === 0) {
+            if (grid) grid.parentElement.style.display = 'none';
+            return;
+        }
+        resources.forEach(resource => {
+            const card = document.createElement('div');
+            card.className = 'resource-card';
+            card.innerHTML = `<a href="${resource.url}" class="resource-link">
+                <div class="resource-content">
+                    <h5 class="resource-title">${resource.title}</h5>
+                    <p class="resource-description">${resource.description}</p>
+                    <div class="resource-tags">${resource.tags.map(tag => `<span class="resource-tag">${tag}</span>`).join('')}</div>
+                </div>
+                <div class="resource-arrow">→</div>
+            </a>`;
+            grid.appendChild(card);
+        });
+    }
+
+    populateResourceCategory('quick-access-grid', resourceDatabase.quickAccess);
+    populateResourceCategory('documentation-grid', resourceDatabase.documentation);
+    populateResourceCategory('technical-grid', resourceDatabase.technical);
+});
+
+// Accordion functionality
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.scenario-header').forEach(header => {
+        header.addEventListener('click', function() {
+            const target = document.querySelector(this.getAttribute('data-target'));
+            const icon = this.querySelector('.toggle-icon');
+            if (target.classList.contains('show')) {
+                target.classList.remove('show');
+                icon.textContent = '+';
+            } else {
+                document.querySelectorAll('.scenario-content').forEach(sc => sc.classList.remove('show'));
+                document.querySelectorAll('.toggle-icon').forEach(ti => ti.textContent = '+');
+                target.classList.add('show');
+                icon.textContent = '−';
+            }
+        });
+    });
+});
+</script>
+
+    <!-- Back to Top Button -->
+    <button onclick="scrollToTop()" id="backToTop" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 99; background: #F7C59F; color: white; border: none; padding: 15px 18px; border-radius: 50%; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.2); font-size: 1.2rem; font-weight: bold;">↑</button>
+
+    <script>
+    // Back to Top functionality
+    window.onscroll = function() {
+        const backToTop = document.getElementById('backToTop');
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            backToTop.style.display = "block";
+        } else {
+            backToTop.style.display = "none";
+        }
+    };
+
+    function scrollToTop() {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+    </script>
 
     <!-- OpenAI ChatKit Chatbot -->
     <link rel="stylesheet" href="../assets/chatbot/chatbot.css">
