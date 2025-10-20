@@ -27,7 +27,7 @@
 <nav class="enhanced-breadcrumbs" aria-label="Breadcrumb navigation">
   <div class="breadcrumb-container">
     <div class="framework-context" id="framework-context" style="display: none;">
-      <div class="context-header"><span class="context-icon">📋</span><span class="context-title">Framework Step</span></div>
+      <div class="context-header"><span class="context-icon"></span><span class="context-title">Framework Step</span></div>
       <div class="step-progress">
         <div class="step-indicator" data-step="1"><span class="step-number">1</span><span class="step-name">Use Case</span></div>
         <div class="step-indicator" data-step="2"><span class="step-number">2</span><span class="step-name">Source Data</span></div>
@@ -37,13 +37,13 @@
       </div>
     </div>
     <ol class="breadcrumb-list">
-      <li class="breadcrumb-item"><a href="/" class="breadcrumb-link"><span class="breadcrumb-icon">🏠</span><span class="breadcrumb-text">Home</span></a></li>
+      <li class="breadcrumb-item"><a href="/" class="breadcrumb-link"><span class="breadcrumb-icon"></span><span class="breadcrumb-text">Home</span></a></li>
       <li class="breadcrumb-item current" id="current-page"><span class="breadcrumb-text">Step 5: Manage Residual Risks</span></li>
     </ol>
     <div class="page-actions">
-      <button class="action-button" onclick="printPage()" title="Print this page"><span class="action-icon">🖨️</span></button>
-      <button class="action-button" onclick="sharePage()" title="Share this page"><span class="action-icon">📤</span></button>
-      <button class="action-button" onclick="bookmarkPage()" title="Bookmark this page"><span class="action-icon">🔖</span></button>
+      <button class="action-button" onclick="printPage()" title="Print this page"><span class="action-icon">️</span></button>
+      <button class="action-button" onclick="sharePage()" title="Share this page"><span class="action-icon"></span></button>
+      <button class="action-button" onclick="bookmarkPage()" title="Bookmark this page"><span class="action-icon"></span></button>
     </div>
   </div>
 </nav>
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const link = document.createElement('a');
     link.href = '/framework-overview';
     link.className = 'breadcrumb-link';
-    link.innerHTML = '<span class="breadcrumb-icon">📋</span><span class="breadcrumb-text">Framework</span>';
+    link.innerHTML = '<span class="breadcrumb-icon"></span><span class="breadcrumb-text">Framework</span>';
     li.appendChild(link);
     breadcrumbList.insertBefore(li, currentPageItem);
 
@@ -123,7 +123,7 @@ function bookmarkPage() {
                     <div class="safes-grid">
                         <div class="safe-card" data-component-theme="portalThemeColorBlue">
                             <div class="safe-header">
-                                <div class="safe-icon">🔒</div>
+                                <div class="safe-icon"></div>
                                 <h3>Safe data</h3>
                             </div>
                             <div class="safe-content">
@@ -178,7 +178,7 @@ function bookmarkPage() {
 
                         <div class="safe-card" data-component-theme="portalThemeColorGreen">
                             <div class="safe-header">
-                                <div class="safe-icon">🎯</div>
+                                <div class="safe-icon"></div>
                                 <h3>Safe projects</h3>
                             </div>
                             <div class="safe-content">
@@ -229,7 +229,7 @@ function bookmarkPage() {
 
                         <div class="safe-card" data-component-theme="portalThemeColorOrange">
                             <div class="safe-header">
-                                <div class="safe-icon">🏢</div>
+                                <div class="safe-icon"></div>
                                 <h3>Safe settings</h3>
                             </div>
                             <div class="safe-content">
@@ -300,7 +300,7 @@ function bookmarkPage() {
 
                         <div class="safe-card" data-component-theme="portalThemeColorPurple">
                             <div class="safe-header">
-                                <div class="safe-icon">👥</div>
+                                <div class="safe-icon"></div>
                                 <h3>Safe people</h3>
                             </div>
                             <div class="safe-content">
@@ -351,7 +351,7 @@ function bookmarkPage() {
 
                         <div class="safe-card" data-component-theme="portalThemeColorRed">
                             <div class="safe-header">
-                                <div class="safe-icon">📊</div>
+                                <div class="safe-icon"></div>
                                 <h3>Safe outputs</h3>
                             </div>
                             <div class="safe-content">
@@ -596,7 +596,7 @@ function bookmarkPage() {
                 <div class="framework-completion content-section-card">
                     <h2>Framework completion</h2>
                     <div class="completion-summary">
-                        <h3>🎉 Congratulations!</h3>
+                        <h3> Congratulations!</h3>
                         <p>You have successfully completed the SynD-DGF five-step framework. Your synthetic health data project now has:</p>
                         <ul>
                             <li>✓ Confirmed public benefit purpose and stakeholder approval</li>
@@ -632,7 +632,7 @@ function bookmarkPage() {
                 <!-- Content Tagging, Cross-Reference, Related Resources -->
 <div class="content-tagging-system" id="content-tagging-system">
   <div class="page-tags-section" id="page-tags">
-    <div class="tags-header"><span class="tags-icon">🏷️</span><span class="tags-label">Content tags:</span></div>
+    <div class="tags-header"><span class="tags-icon">️</span><span class="tags-label">Content tags:</span></div>
     <div class="tags-container" id="current-page-tags"></div>
   </div>
 </div>
@@ -640,11 +640,11 @@ function bookmarkPage() {
 <nav class="cross-reference-nav" aria-label="Cross-reference navigation">
   <div class="cross-ref-container">
     <div class="cross-ref-section appendices-section" id="related-appendices">
-      <div class="section-header"><span class="section-icon">📚</span><h4 class="section-title">Related appendices</h4></div>
+      <div class="section-header"><span class="section-icon"></span><h4 class="section-title">Related appendices</h4></div>
       <div class="cross-ref-items" id="appendices-list"></div>
     </div>
     <div class="cross-ref-section tools-section" id="related-tools">
-      <div class="section-header"><span class="section-icon">🛠️</span><h4 class="section-title">Recommended tools</h4></div>
+      <div class="section-header"><span class="section-icon">️</span><h4 class="section-title">Recommended tools</h4></div>
       <div class="cross-ref-items" id="tools-list"></div>
     </div>
   </div>
@@ -653,11 +653,11 @@ function bookmarkPage() {
 <section class="related-resources-section" aria-label="Related resources">
   <div class="related-resources-container">
     <div class="section-header">
-      <h3 class="section-title"><span class="title-icon">📚</span>Related resources</h3>
+      <h3 class="section-title"><span class="title-icon"></span>Related resources</h3>
       <p class="section-description">Discover additional resources relevant to this content</p>
     </div>
     <div class="resource-category documentation" id="documentation-resources">
-      <div class="category-header"><span class="category-icon">📄</span><h4 class="category-title">Documentation</h4></div>
+      <div class="category-header"><span class="category-icon"></span><h4 class="category-title">Documentation</h4></div>
       <div class="resource-grid" id="documentation-grid"></div>
     </div>
   </div>
@@ -792,7 +792,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const div = document.createElement('div');
             div.className = `cross-ref-item ${type}-item`;
             div.innerHTML = `<a href="${item.url}" class="cross-ref-link">
-                <span class="item-icon">${type === 'appendix' ? item.id : '🛠️'}</span>
+                <span class="item-icon">${type === 'appendix' ? item.id : '️'}</span>
                 <div class="item-content">
                     <span class="item-title">${item.title}</span>
                     <span class="item-description">${item.description}</span>

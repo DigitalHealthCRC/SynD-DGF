@@ -30,7 +30,7 @@
     <!-- Framework Step Context -->
     <div class="framework-context" id="framework-context" style="display: none;">
       <div class="context-header">
-        <span class="context-icon">📋</span>
+        <span class="context-icon"></span>
         <span class="context-title">Framework Step</span>
       </div>
       <div class="step-progress">
@@ -61,7 +61,7 @@
     <ol class="breadcrumb-list">
       <li class="breadcrumb-item">
         <a href="/" class="breadcrumb-link">
-          <span class="breadcrumb-icon">🏠</span>
+          <span class="breadcrumb-icon"></span>
           <span class="breadcrumb-text">Home</span>
         </a>
       </li>
@@ -75,13 +75,13 @@
     <!-- Page Actions -->
     <div class="page-actions">
       <button class="action-button" onclick="printPage()" title="Print this page">
-        <span class="action-icon">🖨️</span>
+        <span class="action-icon">️</span>
       </button>
       <button class="action-button" onclick="sharePage()" title="Share this page">
-        <span class="action-icon">📤</span>
+        <span class="action-icon"></span>
       </button>
       <button class="action-button" onclick="bookmarkPage()" title="Bookmark this page">
-        <span class="action-icon">🔖</span>
+        <span class="action-icon"></span>
       </button>
     </div>
   </div>
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const breadcrumbs = [{
             url: '/framework-overview',
             text: 'Framework',
-            icon: '📋'
+            icon: ''
         }];
 
         const stepInfo = frameworkSteps['/step-2-assess-source-data'];
@@ -620,7 +620,7 @@ function bookmarkPage() {
   <!-- Page Tags Display -->
   <div class="page-tags-section" id="page-tags">
     <div class="tags-header">
-      <span class="tags-icon">🏷️</span>
+      <span class="tags-icon">️</span>
       <span class="tags-label">Content tags:</span>
     </div>
     <div class="tags-container" id="current-page-tags">
@@ -633,7 +633,7 @@ function bookmarkPage() {
     <div class="tag-nav-header">
       <h4 class="tag-nav-title">Explore by tags</h4>
       <button class="toggle-tag-nav" onclick="toggleTagNavigation()">
-        <span class="toggle-icon">🔍</span>
+        <span class="toggle-icon"></span>
         <span class="toggle-text">Browse by tags</span>
       </button>
     </div>
@@ -644,7 +644,7 @@ function bookmarkPage() {
       <!-- Framework Tags -->
       <div class="tag-category framework-tags">
         <h5 class="category-title">
-          <span class="category-icon">📋</span>
+          <span class="category-icon"></span>
           Framework process
         </h5>
         <div class="category-tags" id="framework-tag-list">
@@ -655,7 +655,7 @@ function bookmarkPage() {
       <!-- Content Type Tags -->
       <div class="tag-category content-tags">
         <h5 class="category-title">
-          <span class="category-icon">📄</span>
+          <span class="category-icon"></span>
           Content types
         </h5>
         <div class="category-tags" id="content-tag-list">
@@ -666,7 +666,7 @@ function bookmarkPage() {
       <!-- Topic Tags -->
       <div class="tag-category topic-tags">
         <h5 class="category-title">
-          <span class="category-icon">🎯</span>
+          <span class="category-icon"></span>
           Topics
         </h5>
         <div class="category-tags" id="topic-tag-list">
@@ -677,7 +677,7 @@ function bookmarkPage() {
       <!-- Complexity Tags -->
       <div class="tag-category complexity-tags">
         <h5 class="category-title">
-          <span class="category-icon">📊</span>
+          <span class="category-icon"></span>
           Complexity level
         </h5>
         <div class="category-tags" id="complexity-tag-list">
@@ -709,7 +709,7 @@ function bookmarkPage() {
     <!-- Related Appendices Section -->
     <div class="cross-ref-section appendices-section" id="related-appendices">
       <div class="section-header">
-        <span class="section-icon">📚</span>
+        <span class="section-icon"></span>
         <h4 class="section-title">Related appendices</h4>
       </div>
       <div class="cross-ref-items" id="appendices-list">
@@ -720,7 +720,7 @@ function bookmarkPage() {
     <!-- Assessment Tools Section -->
     <div class="cross-ref-section tools-section" id="related-tools">
       <div class="section-header">
-        <span class="section-icon">🛠️</span>
+        <span class="section-icon">️</span>
         <h4 class="section-title">Recommended tools</h4>
       </div>
       <div class="cross-ref-items" id="tools-list">
@@ -731,7 +731,7 @@ function bookmarkPage() {
     <!-- Next Steps Section -->
     <div class="cross-ref-section next-steps-section" id="next-steps">
       <div class="section-header">
-        <span class="section-icon">➡️</span>
+        <span class="section-icon">️</span>
         <h4 class="section-title">Next steps</h4>
       </div>
       <div class="cross-ref-items" id="next-steps-list">
@@ -742,7 +742,7 @@ function bookmarkPage() {
     <!-- Related Pages Section -->
     <div class="cross-ref-section related-pages-section" id="related-pages">
       <div class="section-header">
-        <span class="section-icon">🔗</span>
+        <span class="section-icon"></span>
         <h4 class="section-title">Related pages</h4>
       </div>
       <div class="cross-ref-items" id="related-pages-list">
@@ -759,7 +759,7 @@ function bookmarkPage() {
 
     <div class="section-header">
       <h3 class="section-title">
-        <span class="title-icon">📚</span>
+        <span class="title-icon"></span>
         Related resources
       </h3>
       <p class="section-description">Discover additional resources relevant to this content</p>
@@ -768,7 +768,7 @@ function bookmarkPage() {
     <!-- Quick Access Resources -->
     <div class="resource-category quick-access" id="quick-access-resources">
       <div class="category-header">
-        <span class="category-icon">⚡</span>
+        <span class="category-icon"></span>
         <h4 class="category-title">Quick access</h4>
       </div>
       <div class="resource-grid" id="quick-access-grid">
@@ -779,7 +779,7 @@ function bookmarkPage() {
     <!-- Documentation Resources -->
     <div class="resource-category documentation" id="documentation-resources">
       <div class="category-header">
-        <span class="category-icon">📄</span>
+        <span class="category-icon"></span>
         <h4 class="category-title">Documentation</h4>
       </div>
       <div class="resource-grid" id="documentation-grid">
@@ -790,7 +790,7 @@ function bookmarkPage() {
     <!-- Assessment Resources -->
     <div class="resource-category assessment" id="assessment-resources">
       <div class="category-header">
-        <span class="category-icon">📋</span>
+        <span class="category-icon"></span>
         <h4 class="category-title">Assessment tools</h4>
       </div>
       <div class="resource-grid" id="assessment-grid">
@@ -801,7 +801,7 @@ function bookmarkPage() {
     <!-- Legal & Compliance Resources -->
     <div class="resource-category legal" id="legal-resources">
       <div class="category-header">
-        <span class="category-icon">⚖️</span>
+        <span class="category-icon">️</span>
         <h4 class="category-title">Legal & compliance</h4>
       </div>
       <div class="resource-grid" id="legal-grid">
@@ -812,7 +812,7 @@ function bookmarkPage() {
     <!-- Technical Resources -->
     <div class="resource-category technical" id="technical-resources">
       <div class="category-header">
-        <span class="category-icon">🔧</span>
+        <span class="category-icon"></span>
         <h4 class="category-title">Technical guidance</h4>
       </div>
       <div class="resource-grid" id="technical-grid">
@@ -823,7 +823,7 @@ function bookmarkPage() {
     <!-- View All Resources Link -->
     <div class="view-all-section">
       <a href="/web-pages/../resources.html" class="view-all-link">
-        <span class="link-icon">🗂️</span>
+        <span class="link-icon">️</span>
         <span class="link-text">View all resources</span>
         <span class="link-arrow">→</span>
       </a>
@@ -1148,15 +1148,15 @@ document.addEventListener('DOMContentLoaded', function() {
     function getItemIcon(itemType, item) {
         switch (itemType) {
             case 'appendix':
-                return item.id ? item.id.toString() : '📄';
+                return item.id ? item.id.toString() : '';
             case 'tool':
-                return '🛠️';
+                return '️';
             case 'next-step':
-                return '➡️';
+                return '️';
             case 'page':
-                return '🔗';
+                return '';
             default:
-                return '📄';
+                return '';
         }
     }
 
