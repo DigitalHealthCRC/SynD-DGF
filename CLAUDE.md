@@ -2,68 +2,96 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## ⚠️ CRITICAL: NOT A POWER PAGES PROJECT
+## ⚠️ CRITICAL: CLEAN STATIC WEBSITE
 
-**THIS PROJECT IS NO LONGER USING MICROSOFT POWER PAGES.**
+**This is a professional static website with clean structure** (restructured October 2025).
 
-- This is a **standalone static website** project
-- HTML files are standalone and DO NOT use Power Pages template includes
-- DO NOT reference Power Pages deployment, Power Pages templates, or Power Pages infrastructure
-- DO NOT use absolute paths like `/chatbot-assets/` - always use relative paths like `../../chatbot-assets/`
-- Pages are individual `.en-US.webpage.copy.html` files that can be opened directly in a browser
-- The `web-templates/` and `content-snippets/` directories contain legacy structure but are NOT actively used for template includes
+- **Standalone static website** - no build system, no templates
+- HTML files use simple names: `index.html`, `framework.html`, etc.
+- **Always use relative paths** for all assets (e.g., `assets/chatbot/chatbot.css`)
+- DO NOT use absolute paths like `/assets/` - they won't work with file:// protocol
+- Pages can be opened directly in browser or served by any web server
+- All legacy Power Pages references archived in `_legacy/` folder
 
 ## Project overview
 
 SynD-DGF (Synthetic Data Governance Framework) is a standalone static website focused on navigating legal and technical data governance in synthetic health data. The project provides guidance resources, AI-powered assistance, and educational content about privacy compliance, technical standards, and regulatory insights.
 
-## Repository structure
+## Repository structure (October 2025 Restructure)
 
-The codebase follows a standalone static website architecture:
+Clean, professional static website structure:
 
-- **`web-pages/`** - **PRIMARY:** All standalone HTML page files (.en-US.webpage.copy.html) - these are complete, self-contained pages
-- **`chatbot-assets/`** - ChatKit chatbot CSS and JavaScript files (currently only used on Home page)
-- **`assets/`** - Static assets like images (sloth3.ico avatar, etc.)
-- **`content-snippets/`** - **LEGACY:** Not actively used for template includes (kept for reference only)
-- **`web-templates/`** - **LEGACY:** Not actively used for template includes (kept for reference only)
-- **`web-files/`** - Static file assets directory
+```
+Root/
+├── index.html                          # Home page
+├── framework.html                      # Framework overview
+├── assessment-tools.html               # Assessment tools hub
+├── decision-support.html               # Decision support hub
+├── resources.html                      # Resources hub
+│
+├── about/                              # About section (5 pages)
+├── tools/                              # Interactive tools (8 tools)
+├── decision-support/                   # Decision support tools (3 tools)
+├── framework/                          # Framework steps (5 steps)
+├── resources/appendices/               # Framework appendices (12 appendices)
+│
+├── assets/                             # All static assets consolidated
+│   ├── css/                            # All CSS files
+│   ├── js/                             # All JavaScript files
+│   ├── images/                         # Images
+│   └── chatbot/                        # Chatbot assets
+│
+├── cloudflare-worker/                  # Chatbot backend (serverless)
+└── _legacy/                            # Old Power Pages structure (archived)
+    ├── web-pages/
+    ├── content-snippets/
+    ├── web-templates/
+    └── [redirect-only folders]
+```
+
+**Key Changes (October 2025):**
+- Moved from `web-pages/` nested structure to clean root-level organization
+- Renamed from `.en-US.webpage.copy.html` to simple `.html`
+- Consolidated all assets into single `assets/` directory
+- Removed all redirect-only folders
+- Archived old structure in `_legacy/` for reference
 
 ## Page architecture
 
-### Standalone pages
+### Clean static pages
 Each web page is a **complete, self-contained HTML file**:
-- `.en-US.webpage.copy.html` - Complete HTML page (NOT a template fragment)
+- Simple `.html` extension (e.g., `index.html`, `framework.html`)
 - Can be opened directly in a browser (file:// or via web server)
-- Contains all CSS, HTML, and script references inline
-- **Must use relative paths** for all assets (e.g., `../../chatbot-assets/chatbot.css`)
-- Do NOT use absolute paths like `/chatbot-assets/` - they won't work when opening files directly
+- Contains all CSS, HTML, and script references inline or via relative paths
+- **Must use relative paths** for all assets (e.g., `assets/chatbot/chatbot.css`)
+- Do NOT use absolute paths like `/assets/` - they won't work when opening files directly
 
-### Legacy template references
-**IGNORE THESE** - they are not actively used:
-- Template includes like `{% include 'Page Copy' %}` are legacy syntax
-- `data-component-theme` attributes are legacy theming
-- The site does NOT use a template/include system
+### Path patterns
+- **From root pages** to assets: `assets/css/Home.css`
+- **From subdirectory pages** to assets: `../assets/css/About.css`
+- **From nested pages** to assets: `../../assets/js/Glossary.js`
+- **Between pages**: Use relative paths (e.g., `../about/index.html`)
 
 ## Development workflow
 
 ### File naming convention
-- Use `.en-US.` prefix for localized content
-- Webpage files: `PageName.en-US.webpage.copy.html`
-- JavaScript files: `PageName.en-US.customjs.js`
-- Content snippets: `ComponentName.en-US.html`
+- Simple HTML files: `index.html`, `framework.html`, `compliance-checklist.html`
+- CSS files in assets: `assets/css/[PageName].css`
+- JS files in assets: `assets/js/[PageName].js`
 
 ### Content updates
 - Edit HTML files directly for content changes
-- Modify content snippets for global elements
-- Update individual page files for page-specific content
+- Modify CSS files in `assets/css/` for styling
+- Update JS files in `assets/js/` for functionality
+- Test locally by opening files or using local server
 
 ### No build system
-This is a **static website** - no build tools, no Power Pages deployment, no template processing:
-- Changes are made directly to HTML and JavaScript files
+This is a **static website** - no build tools, no compilation, no bundling:
+- Changes are made directly to HTML, CSS, and JavaScript files
 - Files can be opened directly in browser for testing
-- No deployment pipeline required - just upload files to any web server or hosting service
-- **Always use relative paths** for all assets (../../chatbot-assets/, ../assets/, etc.)
-- Never use absolute paths like /chatbot-assets/ - they only work on deployed servers with specific routing
+- Deploy by pushing to GitHub (auto-deploys via GitHub Actions)
+- Works with any static hosting: GitHub Pages, Netlify, Vercel, etc.
+- **Always use relative paths** for all assets
 
 ## Key pages and functionality
 
