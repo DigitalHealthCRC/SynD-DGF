@@ -29,7 +29,9 @@
       "Bash(git restore:*)",
       "Bash(git ls-tree:*)",
       "Bash(chmod:*)",
-      "Bash(npx wrangler:*)"
+      "Bash(npx wrangler:*)",
+      "Bash(git log:*)",
+      "Bash(git rm:*)"
     ],
     "deny": [],
     "ask": []
