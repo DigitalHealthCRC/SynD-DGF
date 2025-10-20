@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment Tools - SynD-DGF</title>
+    <meta name="description" content="Interactive assessment tools to support implementation of the SynD-DGF framework including use case evaluation, risk assessment, compliance checklists, and quality metrics.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/synd-design-system.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .breadcrumb {
+            background: none;
+            padding: 0;
+            margin-bottom: var(--spacing-6);
+        }
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: "›";
+            color: var(--primary-600);
+        }
+
+        /* Modern hero section */
+        .tools-hero {
+            background: linear-gradient(135deg, var(--primary-700) 0%, var(--primary-900) 100%);
+            color: white;
+            padding: var(--spacing-20) 0 var(--spacing-16) 0;
+            margin: 0 -15px var(--spacing-16) -15px;
+            text-align: center;
+        }
+
+        .tools-hero h1 {
+            color: white;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: var(--spacing-6);
+            letter-spacing: -0.03em;
+        }
+
+        .tools-hero .lead {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.375rem;
+            max-width: 900px;
+            margin: 0 auto var(--spacing-8) auto;
+            line-height: 1.7;
+        }
+
+        /* Section headers with background */
+        .section-header-modern {
+            background: linear-gradient(to right, var(--primary-100), var(--bg-secondary));
+            padding: var(--spacing-8) var(--spacing-8);
+            border-radius: var(--radius-xl);
+            margin-bottom: var(--spacing-10);
+            border-left: 6px solid var(--primary-600);
+        }
+
+        .section-header-modern h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: var(--spacing-3);
+            color: var(--primary-900);
+        }
+
+        .section-header-modern p {
+            font-size: 1.125rem;
+            color: var(--neutral-700);
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+
+        /* Tool category sections */
+        .tool-category {
+            margin-bottom: var(--spacing-20);
+        }
+
+        /* Workflow section redesign */
+        .workflow-modern {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, white 100%);
+            padding: var(--spacing-12);
+            border-radius: var(--radius-xl);
+            margin-bottom: var(--spacing-16);
+        }
+
+        .workflow-modern h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: var(--spacing-12);
+            color: var(--primary-900);
+        }
+
+        .workflow-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-8);
+        }
+
+        .workflow-card {
+            background: white;
+            padding: var(--spacing-8);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            border-top: 5px solid var(--primary-600);
+            transition: all var(--transition-base);
+            position: relative;
+        }
+
+        .workflow-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .workflow-number {
+            position: absolute;
+            top: -20px;
+            left: var(--spacing-6);
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-600), var(--primary-700));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            box-shadow: var(--shadow-md);
+        }
+
+        .workflow-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: var(--spacing-8);
+            margin-bottom: var(--spacing-4);
+            color: var(--primary-700);
+        }
+
+        .workflow-card p {
+            color: var(--neutral-700);
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        /* Templates section */
+        .templates-modern {
+            background: linear-gradient(to bottom, var(--primary-700), var(--primary-900));
+            padding: var(--spacing-16) var(--spacing-8);
+            border-radius: var(--radius-xl);
+            margin-bottom: var(--spacing-16);
+            color: white;
+        }
+
+        .templates-modern h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: var(--spacing-4);
+            color: white;
+        }
+
+        .templates-modern > p {
+            text-align: center;
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: var(--spacing-12);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .template-card-modern {
+            background: white;
+            padding: var(--spacing-8);
+            border-radius: var(--radius-lg);
+            height: 100%;
+            box-shadow: var(--shadow-xl);
+            transition: all var(--transition-base);
+        }
+
+        .template-card-modern:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .template-card-modern h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-4);
+            color: var(--primary-700);
+        }
+
+        .template-card-modern p {
+            color: var(--neutral-700);
+            line-height: 1.7;
+            margin-bottom: var(--spacing-6);
+        }
+
+        /* Support section */
+        .support-modern {
+            background: var(--bg-secondary);
+            padding: var(--spacing-12);
+            border-radius: var(--radius-xl);
+            margin-bottom: var(--spacing-16);
+        }
+
+        .support-modern h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: var(--spacing-12);
+            color: var(--primary-900);
+        }
+
+        .support-card-modern {
+            background: white;
+            padding: var(--spacing-8);
+            border-radius: var(--radius-lg);
+            height: 100%;
+            box-shadow: var(--shadow-md);
+            border-left: 5px solid var(--success-600);
+            transition: all var(--transition-base);
+        }
+
+        .support-card-modern:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .support-card-modern h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-4);
+            color: var(--primary-700);
+        }
+
+        .support-card-modern p {
+            color: var(--neutral-700);
+            line-height: 1.7;
+            margin-bottom: var(--spacing-6);
+        }
+
+        /* Related tools section */
+        .related-tools-modern {
+            margin-bottom: var(--spacing-12);
+        }
+
+        .related-tools-modern h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: var(--spacing-10);
+            color: var(--primary-900);
+        }
+
+        .related-card {
+            background: white;
+            padding: var(--spacing-8);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            border: 2px solid var(--primary-200);
+            transition: all var(--transition-base);
+            height: 100%;
+        }
+
+        .related-card:hover {
+            border-color: var(--primary-600);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
+        .related-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-4);
+        }
+
+        .related-card h3 a {
+            color: var(--primary-700);
+            text-decoration: none;
+        }
+
+        .related-card h3 a:hover {
+            color: var(--primary-600);
+        }
+
+        .related-card p {
+            color: var(--neutral-700);
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        /* Navigation buttons */
+        .nav-buttons-modern {
+            display: flex;
+            justify-content: space-between;
+            gap: var(--spacing-6);
+            margin-top: var(--spacing-16);
+            padding-top: var(--spacing-8);
+            border-top: 2px solid var(--neutral-200);
+        }
+
+        .nav-button-modern {
+            flex: 1;
+            padding: var(--spacing-6);
+            background: linear-gradient(135deg, var(--primary-700), var(--primary-900));
+            color: white;
+            text-decoration: none;
+            border-radius: var(--radius-lg);
+            font-weight: 700;
+            font-size: 1.125rem;
+            text-align: center;
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-button-modern:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+            color: white;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .tools-hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .section-header-modern h2,
+            .workflow-modern h2,
+            .templates-modern h2,
+            .support-modern h2,
+            .related-tools-modern h2 {
+                font-size: 1.875rem;
+            }
+
+            .nav-buttons-modern {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2A324B;">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">SynD-DGF</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link" href="framework.html">Framework</a>
+                <a class="nav-link active" href="AssessmentTools.html">Assessment Tools</a>
+                <a class="nav-link" href="resources.html">Resources</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="container mt-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Assessment Tools</li>
+            </ol>
+        </nav>
+    </div>
+    <!-- Modern Hero Section -->
+    <div class="tools-hero">
+        <div class="container">
+            <h1>Assessment tools</h1>
+            <p class="lead">Interactive tools to support your implementation of the SynD-DGF framework. These practical assessment instruments help evaluate use cases, assess risks, ensure compliance, and monitor quality throughout your synthetic data project lifecycle.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <!-- Framework Integration Panel -->
+                {% include 'Framework Integration Panel' %}
+
+                <div class="tools-grid">
+                    <div class="tool-category">
+                        <div class="section-header-modern">
+                            <h2>Core assessment tools</h2>
+                            <p>Essential assessments required for all synthetic data projects under the SynD-DGF framework.</p>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card-synd card-synd-success">
+                                    <div class="card-synd-header">
+                                        <div class="card-synd-icon">
+                                            <i data-lucide="clipboard-check" class="icon-synd-lg"></i>
+                                        </div>
+                                        <div style="flex: 1;">
+                                            <h3 class="card-synd-title"><a href="use-case-checklist/UseCaseChecklist.html">Use case assessment checklist</a></h3>
+                                            <span class="badge-synd badge-required">Required</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-synd-body">
+                                        <p>Comprehensive evaluation covering the three mandatory tests for synthetic data projects: public benefit purpose, community notification, and synthetic data suitability.</p>
+                                    </div>
+                                    <div class="card-synd-meta">
+                                        <div class="card-synd-meta-item">
+                                            <span class="card-synd-meta-label">Framework Step:</span>
+                                            <span class="card-synd-meta-value">Step 1 - Use Case Assessment</span>
+                                        </div>
+                                        <div class="card-synd-meta-item">
+                                            <span class="card-synd-meta-label">Completion Time:</span>
+                                            <span class="card-synd-meta-value">30-45 minutes</span>
+                                        </div>
+                                        <div class="card-synd-meta-item">
+                                            <span class="card-synd-meta-label">Output:</span>
+                                            <span class="card-synd-meta-value">Pass/fail determination and detailed assessment report</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-synd-actions">
+                                        <a href="use-case-checklist/UseCaseChecklist.html" class="btn-synd btn-synd-primary">
+                                            <i data-lucide="play-circle" class="icon-synd-sm"></i>
+                                            Start Assessment
+                                        </a>
+                                        <a href="resources.html" class="btn-synd btn-synd-secondary">
+                                            <i data-lucide="book-open" class="icon-synd-sm"></i>
+                                            View Guide
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="card-synd card-synd-success">
+                                    <div class="card-synd-header">
+                                        <div class="card-synd-icon">
+                                            <i data-lucide="search-check" class="icon-synd-lg"></i>
+                                        </div>
+                                        <div style="flex: 1;">
+                                            <h3 class="card-synd-title"><a href="impact-assessment/ImpactAssessmentEnhanced.html">Impact assessment</a></h3>
+                                            <span class="badge-synd badge-required">Required</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-synd-body">
+                                        <p>Comprehensive evaluation of ethical, social, cultural implications, and Indigenous data sovereignty considerations including community impacts and risk mitigation planning.</p>
+                                    </div>
+                                    <div class="card-synd-meta">
+                                        <div class="card-synd-meta-item">
+                                            <span class="card-synd-meta-label">Framework Step:</span>
+                                            <span class="card-synd-meta-value">Step 1 - Use Case Assessment</span>
+                                        </div>
+                                        <div class="card-synd-meta-item">
+                                            <span class="card-synd-meta-label">Completion Time:</span>
+                                            <span class="card-synd-meta-value">45-75 minutes</span>
+                                        </div>
+                                        <div class="card-synd-meta-item">
+                                            <span class="card-synd-meta-label">Output:</span>
+                                            <span class="card-synd-meta-value">Comprehensive impact analysis report with Indigenous sovereignty assessment</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-synd-actions">
+                                        <a href="impact-assessment/ImpactAssessmentEnhanced.html" class="btn-synd btn-synd-primary">
+                                            <i data-lucide="play-circle" class="icon-synd-sm"></i>
+                                            Start Assessment
+                                        </a>
+                                        <a href="resources.html" class="btn-synd btn-synd-secondary">
+                                            <i data-lucide="book-open" class="icon-synd-sm"></i>
+                                            View Guide
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tool-category">
+                        <div class="section-header-modern">
+                            <h2>Risk evaluation tools</h2>
+                            <p>Specialised tools for assessing and managing privacy and re-identification risks throughout the project lifecycle.</p>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card-synd card-synd-info">
+                                    <div class="card-synd-header">
+                                        <div class="card-synd-icon">
+                                            <i data-lucide="alert-triangle" class="icon-synd-lg"></i>
+                                        </div>
+                                        <div style="flex: 1;">
+                                            <h3 class="card-synd-title"><a href="risk-evaluation-tool/RiskEvaluationTool.html">Risk evaluation tool</a></h3>
+                                            <span class="badge-synd badge-recommended">Recommended</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-synd-body">
+                                        <p>Systematic evaluation of re-identification risks, privacy threats, and vulnerability assessments for synthetic data generation and use.</p>
+                                    </div>
+                                    <div class="card-synd-meta">
+                                        <div class="card-synd-meta-item">
+                                            <span class="card-synd-meta-label">Framework Step:</span>
+                                            <span class="card-synd-meta-value">Step 4 - Assess Re-identification Risks</span>
+                                        </div>
+                                        <div class="card-synd-meta-item">
+                                            <span class="card-synd-meta-label">Completion Time:</span>
+                                            <span class="card-synd-meta-value">20-30 minutes</span>
+                                        </div>
+                                        <div class="card-synd-meta-item">
+                                            <span class="card-synd-meta-label">Output:</span>
+                                            <span class="card-synd-meta-value">Risk matrix and mitigation priority rankings</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-synd-actions">
+                                        <a href="risk-evaluation-tool/RiskEvaluationTool.html" class="btn-synd btn-synd-primary">
+                                            <i data-lucide="play-circle" class="icon-synd-sm"></i>
+                                            Start Evaluation
+                                        </a>
+                                        <a href="resources.html" class="btn-synd btn-synd-secondary">
+                                            <i data-lucide="book-open" class="icon-synd-sm"></i>
+                                            View Guide
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="card-synd card-synd-info">
+                                    <div class="card-synd-header">
+                                        <div class="card-synd-icon">
+                                            <i data-lucide="bar-chart-3" class="icon-synd-lg"></i>
+                                        </div>
+                                        <div style="flex: 1;">
+                                            <h3 class="card-synd-title"><a href="quality-metrics-tool/QualityMetricsTool.html">Quality metrics tool</a></h3>
+                                            <span class="badge-synd badge-recommended">Recommended</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-synd-body">
+                                        <p>Evaluate synthetic data quality across multiple dimensions including statistical fidelity, utility preservation, and privacy protection metrics.</p>
+                                    </div>
+                                    <div class="card-synd-meta">
+                                        <div class="card-synd-meta-item">
+                                            <span class="card-synd-meta-label">Framework Step:</span>
+                                            <span class="card-synd-meta-value">Step 3 - Generate Synthetic Data</span>
+                                        </div>
+                                        <div class="card-synd-meta-item">
+                                            <span class="card-synd-meta-label">Completion Time:</span>
+                                            <span class="card-synd-meta-value">15-25 minutes</span>
+                                        </div>
+                                        <div class="card-synd-meta-item">
+                                            <span class="card-synd-meta-label">Output:</span>
+                                            <span class="card-synd-meta-value">Quality scorecard and improvement recommendations</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-synd-actions">
+                                        <a href="quality-metrics-tool/QualityMetricsTool.html" class="btn-synd btn-synd-primary">
+                                            <i data-lucide="play-circle" class="icon-synd-sm"></i>
+                                            Start Evaluation
+                                        </a>
+                                        <a href="resources.html" class="btn-synd btn-synd-secondary">
+                                            <i data-lucide="book-open" class="icon-synd-sm"></i>
+                                            View Guide
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tool-category">
+                        <div class="section-header-modern">
+                            <h2>Compliance and governance tools</h2>
+                            <p>Tools to ensure ongoing compliance with regulatory requirements and governance frameworks.</p>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card-synd">
+                                    <div class="card-synd-header">
+                                        <div class="card-synd-icon">
+                                            <i data-lucide="check-circle" class="icon-synd-lg"></i>
+                                        </div>
+                                        <div style="flex: 1;">
+                                            <h3 class="card-synd-title"><a href="compliance-checklist-tool/ComplianceChecklistTool.html">Compliance checklist tool</a></h3>
+                                            <span class="badge-synd badge-optional">Optional</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-synd-body">
+                                        <p>Comprehensive compliance checklist covering legal requirements, ethical obligations, technical standards, and governance processes across all framework steps.</p>
+                                    </div>
+                                    <div class="card-synd-meta">
+                                        <div class="card-synd-meta-item">
+                                            <span class="card-synd-meta-label">Framework Step:</span>
+                                            <span class="card-synd-meta-value">All steps - ongoing compliance monitoring</span>
+                                        </div>
+                                        <div class="card-synd-meta-item">
+                                            <span class="card-synd-meta-label">Completion Time:</span>
+                                            <span class="card-synd-meta-value">30-45 minutes (initial), 10-15 minutes (updates)</span>
+                                        </div>
+                                        <div class="card-synd-meta-item">
+                                            <span class="card-synd-meta-label">Output:</span>
+                                            <span class="card-synd-meta-value">Compliance dashboard and action item tracking</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-synd-actions">
+                                        <a href="compliance-checklist-tool/ComplianceChecklistTool.html" class="btn-synd btn-synd-primary">
+                                            <i data-lucide="play-circle" class="icon-synd-sm"></i>
+                                            Start Checklist
+                                        </a>
+                                        <a href="resources.html" class="btn-synd btn-synd-secondary">
+                                            <i data-lucide="book-open" class="icon-synd-sm"></i>
+                                            View Guide
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="card-synd card-synd-success">
+                                    <div class="card-synd-header">
+                                        <div class="card-synd-icon">
+                                            <i data-lucide="file-text" class="icon-synd-lg"></i>
+                                        </div>
+                                        <div style="flex: 1;">
+                                            <h3 class="card-synd-title"><a href="assessment-outcomes/AssessmentOutcomes.html">Assessment outcomes and documentation</a></h3>
+                                            <span class="badge-synd badge-required">Required</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-synd-body">
+                                        <p>Document assessment outcomes, decisions, and maintain comprehensive records for accountability, compliance monitoring, and future project reviews.</p>
+                                    </div>
+                                    <div class="card-synd-meta">
+                                        <div class="card-synd-meta-item">
+                                            <span class="card-synd-meta-label">Framework Step:</span>
+                                            <span class="card-synd-meta-value">Step 1 completion - assessment documentation</span>
+                                        </div>
+                                        <div class="card-synd-meta-item">
+                                            <span class="card-synd-meta-label">Completion Time:</span>
+                                            <span class="card-synd-meta-value">20-30 minutes</span>
+                                        </div>
+                                        <div class="card-synd-meta-item">
+                                            <span class="card-synd-meta-label">Output:</span>
+                                            <span class="card-synd-meta-value">Formal assessment outcomes record and decision documentation</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-synd-actions">
+                                        <a href="assessment-outcomes/AssessmentOutcomes.html" class="btn-synd btn-synd-primary">
+                                            <i data-lucide="play-circle" class="icon-synd-sm"></i>
+                                            Document Outcomes
+                                        </a>
+                                        <a href="resources.html" class="btn-synd btn-synd-secondary">
+                                            <i data-lucide="book-open" class="icon-synd-sm"></i>
+                                            View Guide
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="workflow-modern">
+                    <h2>Assessment workflow guidance</h2>
+                    <div class="workflow-grid">
+                        <div class="workflow-card">
+                            <div class="workflow-number">1</div>
+                            <h3>Start with core assessments</h3>
+                            <p>Complete both the Use Case Assessment Checklist and Impact Assessment before proceeding with your project. These determine whether your project can proceed under the framework and must address all three mandatory tests and comprehensive impact considerations.</p>
+                        </div>
+
+                        <div class="workflow-card">
+                            <div class="workflow-number">2</div>
+                            <h3>Document assessment outcomes</h3>
+                            <p>Use the Assessment Outcomes and Documentation tool to formally record your assessment results, decisions, and rationale. This creates the official record for accountability and compliance monitoring.</p>
+                        </div>
+
+                        <div class="workflow-card">
+                            <div class="workflow-number">3</div>
+                            <h3>Use specialised tools as needed</h3>
+                            <p>Apply the Risk Evaluation Tool and Quality Metrics Tool at appropriate framework steps to ensure comprehensive risk management and quality assurance throughout your project lifecycle.</p>
+                        </div>
+
+                        <div class="workflow-card">
+                            <div class="workflow-number">4</div>
+                            <h3>Maintain ongoing compliance</h3>
+                            <p>Use the Compliance Checklist Tool throughout your project lifecycle to track regulatory requirements, governance obligations, and ensure continuous adherence to framework standards.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="templates-modern">
+                    <h2>Downloadable assessment templates</h2>
+                    <p>Access standardised templates and forms to support offline assessment work and record-keeping requirements.</p>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="template-card-modern">
+                                <h3>Use case assessment template</h3>
+                                <p>Printable form with all three mandatory tests and comprehensive question sets based on Appendix 4 criteria.</p>
+                                <a href="assets/templates/use-case-assessment-template.html" class="btn-synd btn-synd-primary btn-synd-lg" target="_blank">
+                                    <i data-lucide="download" class="icon-synd-sm"></i>
+                                    Download Template
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="template-card-modern">
+                                <h3>Impact assessment template</h3>
+                                <p>Comprehensive form covering all impact considerations including Indigenous data sovereignty requirements from Appendix 5.</p>
+                                <a href="assets/templates/impact-assessment-template.html" class="btn-synd btn-synd-primary btn-synd-lg" target="_blank">
+                                    <i data-lucide="download" class="icon-synd-sm"></i>
+                                    Download Template
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="template-card-modern">
+                                <h3>Assessment outcomes form</h3>
+                                <p>Standardised documentation template for recording final assessment decisions and maintaining compliance records.</p>
+                                <a href="assessment-outcomes/AssessmentOutcomes.html" class="btn-synd btn-synd-primary btn-synd-lg">
+                                    <i data-lucide="file-text" class="icon-synd-sm"></i>
+                                    Access Form
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="support-modern">
+                    <h2>Assessment support and guidance</h2>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="support-card-modern">
+                                <h3>Getting started</h3>
+                                <p>New to the assessment tools? Start with our step-by-step guide to using assessments effectively.</p>
+                                <a href="resources.html" class="btn-synd btn-synd-success btn-synd-lg">
+                                    <i data-lucide="book-open" class="icon-synd-sm"></i>
+                                    Getting Started Guide
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="support-card-modern">
+                                <h3>Best practices</h3>
+                                <p>Learn from experienced practitioners about common pitfalls and strategies for successful assessments.</p>
+                                <a href="resources.html" class="btn-synd btn-synd-success btn-synd-lg">
+                                    <i data-lucide="lightbulb" class="icon-synd-sm"></i>
+                                    Best Practices
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="support-card-modern">
+                                <h3>Expert consultation</h3>
+                                <p>Need help with complex assessments? Connect with our network of synthetic data governance experts.</p>
+                                <a href="about/contact.html" class="btn-synd btn-synd-success btn-synd-lg">
+                                    <i data-lucide="users" class="icon-synd-sm"></i>
+                                    Get Expert Help
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="related-tools-modern">
+                    <h2>Related decision support tools</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="related-card">
+                                <h3><a href="decision-support/jurisdiction-mapper.html">Jurisdiction mapper</a></h3>
+                                <p>Identify applicable legal frameworks and compliance requirements for your project context.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="related-card">
+                                <h3><a href="decision-support/legal-pathways-wizard.html">Legal pathways wizard</a></h3>
+                                <p>Get step-by-step guidance through complex legal compliance processes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-buttons-modern">
+                    <a href="decision-support.html" class="nav-button-modern">
+                        <i data-lucide="arrow-left" class="icon-synd-sm"></i>
+                        Decision Support Tools
+                    </a>
+                    <a href="use-case-checklist/UseCaseChecklist.html" class="nav-button-modern">
+                        Start with Use Case Assessment
+                        <i data-lucide="arrow-right" class="icon-synd-sm"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+
+    <!-- OpenAI ChatKit Chatbot -->
+    <link rel="stylesheet" href="assets/chatbot/chatbot.css">
+    <script src="https://cdn.platform.openai.com/deployments/chatkit/chatkit.js" async></script>
+    <script src="assets/chatbot/sloth-avatar.js"></script>
+    <script src="assets/chatbot/chatbot.js"></script>
+</body>
+</html>

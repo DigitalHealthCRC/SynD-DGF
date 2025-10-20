@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appendix 4: Use case assessment - SynD-DGF</title>
+    <meta name="description" content="Detailed criteria and guidance for assessing use cases for synthetic health data, including comprehensive evaluation frameworks and practical examples.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .appendix-header {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 10px;
+            padding: 40px;
+            margin-bottom: 40px;
+            border-left: 5px solid #007bff;
+        }
+        .appendix-number {
+            color: #007bff;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .appendix-title {
+            color: #333;
+            margin: 10px 0 20px 0;
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+        .assessment-matrix {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .criteria-category {
+            background: #f8f9fa;
+            border-left: 4px solid #007bff;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+        .criteria-category h3 {
+            color: #007bff;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .criteria-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .criteria-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+        }
+        .criteria-weight {
+            background: #007bff;
+            color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        .criteria-content {
+            flex: 1;
+        }
+        .criteria-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .criteria-description {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        .decision-flowchart {
+            background: #e7f3ff;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        .flowchart-step {
+            background: white;
+            border: 2px solid #007bff;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px auto;
+            max-width: 500px;
+            position: relative;
+        }
+        .flowchart-step.decision {
+            border-color: #ffc107;
+            background: #fff3cd;
+        }
+        .flowchart-step.outcome {
+            border-color: #28a745;
+            background: #d4edda;
+        }
+        .flowchart-arrow {
+            color: #007bff;
+            font-size: 2rem;
+            margin: 10px 0;
+        }
+        .use-case-examples {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        .example-card {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+        .example-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .example-status {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-right: 15px;
+        }
+        .example-status.appropriate {
+            background: #d4edda;
+            color: #155724;
+        }
+        .example-status.inappropriate {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        .example-status.conditional {
+            background: #fff3cd;
+            color: #856404;
+        }
+        .scoring-table {
+            width: 100%;
+            margin: 25px 0;
+        }
+        .scoring-table th, .scoring-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .scoring-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+        }
+        .score-high { color: #28a745; font-weight: bold; }
+        .score-medium { color: #ffc107; font-weight: bold; }
+        .score-low { color: #dc3545; font-weight: bold; }
+        .breadcrumb {
+            background: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: "›";
+            color: #6c757d;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 40px 0;
+            padding: 20px 0;
+            border-top: 1px solid #dee2e6;
+        }
+        .nav-button {
+            padding: 12px 25px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .nav-button:hover {
+            background: #0056b3;
+            color: white;
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+        .nav-button.nav-previous {
+            background: #6c757d;
+        }
+        .nav-button.nav-previous:hover {
+            background: #5a6268;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #069494;">
+        <div class="container">
+            <a class="navbar-brand" href="../../../../index.html">SynD-DGF</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="../../../../index.html">Home</a>
+                <a class="nav-link" href="../../../../framework.html">Framework</a>
+                <a class="nav-link" href="../../../../assessment-tools.html">Assessment Tools</a>
+                <a class="nav-link active" href="../resources.html">Resources</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="container mt-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../../../index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="../resources.html">Resources</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Appendix 4: Use case assessment</li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="appendix-header">
+                    <div class="appendix-number">Appendix 4</div>
+                    <h1 class="appendix-title">Use case assessment</h1>
+                    <p class="lead">Detailed criteria and guidance for assessing whether a proposed use case is appropriate for synthetic health data generation and use.</p>
+                </div>
+
+                <h2>Assessment overview</h2>
+                <p>Before proceeding with synthetic data generation, it's crucial to evaluate whether the proposed use case is appropriate and whether synthetic data can meet the intended objectives. This assessment helps ensure resources are used efficiently and that synthetic data is only generated when it can provide genuine value.</p>
+
+                <div class="assessment-matrix">
+                    <h3>Core assessment criteria</h3>
+                    <p>Use case assessment should evaluate multiple dimensions to determine suitability for synthetic data approaches:</p>
+
+                    <div class="criteria-category">
+                        <h3>Purpose and objectives clarity</h3>
+                        <ul class="criteria-list">
+                            <li class="criteria-item">
+                                <div class="criteria-weight">5</div>
+                                <div class="criteria-content">
+                                    <div class="criteria-title">Clear research objectives</div>
+                                    <div class="criteria-description">The intended use has well-defined, specific research or analytical objectives that can be evaluated for success.</div>
+                                </div>
+                            </li>
+                            <li class="criteria-item">
+                                <div class="criteria-weight">4</div>
+                                <div class="criteria-content">
+                                    <div class="criteria-title">Measurable outcomes</div>
+                                    <div class="criteria-description">Success criteria can be clearly defined and measured using synthetic data outputs.</div>
+                                </div>
+                            </li>
+                            <li class="criteria-item">
+                                <div class="criteria-weight">3</div>
+                                <div class="criteria-content">
+                                    <div class="criteria-title">Appropriate scope</div>
+                                    <div class="criteria-description">The scope is neither too narrow (where synthetic data adds no value) nor too broad (where precision is lost).</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="criteria-category">
+                        <h3>Technical feasibility</h3>
+                        <ul class="criteria-list">
+                            <li class="criteria-item">
+                                <div class="criteria-weight">5</div>
+                                <div class="criteria-content">
+                                    <div class="criteria-title">Data complexity alignment</div>
+                                    <div class="criteria-description">The complexity of relationships in source data aligns with available synthetic data generation capabilities.</div>
+                                </div>
+                            </li>
+                            <li class="criteria-item">
+                                <div class="criteria-weight">4</div>
+                                <div class="criteria-content">
+                                    <div class="criteria-title">Quality requirements achievable</div>
+                                    <div class="criteria-description">Required data quality levels can realistically be achieved with current synthetic data methods.</div>
+                                </div>
+                            </li>
+                            <li class="criteria-item">
+                                <div class="criteria-weight">3</div>
+                                <div class="criteria-content">
+                                    <div class="criteria-title">Validation feasibility</div>
+                                    <div class="criteria-description">Methods exist to validate that synthetic data meets the use case requirements.</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="criteria-category">
+                        <h3>Legal and ethical appropriateness</h3>
+                        <ul class="criteria-list">
+                            <li class="criteria-item">
+                                <div class="criteria-weight">5</div>
+                                <div class="criteria-content">
+                                    <div class="criteria-title">Lawful basis exists</div>
+                                    <div class="criteria-description">A clear lawful basis exists for both source data use and synthetic data generation under applicable privacy laws.</div>
+                                </div>
+                            </li>
+                            <li class="criteria-item">
+                                <div class="criteria-weight">4</div>
+                                <div class="criteria-content">
+                                    <div class="criteria-title">Ethical justification</div>
+                                    <div class="criteria-description">The use case provides clear benefits that justify any privacy risks, even if minimal.</div>
+                                </div>
+                            </li>
+                            <li class="criteria-item">
+                                <div class="criteria-weight">3</div>
+                                <div class="criteria-content">
+                                    <div class="criteria-title">Community benefit</div>
+                                    <div class="criteria-description">The intended use aligns with broader community interests and health system improvements.</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="criteria-category">
+                        <h3>Alternative assessment</h3>
+                        <ul class="criteria-list">
+                            <li class="criteria-item">
+                                <div class="criteria-weight">4</div>
+                                <div class="criteria-content">
+                                    <div class="criteria-title">Real data not accessible</div>
+                                    <div class="criteria-description">Real data cannot be accessed for legitimate privacy, security, or practical reasons.</div>
+                                </div>
+                            </li>
+                            <li class="criteria-item">
+                                <div class="criteria-weight">3</div>
+                                <div class="criteria-content">
+                                    <div class="criteria-title">Synthetic data advantages</div>
+                                    <div class="criteria-description">Synthetic data offers specific advantages (e.g., scale, safety, standardisation) over real data for this use case.</div>
+                                </div>
+                            </li>
+                            <li class="criteria-item">
+                                <div class="criteria-weight">2</div>
+                                <div class="criteria-content">
+                                    <div class="criteria-title">No simpler alternatives</div>
+                                    <div class="criteria-description">Simpler approaches (e.g., aggregated statistics, public datasets) cannot meet the analytical requirements.</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="decision-flowchart">
+                    <h3>Decision flowchart</h3>
+                    <p>Follow this decision process to systematically evaluate use case appropriateness:</p>
+
+                    <div class="flowchart-step">
+                        <strong>Step 1: Define objectives</strong><br>
+                        Can you clearly articulate what you want to achieve and how success will be measured?
+                    </div>
+                    <div class="flowchart-arrow">↓</div>
+
+                    <div class="flowchart-step decision">
+                        <strong>Step 2: Legal pathway exists?</strong><br>
+                        Is there a clear lawful basis for using source data to generate synthetic data for your purpose?
+                    </div>
+                    <div class="flowchart-arrow">↓ YES</div>
+
+                    <div class="flowchart-step">
+                        <strong>Step 3: Technical feasibility</strong><br>
+                        Can synthetic data methods realistically produce data that meets your quality requirements?
+                    </div>
+                    <div class="flowchart-arrow">↓</div>
+
+                    <div class="flowchart-step decision">
+                        <strong>Step 4: Alternative assessment</strong><br>
+                        Have you confirmed that real data access isn't feasible and that simpler approaches won't work?
+                    </div>
+                    <div class="flowchart-arrow">↓ YES</div>
+
+                    <div class="flowchart-step outcome">
+                        <strong>Proceed with assessment</strong><br>
+                        Continue to detailed source data assessment and synthetic data generation planning
+                    </div>
+                </div>
+
+                <h2>Scoring methodology</h2>
+                <p>Use this scoring system to evaluate use case appropriateness systematically:</p>
+
+                <table class="scoring-table table">
+                    <thead>
+                        <tr>
+                            <th>Criteria Weight</th>
+                            <th>Score 3 (High)</th>
+                            <th>Score 2 (Medium)</th>
+                            <th>Score 1 (Low)</th>
+                            <th>Score 0 (Poor)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Weight 5 (Critical)</strong></td>
+                            <td class="score-high">15 points</td>
+                            <td class="score-medium">10 points</td>
+                            <td class="score-low">5 points</td>
+                            <td class="score-low">0 points</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Weight 4 (Important)</strong></td>
+                            <td class="score-high">12 points</td>
+                            <td class="score-medium">8 points</td>
+                            <td class="score-low">4 points</td>
+                            <td class="score-low">0 points</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Weight 3 (Moderate)</strong></td>
+                            <td class="score-high">9 points</td>
+                            <td class="score-medium">6 points</td>
+                            <td class="score-low">3 points</td>
+                            <td class="score-low">0 points</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Weight 2 (Minor)</strong></td>
+                            <td class="score-high">6 points</td>
+                            <td class="score-medium">4 points</td>
+                            <td class="score-low">2 points</td>
+                            <td class="score-low">0 points</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="assessment-matrix">
+                    <h3>Interpretation guidelines</h3>
+                    <ul>
+                        <li><strong class="score-high">80-100 points:</strong> Highly appropriate use case - proceed with confidence</li>
+                        <li><strong class="score-medium">60-79 points:</strong> Appropriate use case - proceed with careful planning</li>
+                        <li><strong class="score-medium">40-59 points:</strong> Marginal use case - consider alternatives or significant modifications</li>
+                        <li><strong class="score-low">Below 40 points:</strong> Inappropriate use case - synthetic data not recommended</li>
+                    </ul>
+                    <p><em>Note: Any critical criteria (weight 5) scoring 0 points should result in reconsideration regardless of total score.</em></p>
+                </div>
+
+                <div class="use-case-examples">
+                    <h2>Example assessments</h2>
+                    <p>These examples illustrate how the assessment criteria apply to different scenarios:</p>
+
+                    <div class="example-card">
+                        <div class="example-header">
+                            <span class="example-status appropriate">Highly Appropriate</span>
+                            <h3>Algorithm development for rare disease detection</h3>
+                        </div>
+                        <p><strong>Scenario:</strong> Developing machine learning algorithms to detect rare genetic conditions in newborn screening data.</p>
+                        <p><strong>Assessment rationale:</strong></p>
+                        <ul>
+                            <li><strong>Clear objectives:</strong> Specific algorithmic performance targets for rare condition detection</li>
+                            <li><strong>Technical feasibility:</strong> Synthetic data can generate additional rare condition examples</li>
+                            <li><strong>Legal basis:</strong> Public health benefit with clear regulatory pathway</li>
+                            <li><strong>Alternatives limited:</strong> Real rare disease data is extremely limited and sensitive</li>
+                        </ul>
+                        <p><strong>Score: 85/100</strong></p>
+                    </div>
+
+                    <div class="example-card">
+                        <div class="example-header">
+                            <span class="example-status conditional">Conditional Approval</span>
+                            <h3>Health system efficiency research</h3>
+                        </div>
+                        <p><strong>Scenario:</strong> Analysing patient flow patterns to optimise hospital resource allocation.</p>
+                        <p><strong>Assessment rationale:</strong></p>
+                        <ul>
+                            <li><strong>Clear objectives:</strong> Well-defined efficiency metrics and improvement targets</li>
+                            <li><strong>Technical challenges:</strong> Complex temporal and operational relationships may be difficult to preserve</li>
+                            <li><strong>Legal basis:</strong> Health service improvement provides clear justification</li>
+                            <li><strong>Alternatives exist:</strong> Aggregated operational data might suffice for many analyses</li>
+                        </ul>
+                        <p><strong>Score: 65/100 - Proceed with enhanced validation requirements</strong></p>
+                    </div>
+
+                    <div class="example-card">
+                        <div class="example-header">
+                            <span class="example-status inappropriate">Not Appropriate</span>
+                            <h3>General medical research training</h3>
+                        </div>
+                        <p><strong>Scenario:</strong> Creating synthetic patient data for general medical student training exercises.</p>
+                        <p><strong>Assessment rationale:</strong></p>
+                        <ul>
+                            <li><strong>Unclear advantages:</strong> Educational objectives could be met with simplified, clearly artificial cases</li>
+                            <li><strong>Legal complexity:</strong> Using real patient data for synthetic generation may not be justified for general education</li>
+                            <li><strong>Alternatives available:</strong> Purpose-built educational datasets or simulated cases would be more appropriate</li>
+                            <li><strong>Scope too broad:</strong> General training doesn't require the complexity that necessitates synthetic data</li>
+                        </ul>
+                        <p><strong>Score: 25/100 - Use alternative approaches</strong></p>
+                    </div>
+                </div>
+
+                <h2>Documentation requirements</h2>
+                <p>Comprehensive documentation of the use case assessment is essential for governance and accountability:</p>
+
+                <div class="criteria-category">
+                    <h3>Required documentation</h3>
+                    <ul class="criteria-list">
+                        <li class="criteria-item">
+                            <div class="criteria-weight">✓</div>
+                            <div class="criteria-content">
+                                <div class="criteria-title">Detailed use case description</div>
+                                <div class="criteria-description">Clear articulation of objectives, scope, intended methods, and success criteria</div>
+                            </div>
+                        </li>
+                        <li class="criteria-item">
+                            <div class="criteria-weight">✓</div>
+                            <div class="criteria-content">
+                                <div class="criteria-title">Assessment scoring rationale</div>
+                                <div class="criteria-description">Explanation for each criterion score with supporting evidence</div>
+                            </div>
+                        </li>
+                        <li class="criteria-item">
+                            <div class="criteria-weight">✓</div>
+                            <div class="criteria-content">
+                                <div class="criteria-title">Alternative consideration</div>
+                                <div class="criteria-description">Documentation of why alternatives (real data access, simpler methods) are not feasible</div>
+                            </div>
+                        </li>
+                        <li class="criteria-item">
+                            <div class="criteria-weight">✓</div>
+                            <div class="criteria-content">
+                                <div class="criteria-title">Risk mitigation plan</div>
+                                <div class="criteria-description">How identified limitations or risks will be addressed throughout the project</div>
+                            </div>
+                        </li>
+                        <li class="criteria-item">
+                            <div class="criteria-weight">✓</div>
+                            <div class="criteria-content">
+                                <div class="criteria-title">Approval and sign-off</div>
+                                <div class="criteria-description">Formal approval from appropriate governance bodies before proceeding</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-buttons">
+                    <a href="../policy-legal-framework/PolicyLegalFramework.html" class="nav-button nav-previous">← Appendix 3: Policy and legal framework</a>
+                    <a href="../resources.html" class="nav-button">Back to Resources</a>
+                    <a href="#" class="nav-button nav-next">Appendix 5: Impact assessment →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- OpenAI ChatKit Chatbot -->
+    <link rel="stylesheet" href="../../assets/chatbot/chatbot.css">
+    <script src="https://cdn.platform.openai.com/deployments/chatkit/chatkit.js" async></script>
+    <script src="../../assets/chatbot/sloth-avatar.js"></script>
+    <script src="../../assets/chatbot/chatbot.js"></script>
+</body>
+</html>

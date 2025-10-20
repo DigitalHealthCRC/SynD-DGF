@@ -1,0 +1,201 @@
+<!-- Enhanced Footer with Framework Navigation -->
+<footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h4>Framework</h4>
+      <ul class="footer-links">
+        <li><a href="/web-pages/framework-overview/FrameworkOverview.en-US.webpage.copy.html">Framework Overview</a></li>
+        <li><a href="/web-pages/step-1-use-case-assessment/Step1UseCaseAssessment.en-US.webpage.copy.html">Step 1: Use Case Assessment</a></li>
+        <li><a href="/web-pages/step-2-assess-source-data/Step2AssessSourceData.en-US.webpage.copy.html">Step 2: Source Data</a></li>
+        <li><a href="/web-pages/step-3-generate-synthetic-data/Step3GenerateSyntheticData.en-US.webpage.copy.html">Step 3: Generate Data</a></li>
+        <li><a href="/web-pages/step-4-assess-reidentification-risks/Step4AssessReidentificationRisks.en-US.webpage.copy.html">Step 4: Risk Assessment</a></li>
+        <li><a href="/web-pages/step-5-manage-residual-risks/Step5ManageResidualRisks.en-US.webpage.copy.html">Step 5: Risk Management</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h4>Decision Support</h4>
+      <ul class="footer-links">
+        <li><a href="/web-pages/decision-support-overview/DecisionSupportOverview.en-US.webpage.copy.html">Decision Support Overview</a></li>
+        <li><a href="/Complex Scenarios Navigator/ComplexScenariosNavigator.en-US.webpage.copy.html">Complex Scenarios Navigator</a></li>
+        <li><a href="/web-pages/legal-pathways-wizard/LegalPathwaysWizard.en-US.webpage.copy.html">Legal Pathways Wizard</a></li>
+        <li><a href="/web-pages/risk-mitigation-planner/RiskMitigationPlanner.en-US.webpage.copy.html">Risk Mitigation Planner</a></li>
+        <li><a href="/web-pages/jurisdiction-mapper/JurisdictionMapper.en-US.webpage.copy.html">Jurisdiction Mapper</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h4>Assessment Tools</h4>
+      <ul class="footer-links">
+        <li><a href="/web-pages/assessment-tools/AssessmentTools.en-US.webpage.copy.html">Assessment Tools Overview</a></li>
+        <li><a href="/web-pages/assessment-tools/use-case-assessment-tool/UseCaseAssessmentTool.en-US.webpage.copy.html">Use Case Assessment</a></li>
+        <li><a href="/web-pages/assessment-tools/risk-evaluation-tool/RiskEvaluationTool.en-US.webpage.copy.html">Risk Evaluation</a></li>
+        <li><a href="/web-pages/assessment-tools/compliance-checklist-tool/ComplianceChecklistTool.en-US.webpage.copy.html">Compliance Checklist</a></li>
+        <li><a href="/web-pages/assessment-tools/quality-metrics-tool/QualityMetricsTool.en-US.webpage.copy.html">Quality Metrics</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h4>Resources</h4>
+      <ul class="footer-links">
+        <li><a href="/web-pages/resources/Resources.en-US.webpage.copy.html">All Resources</a></li>
+        <li><a href="/resources/framework-documentation">Framework Documentation</a></li>
+        <li><a href="/resources/implementation-guides">Implementation Guides</a></li>
+        <li><a href="/resources/policy-templates">Policy Templates</a></li>
+        <li><a href="/resources/training-materials">Training Materials</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h4>About</h4>
+      <ul class="footer-links">
+        <li><a href="/web-pages/about/about-framework/AboutFramework.en-US.webpage.copy.html">About the Framework</a></li>
+        <li><a href="/web-pages/about/methodology/Methodology.en-US.webpage.copy.html">Methodology</a></li>
+        <li><a href="/web-pages/about/stakeholder-consultation/StakeholderConsultation.en-US.webpage.copy.html">Stakeholder Consultation</a></li>
+        <li><a href="/web-pages/about/contact/Contact.en-US.webpage.copy.html">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-info">
+      <p><strong>SynD-DGF</strong> - Synthetic Health Data Governance Framework</p>
+      <p>Comprehensive guidance for privacy-compliant synthetic health data generation and use</p>
+    </div>
+    <div class="footer-copyright">
+      <p>Copyright © {{ now | date: 'yyyy' }}. All rights reserved.</p>
+      <p class="framework-version">Framework Version 2.0</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+.site-footer {
+  background: #2c3e50;
+  color: white;
+  padding: 3rem 0 1.5rem 0;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.footer-section h4 {
+  color: #3498db;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-bottom: 2px solid #34495e;
+  padding-bottom: 0.5rem;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin: 0.5rem 0;
+}
+
+.footer-links a {
+  color: #bdc3c7;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+  display: block;
+  padding: 0.25rem 0;
+}
+
+.footer-links a:hover {
+  color: #3498db;
+  text-decoration: none;
+  transform: translateX(3px);
+}
+
+.footer-bottom {
+  border-top: 1px solid #34495e;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.footer-info p {
+  margin: 0.25rem 0;
+  color: #bdc3c7;
+}
+
+.footer-info p:first-child {
+  color: #3498db;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.footer-copyright {
+  text-align: right;
+}
+
+.footer-copyright p {
+  margin: 0.25rem 0;
+  color: #95a5a6;
+  font-size: 0.9rem;
+}
+
+.framework-version {
+  color: #3498db !important;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 2rem 0 1rem 0;
+  }
+  
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .footer-copyright {
+    text-align: center;
+  }
+  
+  .footer-section h4 {
+    font-size: 1rem;
+  }
+  
+  .footer-links a {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+</style>
