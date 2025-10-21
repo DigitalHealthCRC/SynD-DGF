@@ -41,7 +41,11 @@
       "Bash(test -d \"assets/templates\")",
       "Bash(test -f \"assets/images/Cat-PC.png\")",
       "Bash(do sed -i 's|href=\"\"../../../../index.html\"\"|href=\"\"../../index.html\"\"|g' \"$file\")",
-      "Bash(tail -35 \"$file\")"
+      "Bash(tail -35 \"$file\")",
+      "Bash(sed -n '1230,1250p' \"c:\\Users\\Amir\\OneDrive - Digital Health CRC Limited\\Projects\\SynD\\framework\\SynD-DGF\\framework\\step-1-use-case-assessment.html\")",
+      "Bash(sed -n '650,670p' \"c:\\Users\\Amir\\OneDrive - Digital Health CRC Limited\\Projects\\SynD\\framework\\SynD-DGF\\framework\\step-1-use-case-assessment.html\")",
+      "Bash(do echo \"=== $file.html ===\")",
+      "Bash(do echo \"Processing $file...\")"
     ],
     "deny": [],
     "ask": []

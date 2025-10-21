@@ -1,0 +1,148 @@
+/**
+ * Assessment Carousel Component Styles
+ * Forest Canopy Theme Integration
+ */
+
+/* Main carousel card */
+.carousel-card {
+    background: #faf9f6; /* Ivory */
+    border: 1px solid #e5e7eb;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Navigation buttons - use design system classes, just add some specific adjustments */
+#prevButton,
+#nextButton {
+    min-width: 120px;
+}
+
+#prevButton svg,
+#nextButton svg {
+    pointer-events: none;
+    flex-shrink: 0;
+}
+
+/* Option labels (for radio/checkbox questions) */
+.carousel-option-label {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-color: #d1d5db !important;
+}
+
+.carousel-option-label:hover {
+    background-color: #f0f4ed !important; /* Very light forest green */
+    border-color: #7d8471 !important; /* Sage */
+}
+
+.carousel-option-label input:checked {
+    accent-color: #2d4a2b; /* Forest Green */
+}
+
+.carousel-option-label:has(input:checked) {
+    background-color: #e8ede6 !important; /* Light forest */
+    border-color: #2d4a2b !important;
+    border-width: 2px !important;
+}
+
+/* Progress dots */
+.carousel-progress-dot {
+    transition: all 0.3s ease;
+}
+
+.carousel-progress-dot:hover {
+    transform: scale(1.2) !important;
+}
+
+/* Form controls styling */
+.carousel-card .form-control:focus,
+.carousel-card .form-select:focus {
+    border-color: #2d4a2b;
+    box-shadow: 0 0 0 0.2rem rgba(45, 74, 43, 0.25);
+}
+
+.carousel-card .form-check-input:checked {
+    background-color: #2d4a2b;
+    border-color: #2d4a2b;
+}
+
+.carousel-card .form-check-input:focus {
+    border-color: #7d8471;
+    box-shadow: 0 0 0 0.2rem rgba(125, 132, 113, 0.25);
+}
+
+/* Question groups */
+.question-group {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hover effect for forest light */
+.hover-forest-light:hover {
+    background-color: #f0f4ed !important;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .carousel-card {
+        padding: 1.5rem !important;
+    }
+
+    #prevButton,
+    #nextButton {
+        min-width: 100px;
+        font-size: 0.875rem;
+    }
+
+    #prevButton span,
+    #nextButton span {
+        display: none;
+    }
+
+    #prevButton svg,
+    #nextButton svg {
+        margin: 0 !important;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    #prevButton,
+    #nextButton {
+        min-width: 80px;
+        padding: 0.5rem;
+    }
+}
+
+/* Completion screen animation */
+.carousel-card svg {
+    animation: checkmark 0.5s ease-in-out;
+}
+
+@keyframes checkmark {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Smooth transitions */
+.carousel-card * {
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}

@@ -1,23 +1,37 @@
-<!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk Evaluation Tool - SynD-DGF</title>
 
-<!-- SynD-DGF Unified Design System - Forest Canopy Theme -->
-<link rel="stylesheet" href="../assets/css/synd-design-system.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Lucide Icons -->
-<script src="https://unpkg.com/lucide@latest"></script>
+    <!-- SynD-DGF Unified Design System - Forest Canopy Theme -->
+    <link rel="stylesheet" href="../assets/css/synd-design-system.css">
 
+    <!-- Assessment Carousel Component CSS -->
+    <link rel="stylesheet" href="../assets/css/assessment-carousel.css">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark" >
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2A324B;">
         <div class="container">
             <a class="navbar-brand" href="../index.html">SynD-DGF</a>
-            <div class="navbar-nav ms-auto">
-                <a class="nav-link" href="../index.html">Home</a>
-                <a class="nav-link" href="../framework.html">Framework</a>
-                <a class="nav-link active" href="../assessment-tools.html">Assessment Tools</a>
-                <a class="nav-link" href="../resources.html">Resources</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link" href="../index.html">Home</a>
+                    <a class="nav-link" href="../framework.html">Framework</a>
+                    <a class="nav-link active" href="../assessment-tools.html">Assessment Tools</a>
+                    <a class="nav-link" href="../resources.html">Resources</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -32,493 +46,523 @@
             </ol>
         </nav>
     </div>
-    
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
 
-                <div class="tool-header">
-                    <div class="tool-icon-large">⚠️</div>
-                    <h1>Risk evaluation tool</h1>
-                    <p class="tool-description">Systematic assessment of re-identification risks, privacy vulnerabilities, and threat scenarios for synthetic health data projects. This tool helps quantify and prioritise risks to guide effective mitigation strategies.</p>
-                </div>
+    <div class="container my-5">
+        <!-- Page Header -->
+        <div class="text-center mb-5">
+            <div class="mb-3" style="font-size: 3rem;">⚠️</div>
+            <h1 class="display-5 mb-3" style="color: #2d4a2b;">Risk evaluation tool</h1>
+            <p class="lead text-muted">Systematic assessment of re-identification risks, privacy vulnerabilities, and threat scenarios</p>
+            <div class="alert alert-info mx-auto" style="max-width: 800px;">
+                <strong>Framework Context:</strong> This tool supports Step 4 (Assess Re-identification Risks) and ongoing risk monitoring throughout your project lifecycle.
+            </div>
+            <div class="alert alert-warning mx-auto" style="max-width: 800px;">
+                <strong>Important:</strong> Complete this evaluation after synthetic data generation (Step 3) but before final deployment.
+            </div>
+        </div>
 
-                <div class="tool-guidance">
-                    <div class="alert alert-info">
-                        <strong>Framework Context:</strong> This tool supports Step 4 (Assess Re-identification Risks) and ongoing risk monitoring throughout your project lifecycle.
-                    </div>
-                    <div class="alert alert-warning">
-                        <strong>Important:</strong> Complete this evaluation after synthetic data generation (Step 3) but before final deployment. Results inform your risk mitigation planning in Step 5.
-                    </div>
-                </div>
+        <!-- Carousel Container -->
+        <div id="carouselContainer" class="mb-5"></div>
 
-                <!-- Framework Integration Section -->
-                <div class="framework-integration">
-                    <h2>Framework integration and resources</h2>
-                    <p>This risk evaluation tool integrates directly with the SynD-DGF framework to provide comprehensive guidance and ensure compliance with privacy obligations.</p>
-
-                    <div class="resource-cards">
-                        <div class="resource-card">
-                            <div class="resource-icon"></div>
-                            <div class="resource-content">
-                                <h3><a href="../resources/appendices/safety-assessment.html">Appendix 10: Safety Assessment</a></h3>
-                                <p>Comprehensive guidance on risk assessment methodologies and threat modeling for synthetic data.</p>
-                                <span class="resource-tag safety">Safety Assessment</span>
-                            </div>
-                        </div>
-
-                        <div class="resource-card">
-                            <div class="resource-icon">️</div>
-                            <div class="resource-content">
-                                <h3><a href="../resources/appendices/privacy-obligations.html">Appendix 12: Privacy Obligations</a></h3>
-                                <p>Legal requirements and regulatory obligations for privacy risk management in health data.</p>
-                                <span class="resource-tag legal">Legal Compliance</span>
-                            </div>
-                        </div>
-
-                        <div class="resource-card">
-                            <div class="resource-icon"></div>
-                            <div class="resource-content">
-                                <h3><a href="../resources/appendices/technical-assessment.html">Appendix 6: Technical Assessment</a></h3>
-                                <p>Technical evaluation frameworks for assessing synthetic data generation methods and their risks.</p>
-                                <span class="resource-tag technical">Technical Guidance</span>
-                            </div>
-                        </div>
-
-                        <div class="resource-card">
-                            <div class="resource-icon"></div>
-                            <div class="resource-content">
-                                <h3><a href="../framework/step-5-manage-residual-risks.html">Step 5: Manage Residual Risks</a></h3>
-                                <p>Framework guidance on implementing risk mitigation strategies and ongoing monitoring.</p>
-                                <span class="resource-tag framework">Framework Step</span>
-                            </div>
+        <!-- Framework Integration -->
+        <div class="framework-integration mt-5 pt-5 border-top">
+            <h2 class="h3 mb-4" style="color: #2d4a2b;">Framework integration and resources</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h4 class="h5 card-title" style="color: #2d4a2b;">
+                                <span class="badge bg-danger me-2">Appendix 10</span>
+                                Safety Assessment
+                            </h4>
+                            <p class="card-text text-muted">Comprehensive guidance on risk assessment methodologies and threat modeling for synthetic data.</p>
+                            <a href="../resources/appendices/safety-assessment.html" class="btn btn-modern-primary">View Guidance</a>
                         </div>
                     </div>
                 </div>
-
-                <!-- Framework Integration Panel -->
-                {% include 'Framework Integration Panel' %}
-
-                <!-- Assessment Outcomes Integration -->
-                {% include 'Assessment Outcomes Integration' %}
-
-                <!-- Enhanced Assessment Features -->
-                <div class="assessment-features">
-                    <h2>Enhanced assessment features</h2>
-                    <div class="features-grid">
-                        <div class="feature-item">
-                            <div class="feature-icon"></div>
-                            <div class="feature-content">
-                                <h3>Auto-save progress</h3>
-                                <p>Your assessment progress is automatically saved as you work</p>
-                                <div class="save-status" id="saveStatus">
-                                    <span class="status-indicator">●</span>
-                                    <span class="status-text">Ready to start</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="feature-item">
-                            <div class="feature-icon"></div>
-                            <div class="feature-content">
-                                <h3>Comprehensive reports</h3>
-                                <p>Generate detailed PDF reports with risk analysis and recommendations</p>
-                                <button type="button" class="feature-button" disabled id="generateReportBtn">Generate Report</button>
-                            </div>
-                        </div>
-
-                        <div class="feature-item">
-                            <div class="feature-icon"></div>
-                            <div class="feature-content">
-                                <h3>Assessment history</h3>
-                                <p>View and manage your previous risk evaluations</p>
-                                <button type="button" class="feature-button" id="viewHistoryBtn">View History</button>
-                            </div>
-                        </div>
-
-                        <div class="feature-item">
-                            <div class="feature-icon"></div>
-                            <div class="feature-content">
-                                <h3>Progress tracking</h3>
-                                <p>Track completion status across all assessment sections</p>
-                                <div class="progress-bar">
-                                    <div class="progress-fill" id="progressFill" style="width: 0%"></div>
-                                </div>
-                                <span class="progress-text" id="progressText">0% Complete</span>
-                            </div>
+                <div class="col-md-6">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h4 class="h5 card-title" style="color: #2d4a2b;">
+                                <span class="badge bg-primary me-2">Appendix 12</span>
+                                Privacy Obligations
+                            </h4>
+                            <p class="card-text text-muted">Legal requirements and regulatory obligations for privacy risk management in health data.</p>
+                            <a href="../resources/appendices/privacy-obligations.html" class="btn btn-modern-primary">Legal Framework</a>
                         </div>
                     </div>
                 </div>
-
-                <form id="riskEvaluationForm" class="risk-form">
-                    <div class="evaluation-section" data-component-theme="portalThemeColorRed" data-framework-refs="data-characteristics">
-                        <h2>Data characteristics risk assessment</h2>
-                        <p>Evaluate the inherent risk characteristics of your source data and synthetic data generation approach.</p>
-                        <small class="framework-note">Framework requirement: Data risk assessment per Step 4 re-identification risk evaluation</small>
-                        
-                        <div class="risk-category">
-                            <h3>Source data sensitivity</h3>
-                            <div class="question-group">
-                                <label>What types of sensitive information are present in your source data?</label>
-                                <small class="framework-note">Framework requirement: Identify sensitive data types per Step 2 source data assessment</small>
-                                <div class="checkbox-group">
-                                    <label><input type="checkbox" name="sensitiveData" value="direct-identifiers" data-framework-guidance="data-minimisation"> Direct identifiers (names, addresses, phone numbers)</label>
-                                    <label><input type="checkbox" name="sensitiveData" value="quasi-identifiers" data-framework-guidance="risk-assessment"> Quasi-identifiers (age, gender, postcode, dates)</label>
-                                    <label><input type="checkbox" name="sensitiveData" value="clinical-details"> Detailed clinical information</label>
-                                    <label><input type="checkbox" name="sensitiveData" value="genetic"> Genetic or genomic data</label>
-                                    <label><input type="checkbox" name="sensitiveData" value="mental-health"> Mental health information</label>
-                                    <label><input type="checkbox" name="sensitiveData" value="rare-conditions"> Rare conditions or treatments</label>
-                                    <label><input type="checkbox" name="sensitiveData" value="longitudinal"> Longitudinal/temporal patterns</label>
-                                    <label><input type="checkbox" name="sensitiveData" value="high-dimensional"> High-dimensional data (many variables per record)</label>
-                                </div>
-                            </div>
-
-                            <div class="question-group">
-                                <label for="datasetSize">Approximate size of source dataset</label>
-                                <small class="framework-note">Framework requirement: Dataset size assessment affects re-identification risk evaluation</small>
-                                <select id="datasetSize" name="datasetSize" class="form-control" required data-framework-guidance="technical-assessment">
-                                    <option value="">Select dataset size...</option>
-                                    <option value="very-small">Very small (< 1,000 records)</option>
-                                    <option value="small">Small (1,000 - 10,000 records)</option>
-                                    <option value="medium">Medium (10,000 - 100,000 records)</option>
-                                    <option value="large">Large (100,000 - 1M records)</option>
-                                    <option value="very-large">Very large (> 1M records)</option>
-                                </select>
-                            </div>
-
-                            <div class="question-group">
-                                <label for="populationRarity">How rare/unique is your study population?</label>
-                                <small class="framework-note">Framework requirement: Population rarity directly impacts re-identification risk per Step 4</small>
-                                <select id="populationRarity" name="populationRarity" class="form-control" required data-framework-guidance="risk-assessment">
-                                    <option value="">Select population rarity...</option>
-                                    <option value="common">Common population (general health consumers)</option>
-                                    <option value="somewhat-rare">Somewhat rare (specific condition, age group)</option>
-                                    <option value="rare">Rare population (uncommon conditions/treatments)</option>
-                                    <option value="very-rare">Very rare population (orphan diseases, unique cohorts)</option>
-                                    <option value="extremely-rare">Extremely rare (highly specific criteria)</option>
-                                </select>
-                            </div>
+                <div class="col-md-6">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h4 class="h5 card-title" style="color: #2d4a2b;">
+                                <span class="badge bg-success me-2">Appendix 6</span>
+                                Technical Assessment
+                            </h4>
+                            <p class="card-text text-muted">Technical evaluation frameworks for assessing synthetic data generation methods and their risks.</p>
+                            <a href="../resources/appendices/technical-assessment.html" class="btn btn-modern-primary">Technical Guidance</a>
                         </div>
-
-                        <div class="risk-category">
-                            <h3>Synthetic data generation risks</h3>
-                            <div class="question-group">
-                                <label for="syntheticMethod">What synthetic data generation method are you using?</label>
-                                <small class="framework-note">Framework requirement: Generation method selection per Step 3 technical standards</small>
-                                <select id="syntheticMethod" name="syntheticMethod" class="form-control" required data-framework-guidance="quality-assessment">
-                                    <option value="">Select generation method...</option>
-                                    <option value="statistical-sampling">Statistical sampling/bootstrapping</option>
-                                    <option value="parametric">Parametric modeling (regression, GLMs)</option>
-                                    <option value="bayesian-networks">Bayesian networks</option>
-                                    <option value="copulas">Copula-based methods</option>
-                                    <option value="gan">Generative Adversarial Networks (GANs)</option>
-                                    <option value="vae">Variational Autoencoders (VAEs)</option>
-                                    <option value="diffusion">Diffusion models</option>
-                                    <option value="hybrid">Hybrid approach</option>
-                                    <option value="other">Other method</option>
-                                </select>
-                            </div>
-
-                            <div class="question-group">
-                                <label for="privacyMechanism">What privacy protection mechanisms are implemented?</label>
-                                <small class="framework-note">Framework requirement: Privacy mechanisms per Step 4 de-identification techniques</small>
-                                <div class="checkbox-group">
-                                    <label><input type="checkbox" name="privacyMechanisms" value="differential-privacy" data-framework-guidance="de-identification"> Differential privacy</label>
-                                    <label><input type="checkbox" name="privacyMechanisms" value="k-anonymity"> k-anonymity constraints</label>
-                                    <label><input type="checkbox" name="privacyMechanisms" value="suppression"> Data suppression/generalisation</label>
-                                    <label><input type="checkbox" name="privacyMechanisms" value="noise-addition"> Noise addition/perturbation</label>
-                                    <label><input type="checkbox" name="privacyMechanisms" value="aggregation"> Aggregation constraints</label>
-                                    <label><input type="checkbox" name="privacyMechanisms" value="post-processing"> Post-processing privacy filters</label>
-                                    <label><input type="checkbox" name="privacyMechanisms" value="none"> No specific privacy mechanisms</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="evaluation-section" data-component-theme="portalThemeColorOrange" data-framework-refs="threat-assessment">
-                        <h2>Re-identification threat assessment</h2>
-                        <p>Evaluate potential re-identification attack scenarios and threat actor capabilities.</p>
-                        <small class="framework-note">Framework requirement: Threat modeling per Step 4 re-identification risk assessment</small>
-                        
-                        <div class="risk-category">
-                            <h3>Attack scenario evaluation</h3>
-                            <div class="question-group">
-                                <label>Which re-identification attack types pose risks to your synthetic data?</label>
-                                <small class="framework-note">Framework requirement: Attack scenario evaluation per Appendix 10 safety assessment</small>
-                                <div class="attack-scenarios">
-                                    <div class="scenario-item">
-                                        <h4>Linkage attacks</h4>
-                                        <p>Attacker links synthetic records to external datasets or auxiliary information</p>
-                                        <div class="risk-rating">
-                                            <label>Risk level:</label>
-                                            <div class="radio-group">
-                                                <label><input type="radio" name="linkage-risk" value="low" data-framework-guidance="risk-assessment"> Low</label>
-                                                <label><input type="radio" name="linkage-risk" value="medium"> Medium</label>
-                                                <label><input type="radio" name="linkage-risk" value="high"> High</label>
-                                                <label><input type="radio" name="linkage-risk" value="very-high"> Very High</label>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="scenario-item">
-                                        <h4>Membership inference attacks</h4>
-                                        <p>Attacker determines whether specific individuals were in the source dataset</p>
-                                        <div class="risk-rating">
-                                            <label>Risk level:</label>
-                                            <div class="radio-group">
-                                                <label><input type="radio" name="membership-risk" value="low"> Low</label>
-                                                <label><input type="radio" name="membership-risk" value="medium"> Medium</label>
-                                                <label><input type="radio" name="membership-risk" value="high"> High</label>
-                                                <label><input type="radio" name="membership-risk" value="very-high"> Very High</label>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="scenario-item">
-                                        <h4>Attribute inference attacks</h4>
-                                        <p>Attacker infers sensitive attributes about individuals from synthetic data patterns</p>
-                                        <div class="risk-rating">
-                                            <label>Risk level:</label>
-                                            <div class="radio-group">
-                                                <label><input type="radio" name="attribute-risk" value="low"> Low</label>
-                                                <label><input type="radio" name="attribute-risk" value="medium"> Medium</label>
-                                                <label><input type="radio" name="attribute-risk" value="high"> High</label>
-                                                <label><input type="radio" name="attribute-risk" value="very-high"> Very High</label>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="scenario-item">
-                                        <h4>Model inversion attacks</h4>
-                                        <p>Attacker reconstructs source data information through model queries or outputs</p>
-                                        <div class="risk-rating">
-                                            <label>Risk level:</label>
-                                            <div class="radio-group">
-                                                <label><input type="radio" name="inversion-risk" value="low"> Low</label>
-                                                <label><input type="radio" name="inversion-risk" value="medium"> Medium</label>
-                                                <label><input type="radio" name="inversion-risk" value="high"> High</label>
-                                                <label><input type="radio" name="inversion-risk" value="very-high"> Very High</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="risk-category">
-                            <h3>Threat actor assessment</h3>
-                            <div class="question-group">
-                                <label>What types of threat actors might target your synthetic data?</label>
-                                <div class="checkbox-group">
-                                    <label><input type="checkbox" name="threatActors" value="curious-researchers"> Curious researchers with domain knowledge</label>
-                                    <label><input type="checkbox" name="threatActors" value="malicious-insiders"> Malicious insiders with system access</label>
-                                    <label><input type="checkbox" name="threatActors" value="external-attackers"> External attackers with technical skills</label>
-                                    <label><input type="checkbox" name="threatActors" value="commercial-entities"> Commercial entities seeking competitive advantage</label>
-                                    <label><input type="checkbox" name="threatActors" value="adversarial-researchers"> Adversarial researchers testing privacy</label>
-                                    <label><input type="checkbox" name="threatActors" value="government-actors"> Government or law enforcement</label>
-                                    <label><input type="checkbox" name="threatActors" value="general-public"> General public with basic skills</label>
-                                </div>
-                            </div>
-
-                            <div class="question-group">
-                                <label for="attackerCapability">What level of attacker capability should you defend against?</label>
-                                <select id="attackerCapability" name="attackerCapability" class="form-control" required>
-                                    <option value="">Select capability level...</option>
-                                    <option value="basic">Basic (simple correlation analysis, public data)</option>
-                                    <option value="intermediate">Intermediate (statistical methods, limited auxiliary data)</option>
-                                    <option value="advanced">Advanced (machine learning, comprehensive auxiliary data)</option>
-                                    <option value="expert">Expert (state-of-the-art techniques, extensive resources)</option>
-                                    <option value="nation-state">Nation-state (unlimited resources, advanced persistent threats)</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="evaluation-section" data-component-theme="portalThemeColorBlue" data-framework-refs="environmental-risks">
-                        <h2>Environmental and contextual risks</h2>
-                        <p>Assess risks from the operational environment and data sharing context.</p>
-                        <small class="framework-note">Framework requirement: Environmental risk assessment per Step 5 residual risk management</small>
-                        
-                        <div class="risk-category">
-                            <h3>Data access and sharing risks</h3>
-                            <div class="question-group">
-                                <label for="accessControl">How is access to synthetic data controlled?</label>
-                                <small class="framework-note">Framework requirement: Access control assessment per Five Safes Framework</small>
-                                <select id="accessControl" name="accessControl" class="form-control" required data-framework-guidance="risk-mitigation">
-                                    <option value="">Select access control level...</option>
-                                    <option value="public">Public release (no access controls)</option>
-                                    <option value="registered">Registered user access</option>
-                                    <option value="approved">Approved researcher access</option>
-                                    <option value="secure-environment">Secure research environment only</option>
-                                    <option value="internal-only">Internal organisation use only</option>
-                                </select>
-                            </div>
-
-                            <div class="question-group">
-                                <label>What additional data sources might be available to attackers?</label>
-                                <div class="checkbox-group">
-                                    <label><input type="checkbox" name="auxiliaryData" value="public-datasets"> Publicly available health datasets</label>
-                                    <label><input type="checkbox" name="auxiliaryData" value="commercial-data"> Commercial data brokers</label>
-                                    <label><input type="checkbox" name="auxiliaryData" value="social-media"> Social media and online profiles</label>
-                                    <label><input type="checkbox" name="auxiliaryData" value="location-data"> Location and mobility data</label>
-                                    <label><input type="checkbox" name="auxiliaryData" value="healthcare-systems"> Other healthcare system data</label>
-                                    <label><input type="checkbox" name="auxiliaryData" value="government-records"> Government records and registries</label>
-                                    <label><input type="checkbox" name="auxiliaryData" value="research-publications"> Research publications with similar data</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="risk-category">
-                            <h3>Technical infrastructure risks</h3>
-                            <div class="question-group">
-                                <label for="technicalSecurity">How secure is your technical infrastructure?</label>
-                                <div class="security-checklist">
-                                    <label><input type="checkbox" name="securityMeasures" value="encryption"> Data encryption at rest and in transit</label>
-                                    <label><input type="checkbox" name="securityMeasures" value="access-logs"> Comprehensive access logging and monitoring</label>
-                                    <label><input type="checkbox" name="securityMeasures" value="network-security"> Network security controls and firewalls</label>
-                                    <label><input type="checkbox" name="securityMeasures" value="incident-response"> Incident response procedures</label>
-                                    <label><input type="checkbox" name="securityMeasures" value="vulnerability-management"> Regular vulnerability assessments</label>
-                                    <label><input type="checkbox" name="securityMeasures" value="backup-recovery"> Secure backup and recovery procedures</label>
-                                </div>
-                            </div>
-
-                            <div class="question-group">
-                                <label for="dataGovernance">What data governance controls are in place?</label>
-                                <div class="governance-checklist">
-                                    <label><input type="checkbox" name="governanceControls" value="data-classification"> Data classification and handling procedures</label>
-                                    <label><input type="checkbox" name="governanceControls" value="access-reviews"> Regular access reviews and audits</label>
-                                    <label><input type="checkbox" name="governanceControls" value="staff-training"> Staff privacy and security training</label>
-                                    <label><input type="checkbox" name="governanceControls" value="policy-compliance"> Policy compliance monitoring</label>
-                                    <label><input type="checkbox" name="governanceControls" value="third-party"> Third-party risk management</label>
-                                    <label><input type="checkbox" name="governanceControls" value="retention-disposal"> Data retention and secure disposal</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="evaluation-section" data-component-theme="portalThemeColorPurple" data-framework-refs="impact-assessment">
-                        <h2>Risk impact assessment</h2>
-                        <p>Evaluate the potential consequences and impacts of successful re-identification attacks.</p>
-                        <small class="framework-note">Framework requirement: Impact assessment per Appendix 5 comprehensive impact evaluation</small>
-                        
-                        <div class="risk-category">
-                            <h3>Individual impact assessment</h3>
-                            <div class="question-group">
-                                <label>What would be the impact on individuals if re-identification occurred?</label>
-                                <small class="framework-note">Framework requirement: Individual impact evaluation per privacy impact assessment</small>
-                                <div class="impact-scenarios">
-                                    <div class="impact-item">
-                                        <h4>Privacy violation</h4>
-                                        <div class="radio-group">
-                                            <label><input type="radio" name="privacy-impact" value="minimal" data-framework-guidance="impact-assessment"> Minimal - general health information</label>
-                                            <label><input type="radio" name="privacy-impact" value="moderate"> Moderate - some sensitive details</label>
-                                            <label><input type="radio" name="privacy-impact" value="significant"> Significant - highly personal information</label>
-                                            <label><input type="radio" name="privacy-impact" value="severe"> Severe - extremely sensitive data</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="impact-item">
-                                        <h4>Discrimination potential</h4>
-                                        <div class="radio-group">
-                                            <label><input type="radio" name="discrimination-impact" value="minimal"> Minimal - low discrimination risk</label>
-                                            <label><input type="radio" name="discrimination-impact" value="moderate"> Moderate - some discrimination potential</label>
-                                            <label><input type="radio" name="discrimination-impact" value="significant"> Significant - notable discrimination risk</label>
-                                            <label><input type="radio" name="discrimination-impact" value="severe"> Severe - high discrimination potential</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="impact-item">
-                                        <h4>Psychological/social harm</h4>
-                                        <div class="radio-group">
-                                            <label><input type="radio" name="social-impact" value="minimal"> Minimal - limited social consequences</label>
-                                            <label><input type="radio" name="social-impact" value="moderate"> Moderate - some social impact</label>
-                                            <label><input type="radio" name="social-impact" value="significant"> Significant - notable psychological harm</label>
-                                            <label><input type="radio" name="social-impact" value="severe"> Severe - serious psychological/social consequences</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="risk-category">
-                            <h3>Organisational impact assessment</h3>
-                            <div class="question-group">
-                                <label>What would be the impact on your organisation?</label>
-                                <div class="checkbox-group">
-                                    <label><input type="checkbox" name="orgImpact" value="reputation"> Reputational damage</label>
-                                    <label><input type="checkbox" name="orgImpact" value="legal"> Legal liability and regulatory action</label>
-                                    <label><input type="checkbox" name="orgImpact" value="financial"> Financial costs (fines, compensation, remediation)</label>
-                                    <label><input type="checkbox" name="orgImpact" value="operational"> Operational disruption</label>
-                                    <label><input type="checkbox" name="orgImpact" value="research"> Research program damage</label>
-                                    <label><input type="checkbox" name="orgImpact" value="partnerships"> Partnership and collaboration impact</label>
-                                    <label><input type="checkbox" name="orgImpact" value="trust"> Loss of community/stakeholder trust</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-actions">
-                        <button type="button" id="calculateRisk" class="btn-modern-primary">Calculate Risk Assessment</button>
-                        <button type="reset" id="resetForm" class="button2">Reset Form</button>
-                    </div>
-                </form>
-
-                <div id="riskResults" class="risk-results" style="display: none;">
-                    <div class="results-header">
-                        <h2>Risk evaluation results</h2>
-                        <p>Comprehensive risk analysis with prioritised recommendations for mitigation.</p>
-                    </div>
-                    
-                    <div id="resultsContent" class="results-content"></div>
-                    
-                    <div class="results-actions">
-                        <button type="button" id="exportRiskReport" class="btn-modern-primary">Export Risk Report</button>
-                        <button type="button" id="saveRiskAssessment" class="btn-modern-primary">Save Assessment</button>
-                        <button type="button" id="newRiskAssessment" class="button2">New Assessment</button>
                     </div>
                 </div>
-
-                <div class="tool-guidance-footer">
-                    <h2>Using your risk assessment results</h2>
-                    <div class="guidance-content">
-                        <div class="guidance-section">
-                            <h3>Interpreting risk levels</h3>
-                            <ul>
-                                <li><strong>Low Risk:</strong> Standard safeguards sufficient, routine monitoring recommended</li>
-                                <li><strong>Medium Risk:</strong> Additional controls needed, enhanced monitoring required</li>
-                                <li><strong>High Risk:</strong> Comprehensive mitigation essential, frequent review necessary</li>
-                                <li><strong>Critical Risk:</strong> Project may not be suitable for synthetic data approach</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="guidance-section">
-                            <h3>Next steps</h3>
-                            <ul>
-                                <li>Use results to develop targeted risk mitigation strategies</li>
-                                <li>Implement recommended technical and procedural controls</li>
-                                <li>Establish ongoing risk monitoring processes</li>
-                                <li>Document risk decisions for regulatory compliance</li>
-                                <li>Review and update assessments regularly</li>
-                            </ul>
+                <div class="col-md-6">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h4 class="h5 card-title" style="color: #2d4a2b;">
+                                <span class="badge bg-info me-2">Framework</span>
+                                Step 5: Manage Residual Risks
+                            </h4>
+                            <p class="card-text text-muted">Framework guidance on implementing risk mitigation strategies and ongoing monitoring.</p>
+                            <a href="../framework/step-5-manage-residual-risks.html" class="btn btn-modern-primary">View Step 5</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Step Navigation -->
-        <div class="step-navigation">
-            <div class="nav-buttons">
-                <a href="../assessment-tools.html" class="nav-button nav-previous">← Assessment Tools</a>
-                <a href="quality-metrics.html" class="nav-button nav-next">Quality Metrics Tool →</a>
+        <!-- Navigation -->
+        <div class="step-navigation mt-5 pt-4 border-top">
+            <div class="d-flex justify-content-between">
+                <a href="impact-assessment.html" class="btn btn-modern-secondary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left me-2" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                    </svg>
+                    Impact Assessment
+                </a>
+                <a href="../assessment-tools.html" class="btn btn-modern-secondary">
+                    Back to Assessment Tools
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right ms-2" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                    </svg>
+                </a>
             </div>
         </div>
     </div>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Assessment Tool Functionality -->
-    <script src="../assets/js/RiskEvaluationTool.js"></script>
+
+    <!-- Assessment Carousel Component -->
+    <script src="../assets/js/assessment-carousel.js"></script>
+
+    <!-- Risk Evaluation Configuration -->
+    <script>
+        // Initialize Risk Evaluation Carousel
+        document.addEventListener('DOMContentLoaded', function() {
+            const riskEvaluation = new AssessmentCarousel({
+                containerId: 'carouselContainer',
+                storageKey: 'risk-evaluation-progress',
+                autoSave: true,
+                steps: [
+                    {
+                        title: 'Data characteristics risk assessment',
+                        description: 'Evaluate the inherent risk characteristics of your source data and synthetic data generation approach.',
+                        questions: [
+                            {
+                                id: 'sensitive-data',
+                                type: 'checkbox',
+                                label: 'What types of sensitive information are present in your source data?',
+                                required: true,
+                                options: [
+                                    { value: 'direct-identifiers', label: 'Direct identifiers (names, addresses, phone numbers)' },
+                                    { value: 'quasi-identifiers', label: 'Quasi-identifiers (age, gender, postcode, dates)' },
+                                    { value: 'clinical-details', label: 'Detailed clinical information' },
+                                    { value: 'genetic', label: 'Genetic or genomic data' },
+                                    { value: 'mental-health', label: 'Mental health information' },
+                                    { value: 'rare-conditions', label: 'Rare conditions or treatments' },
+                                    { value: 'longitudinal', label: 'Longitudinal/temporal patterns' },
+                                    { value: 'high-dimensional', label: 'High-dimensional data (many variables per record)' }
+                                ]
+                            },
+                            {
+                                id: 'dataset-size',
+                                type: 'select',
+                                label: 'Approximate size of source dataset',
+                                required: true,
+                                options: [
+                                    { value: 'very-small', label: 'Very small (< 1,000 records)' },
+                                    { value: 'small', label: 'Small (1,000 - 10,000 records)' },
+                                    { value: 'medium', label: 'Medium (10,000 - 100,000 records)' },
+                                    { value: 'large', label: 'Large (100,000 - 1M records)' },
+                                    { value: 'very-large', label: 'Very large (> 1M records)' }
+                                ]
+                            },
+                            {
+                                id: 'population-rarity',
+                                type: 'select',
+                                label: 'How rare/unique is your study population?',
+                                required: true,
+                                options: [
+                                    { value: 'common', label: 'Common population (general health consumers)' },
+                                    { value: 'somewhat-rare', label: 'Somewhat rare (specific condition, age group)' },
+                                    { value: 'rare', label: 'Rare population (uncommon conditions/treatments)' },
+                                    { value: 'very-rare', label: 'Very rare population (orphan diseases, unique cohorts)' },
+                                    { value: 'extremely-rare', label: 'Extremely rare (highly specific criteria)' }
+                                ]
+                            },
+                            {
+                                id: 'synthetic-method',
+                                type: 'select',
+                                label: 'What synthetic data generation method are you using?',
+                                required: true,
+                                options: [
+                                    { value: 'statistical-sampling', label: 'Statistical sampling/bootstrapping' },
+                                    { value: 'parametric', label: 'Parametric modeling (regression, GLMs)' },
+                                    { value: 'bayesian-networks', label: 'Bayesian networks' },
+                                    { value: 'copulas', label: 'Copula-based methods' },
+                                    { value: 'gan', label: 'Generative Adversarial Networks (GANs)' },
+                                    { value: 'vae', label: 'Variational Autoencoders (VAEs)' },
+                                    { value: 'diffusion', label: 'Diffusion models' },
+                                    { value: 'hybrid', label: 'Hybrid approach' },
+                                    { value: 'other', label: 'Other method' }
+                                ]
+                            },
+                            {
+                                id: 'privacy-mechanisms',
+                                type: 'checkbox',
+                                label: 'What privacy protection mechanisms are implemented?',
+                                required: true,
+                                options: [
+                                    { value: 'differential-privacy', label: 'Differential privacy' },
+                                    { value: 'k-anonymity', label: 'k-anonymity constraints' },
+                                    { value: 'suppression', label: 'Data suppression/generalisation' },
+                                    { value: 'noise-addition', label: 'Noise addition/perturbation' },
+                                    { value: 'aggregation', label: 'Aggregation constraints' },
+                                    { value: 'post-processing', label: 'Post-processing privacy filters' },
+                                    { value: 'none', label: 'No specific privacy mechanisms' }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        title: 'Re-identification threat assessment',
+                        description: 'Evaluate potential re-identification attack scenarios and threat actor capabilities.',
+                        questions: [
+                            {
+                                id: 'linkage-attack-risk',
+                                type: 'radio',
+                                label: 'Linkage Attack Risk: Can attackers combine synthetic data with external datasets to re-identify individuals?',
+                                required: true,
+                                options: [
+                                    { value: 'low', label: 'Low - Minimal overlapping variables with external data' },
+                                    { value: 'medium', label: 'Medium - Some common variables but low uniqueness' },
+                                    { value: 'high', label: 'High - Many quasi-identifiers that could enable linkage' },
+                                    { value: 'very-high', label: 'Very High - Rare combinations highly susceptible to linkage' }
+                                ]
+                            },
+                            {
+                                id: 'membership-inference-risk',
+                                type: 'radio',
+                                label: 'Membership Inference Risk: Can attackers determine if a specific individual\'s data was used in training?',
+                                required: true,
+                                options: [
+                                    { value: 'low', label: 'Low - Strong privacy guarantees in place' },
+                                    { value: 'medium', label: 'Medium - Some protections but potential vulnerabilities' },
+                                    { value: 'high', label: 'High - Limited protections against membership inference' },
+                                    { value: 'very-high', label: 'Very High - Significant membership inference vulnerabilities' }
+                                ]
+                            },
+                            {
+                                id: 'attribute-inference-risk',
+                                type: 'radio',
+                                label: 'Attribute Inference Risk: Can attackers infer sensitive attributes about individuals?',
+                                required: true,
+                                options: [
+                                    { value: 'low', label: 'Low - Attributes well-protected and generalised' },
+                                    { value: 'medium', label: 'Medium - Some sensitive attributes may be inferable' },
+                                    { value: 'high', label: 'High - Sensitive attributes vulnerable to inference' },
+                                    { value: 'very-high', label: 'Very High - Strong correlations enable attribute inference' }
+                                ]
+                            },
+                            {
+                                id: 'model-inversion-risk',
+                                type: 'radio',
+                                label: 'Model Inversion Risk: Can attackers reconstruct training data from the model/synthetic data?',
+                                required: true,
+                                options: [
+                                    { value: 'low', label: 'Low - Generation method prevents reconstruction' },
+                                    { value: 'medium', label: 'Medium - Partial reconstruction possible but limited' },
+                                    { value: 'high', label: 'High - Significant reconstruction risk exists' },
+                                    { value: 'very-high', label: 'Very High - Training data highly vulnerable to inversion' }
+                                ]
+                            },
+                            {
+                                id: 'threat-actors',
+                                type: 'checkbox',
+                                label: 'Which threat actors might target your synthetic data?',
+                                required: true,
+                                options: [
+                                    { value: 'curious-researcher', label: 'Curious researchers or data users' },
+                                    { value: 'journalist', label: 'Journalists or media organisations' },
+                                    { value: 'commercial', label: 'Commercial entities seeking competitive advantage' },
+                                    { value: 'insider', label: 'Malicious insiders with system access' },
+                                    { value: 'criminal', label: 'Organised criminals' },
+                                    { value: 'state-sponsored', label: 'State-sponsored actors' },
+                                    { value: 'academic', label: 'Academic researchers testing vulnerabilities' }
+                                ]
+                            },
+                            {
+                                id: 'attacker-capability',
+                                type: 'select',
+                                label: 'What is the estimated capability level of potential attackers?',
+                                required: true,
+                                options: [
+                                    { value: 'low', label: 'Low - Basic data analysis skills only' },
+                                    { value: 'medium', label: 'Medium - Intermediate technical and analytical capabilities' },
+                                    { value: 'high', label: 'High - Advanced data science and machine learning expertise' },
+                                    { value: 'very-high', label: 'Very High - Expert-level capabilities with significant resources' }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        title: 'Environmental and contextual risks',
+                        description: 'Assess the environment in which synthetic data will be used and external risk factors.',
+                        questions: [
+                            {
+                                id: 'data-access-control',
+                                type: 'select',
+                                label: 'What level of access control will be applied to synthetic data?',
+                                required: true,
+                                options: [
+                                    { value: 'public', label: 'Public release - No restrictions' },
+                                    { value: 'broad-access', label: 'Broad access with registration' },
+                                    { value: 'controlled-access', label: 'Controlled access with vetting' },
+                                    { value: 'restricted', label: 'Restricted access - Approved users only' },
+                                    { value: 'internal-only', label: 'Internal organisation use only' }
+                                ]
+                            },
+                            {
+                                id: 'auxiliary-data',
+                                type: 'checkbox',
+                                label: 'What auxiliary data sources might be available to attackers?',
+                                required: true,
+                                options: [
+                                    { value: 'public-health', label: 'Public health datasets' },
+                                    { value: 'census', label: 'Census or demographic data' },
+                                    { value: 'social-media', label: 'Social media profiles' },
+                                    { value: 'commercial', label: 'Commercial data brokers' },
+                                    { value: 'leaked-data', label: 'Previously leaked datasets' },
+                                    { value: 'institutional', label: 'Institutional directories or records' },
+                                    { value: 'minimal', label: 'Minimal auxiliary data available' }
+                                ]
+                            },
+                            {
+                                id: 'technical-security',
+                                type: 'checkbox',
+                                label: 'What technical security measures are in place?',
+                                required: true,
+                                options: [
+                                    { value: 'encryption', label: 'Data encryption at rest and in transit' },
+                                    { value: 'access-logging', label: 'Access logging and monitoring' },
+                                    { value: 'authentication', label: 'Multi-factor authentication' },
+                                    { value: 'network-security', label: 'Network segmentation and firewalls' },
+                                    { value: 'intrusion-detection', label: 'Intrusion detection systems' },
+                                    { value: 'audit-trails', label: 'Comprehensive audit trails' }
+                                ]
+                            },
+                            {
+                                id: 'governance-controls',
+                                type: 'checkbox',
+                                label: 'What data governance controls are implemented?',
+                                required: true,
+                                options: [
+                                    { value: 'data-agreements', label: 'Formal data use agreements' },
+                                    { value: 'ethics-approval', label: 'Ethics committee oversight' },
+                                    { value: 'privacy-review', label: 'Privacy impact assessment completed' },
+                                    { value: 'user-training', label: 'Mandatory user training' },
+                                    { value: 'breach-response', label: 'Incident response procedures' },
+                                    { value: 'regular-audits', label: 'Regular compliance audits' }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        title: 'Risk impact assessment',
+                        description: 'Evaluate the potential impact if re-identification or privacy breaches occur.',
+                        questions: [
+                            {
+                                id: 'individual-harm-physical',
+                                type: 'radio',
+                                label: 'Potential for physical harm to individuals',
+                                required: true,
+                                options: [
+                                    { value: 'negligible', label: 'Negligible - No realistic physical harm scenarios' },
+                                    { value: 'low', label: 'Low - Minimal physical harm potential' },
+                                    { value: 'moderate', label: 'Moderate - Some physical harm scenarios possible' },
+                                    { value: 'high', label: 'High - Significant physical harm risk' }
+                                ]
+                            },
+                            {
+                                id: 'individual-harm-psychological',
+                                type: 'radio',
+                                label: 'Potential for psychological or emotional harm',
+                                required: true,
+                                options: [
+                                    { value: 'negligible', label: 'Negligible - Minimal distress likely' },
+                                    { value: 'low', label: 'Low - Minor distress possible' },
+                                    { value: 'moderate', label: 'Moderate - Moderate distress or embarrassment' },
+                                    { value: 'high', label: 'High - Severe psychological harm or trauma' }
+                                ]
+                            },
+                            {
+                                id: 'individual-harm-financial',
+                                type: 'radio',
+                                label: 'Potential for financial or economic harm',
+                                required: true,
+                                options: [
+                                    { value: 'negligible', label: 'Negligible - No financial impact' },
+                                    { value: 'low', label: 'Low - Minor financial inconvenience' },
+                                    { value: 'moderate', label: 'Moderate - Significant financial loss possible' },
+                                    { value: 'high', label: 'High - Severe financial harm or fraud risk' }
+                                ]
+                            },
+                            {
+                                id: 'individual-harm-discrimination',
+                                type: 'radio',
+                                label: 'Potential for discrimination or social harm',
+                                required: true,
+                                options: [
+                                    { value: 'negligible', label: 'Negligible - No discrimination scenarios' },
+                                    { value: 'low', label: 'Low - Minor social impacts' },
+                                    { value: 'moderate', label: 'Moderate - Discrimination or stigmatisation possible' },
+                                    { value: 'high', label: 'High - Severe discrimination or social exclusion risk' }
+                                ]
+                            },
+                            {
+                                id: 'organisational-impact',
+                                type: 'checkbox',
+                                label: 'What organisational impacts could result from a privacy breach?',
+                                required: true,
+                                options: [
+                                    { value: 'reputation', label: 'Reputational damage and loss of public trust' },
+                                    { value: 'legal-liability', label: 'Legal liability and regulatory penalties' },
+                                    { value: 'financial-costs', label: 'Financial costs (compensation, remediation)' },
+                                    { value: 'operational', label: 'Operational disruption' },
+                                    { value: 'research-impact', label: 'Impact on ongoing research programs' },
+                                    { value: 'partnership-loss', label: 'Loss of partnerships or collaborations' },
+                                    { value: 'regulatory-action', label: 'Regulatory enforcement action' }
+                                ]
+                            },
+                            {
+                                id: 'overall-risk-rating',
+                                type: 'radio',
+                                label: 'Overall risk rating for this synthetic data project',
+                                required: true,
+                                options: [
+                                    { value: 'low', label: 'Low Risk - Minimal privacy concerns, strong protections' },
+                                    { value: 'medium', label: 'Medium Risk - Moderate concerns with adequate mitigations' },
+                                    { value: 'high', label: 'High Risk - Significant concerns requiring enhanced controls' },
+                                    { value: 'very-high', label: 'Very High Risk - Critical concerns, may not be appropriate' }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                onComplete: function(answers) {
+                    displayRiskResults(answers);
+                }
+            });
+
+            // Risk results display function
+            function displayRiskResults(answers) {
+                const overallRisk = answers['overall-risk-rating'];
+                const riskColor = {
+                    'low': '#28a745',
+                    'medium': '#ffc107',
+                    'high': '#fd7e14',
+                    'very-high': '#dc3545'
+                };
+
+                const resultsModal = document.createElement('div');
+                resultsModal.className = 'modal fade';
+                resultsModal.innerHTML = `
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header" style="background-color: ${riskColor[overallRisk] || '#2d4a2b'}; color: #faf9f6;">
+                                <h5 class="modal-title">Risk Evaluation Results</h5>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <h6 class="fw-bold mb-3" style="color: #2d4a2b;">Overall Risk Assessment</h6>
+                                <div class="alert alert-${overallRisk === 'low' ? 'success' : overallRisk === 'medium' ? 'warning' : 'danger'} mb-4">
+                                    <h6 class="alert-heading">${getRiskLabel(overallRisk)}</h6>
+                                    <p class="mb-0">${getRiskDescription(overallRisk)}</p>
+                                </div>
+
+                                <h6 class="fw-bold mb-3" style="color: #2d4a2b;">Attack Risk Summary</h6>
+                                <ul class="list-group mb-4">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Linkage Attack
+                                        <span class="badge bg-${getRiskBadgeColor(answers['linkage-attack-risk'])}">${getRiskLabel(answers['linkage-attack-risk'])}</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Membership Inference
+                                        <span class="badge bg-${getRiskBadgeColor(answers['membership-inference-risk'])}">${getRiskLabel(answers['membership-inference-risk'])}</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Attribute Inference
+                                        <span class="badge bg-${getRiskBadgeColor(answers['attribute-inference-risk'])}">${getRiskLabel(answers['attribute-inference-risk'])}</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Model Inversion
+                                        <span class="badge bg-${getRiskBadgeColor(answers['model-inversion-risk'])}">${getRiskLabel(answers['model-inversion-risk'])}</span>
+                                    </li>
+                                </ul>
+
+                                <div class="alert alert-info">
+                                    <strong>Next Steps:</strong> Review your risk mitigation strategies and proceed to Step 5 (Manage Residual Risks) to implement appropriate controls.
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-modern-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-modern-primary" onclick="exportRiskReport()">Export Report</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(resultsModal);
+                const modal = new bootstrap.Modal(resultsModal);
+                modal.show();
+            }
+
+            function getRiskLabel(riskLevel) {
+                const labels = {
+                    'low': 'Low Risk',
+                    'medium': 'Medium Risk',
+                    'high': 'High Risk',
+                    'very-high': 'Very High Risk',
+                    'negligible': 'Negligible'
+                };
+                return labels[riskLevel] || 'Unknown';
+            }
+
+            function getRiskBadgeColor(riskLevel) {
+                const colors = {
+                    'low': 'success',
+                    'medium': 'warning',
+                    'high': 'danger',
+                    'very-high': 'danger',
+                    'negligible': 'secondary'
+                };
+                return colors[riskLevel] || 'secondary';
+            }
+
+            function getRiskDescription(riskLevel) {
+                const descriptions = {
+                    'low': 'Minimal privacy concerns identified. Standard protections appear adequate.',
+                    'medium': 'Moderate privacy concerns. Ensure mitigation strategies are in place.',
+                    'high': 'Significant privacy concerns. Enhanced controls and monitoring required.',
+                    'very-high': 'Critical privacy concerns. Consider whether synthetic data is appropriate for this use case.'
+                };
+                return descriptions[riskLevel] || 'Risk assessment incomplete.';
+            }
+
+            // Export function placeholder
+            window.exportRiskReport = function() {
+                alert('Export functionality would generate a comprehensive PDF risk report here. This feature requires additional implementation.');
+            };
+        });
+    </script>
 
     <!-- OpenAI ChatKit Chatbot -->
     <link rel="stylesheet" href="../assets/chatbot/chatbot.css">
