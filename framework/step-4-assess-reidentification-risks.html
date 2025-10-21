@@ -755,25 +755,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-    <!-- Back to Top Button -->
-    <button onclick="scrollToTop()" id="backToTop" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 99; background: #F7C59F; color: white; border: none; padding: 15px 18px; border-radius: 50%; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.2); font-size: 1.2rem; font-weight: bold;">↑</button>
-
-    <script>
-    // Back to Top functionality
-    window.onscroll = function() {
-        const backToTop = document.getElementById('backToTop');
-        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-            backToTop.style.display = "block";
-        } else {
-            backToTop.style.display = "none";
-        }
-    };
-
-    function scrollToTop() {
-        window.scrollTo({top: 0, behavior: 'smooth'});
-    }
-    </script>
-
     <!-- OpenAI ChatKit Chatbot -->
     <link rel="stylesheet" href="../assets/chatbot/chatbot.css">
     <script src="https://cdn.platform.openai.com/deployments/chatkit/chatkit.js" async></script>

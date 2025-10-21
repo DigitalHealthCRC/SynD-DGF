@@ -34,7 +34,14 @@
       "Bash(git rm:*)",
       "Bash(/plugin marketplace add:*)",
       "Bash(do)",
-      "Bash(echo:*)"
+      "Bash(echo:*)",
+      "Bash(test -f \"assets/css/synd-additional-components.css\")",
+      "Bash(test -f \"assets/templates/use-case-assessment-template.html\")",
+      "Bash(test -f \"assets/templates/impact-assessment-template.html\")",
+      "Bash(test -d \"assets/templates\")",
+      "Bash(test -f \"assets/images/Cat-PC.png\")",
+      "Bash(do sed -i 's|href=\"\"../../../../index.html\"\"|href=\"\"../../index.html\"\"|g' \"$file\")",
+      "Bash(tail -35 \"$file\")"
     ],
     "deny": [],
     "ask": []
