@@ -433,8 +433,9 @@ a:hover {
    =================================== */
 .step-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: var(--spacing-2xl);
+  align-items: stretch;
 }
 
 .step-card-modern {
@@ -446,6 +447,9 @@ a:hover {
   position: relative;
   border: 2px solid transparent;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .step-card-modern::before {
@@ -546,7 +550,14 @@ a:hover {
   font-size: var(--font-size-base);
   line-height: 1.7;
   color: var(--color-grey-dark);
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg);
+  flex-grow: 1;
+}
+
+.step-card-modern .btn-modern-accent {
+  margin-top: auto;
+  width: 100%;
+  text-align: center;
 }
 
 /* ===================================
@@ -554,8 +565,9 @@ a:hover {
    =================================== */
 .tool-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--spacing-2xl);
+  align-items: stretch;
 }
 
 .tool-card-modern {
@@ -566,6 +578,9 @@ a:hover {
   text-align: center;
   transition: all var(--transition-slow);
   border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .tool-card-modern:hover {
@@ -607,7 +622,14 @@ a:hover {
   font-size: var(--font-size-base);
   line-height: 1.7;
   color: var(--color-grey-dark);
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg);
+  flex-grow: 1;
+}
+
+.tool-card-modern .btn-modern-primary {
+  margin-top: auto;
+  width: 100%;
+  text-align: center;
 }
 
 /* ===================================
@@ -615,8 +637,9 @@ a:hover {
    =================================== */
 .resource-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--spacing-2xl);
+  align-items: stretch;
 }
 
 .resource-card-modern {
@@ -627,6 +650,9 @@ a:hover {
   text-align: center;
   transition: all var(--transition-slow);
   border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .resource-card-modern:hover {
@@ -665,7 +691,14 @@ a:hover {
   font-size: var(--font-size-base);
   line-height: 1.7;
   color: var(--color-grey-dark);
-  margin-bottom: var(--spacing-2xl);
+  margin-bottom: var(--spacing-lg);
+  flex-grow: 1;
+}
+
+.resource-card-modern .btn-modern-primary {
+  margin-top: auto;
+  width: 100%;
+  text-align: center;
 }
 
 /* ===================================
@@ -1039,9 +1072,10 @@ a:hover {
 .cta-cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: var(--spacing-xl);
+  gap: var(--spacing-2xl);
   max-width: 1000px;
   margin: 0 auto;
+  align-items: stretch;
 }
 
 .cta-card {
@@ -1051,6 +1085,9 @@ a:hover {
   border: 2px solid rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
   transition: all var(--transition-slow);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .cta-card:hover {
@@ -1068,22 +1105,26 @@ a:hover {
 }
 
 .cta-card p {
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg);
   opacity: 0.9;
   line-height: 1.6;
   font-size: var(--font-size-base);
+  flex-grow: 1;
 }
 
 .cta-card a {
   background: var(--color-white);
   color: var(--color-forest-green);
-  padding: 0.9rem 2rem;
+  padding: 0.75rem 1.5rem;
   text-decoration: none;
   border-radius: var(--radius-md);
   font-weight: 700;
   display: inline-block;
   transition: all var(--transition-base);
   box-shadow: 0 4px 16px rgba(255, 255, 255, 0.2);
+  margin-top: auto;
+  width: 100%;
+  text-align: center;
 }
 
 .cta-card a:hover {
