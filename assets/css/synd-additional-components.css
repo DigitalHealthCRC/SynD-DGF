@@ -622,6 +622,16 @@
   color: var(--color-grey-dark);
 }
 
+.step-indicator.completed .step-number {
+  background: rgba(255, 255, 255, 0.3);
+  color: var(--color-moss-green);
+}
+
+.step-indicator.current .step-number {
+  background: rgba(255, 255, 255, 0.3);
+  color: var(--color-forest-green-dark);
+}
+
 .step-name {
   font-size: 0.75rem;
   text-align: center;

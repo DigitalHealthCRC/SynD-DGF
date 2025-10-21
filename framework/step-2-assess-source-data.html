@@ -27,6 +27,21 @@
 <nav class="enhanced-breadcrumbs" aria-label="Breadcrumb navigation">
   <div class="breadcrumb-container">
 
+    <!-- Standard Breadcrumbs -->
+    <ol class="breadcrumb-list">
+      <li class="breadcrumb-item">
+        <a href="/" class="breadcrumb-link">
+          <span class="breadcrumb-icon"></span>
+          <span class="breadcrumb-text">Home</span>
+        </a>
+      </li>
+
+      <!-- Dynamic breadcrumbs will be inserted here by JavaScript -->
+      <li class="breadcrumb-item current" id="current-page">
+        <span class="breadcrumb-text">Step 2: Assess Source Data</span>
+      </li>
+    </ol>
+
     <!-- Framework Step Context -->
     <div class="framework-context" id="framework-context" style="display: none;">
       <div class="context-header">
@@ -56,21 +71,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Standard Breadcrumbs -->
-    <ol class="breadcrumb-list">
-      <li class="breadcrumb-item">
-        <a href="/" class="breadcrumb-link">
-          <span class="breadcrumb-icon"></span>
-          <span class="breadcrumb-text">Home</span>
-        </a>
-      </li>
-
-      <!-- Dynamic breadcrumbs will be inserted here by JavaScript -->
-      <li class="breadcrumb-item current" id="current-page">
-        <span class="breadcrumb-text">Step 2: Assess Source Data</span>
-      </li>
-    </ol>
 
   </div>
 </nav>

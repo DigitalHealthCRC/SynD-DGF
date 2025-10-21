@@ -16,6 +16,28 @@
     min-width: 120px;
 }
 
+/* Override btn-modern-secondary for light background in carousel */
+#prevButton.btn-modern-secondary {
+    background: transparent;
+    color: var(--color-forest-green);
+    border: 2px solid var(--color-forest-green);
+}
+
+#prevButton.btn-modern-secondary:hover:not(:disabled) {
+    background: var(--color-forest-green);
+    color: var(--color-white);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(45, 74, 43, 0.3);
+}
+
+#prevButton.btn-modern-secondary:disabled {
+    background: transparent;
+    color: var(--color-grey-light);
+    border-color: var(--color-grey-lighter);
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
 #prevButton svg,
 #nextButton svg {
     pointer-events: none;

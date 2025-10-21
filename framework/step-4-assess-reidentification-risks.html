@@ -26,6 +26,10 @@
     <!-- Enhanced Breadcrumbs with Framework Context -->
 <nav class="enhanced-breadcrumbs" aria-label="Breadcrumb navigation">
   <div class="breadcrumb-container">
+    <ol class="breadcrumb-list">
+      <li class="breadcrumb-item"><a href="/" class="breadcrumb-link"><span class="breadcrumb-icon"></span><span class="breadcrumb-text">Home</span></a></li>
+      <li class="breadcrumb-item current" id="current-page"><span class="breadcrumb-text">Step 4: Assess Re-identification Risks</span></li>
+    </ol>
     <div class="framework-context" id="framework-context" style="display: none;">
       <div class="context-header">
         <span class="context-icon"></span>
@@ -38,15 +42,6 @@
         <div class="step-indicator" data-step="4"><span class="step-number">4</span><span class="step-name">Risk Assessment</span></div>
         <div class="step-indicator" data-step="5"><span class="step-number">5</span><span class="step-name">Risk Management</span></div>
       </div>
-    </div>
-    <ol class="breadcrumb-list">
-      <li class="breadcrumb-item"><a href="/" class="breadcrumb-link"><span class="breadcrumb-icon"></span><span class="breadcrumb-text">Home</span></a></li>
-      <li class="breadcrumb-item current" id="current-page"><span class="breadcrumb-text">Step 4: Assess Re-identification Risks</span></li>
-    </ol>
-    <div class="page-actions">
-      <button class="action-button" onclick="printPage()" title="Print this page"><span class="action-icon">️</span></button>
-      <button class="action-button" onclick="sharePage()" title="Share this page"><span class="action-icon"></span></button>
-      <button class="action-button" onclick="bookmarkPage()" title="Bookmark this page"><span class="action-icon"></span></button>
     </div>
   </div>
 </nav>
@@ -83,18 +78,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     buildBreadcrumbs();
 });
-
-function printPage() { window.print(); }
-function sharePage() {
-    if (navigator.share) navigator.share({ title: document.title, url: window.location.href });
-    else navigator.clipboard.writeText(window.location.href).then(() => alert('Page URL copied to clipboard'));
-}
-function bookmarkPage() {
-    let bookmarks = JSON.parse(localStorage.getItem('synd-bookmarks') || '[]');
-    bookmarks.push({ title: document.title, url: window.location.href, timestamp: new Date().toISOString() });
-    localStorage.setItem('synd-bookmarks', JSON.stringify(bookmarks));
-    alert('Page bookmarked successfully');
-}
 </script>
 
     <div class="container">
