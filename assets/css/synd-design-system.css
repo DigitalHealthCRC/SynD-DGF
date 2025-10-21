@@ -490,22 +490,10 @@ a:hover {
 
 .step-card-header {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
   margin-bottom: var(--spacing-lg);
-  position: relative;
-}
-
-.step-badge {
-  position: absolute;
-  top: -0.5rem;
-  right: 0;
-  background: linear-gradient(135deg, var(--color-forest-green) 0%, var(--color-moss-green) 100%);
-  color: var(--color-white);
-  font-weight: 800;
-  font-size: 0.9rem;
-  padding: 0.4rem 0.9rem;
-  border-radius: var(--radius-full);
-  box-shadow: var(--shadow-sm);
+  gap: var(--spacing-sm) var(--spacing-lg);
 }
 
 .step-icon {
@@ -515,10 +503,25 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: var(--spacing-lg);
   box-shadow: var(--shadow-md);
   transition: all var(--transition-base);
   flex-shrink: 0;
+  order: 1;
+}
+
+.step-badge {
+  background: linear-gradient(135deg, var(--color-forest-green) 0%, var(--color-moss-green) 100%);
+  color: var(--color-white);
+  font-weight: 800;
+  font-size: 0.7rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  white-space: nowrap;
+  order: 3;
+  flex-basis: 72px;
+  display: block;
 }
 
 .step-card-modern:hover .step-icon {
@@ -544,6 +547,12 @@ a:hover {
   font-weight: 700;
   margin: 0;
   flex: 1;
+}
+
+.step-card-header h3 {
+  order: 2;
+  margin: 0;
+  align-self: center;
 }
 
 .step-card-modern p {
@@ -1521,11 +1530,6 @@ a:hover {
     font-size: var(--font-size-md);
   }
 
-  .step-badge {
-    position: static;
-    display: inline-block;
-    margin-bottom: var(--spacing-md);
-  }
 
   .breadcrumb-container {
     flex-direction: column;
