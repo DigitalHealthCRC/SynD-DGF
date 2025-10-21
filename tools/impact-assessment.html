@@ -1,23 +1,37 @@
-<!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impact Assessment - SynD-DGF</title>
 
-<!-- SynD-DGF Unified Design System - Forest Canopy Theme -->
-<link rel="stylesheet" href="../assets/css/synd-design-system.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Lucide Icons -->
-<script src="https://unpkg.com/lucide@latest"></script>
+    <!-- SynD-DGF Unified Design System - Forest Canopy Theme -->
+    <link rel="stylesheet" href="../assets/css/synd-design-system.css">
 
+    <!-- Assessment Carousel Component CSS -->
+    <link rel="stylesheet" href="../assets/css/assessment-carousel.css">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2A324B;">
         <div class="container">
             <a class="navbar-brand" href="../index.html">SynD-DGF</a>
-            <div class="navbar-nav ms-auto">
-                <a class="nav-link" href="../index.html">Home</a>
-                <a class="nav-link" href="../framework.html">Framework</a>
-                <a class="nav-link active" href="../assessment-tools.html">Assessment Tools</a>
-                <a class="nav-link" href="../resources.html">Resources</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link" href="../index.html">Home</a>
+                    <a class="nav-link" href="../framework.html">Framework</a>
+                    <a class="nav-link active" href="../assessment-tools.html">Assessment Tools</a>
+                    <a class="nav-link" href="../resources.html">Resources</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -32,369 +46,464 @@
             </ol>
         </nav>
     </div>
-    
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
 
-                <h1>Impact assessment</h1>
-                
-                <div class="assessment-intro">
-                    <p class="lead">This mandatory assessment evaluates the broader ethical, social, and cultural implications of your synthetic health data project to ensure responsible and appropriate use.</p>
-                    <div class="alert alert-info">
-                        <strong>Important:</strong> This assessment must identify and address all potential negative impacts before your project can proceed. Failure to adequately consider any section may prevent project approval.
-                    </div>
-                </div>
+    <div class="container my-5">
+        <!-- Page Header -->
+        <div class="text-center mb-5">
+            <h1 class="display-5 mb-3" style="color: #2d4a2b;">Impact assessment</h1>
+            <p class="lead text-muted">Evaluate the broader ethical, social, and cultural implications of your synthetic health data project</p>
+            <div class="alert alert-info mx-auto" style="max-width: 800px;">
+                <strong>Important:</strong> This mandatory assessment must identify and address all potential negative impacts before your project can proceed. Failure to adequately consider any section may prevent project approval.
+            </div>
+        </div>
 
-                <!-- Framework Integration Panel -->
-                {% include 'Framework Integration Panel' %}
+        <!-- Carousel Container -->
+        <div id="carouselContainer" class="mb-5"></div>
 
-                <!-- Assessment Outcomes Integration -->
-                {% include 'Assessment Outcomes Integration' %}
-
-                <form id="impactAssessment" class="assessment-form">
-                    <div class="assessment-section" data-component-theme="portalThemeColorPurple" data-framework-refs="ethics-assessment">
-                        <h2>Data ethics considerations</h2>
-                        <p>Evaluate the ethical implications of your synthetic data project across key principles of responsible data use.</p>
-                        <small class="framework-note">Framework requirement: Complete ethical assessment per Appendix 5</small>
-                        
-                        <div class="question-group">
-                            <h3>Fairness and non-discrimination</h3>
-                            <div class="sub-question">
-                                <h4>Potential bias in source data</h4>
-                                <p>Does your source data contain known biases or systematic exclusions that could perpetuate unfair outcomes?</p>
-                                <small class="framework-note">Framework requirement: Bias assessment mandatory under Step 1 use case evaluation</small>
-                                <div class="radio-group">
-                                    <label><input type="radio" name="source-bias" value="no-bias" required data-framework-guidance="bias-assessment"> No known biases or systematic exclusions</label>
-                                    <label><input type="radio" name="source-bias" value="minor-bias" required> Minor biases that can be addressed through synthetic data generation</label>
-                                    <label><input type="radio" name="source-bias" value="significant-bias" required> Significant biases that require special consideration</label>
-                                    <label><input type="radio" name="source-bias" value="unknown" required> Bias status unknown, requires further investigation</label>
-                                </div>
-                                <textarea name="bias-description" placeholder="Describe any known biases and how they will be addressed..." class="form-control" rows="3"></textarea>
-                            </div>
-
-                            <div class="sub-question">
-                                <h4>Algorithmic fairness</h4>
-                                <p>How will you ensure synthetic data generation algorithms don't introduce or amplify discrimination?</p>
-                                <small class="framework-note">Framework requirement: Algorithmic fairness evaluation per Step 3 generation guidelines</small>
-                                <div class="checkbox-group">
-                                    <label><input type="checkbox" name="fairness-measures" value="testing" data-framework-guidance="quality-assessment"> Regular testing for discriminatory outcomes across demographic groups</label>
-                                    <label><input type="checkbox" name="fairness-measures" value="validation"> Validation of synthetic data against fairness metrics</label>
-                                    <label><input type="checkbox" name="fairness-measures" value="monitoring"> Ongoing monitoring of algorithm performance for bias</label>
-                                    <label><input type="checkbox" name="fairness-measures" value="adjustment"> Adjustment methods to correct for identified biases</label>
-                                    <label><input type="checkbox" name="fairness-measures" value="review"> Regular review by diverse stakeholders</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="question-group">
-                            <h3>Transparency and accountability</h3>
-                            <div class="sub-question">
-                                <h4>Method transparency</h4>
-                                <p>How will you ensure appropriate transparency about your synthetic data generation methods?</p>
-                                <small class="framework-note">Framework requirement: Documentation standards per Step 3 and Appendix 11</small>
-                                <div class="checkbox-group">
-                                    <label><input type="checkbox" name="transparency-measures" value="documentation" data-framework-guidance="documentation-standards"> Comprehensive documentation of methods and parameters</label>
-                                    <label><input type="checkbox" name="transparency-measures" value="publication"> Publication of methodological approach in appropriate venues</label>
-                                    <label><input type="checkbox" name="transparency-measures" value="stakeholder-briefing"> Regular briefings to key stakeholders and oversight bodies</label>
-                                    <label><input type="checkbox" name="transparency-measures" value="audit-trail"> Maintaining detailed audit trails of all processing steps</label>
-                                    <label><input type="checkbox" name="transparency-measures" value="external-review"> External technical review of methods by independent experts</label>
-                                </div>
-                            </div>
-
-                            <div class="sub-question">
-                                <h4>Accountability mechanisms</h4>
-                                <p>What accountability measures will be in place for your project?</p>
-                                <div class="checkbox-group">
-                                    <label><input type="checkbox" name="accountability-measures" value="governance"> Clear governance structure with defined roles and responsibilities</label>
-                                    <label><input type="checkbox" name="accountability-measures" value="oversight"> Independent oversight or advisory committee</label>
-                                    <label><input type="checkbox" name="accountability-measures" value="complaint"> Formal complaint or feedback mechanism for concerns</label>
-                                    <label><input type="checkbox" name="accountability-measures" value="incident"> Incident response procedures for data breaches or misuse</label>
-                                    <label><input type="checkbox" name="accountability-measures" value="audit"> Regular auditing of compliance with governance framework</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="question-group">
-                            <h3>Proportionality assessment</h3>
-                            <p>Assess whether the privacy intrusion and data use is proportionate to the expected public benefit.</p>
-                            <small class="framework-note">Framework requirement: Proportionality assessment mandatory under public benefit evaluation</small>
-                            <textarea name="proportionality-assessment" placeholder="Explain how the privacy implications of your project are proportionate to the expected benefits for health consumers and the health system..." class="form-control" rows="4" required data-framework-guidance="public-benefit"></textarea>
-                            
-                            <div class="radio-group">
-                                <label><input type="radio" name="proportionality-conclusion" value="proportionate" required> The privacy implications are proportionate to the public benefits</label>
-                                <label><input type="radio" name="proportionality-conclusion" value="questionable" required> Proportionality is questionable and requires additional safeguards</label>
-                                <label><input type="radio" name="proportionality-conclusion" value="disproportionate" required> The privacy implications appear disproportionate to the benefits</label>
-                            </div>
-                        </div>
-
-                        <div class="question-group">
-                            <h3>Unintended consequences</h3>
-                            <p>Identify potential unintended consequences or misuse scenarios:</p>
-                            
-                            <div class="consequence-analysis">
-                                <h4>Potential misuse scenarios</h4>
-                                <div class="checkbox-group">
-                                    <label><input type="checkbox" name="misuse-scenarios" value="commercial"> Inappropriate commercial use beyond public benefit purposes</label>
-                                    <label><input type="checkbox" name="misuse-scenarios" value="discrimination"> Use for discriminatory profiling or decision-making</label>
-                                    <label><input type="checkbox" name="misuse-scenarios" value="surveillance"> Expansion into surveillance or monitoring applications</label>
-                                    <label><input type="checkbox" name="misuse-scenarios" value="reidentification"> Attempts to re-identify individuals through data linkage</label>
-                                    <label><input type="checkbox" name="misuse-scenarios" value="unauthorised"> Unauthorised sharing or distribution of synthetic data</label>
-                                    <label><input type="checkbox" name="misuse-scenarios" value="other"> Other potential misuse (specify below)</label>
-                                </div>
-                                <textarea name="other-misuse" placeholder="Describe any other potential misuse scenarios..." class="form-control" rows="2"></textarea>
-                            </div>
-
-                            <div class="mitigation-measures">
-                                <h4>Mitigation measures</h4>
-                                <p>How will you prevent or mitigate these risks?</p>
-                                <textarea name="risk-mitigation" placeholder="Describe specific measures to prevent misuse and unintended consequences..." class="form-control" rows="4" required></textarea>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="assessment-section" data-component-theme="portalThemeColorRed" data-framework-refs="indigenous-sovereignty">
-                        <h2>Indigenous data sovereignty</h2>
-                        <p>Special considerations when source data includes information about Aboriginal and Torres Strait Islander peoples.</p>
-                        <small class="framework-note">Framework requirement: Indigenous data governance assessment per Appendix 5</small>
-                        
-                        <div class="question-group">
-                            <h3>Indigenous data inclusion</h3>
-                            <p>Does your source data include information about Aboriginal and Torres Strait Islander peoples?</p>
-                            <small class="framework-note">Framework requirement: Mandatory Indigenous data identification and governance compliance</small>
-                            <div class="radio-group">
-                                <label><input type="radio" name="indigenous-data" value="no" required data-framework-guidance="indigenous-sovereignty"> No, our source data does not include Indigenous health information</label>
-                                <label><input type="radio" name="indigenous-data" value="yes" required> Yes, our source data includes Indigenous health information</label>
-                                <label><input type="radio" name="indigenous-data" value="unknown" required> Unknown, requires investigation to determine</label>
-                                <label><input type="radio" name="indigenous-data" value="potential" required> Potentially, through general population datasets</label>
-                            </div>
-                        </div>
-
-                        <div id="indigenous-considerations" style="display: none;">
-                            <div class="question-group">
-                                <h3>Indigenous rights recognition</h3>
-                                <p>How are you recognising Indigenous peoples' rights to control data about their communities?</p>
-                                <small class="framework-note">Framework requirement: Indigenous consultation and governance framework compliance</small>
-                                <div class="checkbox-group">
-                                    <label><input type="checkbox" name="indigenous-rights" value="consultation" data-framework-guidance="community-notification"> Consultation with relevant Aboriginal Community Controlled Health Organisations (ACCHOs)</label>
-                                    <label><input type="checkbox" name="indigenous-rights" value="governance"> Following established Indigenous data governance frameworks (e.g., Maiam nayri Wingara)</label>
-                                    <label><input type="checkbox" name="indigenous-rights" value="community-benefit"> Ensuring community benefit and not just public benefit</label>
-                                    <label><input type="checkbox" name="indigenous-rights" value="cultural-protocols"> Respecting cultural protocols and sensitivities</label>
-                                    <label><input type="checkbox" name="indigenous-rights" value="control"> Providing mechanisms for Indigenous community control over data use</label>
-                                </div>
-                            </div>
-
-                            <div class="question-group">
-                                <h3>Community engagement</h3>
-                                <p>Describe your engagement with Indigenous communities and organisations:</p>
-                                <textarea name="indigenous-engagement" placeholder="Detail your consultation process, community representatives involved, and outcomes of engagement..." class="form-control" rows="4"></textarea>
-                                
-                                <div class="engagement-status">
-                                    <p>What is the status of your community engagement?</p>
-                                    <div class="radio-group">
-                                        <label><input type="radio" name="engagement-status" value="completed"> Completed with community support for the project</label>
-                                        <label><input type="radio" name="engagement-status" value="ongoing"> Ongoing with positive initial feedback</label>
-                                        <label><input type="radio" name="engagement-status" value="planned"> Planned but not yet commenced</label>
-                                        <label><input type="radio" name="engagement-status" value="concerns"> Concerns raised requiring further consultation</label>
-                                        <label><input type="radio" name="engagement-status" value="opposition"> Community opposition to the project</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="question-group">
-                                <h3>Cultural considerations</h3>
-                                <p>What specific cultural sensitivities or considerations apply to your project?</p>
-                                <textarea name="cultural-considerations" placeholder="Describe cultural factors, sacred or sensitive information, ceremonial restrictions, or other considerations..." class="form-control" rows="3"></textarea>
-                                
-                                <p>How are you addressing these cultural considerations in your synthetic data approach?</p>
-                                <textarea name="cultural-mitigation" placeholder="Explain how synthetic data generation methods account for cultural sensitivities..." class="form-control" rows="3"></textarea>
-                            </div>
-                        </div>
-
-                        <div class="indigenous-assessment">
-                            <h4>Indigenous data sovereignty assessment</h4>
-                            <div class="radio-group">
-                                <label><input type="radio" name="indigenous-assessment" value="compliant" required> Indigenous data sovereignty requirements fully addressed</label>
-                                <label><input type="radio" name="indigenous-assessment" value="partial" required> Partial compliance, additional work required</label>
-                                <label><input type="radio" name="indigenous-assessment" value="non-compliant" required> Requirements not adequately addressed</label>
-                                <label><input type="radio" name="indigenous-assessment" value="not-applicable" required> Not applicable (no Indigenous data involved)</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="assessment-section" data-component-theme="portalThemeColorBlue" data-framework-refs="community-impacts">
-                        <h2>Community and stakeholder impacts</h2>
-                        <p>Assess the broader impacts on communities, stakeholders, and society.</p>
-                        <small class="framework-note">Framework requirement: Community impact assessment per Step 1 evaluation criteria</small>
-                        
-                        <div class="question-group">
-                            <h3>Community trust implications</h3>
-                            <p>How might your project affect community trust in health data systems?</p>
-                            <small class="framework-note">Framework requirement: Community trust evaluation per public benefit assessment</small>
-                            <div class="impact-analysis">
-                                <h4>Potential positive impacts</h4>
-                                <div class="checkbox-group">
-                                    <label><input type="checkbox" name="positive-impacts" value="transparency"> Increased transparency about data use for public benefit</label>
-                                    <label><input type="checkbox" name="positive-impacts" value="privacy-protection"> Demonstration of strong privacy protection measures</label>
-                                    <label><input type="checkbox" name="positive-impacts" value="community-benefit"> Clear community benefits from research outcomes</label>
-                                    <label><input type="checkbox" name="positive-impacts" value="innovation"> Innovation in privacy-preserving health research</label>
-                                    <label><input type="checkbox" name="positive-impacts" value="engagement"> Improved community engagement in health data governance</label>
-                                </div>
-
-                                <h4>Potential negative impacts</h4>
-                                <div class="checkbox-group">
-                                    <label><input type="checkbox" name="negative-impacts" value="mistrust"> Increased mistrust or concerns about data use</label>
-                                    <label><input type="checkbox" name="negative-impacts" value="confusion"> Confusion about synthetic data and privacy implications</label>
-                                    <label><input type="checkbox" name="negative-impacts" value="consent"> Questions about adequacy of existing consent processes</label>
-                                    <label><input type="checkbox" name="negative-impacts" value="slippery-slope"> Concerns about expanding uses of health data</label>
-                                    <label><input type="checkbox" name="negative-impacts" value="exclusion"> Feelings of exclusion from data governance decisions</label>
-                                </div>
-
-                                <p>How will you monitor and address community concerns?</p>
-                                <textarea name="community-monitoring" placeholder="Describe your approach to ongoing community engagement and concern resolution..." class="form-control" rows="3" required data-framework-guidance="community-notification"></textarea>
-                            </div>
-                        </div>
-
-                        <div class="question-group">
-                            <h3>Vulnerable and marginalised populations</h3>
-                            <p>Consider specific implications for vulnerable or marginalised groups:</p>
-                            
-                            <div class="vulnerability-assessment">
-                                <h4>Groups that may be disproportionately affected</h4>
-                                <div class="checkbox-group">
-                                    <label><input type="checkbox" name="vulnerable-groups" value="indigenous"> Aboriginal and Torres Strait Islander peoples</label>
-                                    <label><input type="checkbox" name="vulnerable-groups" value="elderly"> Elderly or aged care populations</label>
-                                    <label><input type="checkbox" name="vulnerable-groups" value="mental-health"> People with mental health conditions</label>
-                                    <label><input type="checkbox" name="vulnerable-groups" value="disability"> People with disabilities</label>
-                                    <label><input type="checkbox" name="vulnerable-groups" value="children"> Children and adolescents</label>
-                                    <label><input type="checkbox" name="vulnerable-groups" value="socioeconomic"> People from low socioeconomic backgrounds</label>
-                                    <label><input type="checkbox" name="vulnerable-groups" value="rural-remote"> Rural and remote communities</label>
-                                    <label><input type="checkbox" name="vulnerable-groups" value="culturally-diverse"> Culturally and linguistically diverse communities</label>
-                                    <label><input type="checkbox" name="vulnerable-groups" value="other"> Other vulnerable groups (specify below)</label>
-                                </div>
-                                <textarea name="other-vulnerable" placeholder="Specify any other vulnerable groups and their specific considerations..." class="form-control" rows="2"></textarea>
-                            </div>
-
-                            <div class="protection-measures">
-                                <h4>Additional protection measures</h4>
-                                <p>What additional measures will protect vulnerable populations?</p>
-                                <small class="framework-note">Framework requirement: Vulnerable population safeguards per Step 5 risk management</small>
-                                <textarea name="vulnerability-protection" placeholder="Describe specific safeguards, consultation processes, or additional protections for vulnerable groups..." class="form-control" rows="4" required data-framework-guidance="risk-mitigation"></textarea>
-                            </div>
-                        </div>
-
-                        <div class="question-group">
-                            <h3>Societal benefits and risks</h3>
-                            <p>Evaluate the broader societal implications of your synthetic data use:</p>
-                            
-                            <div class="societal-assessment">
-                                <h4>Expected societal benefits</h4>
-                                <textarea name="societal-benefits" placeholder="Describe the broader societal benefits beyond immediate health outcomes..." class="form-control" rows="3" required></textarea>
-                                
-                                <h4>Potential societal risks</h4>
-                                <textarea name="societal-risks" placeholder="Identify potential negative societal consequences or unintended effects..." class="form-control" rows="3" required></textarea>
-                                
-                                <h4>Risk-benefit balance</h4>
-                                <div class="radio-group">
-                                    <label><input type="radio" name="risk-benefit-balance" value="strongly-positive" required> Societal benefits clearly outweigh risks</label>
-                                    <label><input type="radio" name="risk-benefit-balance" value="positive" required> Benefits likely outweigh risks with proper safeguards</label>
-                                    <label><input type="radio" name="risk-benefit-balance" value="neutral" required> Benefits and risks are roughly balanced</label>
-                                    <label><input type="radio" name="risk-benefit-balance" value="negative" required> Risks may outweigh benefits</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="question-group">
-                            <h3>Stakeholder engagement requirements</h3>
-                            <p>What ongoing stakeholder engagement will be needed?</p>
-                            
-                            <div class="stakeholder-plan">
-                                <h4>Key stakeholder groups</h4>
-                                <div class="checkbox-group">
-                                    <label><input type="checkbox" name="stakeholder-groups" value="patients"> Patients and consumer representatives</label>
-                                    <label><input type="checkbox" name="stakeholder-groups" value="clinicians"> Healthcare providers and clinicians</label>
-                                    <label><input type="checkbox" name="stakeholder-groups" value="researchers"> Research and academic community</label>
-                                    <label><input type="checkbox" name="stakeholder-groups" value="regulators"> Regulatory and oversight bodies</label>
-                                    <label><input type="checkbox" name="stakeholder-groups" value="indigenous"> Indigenous community organisations</label>
-                                    <label><input type="checkbox" name="stakeholder-groups" value="advocacy"> Patient advocacy and community groups</label>
-                                    <label><input type="checkbox" name="stakeholder-groups" value="industry"> Health technology and industry partners</label>
-                                    <label><input type="checkbox" name="stakeholder-groups" value="ethics"> Ethics committees and review boards</label>
-                                </div>
-                                
-                                <h4>Engagement approach</h4>
-                                <textarea name="engagement-approach" placeholder="Describe your ongoing stakeholder engagement strategy..." class="form-control" rows="4" required></textarea>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="overall-impact-assessment">
-                        <h2>Overall impact assessment</h2>
-                        <div class="impact-summary">
-                            <h3>Summary of key findings</h3>
-                            <textarea name="impact-summary" placeholder="Provide a comprehensive summary of the main ethical, cultural, and social considerations identified..." class="form-control" rows="5" required></textarea>
-                        </div>
-
-                        <div class="mitigation-plan">
-                            <h3>Risk mitigation and management plan</h3>
-                            <textarea name="mitigation-plan" placeholder="Outline your comprehensive plan for managing and mitigating identified risks..." class="form-control" rows="5" required></textarea>
-                        </div>
-
-                        <div class="impact-conclusion">
-                            <h3>Impact assessment conclusion</h3>
-                            <div class="radio-group">
-                                <label><input type="radio" name="impact-conclusion" value="approved" required> All impacts adequately considered and mitigated - project can proceed</label>
-                                <label><input type="radio" name="impact-conclusion" value="conditional" required> Project can proceed with additional safeguards and monitoring</label>
-                                <label><input type="radio" name="impact-conclusion" value="revision" required> Significant concerns identified - project requires revision</label>
-                                <label><input type="radio" name="impact-conclusion" value="rejected" required> Unacceptable risks or impacts - project should not proceed</label>
-                            </div>
-                        </div>
-                        
-                        <div class="form-actions">
-                            <button type="button" id="validate-assessment" class="btn-modern-primary">Validate Assessment</button>
-                            <button type="submit" id="save-impact-assessment" class="btn-modern-primary" style="display: none;">Save Assessment</button>
-                            <button type="button" id="export-impact-assessment" class="btn-modern-primary" style="display: none;">Export as PDF</button>
-                        </div>
-                    </div>
-
-                    <div class="next-steps" id="impact-next-steps" style="display: none;">
-                        <h2>Next steps</h2>
-                        <div id="impact-steps-content"></div>
-                    </div>
-                </form>
-
-                <div class="assessment-resources">
-                    <h2>Assessment resources</h2>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="resource-card">
-                                <h3>Indigenous data governance</h3>
-                                <p>Guidance on Indigenous data sovereignty and community engagement requirements.</p>
-                                <a href="../resources/appendices/impact-assessment.html" class="btn-modern-primary">View Guidance</a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="resource-card">
-                                <h3>Ethics frameworks</h3>
-                                <p>Detailed ethical considerations for health data research and synthetic data generation.</p>
-                                <a href="../resources/appendices/policy-legal-framework.html" class="btn-modern-primary">View Frameworks</a>
-                            </div>
+        <!-- Assessment Resources -->
+        <div class="assessment-resources mt-5 pt-5 border-top">
+            <h2 class="h3 mb-4" style="color: #2d4a2b;">Assessment resources</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h5 card-title" style="color: #2d4a2b;">Indigenous data governance</h3>
+                            <p class="card-text text-muted">Guidance on Indigenous data sovereignty and community engagement requirements.</p>
+                            <a href="../resources/appendices/impact-assessment.html" class="btn btn-modern-primary">View Guidance</a>
                         </div>
                     </div>
                 </div>
-
-                <div class="step-navigation">
-                    <div class="nav-buttons">
-                        <a href="use-case-checklist.html" class="nav-button nav-previous">← Use Case Checklist</a>
-                        <a href="../assessment-tools.html" class="nav-button nav-next">Back to Assessment Tools →</a>
+                <div class="col-md-6">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h5 card-title" style="color: #2d4a2b;">Ethics frameworks</h3>
+                            <p class="card-text text-muted">Detailed ethical considerations for health data research and synthetic data generation.</p>
+                            <a href="../resources/appendices/policy-legal-framework.html" class="btn btn-modern-primary">View Frameworks</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Step Navigation -->
+        <div class="step-navigation">
+            <div class="nav-buttons">
+                <a href="use-case-checklist.html" class="nav-button nav-previous">← Use Case Checklist</a>
+                <a href="../assessment-tools.html" class="nav-button nav-next">Back to Assessment Tools →</a>
+            </div>
+        </div>
     </div>
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Assessment Tool Functionality -->
-    <script src="../assets/js/ImpactAssessment.js"></script>
+
+    <!-- Assessment Carousel Component -->
+    <script src="../assets/js/assessment-carousel.js"></script>
+
+    <!-- Impact Assessment Configuration -->
+    <script>
+        // Initialize Impact Assessment Carousel
+        document.addEventListener('DOMContentLoaded', function() {
+            const impactAssessment = new AssessmentCarousel({
+                containerId: 'carouselContainer',
+                storageKey: 'impact-assessment-progress',
+                autoSave: true,
+                steps: [
+                    {
+                        title: 'Data ethics considerations',
+                        description: 'Evaluate the ethical implications of your synthetic data project across key principles of responsible data use.',
+                        questions: [
+                            {
+                                id: 'source-bias',
+                                type: 'radio',
+                                label: 'Does your source data contain known biases or systematic exclusions that could perpetuate unfair outcomes?',
+                                required: true,
+                                options: [
+                                    { value: 'no-bias', label: 'No known biases or systematic exclusions' },
+                                    { value: 'minor-bias', label: 'Minor biases that can be addressed through synthetic data generation' },
+                                    { value: 'significant-bias', label: 'Significant biases that require special consideration' },
+                                    { value: 'unknown', label: 'Bias status unknown, requires further investigation' }
+                                ]
+                            },
+                            {
+                                id: 'bias-description',
+                                type: 'textarea',
+                                label: 'Describe any known biases and how they will be addressed',
+                                placeholder: 'Detail the nature of biases in your source data and your mitigation strategy...',
+                                rows: 3,
+                                required: false
+                            },
+                            {
+                                id: 'fairness-measures',
+                                type: 'checkbox',
+                                label: 'How will you ensure synthetic data generation algorithms don\'t introduce or amplify discrimination?',
+                                required: true,
+                                options: [
+                                    { value: 'testing', label: 'Regular testing for discriminatory outcomes across demographic groups' },
+                                    { value: 'validation', label: 'Validation of synthetic data against fairness metrics' },
+                                    { value: 'monitoring', label: 'Ongoing monitoring of algorithm performance for bias' },
+                                    { value: 'adjustment', label: 'Adjustment methods to correct for identified biases' },
+                                    { value: 'review', label: 'Regular review by diverse stakeholders' }
+                                ]
+                            },
+                            {
+                                id: 'transparency-measures',
+                                type: 'checkbox',
+                                label: 'How will you ensure appropriate transparency about your synthetic data generation methods?',
+                                required: true,
+                                options: [
+                                    { value: 'documentation', label: 'Comprehensive documentation of methods and parameters' },
+                                    { value: 'publication', label: 'Publication of methodological approach in appropriate venues' },
+                                    { value: 'stakeholder-briefing', label: 'Regular briefings to key stakeholders and oversight bodies' },
+                                    { value: 'audit-trail', label: 'Maintaining detailed audit trails of all processing steps' },
+                                    { value: 'external-review', label: 'External technical review of methods by independent experts' }
+                                ]
+                            },
+                            {
+                                id: 'accountability-measures',
+                                type: 'checkbox',
+                                label: 'What accountability measures will be in place for your project?',
+                                required: true,
+                                options: [
+                                    { value: 'governance', label: 'Clear governance structure with defined roles and responsibilities' },
+                                    { value: 'oversight', label: 'Independent oversight or advisory committee' },
+                                    { value: 'complaint', label: 'Formal complaint or feedback mechanism for concerns' },
+                                    { value: 'incident', label: 'Incident response procedures for data breaches or misuse' },
+                                    { value: 'audit', label: 'Regular auditing of compliance with governance framework' }
+                                ]
+                            },
+                            {
+                                id: 'proportionality-assessment',
+                                type: 'textarea',
+                                label: 'Assess whether the privacy intrusion and data use is proportionate to the expected public benefit',
+                                placeholder: 'Explain how the privacy implications of your project are proportionate to the expected benefits for health consumers and the health system...',
+                                rows: 4,
+                                required: true
+                            },
+                            {
+                                id: 'proportionality-conclusion',
+                                type: 'radio',
+                                label: 'Proportionality conclusion',
+                                required: true,
+                                options: [
+                                    { value: 'proportionate', label: 'The privacy implications are proportionate to the public benefits' },
+                                    { value: 'questionable', label: 'Proportionality is questionable and requires additional safeguards' },
+                                    { value: 'disproportionate', label: 'The privacy implications appear disproportionate to the benefits' }
+                                ]
+                            },
+                            {
+                                id: 'misuse-scenarios',
+                                type: 'checkbox',
+                                label: 'Identify potential misuse scenarios',
+                                required: true,
+                                options: [
+                                    { value: 'commercial', label: 'Inappropriate commercial use beyond public benefit purposes' },
+                                    { value: 'discrimination', label: 'Use for discriminatory profiling or decision-making' },
+                                    { value: 'surveillance', label: 'Expansion into surveillance or monitoring applications' },
+                                    { value: 'reidentification', label: 'Attempts to re-identify individuals through data linkage' },
+                                    { value: 'unauthorised', label: 'Unauthorised sharing or distribution of synthetic data' },
+                                    { value: 'other', label: 'Other potential misuse' }
+                                ]
+                            },
+                            {
+                                id: 'risk-mitigation',
+                                type: 'textarea',
+                                label: 'How will you prevent or mitigate these misuse risks?',
+                                placeholder: 'Describe specific measures to prevent misuse and unintended consequences...',
+                                rows: 4,
+                                required: true
+                            }
+                        ]
+                    },
+                    {
+                        title: 'Indigenous data sovereignty',
+                        description: 'Special considerations when source data includes information about Aboriginal and Torres Strait Islander peoples.',
+                        questions: [
+                            {
+                                id: 'indigenous-data',
+                                type: 'radio',
+                                label: 'Does your source data include information about Aboriginal and Torres Strait Islander peoples?',
+                                required: true,
+                                options: [
+                                    { value: 'no', label: 'No, our source data does not include Indigenous health information' },
+                                    { value: 'yes', label: 'Yes, our source data includes Indigenous health information' },
+                                    { value: 'unknown', label: 'Unknown, requires investigation to determine' },
+                                    { value: 'potential', label: 'Potentially, through general population datasets' }
+                                ]
+                            },
+                            {
+                                id: 'indigenous-rights',
+                                type: 'checkbox',
+                                label: 'How are you recognising Indigenous peoples\' rights to control data about their communities? (Select if applicable)',
+                                required: false,
+                                options: [
+                                    { value: 'consultation', label: 'Consultation with relevant Aboriginal Community Controlled Health Organisations (ACCHOs)' },
+                                    { value: 'governance', label: 'Following established Indigenous data governance frameworks (e.g., Maiam nayri Wingara)' },
+                                    { value: 'community-benefit', label: 'Ensuring community benefit and not just public benefit' },
+                                    { value: 'cultural-protocols', label: 'Respecting cultural protocols and sensitivities' },
+                                    { value: 'control', label: 'Providing mechanisms for Indigenous community control over data use' }
+                                ]
+                            },
+                            {
+                                id: 'indigenous-engagement',
+                                type: 'textarea',
+                                label: 'Describe your engagement with Indigenous communities and organisations (if applicable)',
+                                placeholder: 'Detail your consultation process, community representatives involved, and outcomes of engagement...',
+                                rows: 4,
+                                required: false
+                            },
+                            {
+                                id: 'engagement-status',
+                                type: 'radio',
+                                label: 'What is the status of your community engagement? (Select if applicable)',
+                                required: false,
+                                options: [
+                                    { value: 'completed', label: 'Completed with community support for the project' },
+                                    { value: 'ongoing', label: 'Ongoing with positive initial feedback' },
+                                    { value: 'planned', label: 'Planned but not yet commenced' },
+                                    { value: 'concerns', label: 'Concerns raised requiring further consultation' },
+                                    { value: 'opposition', label: 'Community opposition to the project' },
+                                    { value: 'n/a', label: 'Not applicable' }
+                                ]
+                            },
+                            {
+                                id: 'cultural-considerations',
+                                type: 'textarea',
+                                label: 'What specific cultural sensitivities or considerations apply to your project? (if applicable)',
+                                placeholder: 'Describe cultural factors, sacred or sensitive information, ceremonial restrictions, or other considerations...',
+                                rows: 3,
+                                required: false
+                            },
+                            {
+                                id: 'cultural-mitigation',
+                                type: 'textarea',
+                                label: 'How are you addressing these cultural considerations in your synthetic data approach? (if applicable)',
+                                placeholder: 'Explain how synthetic data generation methods account for cultural sensitivities...',
+                                rows: 3,
+                                required: false
+                            },
+                            {
+                                id: 'indigenous-assessment',
+                                type: 'radio',
+                                label: 'Indigenous data sovereignty assessment',
+                                required: true,
+                                options: [
+                                    { value: 'compliant', label: 'Indigenous data sovereignty requirements fully addressed' },
+                                    { value: 'partial', label: 'Partial compliance, additional work required' },
+                                    { value: 'non-compliant', label: 'Requirements not adequately addressed' },
+                                    { value: 'not-applicable', label: 'Not applicable (no Indigenous data involved)' }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        title: 'Community and stakeholder impacts',
+                        description: 'Assess the broader impacts on communities, stakeholders, and society.',
+                        questions: [
+                            {
+                                id: 'positive-impacts',
+                                type: 'checkbox',
+                                label: 'How might your project positively affect community trust in health data systems?',
+                                required: false,
+                                options: [
+                                    { value: 'transparency', label: 'Increased transparency about data use for public benefit' },
+                                    { value: 'privacy-protection', label: 'Demonstration of strong privacy protection measures' },
+                                    { value: 'community-benefit', label: 'Clear community benefits from research outcomes' },
+                                    { value: 'innovation', label: 'Innovation in privacy-preserving health research' },
+                                    { value: 'engagement', label: 'Improved community engagement in health data governance' }
+                                ]
+                            },
+                            {
+                                id: 'negative-impacts',
+                                type: 'checkbox',
+                                label: 'What potential negative impacts on community trust should you consider?',
+                                required: false,
+                                options: [
+                                    { value: 'mistrust', label: 'Increased mistrust or concerns about data use' },
+                                    { value: 'confusion', label: 'Confusion about synthetic data and privacy implications' },
+                                    { value: 'consent', label: 'Questions about adequacy of existing consent processes' },
+                                    { value: 'slippery-slope', label: 'Concerns about expanding uses of health data' },
+                                    { value: 'exclusion', label: 'Feelings of exclusion from data governance decisions' }
+                                ]
+                            },
+                            {
+                                id: 'community-monitoring',
+                                type: 'textarea',
+                                label: 'How will you monitor and address community concerns?',
+                                placeholder: 'Describe your approach to ongoing community engagement and concern resolution...',
+                                rows: 3,
+                                required: true
+                            },
+                            {
+                                id: 'vulnerable-groups',
+                                type: 'checkbox',
+                                label: 'Which vulnerable or marginalised groups may be disproportionately affected?',
+                                required: false,
+                                options: [
+                                    { value: 'indigenous', label: 'Aboriginal and Torres Strait Islander peoples' },
+                                    { value: 'elderly', label: 'Elderly or aged care populations' },
+                                    { value: 'mental-health', label: 'People with mental health conditions' },
+                                    { value: 'disability', label: 'People with disabilities' },
+                                    { value: 'children', label: 'Children and adolescents' },
+                                    { value: 'socioeconomic', label: 'People from low socioeconomic backgrounds' },
+                                    { value: 'rural-remote', label: 'Rural and remote communities' },
+                                    { value: 'culturally-diverse', label: 'Culturally and linguistically diverse communities' },
+                                    { value: 'other', label: 'Other vulnerable groups' }
+                                ]
+                            },
+                            {
+                                id: 'vulnerability-protection',
+                                type: 'textarea',
+                                label: 'What additional measures will protect vulnerable populations?',
+                                placeholder: 'Describe specific safeguards, consultation processes, or additional protections for vulnerable groups...',
+                                rows: 4,
+                                required: true
+                            },
+                            {
+                                id: 'societal-benefits',
+                                type: 'textarea',
+                                label: 'Describe the expected societal benefits',
+                                placeholder: 'Describe the broader societal benefits beyond immediate health outcomes...',
+                                rows: 3,
+                                required: true
+                            },
+                            {
+                                id: 'societal-risks',
+                                type: 'textarea',
+                                label: 'Identify potential societal risks',
+                                placeholder: 'Identify potential negative societal consequences or unintended effects...',
+                                rows: 3,
+                                required: true
+                            },
+                            {
+                                id: 'risk-benefit-balance',
+                                type: 'radio',
+                                label: 'Risk-benefit balance assessment',
+                                required: true,
+                                options: [
+                                    { value: 'strongly-positive', label: 'Societal benefits clearly outweigh risks' },
+                                    { value: 'positive', label: 'Benefits likely outweigh risks with proper safeguards' },
+                                    { value: 'neutral', label: 'Benefits and risks are roughly balanced' },
+                                    { value: 'negative', label: 'Risks may outweigh benefits' }
+                                ]
+                            },
+                            {
+                                id: 'stakeholder-groups',
+                                type: 'checkbox',
+                                label: 'Which stakeholder groups require ongoing engagement?',
+                                required: true,
+                                options: [
+                                    { value: 'patients', label: 'Patients and consumer representatives' },
+                                    { value: 'clinicians', label: 'Healthcare providers and clinicians' },
+                                    { value: 'researchers', label: 'Research and academic community' },
+                                    { value: 'regulators', label: 'Regulatory and oversight bodies' },
+                                    { value: 'indigenous', label: 'Indigenous community organisations' },
+                                    { value: 'advocacy', label: 'Patient advocacy and community groups' },
+                                    { value: 'industry', label: 'Health technology and industry partners' },
+                                    { value: 'ethics', label: 'Ethics committees and review boards' }
+                                ]
+                            },
+                            {
+                                id: 'engagement-approach',
+                                type: 'textarea',
+                                label: 'Describe your ongoing stakeholder engagement strategy',
+                                placeholder: 'Detail your approach to maintaining ongoing communication and engagement with key stakeholders...',
+                                rows: 4,
+                                required: true
+                            }
+                        ]
+                    },
+                    {
+                        title: 'Overall impact assessment',
+                        description: 'Summarise your findings and provide a comprehensive conclusion.',
+                        questions: [
+                            {
+                                id: 'impact-summary',
+                                type: 'textarea',
+                                label: 'Summary of key findings',
+                                placeholder: 'Provide a comprehensive summary of the main ethical, cultural, and social considerations identified...',
+                                rows: 5,
+                                required: true
+                            },
+                            {
+                                id: 'mitigation-plan',
+                                type: 'textarea',
+                                label: 'Risk mitigation and management plan',
+                                placeholder: 'Outline your comprehensive plan for managing and mitigating identified risks...',
+                                rows: 5,
+                                required: true
+                            },
+                            {
+                                id: 'impact-conclusion',
+                                type: 'radio',
+                                label: 'Impact assessment conclusion',
+                                required: true,
+                                options: [
+                                    { value: 'approved', label: 'All impacts adequately considered and mitigated - project can proceed' },
+                                    { value: 'conditional', label: 'Project can proceed with additional safeguards and monitoring' },
+                                    { value: 'revision', label: 'Significant concerns identified - project requires revision' },
+                                    { value: 'rejected', label: 'Unacceptable risks or impacts - project should not proceed' }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                onComplete: function(answers) {
+                    // Generate results/report
+                    displayResults(answers);
+                }
+            });
+
+            // Results display function
+            function displayResults(answers) {
+                const resultsModal = document.createElement('div');
+                resultsModal.className = 'modal fade';
+                resultsModal.innerHTML = `
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header" style="background-color: #2d4a2b; color: #faf9f6;">
+                                <h5 class="modal-title">Impact Assessment Results</h5>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <h6 class="fw-bold mb-3" style="color: #2d4a2b;">Assessment Summary</h6>
+                                <p class="mb-4">${answers['impact-summary'] || 'No summary provided'}</p>
+
+                                <h6 class="fw-bold mb-3" style="color: #2d4a2b;">Conclusion</h6>
+                                <p class="mb-3">${getImpactConclusion(answers['impact-conclusion'])}</p>
+
+                                <div class="alert alert-info">
+                                    <strong>Next Steps:</strong> Save these results and proceed with the next assessment tools in the framework.
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-modern-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-modern-primary" onclick="exportResults()">Export as PDF</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(resultsModal);
+                const modal = new bootstrap.Modal(resultsModal);
+                modal.show();
+            }
+
+            function getImpactConclusion(value) {
+                const conclusions = {
+                    'approved': 'All impacts adequately considered and mitigated - project can proceed',
+                    'conditional': 'Project can proceed with additional safeguards and monitoring',
+                    'revision': 'Significant concerns identified - project requires revision',
+                    'rejected': 'Unacceptable risks or impacts - project should not proceed'
+                };
+                return conclusions[value] || 'Not assessed';
+            }
+
+            // Export function placeholder
+            window.exportResults = function() {
+                alert('Export functionality would generate a PDF report here. This feature requires additional implementation.');
+            };
+        });
+    </script>
 
     <!-- OpenAI ChatKit Chatbot -->
     <link rel="stylesheet" href="../assets/chatbot/chatbot.css">
