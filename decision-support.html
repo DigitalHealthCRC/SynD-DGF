@@ -3,6 +3,7 @@
 
 <!-- SynD-DGF Unified Design System - Forest Canopy Theme -->
 <link rel="stylesheet" href="assets/css/synd-design-system.css">
+<link rel="stylesheet" href="assets/css/synd-additional-components.css">
 
 <!-- Lucide Icons -->
 <script src="https://unpkg.com/lucide@latest"></script>
@@ -28,324 +29,467 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Decision Support Overview</li>
+                <li class="breadcrumb-item active" aria-current="page">Decision Support</li>
             </ol>
         </nav>
     </div>
+
+    <!-- Modern Hero Section -->
+    <div class="hero-modern">
+        <div class="container">
+            <h1>Decision support</h1>
+            <p class="lead">Navigate complex synthetic data governance scenarios with interactive decision trees and expert guidance tailored to your specific situation.</p>
+        </div>
+    </div>
+
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Decision support system</h1>
-                
-                <div class="intro-section">
-                    <p class="lead">Navigate complex synthetic data governance scenarios with interactive decision trees and expert guidance tailored to your specific situation.</p>
-                    
-                    <div class="support-overview">
+
+                <!-- When to Use Section -->
+                <div class="section-modern mt-4">
+                    <div class="section-header-modern mb-4">
                         <h2>When to use decision support</h2>
                         <p>The decision support system helps you when:</p>
-                        <ul>
-                            <li>Your project doesn't fit the standard 5-step framework pathway</li>
-                            <li>You encounter complex scenarios requiring additional assessment</li>
-                            <li>Multiple organisations or jurisdictions are involved</li>
-                            <li>Re-identification risks are higher than very low</li>
-                            <li>You need guidance on legal pathways and compliance requirements</li>
-                        </ul>
                     </div>
-                </div>
-
-                <div class="decision-tools">
-                    <h2>Available decision support tools</h2>
-                    
-                    <div class="tools-grid">
-                        <div class="tool-card" data-component-theme="portalThemeColorBlue">
-                            <div class="tool-header">
-                                <div class="tool-icon"></div>
-                                <h3>Complex scenarios navigator</h3>
-                            </div>
-                            <div class="tool-content">
-                                <p>Interactive decision tree for scenarios that require additional assessment beyond the standard framework.</p>
-                                
-                                <div class="tool-features">
-                                    <h4>Handles scenarios involving:</h4>
-                                    <ul>
-                                        <li>Cross-organisational data sharing and linkage</li>
-                                        <li>Third-party synthetic data generation services</li>
-                                        <li>Higher re-identification risks requiring mitigation</li>
-                                        <li>Indigenous data sovereignty considerations</li>
-                                        <li>International data sharing arrangements</li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="tool-action">
-                                    <a href="#" title="Coming Soon" class="button1">Access Navigator</a>
-                                </div>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="principle-card">
+                                <strong><i data-lucide="alert-circle"></i> Non-standard pathways</strong>
+                                <p class="mb-0 mt-2">Your project doesn't fit the standard 5-step framework pathway</p>
                             </div>
                         </div>
-
-                        <div class="tool-card" data-component-theme="portalThemeColorGreen">
-                            <div class="tool-header">
-                                <div class="tool-icon">️</div>
-                                <h3>Legal pathways wizard</h3>
-                            </div>
-                            <div class="tool-content">
-                                <p>Comprehensive guidance on lawful pathways for synthetic health data projects across Australian jurisdictions.</p>
-                                
-                                <div class="tool-features">
-                                    <h4>Covers all pathways:</h4>
-                                    <ul>
-                                        <li><strong>Directly related uses:</strong> Health service provision and system management</li>
-                                        <li><strong>Consent-based approaches:</strong> When and how to obtain valid consent</li>
-                                        <li><strong>HREC approval:</strong> Human Research Ethics Committee pathways</li>
-                                        <li><strong>De-identification standards:</strong> Technical and legal de-identification requirements</li>
-                                        <li><strong>Public interest determinations:</strong> Privacy Commissioner approvals</li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="tool-action">
-                                    <a href="decision-support/legal-pathways-wizard.html" class="button1">Access Wizard</a>
-                                </div>
+                        <div class="col-md-6">
+                            <div class="principle-card">
+                                <strong><i data-lucide="layers"></i> Complex scenarios</strong>
+                                <p class="mb-0 mt-2">You encounter complex scenarios requiring additional assessment</p>
                             </div>
                         </div>
-
-                        <div class="tool-card" data-component-theme="portalThemeColorOrange">
-                            <div class="tool-header">
-                                <div class="tool-icon">️</div>
-                                <h3>Risk mitigation planner</h3>
-                            </div>
-                            <div class="tool-content">
-                                <p>Systematic approach to identifying and implementing appropriate risk mitigation strategies for higher-risk scenarios.</p>
-                                
-                                <div class="tool-features">
-                                    <h4>Provides guidance on:</h4>
-                                    <ul>
-                                        <li>Additional de-identification techniques and parameters</li>
-                                        <li>Enhanced security controls and access restrictions</li>
-                                        <li>Monitoring and assurance requirements</li>
-                                        <li>Stakeholder engagement and consultation needs</li>
-                                        <li>Legal and contractual risk management</li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="tool-action">
-                                    <a href="decision-support/risk-mitigation-planner.html" class="button1">Access Planner</a>
-                                </div>
+                        <div class="col-md-6">
+                            <div class="principle-card">
+                                <strong><i data-lucide="building-2"></i> Multi-organisational</strong>
+                                <p class="mb-0 mt-2">Multiple organisations or jurisdictions are involved</p>
                             </div>
                         </div>
-
-                        <div class="tool-card" data-component-theme="portalThemeColorPurple">
-                            <div class="tool-header">
-                                <div class="tool-icon">️</div>
-                                <h3>Jurisdiction mapper</h3>
+                        <div class="col-md-6">
+                            <div class="principle-card">
+                                <strong><i data-lucide="shield-alert"></i> Higher risk</strong>
+                                <p class="mb-0 mt-2">Re-identification risks are higher than very low</p>
                             </div>
-                            <div class="tool-content">
-                                <p>Navigate the complex landscape of Australian privacy laws and requirements across different states and territories.</p>
-                                
-                                <div class="tool-features">
-                                    <h4>Maps requirements for:</h4>
-                                    <ul>
-                                        <li>Commonwealth Privacy Act and Australian Privacy Principles</li>
-                                        <li>State and territory health privacy laws (NSW, VIC, ACT, etc.)</li>
-                                        <li>Cross-border data sharing restrictions and safeguards</li>
-                                        <li>Specific requirements for public vs private sector organisations</li>
-                                        <li>Indigenous data governance frameworks by jurisdiction</li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="tool-action">
-                                    <a href="decision-support/jurisdiction-mapper.html" class="button1">Access Mapper</a>
-                                </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="principle-card">
+                                <strong><i data-lucide="scale"></i> Legal compliance</strong>
+                                <p class="mb-0 mt-2">You need guidance on legal pathways and compliance requirements</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="scenario-examples">
-                    <h2>Common complex scenarios</h2>
-                    <p>Examples of situations where decision support tools are particularly valuable:</p>
-                    
-                    <div class="scenario-categories">
-                        <div class="scenario-category">
-                            <h3>Multi-organisational projects</h3>
-                            <div class="scenario-examples-list">
-                                <div class="scenario-example">
-                                    <h4>Data linkage across health systems</h4>
+                <!-- Available Decision Support Tools -->
+                <div class="section-modern-alt mt-5">
+                    <div class="section-header-modern text-center mb-4">
+                        <h2>Available decision support tools</h2>
+                        <p>Interactive tools to guide you through complex governance scenarios</p>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="role-card">
+                                <div class="role-header">
+                                    <h3><i data-lucide="git-branch"></i> Complex scenarios navigator</h3>
+                                </div>
+                                <div class="p-4">
+                                    <p class="mb-4">Interactive decision tree for scenarios that require additional assessment beyond the standard framework.</p>
+
+                                    <div class="principle-card mb-3">
+                                        <strong>Handles scenarios involving:</strong>
+                                        <ul class="mb-0 mt-2">
+                                            <li>Cross-organisational data sharing and linkage</li>
+                                            <li>Third-party synthetic data generation services</li>
+                                            <li>Higher re-identification risks requiring mitigation</li>
+                                            <li>Indigenous data sovereignty considerations</li>
+                                            <li>International data sharing arrangements</li>
+                                        </ul>
+                                    </div>
+
+                                    <a href="#" title="Coming Soon" class="btn-synd btn-synd-secondary btn-synd-lg w-100">
+                                        <i data-lucide="play-circle" class="icon-synd-sm"></i>
+                                        Coming Soon
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="role-card">
+                                <div class="role-header">
+                                    <h3><i data-lucide="scale"></i> Legal pathways wizard</h3>
+                                </div>
+                                <div class="p-4">
+                                    <p class="mb-4">Comprehensive guidance on lawful pathways for synthetic health data projects across Australian jurisdictions.</p>
+
+                                    <div class="principle-card mb-3">
+                                        <strong>Covers all pathways:</strong>
+                                        <ul class="mb-0 mt-2">
+                                            <li><strong>Directly related uses:</strong> Health service provision and system management</li>
+                                            <li><strong>Consent-based approaches:</strong> When and how to obtain valid consent</li>
+                                            <li><strong>HREC approval:</strong> Human Research Ethics Committee pathways</li>
+                                            <li><strong>De-identification standards:</strong> Technical and legal de-identification requirements</li>
+                                            <li><strong>Public interest determinations:</strong> Privacy Commissioner approvals</li>
+                                        </ul>
+                                    </div>
+
+                                    <a href="decision-support/legal-pathways-wizard.html" class="btn-synd btn-synd-primary btn-synd-lg w-100">
+                                        <i data-lucide="arrow-right" class="icon-synd-sm"></i>
+                                        Access Wizard
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="role-card">
+                                <div class="role-header">
+                                    <h3><i data-lucide="shield-check"></i> Risk mitigation planner</h3>
+                                </div>
+                                <div class="p-4">
+                                    <p class="mb-4">Systematic approach to identifying and implementing appropriate risk mitigation strategies for higher-risk scenarios.</p>
+
+                                    <div class="principle-card mb-3">
+                                        <strong>Provides guidance on:</strong>
+                                        <ul class="mb-0 mt-2">
+                                            <li>Additional de-identification techniques and parameters</li>
+                                            <li>Enhanced security controls and access restrictions</li>
+                                            <li>Monitoring and assurance requirements</li>
+                                            <li>Stakeholder engagement and consultation needs</li>
+                                            <li>Legal and contractual risk management</li>
+                                        </ul>
+                                    </div>
+
+                                    <a href="decision-support/risk-mitigation-planner.html" class="btn-synd btn-synd-primary btn-synd-lg w-100">
+                                        <i data-lucide="arrow-right" class="icon-synd-sm"></i>
+                                        Access Planner
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="role-card">
+                                <div class="role-header">
+                                    <h3><i data-lucide="map"></i> Jurisdiction mapper</h3>
+                                </div>
+                                <div class="p-4">
+                                    <p class="mb-4">Navigate the complex landscape of Australian privacy laws and requirements across different states and territories.</p>
+
+                                    <div class="principle-card mb-3">
+                                        <strong>Maps requirements for:</strong>
+                                        <ul class="mb-0 mt-2">
+                                            <li>Commonwealth Privacy Act and Australian Privacy Principles</li>
+                                            <li>State and territory health privacy laws (NSW, VIC, ACT, etc.)</li>
+                                            <li>Cross-border data sharing restrictions and safeguards</li>
+                                            <li>Specific requirements for public vs private sector organisations</li>
+                                            <li>Indigenous data governance frameworks by jurisdiction</li>
+                                        </ul>
+                                    </div>
+
+                                    <a href="decision-support/jurisdiction-mapper.html" class="btn-synd btn-synd-primary btn-synd-lg w-100">
+                                        <i data-lucide="arrow-right" class="icon-synd-sm"></i>
+                                        Access Mapper
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Common Complex Scenarios -->
+                <div class="section-modern mt-5">
+                    <div class="section-header-modern mb-4">
+                        <h2>Common complex scenarios</h2>
+                        <p>Examples of situations where decision support tools are particularly valuable</p>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="role-card">
+                                <div class="role-header">
+                                    <h3><i data-lucide="building-2"></i> Multi-organisational projects</h3>
+                                </div>
+                                <div class="p-4">
+                                    <h4 class="h6 mb-2">Data linkage across health systems</h4>
                                     <p>A research project requires linking data from multiple public hospitals and private health insurers to create a comprehensive synthetic dataset for health outcomes research.</p>
-                                    <div class="complexity-factors">
+
+                                    <div class="principle-card mb-3">
                                         <strong>Complexity factors:</strong>
-                                        <ul>
+                                        <ul class="mb-0 mt-2">
                                             <li>Multiple data custodians with different privacy obligations</li>
                                             <li>Need for data linkage before synthetic data generation</li>
                                             <li>Different jurisdictional privacy law requirements</li>
                                             <li>Complex consent and authorisation requirements</li>
                                         </ul>
                                     </div>
-                                    <p><strong>Recommended path:</strong> <a href="decision-support/complex-scenarios#multi-org">Complex scenarios navigator</a> → <a href="decision-support/legal-pathways#linkage">Legal pathways wizard</a></p>
+
+                                    <p class="mb-0"><strong>Recommended path:</strong> <a href="decision-support/complex-scenarios#multi-org">Complex scenarios navigator</a> → <a href="decision-support/legal-pathways#linkage">Legal pathways wizard</a></p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="scenario-category">
-                            <h3>Third-party service providers</h3>
-                            <div class="scenario-examples-list">
-                                <div class="scenario-example">
-                                    <h4>Cloud-based synthetic data generation</h4>
+                        <div class="col-md-6">
+                            <div class="role-card">
+                                <div class="role-header">
+                                    <h3><i data-lucide="cloud"></i> Third-party service providers</h3>
+                                </div>
+                                <div class="p-4">
+                                    <h4 class="h6 mb-2">Cloud-based synthetic data generation</h4>
                                     <p>A health department wants to use a specialised cloud-based synthetic data generation service to create datasets for policy development and service planning.</p>
-                                    <div class="complexity-factors">
+
+                                    <div class="principle-card mb-3">
                                         <strong>Complexity factors:</strong>
-                                        <ul>
+                                        <ul class="mb-0 mt-2">
                                             <li>Source data must be shared with third-party service provider</li>
                                             <li>International cloud infrastructure location issues</li>
                                             <li>Additional privacy and security risk assessment required</li>
                                             <li>Complex contractual and liability arrangements</li>
                                         </ul>
                                     </div>
-                                    <p><strong>Recommended path:</strong> <a href="decision-support/complex-scenarios#third-party">Complex scenarios navigator</a> → <a href="decision-support/risk-mitigation#cloud">Risk mitigation planner</a></p>
+
+                                    <p class="mb-0"><strong>Recommended path:</strong> <a href="decision-support/complex-scenarios#third-party">Complex scenarios navigator</a> → <a href="decision-support/risk-mitigation#cloud">Risk mitigation planner</a></p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="scenario-category">
-                            <h3>Indigenous health data</h3>
-                            <div class="scenario-examples-list">
-                                <div class="scenario-example">
-                                    <h4>Aboriginal community health research</h4>
+                        <div class="col-md-6">
+                            <div class="role-card">
+                                <div class="role-header">
+                                    <h3><i data-lucide="users"></i> Indigenous health data</h3>
+                                </div>
+                                <div class="p-4">
+                                    <h4 class="h6 mb-2">Aboriginal community health research</h4>
                                     <p>A university research team wants to generate synthetic data from Aboriginal Community Controlled Health Organisation (ACCHO) records for health disparity research.</p>
-                                    <div class="complexity-factors">
+
+                                    <div class="principle-card mb-3">
                                         <strong>Complexity factors:</strong>
-                                        <ul>
+                                        <ul class="mb-0 mt-2">
                                             <li>Indigenous data sovereignty and self-determination principles</li>
                                             <li>Community consultation and consent requirements</li>
                                             <li>Cultural sensitivity and appropriate research methodologies</li>
                                             <li>Specific HREC and ethics approval pathways</li>
                                         </ul>
                                     </div>
-                                    <p><strong>Recommended path:</strong> <a href="decision-support/complex-scenarios#indigenous">Complex scenarios navigator</a> → <a href="decision-support/legal-pathways#indigenous">Legal pathways wizard</a></p>
+
+                                    <p class="mb-0"><strong>Recommended path:</strong> <a href="decision-support/complex-scenarios#indigenous">Complex scenarios navigator</a> → <a href="decision-support/legal-pathways#indigenous">Legal pathways wizard</a></p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="scenario-category">
-                            <h3>High-risk datasets</h3>
-                            <div class="scenario-examples-list">
-                                <div class="scenario-example">
-                                    <h4>Rare disease registry</h4>
+                        <div class="col-md-6">
+                            <div class="role-card">
+                                <div class="role-header">
+                                    <h3><i data-lucide="alert-triangle"></i> High-risk datasets</h3>
+                                </div>
+                                <div class="p-4">
+                                    <h4 class="h6 mb-2">Rare disease registry</h4>
                                     <p>A specialist clinic wants to create synthetic data from a rare disease patient registry to support international research collaboration while protecting patient privacy.</p>
-                                    <div class="complexity-factors">
+
+                                    <div class="principle-card mb-3">
                                         <strong>Complexity factors:</strong>
-                                        <ul>
+                                        <ul class="mb-0 mt-2">
                                             <li>Very small population size increases re-identification risk</li>
                                             <li>Highly distinctive clinical characteristics</li>
                                             <li>International data sharing considerations</li>
                                             <li>Patient advocacy group engagement requirements</li>
                                         </ul>
                                     </div>
-                                    <p><strong>Recommended path:</strong> <a href="decision-support/risk-mitigation#rare-disease">Risk mitigation planner</a> → <a href="decision-support/legal-pathways#international">Legal pathways wizard</a></p>
+
+                                    <p class="mb-0"><strong>Recommended path:</strong> <a href="decision-support/risk-mitigation#rare-disease">Risk mitigation planner</a> → <a href="decision-support/legal-pathways#international">Legal pathways wizard</a></p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="getting-started">
-                    <h2>Getting started with decision support</h2>
-                    
-                    <div class="start-options">
-                        <div class="start-option">
-                            <h3> Not sure which tool to use?</h3>
-                            <p>Take our quick assessment to determine the most appropriate decision support tool for your situation.</p>
-                            <a href="#" title="Coming Soon" class="button1">Take Assessment</a>
+                <!-- Getting Started -->
+                <div class="section-modern-alt mt-5">
+                    <div class="section-header-modern text-center mb-4">
+                        <h2>Getting started with decision support</h2>
+                        <p>Choose the approach that works best for your situation</p>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="tool-card-modern">
+                                <div class="tool-icon-large tool-icon-teal">
+                                    <i data-lucide="help-circle"></i>
+                                </div>
+                                <h3>Not sure which tool to use?</h3>
+                                <p>Take our quick assessment to determine the most appropriate decision support tool for your situation.</p>
+                                <a href="#" title="Coming Soon" class="btn-synd btn-synd-secondary btn-synd-lg w-100">
+                                    <i data-lucide="play-circle" class="icon-synd-sm"></i>
+                                    Coming Soon
+                                </a>
+                            </div>
                         </div>
-                        
-                        <div class="start-option">
-                            <h3> Need comprehensive guidance?</h3>
-                            <p>Access our complete decision support workflow that guides you through all relevant tools in sequence.</p>
-                            <a href="#" title="Coming Soon" class="button1">Start Workflow</a>
+
+                        <div class="col-md-4">
+                            <div class="tool-card-modern">
+                                <div class="tool-icon-large tool-icon-blue">
+                                    <i data-lucide="list-checks"></i>
+                                </div>
+                                <h3>Need comprehensive guidance?</h3>
+                                <p>Access our complete decision support workflow that guides you through all relevant tools in sequence.</p>
+                                <a href="#" title="Coming Soon" class="btn-synd btn-synd-secondary btn-synd-lg w-100">
+                                    <i data-lucide="play-circle" class="icon-synd-sm"></i>
+                                    Coming Soon
+                                </a>
+                            </div>
                         </div>
-                        
-                        <div class="start-option">
-                            <h3> Want to explore on your own?</h3>
-                            <p>Browse our detailed guidance library covering all aspects of complex synthetic data governance.</p>
-                            <a href="#" title="Coming Soon" class="button1">Browse Library</a>
+
+                        <div class="col-md-4">
+                            <div class="tool-card-modern">
+                                <div class="tool-icon-large tool-icon-purple">
+                                    <i data-lucide="book-open"></i>
+                                </div>
+                                <h3>Want to explore on your own?</h3>
+                                <p>Browse our detailed guidance library covering all aspects of complex synthetic data governance.</p>
+                                <a href="#" title="Coming Soon" class="btn-synd btn-synd-secondary btn-synd-lg w-100">
+                                    <i data-lucide="play-circle" class="icon-synd-sm"></i>
+                                    Coming Soon
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="expert-consultation">
-                    <h2>When to seek expert consultation</h2>
-                    <div class="consultation-guidance">
-                        <p>Some scenarios may require consultation with subject matter experts beyond the decision support tools:</p>
-                        
-                        <div class="expert-areas">
-                            <div class="expert-area">
-                                <h3>Legal expertise</h3>
-                                <ul>
-                                    <li>Novel legal interpretations or untested privacy law applications</li>
-                                    <li>Cross-jurisdictional issues involving multiple privacy regimes</li>
-                                    <li>International data sharing with countries outside Australia</li>
-                                    <li>Complex liability and contractual arrangements</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="expert-area">
-                                <h3>Technical expertise</h3>
-                                <ul>
-                                    <li>Advanced synthetic data generation techniques</li>
-                                    <li>Novel re-identification attack methodologies</li>
-                                    <li>Cutting-edge privacy-preserving technologies</li>
-                                    <li>Complex technical security assessments</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="expert-area">
-                                <h3>Cultural expertise</h3>
-                                <ul>
-                                    <li>Indigenous data governance and sovereignty</li>
-                                    <li>Cultural appropriateness of research methodologies</li>
-                                    <li>Community engagement and consultation processes</li>
-                                    <li>Culturally sensitive data interpretation and use</li>
-                                </ul>
+                <!-- Expert Consultation -->
+                <div class="section-modern mt-5">
+                    <div class="section-header-modern mb-4">
+                        <h2>When to seek expert consultation</h2>
+                        <p>Some scenarios may require consultation with subject matter experts beyond the decision support tools</p>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="role-card">
+                                <div class="role-header">
+                                    <h3><i data-lucide="gavel"></i> Legal expertise</h3>
+                                </div>
+                                <div class="p-4">
+                                    <ul class="mb-0">
+                                        <li>Novel legal interpretations or untested privacy law applications</li>
+                                        <li>Cross-jurisdictional issues involving multiple privacy regimes</li>
+                                        <li>International data sharing with countries outside Australia</li>
+                                        <li>Complex liability and contractual arrangements</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                        
-                        <div class="consultation-note">
-                            <p><strong>Note:</strong> The decision support tools provide guidance based on established frameworks and best practices. For situations involving significant legal, technical, or cultural complexity, organisations should seek appropriate expert consultation to ensure compliance and best outcomes.</p>
+
+                        <div class="col-md-4">
+                            <div class="role-card">
+                                <div class="role-header">
+                                    <h3><i data-lucide="settings"></i> Technical expertise</h3>
+                                </div>
+                                <div class="p-4">
+                                    <ul class="mb-0">
+                                        <li>Advanced synthetic data generation techniques</li>
+                                        <li>Novel re-identification attack methodologies</li>
+                                        <li>Cutting-edge privacy-preserving technologies</li>
+                                        <li>Complex technical security assessments</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="role-card">
+                                <div class="role-header">
+                                    <h3><i data-lucide="heart-handshake"></i> Cultural expertise</h3>
+                                </div>
+                                <div class="p-4">
+                                    <ul class="mb-0">
+                                        <li>Indigenous data governance and sovereignty</li>
+                                        <li>Cultural appropriateness of research methodologies</li>
+                                        <li>Community engagement and consultation processes</li>
+                                        <li>Culturally sensitive data interpretation and use</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="principle-card mt-4">
+                        <p class="mb-0"><strong>Note:</strong> The decision support tools provide guidance based on established frameworks and best practices. For situations involving significant legal, technical, or cultural complexity, organisations should seek appropriate expert consultation to ensure compliance and best outcomes.</p>
+                    </div>
+                </div>
+
+                <!-- Related Resources -->
+                <div class="section-modern-alt mt-5">
+                    <div class="section-header-modern text-center mb-4">
+                        <h2>Related resources</h2>
+                        <p>Additional guidance and support for complex decision-making</p>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="role-card">
+                                <div class="role-header">
+                                    <h3><i data-lucide="book-open"></i> Framework resources</h3>
+                                </div>
+                                <div class="p-4">
+                                    <div class="principle-card mb-3">
+                                        <strong><a href="resources.html">Complete resource library</a></strong>
+                                        <p class="mb-0 mt-2">Access all framework documentation and appendices</p>
+                                    </div>
+                                    <div class="principle-card">
+                                        <strong><a href="resources/appendices/complex-scenarios.html">Complex scenarios appendix</a></strong>
+                                        <p class="mb-0 mt-2">Detailed guidance on complex implementation scenarios</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="role-card">
+                                <div class="role-header">
+                                    <h3><i data-lucide="clipboard-list"></i> Assessment tools</h3>
+                                </div>
+                                <div class="p-4">
+                                    <div class="principle-card mb-3">
+                                        <strong><a href="assessment-tools.html">Interactive assessment tools</a></strong>
+                                        <p class="mb-0 mt-2">6 structured assessment tools with real-time scoring</p>
+                                    </div>
+                                    <div class="principle-card">
+                                        <strong><a href="resources/appendices/assessment-outcomes.html">Documentation templates</a></strong>
+                                        <p class="mb-0 mt-2">Standardised forms for recording decisions and outcomes</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="role-card">
+                                <div class="role-header">
+                                    <h3><i data-lucide="external-link"></i> External guidance</h3>
+                                </div>
+                                <div class="p-4">
+                                    <div class="principle-card mb-3">
+                                        <strong><a href="https://www.oaic.gov.au/" target="_blank" rel="noopener">OAIC privacy guidance</a></strong>
+                                        <p class="mb-0 mt-2">Official Australian privacy law guidance and resources</p>
+                                    </div>
+                                    <div class="principle-card">
+                                        <strong><a href="https://www.nhmrc.gov.au/" target="_blank" rel="noopener">NHMRC ethical guidelines</a></strong>
+                                        <p class="mb-0 mt-2">National health and medical research ethics guidance</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="support-navigation">
-                    <h2>Quick navigation</h2>
-                    <div class="nav-grid">
-                        <a href="#" title="Coming Soon" class="nav-card">
-                            <div class="nav-icon"></div>
-                            <h3>Complex Scenarios</h3>
-                            <p>Navigate non-standard situations</p>
-                        </a>
-                        <a href="decision-support/legal-pathways-wizard.html" class="nav-card">
-                            <div class="nav-icon">️</div>
-                            <h3>Legal Pathways</h3>
-                            <p>Find lawful ways to proceed</p>
-                        </a>
-                        <a href="decision-support/risk-mitigation-planner.html" class="nav-card">
-                            <div class="nav-icon">️</div>
-                            <h3>Risk Mitigation</h3>
-                            <p>Manage higher-risk scenarios</p>
-                        </a>
-                        <a href="decision-support/jurisdiction-mapper.html" class="nav-card">
-                            <div class="nav-icon">️</div>
-                            <h3>Jurisdiction Mapper</h3>
-                            <p>Navigate privacy law requirements</p>
-                        </a>
-                        <a href="assessment-tools.html" class="nav-card">
-                            <div class="nav-icon"></div>
-                            <h3>Assessment Tools</h3>
-                            <p>Access structured checklists</p>
-                        </a>
-                        <a href="framework.html" class="nav-card">
-                            <div class="nav-icon"></div>
-                            <h3>Framework Overview</h3>
-                            <p>Return to main framework</p>
-                        </a>
+                <!-- Step Navigation -->
+                <div class="step-navigation">
+                    <div class="nav-buttons">
+                        <a href="framework.html" class="nav-button nav-previous">← Framework Overview</a>
+                        <a href="resources.html" class="nav-button nav-next">Resources →</a>
                     </div>
                 </div>
             </div>
@@ -354,6 +498,11 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
 
     <!-- OpenAI ChatKit Chatbot -->
     <link rel="stylesheet" href="assets/chatbot/chatbot.css">
