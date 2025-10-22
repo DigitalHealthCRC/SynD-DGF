@@ -5,11 +5,13 @@
 		}
 	],
 	"settings": {
-		"claudeCodeChat.permissions.yoloMode": false
+		"claudeCodeChat.permissions.yoloMode": false,
+		"chatgpt.openOnStartup": true
 	},
 	"extensions": {
 		"recommendations": [
-			"anthropic.claude-code"
+			// "anthropic.claude-code",
+			"openai.chatgpt"
 		]
 	}
 }
