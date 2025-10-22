@@ -46,7 +46,13 @@
       "Bash(sed -n '650,670p' \"c:\\Users\\Amir\\OneDrive - Digital Health CRC Limited\\Projects\\SynD\\framework\\SynD-DGF\\framework\\step-1-use-case-assessment.html\")",
       "Bash(do echo \"=== $file.html ===\")",
       "Bash(do echo \"Processing $file...\")",
-      "Bash(sed:*)"
+      "Bash(sed:*)",
+      "Bash(if git diff --quiet \"$file\")",
+      "Bash(then)",
+      "Bash(:)",
+      "Bash(else)",
+      "Bash(fi)",
+      "Bash(do echo \"=== $file ===\" grep -m 1 \"appendix-title\" \"$file\")"
     ],
     "deny": [],
     "ask": []

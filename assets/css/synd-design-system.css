@@ -357,9 +357,12 @@ a:hover {
   font-size: var(--font-size-sm);
   box-shadow: 0 8px 24px rgba(45, 74, 43, 0.3);
   transition: all var(--transition-slow);
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   cursor: pointer;
+  min-height: 3.5rem;
 }
 
 .btn-modern-primary:hover,
@@ -382,8 +385,11 @@ a:hover {
   font-weight: 700;
   font-size: var(--font-size-sm);
   transition: all var(--transition-slow);
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  min-height: 3.5rem;
 }
 
 .btn-modern-secondary:hover,
@@ -404,9 +410,12 @@ a:hover {
   font-weight: 700;
   box-shadow: 0 4px 16px rgba(125, 132, 113, 0.3);
   transition: all var(--transition-slow);
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   cursor: pointer;
+  min-height: 3.5rem;
 }
 
 .btn-modern-accent:hover {
@@ -494,6 +503,7 @@ a:hover {
   align-items: flex-start;
   margin-bottom: var(--spacing-lg);
   gap: var(--spacing-sm) var(--spacing-lg);
+  min-height: 7rem;
 }
 
 .step-icon {
@@ -624,6 +634,17 @@ a:hover {
   font-size: var(--font-size-xl);
   font-weight: 700;
   margin-bottom: var(--spacing-md);
+  min-height: 4.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tool-card-modern h3 i {
+  flex-shrink: 0;
 }
 
 .tool-card-modern p {
@@ -694,6 +715,17 @@ a:hover {
   font-weight: 700;
   margin-bottom: var(--spacing-md);
   color: var(--color-forest-green-dark);
+  min-height: 4.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.resource-card-modern h3 i {
+  flex-shrink: 0;
 }
 
 .resource-card-modern p {
@@ -876,6 +908,9 @@ a:hover {
   overflow: hidden;
   box-shadow: var(--shadow-lg);
   transition: all var(--transition-slow);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .role-card:hover {
@@ -887,6 +922,10 @@ a:hover {
   background: linear-gradient(135deg, var(--color-forest-green) 0%, var(--color-moss-green) 100%);
   padding: var(--spacing-xl);
   border-bottom: none;
+  min-height: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .role-header h3 {
@@ -894,10 +933,25 @@ a:hover {
   margin: 0;
   font-size: var(--font-size-xl);
   font-weight: 700;
+  text-align: center;
+  min-height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.3;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.role-header h3 i {
+  flex-shrink: 0;
 }
 
 .role-content {
   padding: var(--spacing-xl);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .role-content ul {
@@ -977,6 +1031,9 @@ a:hover {
   box-shadow: var(--shadow-lg);
   text-align: center;
   transition: all var(--transition-slow);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .getting-started-card:hover {
@@ -989,6 +1046,17 @@ a:hover {
   margin-bottom: var(--spacing-lg);
   font-size: var(--font-size-xl);
   font-weight: 700;
+  min-height: 4.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.getting-started-card h3 i {
+  flex-shrink: 0;
 }
 
 .getting-started-card p {
@@ -996,6 +1064,12 @@ a:hover {
   font-size: var(--font-size-md);
   line-height: 1.7;
   color: var(--color-grey-dark);
+  flex-grow: 1;
+}
+
+.getting-started-card .btn-modern-primary {
+  margin-top: auto;
+  width: 100%;
 }
 
 /* ===================================
@@ -1111,6 +1185,17 @@ a:hover {
   margin-bottom: var(--spacing-md);
   font-size: var(--font-size-lg);
   font-weight: 700;
+  min-height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.cta-card h4 i {
+  flex-shrink: 0;
 }
 
 .cta-card p {
@@ -1128,12 +1213,15 @@ a:hover {
   text-decoration: none;
   border-radius: var(--radius-md);
   font-weight: 700;
-  display: inline-block;
   transition: all var(--transition-base);
   box-shadow: 0 4px 16px rgba(255, 255, 255, 0.2);
   margin-top: auto;
   width: 100%;
   text-align: center;
+  min-height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cta-card a:hover {
@@ -1264,12 +1352,14 @@ a:hover {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--spacing-2xl);
+  align-items: stretch;
 }
 
 .grid-3-col {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--spacing-2xl);
+  align-items: stretch;
 }
 
 /* Bootstrap grid compatibility */
@@ -1277,12 +1367,14 @@ a:hover {
   display: flex;
   flex-wrap: wrap;
   margin: 0 calc(var(--spacing-sm) * -1);
+  align-items: stretch;
 }
 
 .col-lg-4,
 .col-md-6,
 .col-sm-12 {
   padding: 0 var(--spacing-sm);
+  display: flex;
 }
 
 .col-lg-4 {

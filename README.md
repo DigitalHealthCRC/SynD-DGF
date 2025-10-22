@@ -1,6 +1,6 @@
 # SynD-DGF: Synthetic Data Governance Framework
 
-A comprehensive web platform providing legal and technical guidance for synthetic health data governance, featuring interactive assessment tools, decision support systems, and AI-powered assistance.
+A comprehensive [web platform](https://digitalhealthcrc.github.io/SynD-DGF/) providing legal and technical guidance for synthetic health data governance, featuring interactive assessment tools, decision support systems, and AI-powered assistance.
 
 ## Project Overview
 
@@ -69,110 +69,6 @@ Root/
 └── _legacy/                            # Old structure (archived)
 ```
 
-## Quick Start
-
-### Local Development
-
-Open any HTML file directly in your browser (double-click or use File > Open). The site uses relative paths and works without a server.
-
-For testing with a local server (recommended for chatbot features):
-
-```bash
-# Python
-python -m http.server 8000
-
-# Node.js
-npx serve
-
-# PHP
-php -S localhost:8000
-```
-
-Then visit `http://localhost:8000`
-
-### Deployment to GitHub Pages
-
-1. **Push to GitHub:**
-   ```bash
-   git push origin master
-   ```
-
-2. **Enable GitHub Pages:**
-   - Go to repository Settings > Pages
-   - Source: **GitHub Actions**
-   - Save
-
-3. **Configure permissions:**
-   - Settings > Actions > General
-   - Workflow permissions: **Read and write permissions**
-   - Allow GitHub Actions to create and approve pull requests
-   - Save
-
-4. **Access your site:**
-   - `https://YOUR-USERNAME.github.io/SynD-DGF/`
-
-The GitHub Actions workflow (`.github/workflows/deploy.yml`) automatically deploys on push to `master`.
-
-## Chatbot Integration
-
-The site includes an OpenAI ChatKit-powered AI assistant on the home page.
-
-### Quick Setup (60 minutes)
-
-**Prerequisites:**
-- OpenAI account with API access
-- Cloudflare account (free tier OK)
-- Node.js 18+ installed
-
-**Steps:**
-
-1. **Create OpenAI Agent Workflow** (15 min)
-   - Visit [OpenAI Agent Builder](https://platform.openai.com/agent-builder)
-   - Create workflow: "SynD-DGF Assistant"
-   - Add training data from website URL or docs
-   - Publish and copy workflow ID
-
-2. **Deploy Cloudflare Worker** (15 min)
-   ```bash
-   cd cloudflare-worker
-   npm install
-   npx wrangler login
-   npx wrangler deploy
-
-   # Set secrets
-   npx wrangler secret put OPENAI_API_KEY
-   npx wrangler secret put CHATKIT_WORKFLOW_ID
-   ```
-
-3. **Configure Chatbot** (5 min)
-   - Update `assets/chatbot/chatbot.js` with your worker URL
-
-4. **Add domain to OpenAI allowlist**
-   - Visit: https://platform.openai.com/settings/organization/security/domain-allowlist
-   - Add your GitHub Pages URL and localhost
-
-5. **Deploy** (15 min)
-   ```bash
-   git add .
-   git commit -m "Configure chatbot"
-   git push origin master
-   ```
-
-### Troubleshooting Chatbot
-
-**Worker returns error:**
-- Check logs: `npx wrangler tail`
-- Verify secrets: `npx wrangler secret list`
-
-**Widget shows connection error:**
-- Test worker endpoint with curl
-- Verify worker URL in chatbot.js
-
-**Widget is blank:**
-- Add domain to OpenAI allowlist
-- Wait 2-3 minutes
-- Hard refresh (Ctrl+Shift+R)
-
 ## Key Features
 
 ### Assessment Tools
@@ -202,74 +98,68 @@ The site includes an OpenAI ChatKit-powered AI assistant on the home page.
 - Downloadable PDF documentation
 - Interactive tools and templates
 
-## Technology Stack
 
-- **Frontend**: Pure HTML5, CSS3, JavaScript (no build system)
-- **Styling**: Bootstrap 5.3 + custom CSS
-- **Chatbot**: OpenAI ChatKit
-- **Backend**: Cloudflare Workers (serverless)
-- **Hosting**: GitHub Pages (or any static host)
-- **CDN**: jsDelivr for external libraries
+## Chatbot Integration
 
-## Content Characteristics
+The site includes an OpenAI ChatKit-powered AI assistant on all pages.
 
-- **Language**: Australian English
-- **Tone**: Conversational yet professional
-- **Focus**: Practical guidance with interactive tools
-- **Coverage**: Legal, technical, ethical, and safety domains
-- **Status**: 100% framework coverage (all 12 appendices complete)
+### Quick Setup 
 
-## Making Changes
+**Prerequisites:**
+- OpenAI account with API access
+- Cloudflare account (free tier)
+- Node.js 18+ installed
 
-### Update Content
-1. Edit HTML files directly
-2. Test locally
-3. Commit and push:
+**Steps:**
+
+1. **Create OpenAI Agent Workflow** 
+   - Visit [OpenAI Agent Builder](https://platform.openai.com/agent-builder)
+   - Create workflow: "SynD-DGF Assistant"
+   - Add training data from website URL or docs
+   - Publish and copy workflow ID
+
+2. **Deploy Cloudflare Worker** 
+   ```bash
+   cd cloudflare-worker
+   npm install
+   npx wrangler login
+   npx wrangler deploy
+
+   # Set secrets
+   npx wrangler secret put OPENAI_API_KEY
+   npx wrangler secret put CHATKIT_WORKFLOW_ID
+   ```
+
+3. **Configure Chatbot** 
+   - Update `assets/chatbot/chatbot.js` with your worker URL
+
+4. **Add domain to OpenAI allowlist**
+   - Visit: https://platform.openai.com/settings/organization/security/domain-allowlist
+   - Add your GitHub Pages URL and localhost
+
+5. **Deploy** 
    ```bash
    git add .
-   git commit -m "Update content"
+   git commit -m "Configure chatbot"
    git push origin master
    ```
 
-### Add New Pages
-1. Create HTML file in appropriate directory
-2. Follow existing page structure
-3. Use relative paths for all assets
-4. Update navigation in other pages
-5. Test and deploy
+### Troubleshooting Chatbot
 
-### Modify Styles
-- Page-specific CSS: `assets/css/[PageName].css`
-- Global styles: Inline in individual pages
-- Chatbot styles: `assets/chatbot/chatbot.css`
+**Worker returns error:**
+- Check logs: `npx wrangler tail`
+- Verify secrets: `npx wrangler secret list`
 
-## Browser Support
+**Widget shows connection error:**
+- Test worker endpoint with curl
+- Verify worker URL in chatbot.js
 
-- Chrome/Edge: Latest 2 versions
-- Firefox: Latest 2 versions
-- Safari: Latest 2 versions
-- Mobile: iOS Safari 12+, Chrome Mobile
+**Widget is blank:**
+- Add domain to OpenAI allowlist
+- Wait 2-3 minutes
+- Hard refresh (Ctrl+Shift+R)
+
 
 ## License
 
 Copyright © 2025 Digital Health CRC. All rights reserved.
-
-## Support
-
-For questions or issues:
-- Review documentation in CLAUDE.md
-- Check chatbot troubleshooting above
-- Review deployment guide above
-- Contact: [See about/contact page]
-
-## Project Status
-
-**Current Version**: October 2025
-- ✅ Complete website restructure (clean static site)
-- ✅ All 12 appendices implemented
-- ✅ All 8 assessment tools operational
-- ✅ All 3 decision support tools operational
-- ✅ ChatKit AI assistant integrated
-- ✅ GitHub Pages deployment configured
-- ✅ Mobile responsive design
-- ✅ Comprehensive documentation
