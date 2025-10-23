@@ -23,6 +23,7 @@
     RETRY_DELAY: 1000,
     // Conversation persistence (thread) TTL in days
     THREAD_TTL_DAYS: 7,
+    CHATKIT_READY_TIMEOUT: 10000,
 
     // ChatKit configuration - Forest Canopy theme
     CHATKIT_CONFIG: {
@@ -210,10 +211,10 @@
       this.saveState();
       this.updateUI();
 
-      // Initialize ChatKit if not already done
-      if (!this.isInitialized) {
-        await this.initializeChatKit();
-      }
+        // Initialize ChatKit if not already done
+        if (!this.isInitialized) {
+          await this.initializeChatKit();
+        }
       // Focus dialog for accessibility
       if (this.widget) {
         try { this.widget.focus(); } catch {}
@@ -328,7 +329,7 @@
         console.log('Initializing ChatKit...');
 
         // Wait for ChatKit custom element to be defined
-        await customElements.whenDefined('openai-chatkit');
+        await this.waitForChatKit();
         console.log('ChatKit element defined');
 
         // Create the chatkit widget element
@@ -392,6 +393,20 @@
         console.error('Failed to initialize ChatKit:', error);
         this.showError(error.message);
       }
+    }
+
+    /**
+     * Wait until the ChatKit custom element is registered
+     */
+    async waitForChatKit() {
+      if (customElements.get('openai-chatkit')) {
+        return;
+      }
+      const timeoutMs = CONFIG.CHATKIT_READY_TIMEOUT;
+      await Promise.race([
+        customElements.whenDefined('openai-chatkit'),
+        new Promise((_, reject) => setTimeout(() => reject(new Error('Chat assistant failed to load. Please refresh the page.')), timeoutMs))
+      ]);
     }
 
     /**

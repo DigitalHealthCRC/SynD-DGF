@@ -47,7 +47,7 @@ async function kvIncrementAndCheck(kv, key, limit, ttlMs) {
   const current = parseInt(await kv.get(key, 'text') || '0', 10) || 0;
   if (current >= limit) return { allowed: false, count: current };
   const newCount = current + 1;
-  const ttlSec = Math.ceil(ttlMs / 1000);
+  const ttlSec = Math.max(60, Math.ceil(ttlMs / 1000));
   await kv.put(key, String(newCount), { expirationTtl: ttlSec });
   return { allowed: true, count: newCount };
 }
