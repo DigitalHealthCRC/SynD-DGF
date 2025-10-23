@@ -24,19 +24,7 @@
     // Conversation persistence (thread) TTL in days
     THREAD_TTL_DAYS: 7,
     CHATKIT_READY_TIMEOUT: 10000,
-
-    // ChatKit configuration - Forest Canopy theme
-    CHATKIT_CONFIG: {
-      theme: {
-        primaryColor: '#2d4a2b',
-        secondaryColor: '#7d8471',
-        fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif'
-      },
-      placeholder: 'Ask about synthetic data governance...',
-      greeting: 'Hello! I\'m here to help you navigate the SynD-DGF framework. Ask me anything about synthetic health data governance, privacy compliance, or technical standards.',
-      showTimestamps: true,
-      allowFileUpload: false
-    }
+    CHATKIT_CONFIG: {}
   };
 
   class SyndChatbot {
@@ -343,8 +331,6 @@
               }
             }
           },
-          // Optional customization
-          theme: 'light',
           ...CONFIG.CHATKIT_CONFIG
         };
         chatkit.setOptions(options);
