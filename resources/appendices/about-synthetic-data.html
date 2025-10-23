@@ -126,36 +126,59 @@
                     <div class="concept-content">
                         <p>Various approaches exist for generating synthetic data, each with different complexity, privacy guarantees, and utility preservation characteristics. The choice of generation method depends on the source data characteristics, intended use case, privacy requirements, and available technical resources.</p>
 
-                        <div class="method-card">
-                            <div class="method-title">Rule-based generation</div>
-                            <p><strong>Approach:</strong> Uses predefined rules and business logic to generate data based on known relationships and constraints.</p>
-                            <p><strong>Best for:</strong> Simple datasets with well-understood relationships and clear business rules.</p>
-                            <p><strong>Advantages:</strong> Transparent, interpretable, fast generation, deterministic output.</p>
-                            <p><strong>Limitations:</strong> Limited complexity, may not capture subtle patterns, requires domain expertise.</p>
-                        </div>
-
-                        <div class="method-card">
-                            <div class="method-title">Statistical modelling</div>
-                            <p><strong>Approach:</strong> Fits statistical models to source data and generates new records by sampling from these models.</p>
-                            <p><strong>Best for:</strong> Datasets with clear statistical distributions and measurable relationships.</p>
-                            <p><strong>Advantages:</strong> Good statistical fidelity, interpretable models, formal privacy analysis possible.</p>
-                            <p><strong>Limitations:</strong> May struggle with complex relationships, assumes specific distributions.</p>
-                        </div>
-
-                        <div class="method-card">
-                            <div class="method-title">Machine learning approaches</div>
-                            <p><strong>Approach:</strong> Trains machine learning models (neural networks, GANs, VAEs) to learn data patterns and generate new records.</p>
-                            <p><strong>Best for:</strong> Complex datasets with intricate patterns and high-dimensional data.</p>
-                            <p><strong>Advantages:</strong> Handles complex patterns, high fidelity for complex data, scalable.</p>
-                            <p><strong>Limitations:</strong> Black box nature, training complexity, potential overfitting risks.</p>
-                        </div>
-
-                        <div class="method-card">
-                            <div class="method-title">Hybrid approaches</div>
-                            <p><strong>Approach:</strong> Combines multiple generation methods, often using statistical models for structure and ML for complex patterns.</p>
-                            <p><strong>Best for:</strong> Complex health datasets requiring both interpretability and pattern preservation.</p>
-                            <p><strong>Advantages:</strong> Balances interpretability and complexity, leverages strengths of multiple approaches.</p>
-                            <p><strong>Limitations:</strong> Implementation complexity, requires expertise in multiple methods.</p>
+                        <div class="row row-cols-1 row-cols-md-2 g-4 mt-4">
+                            <div class="col">
+                                <div class="tool-card-modern h-100">
+                                    <div class="tool-icon-large tool-icon-teal">
+                                        <i data-lucide="workflow"></i>
+                                    </div>
+                                    <h3>Rule-based generation</h3>
+                                    <p class="mb-3">Applies predefined business logic and deterministic rules to create data that mirrors known relationships.</p>
+                                    <ul class="mb-0">
+                                        <li><strong>Best for:</strong> Structured datasets with transparent decision rules.</li>
+                                        <li><strong>Watch for:</strong> Limited nuance and heavy reliance on domain expertise.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="tool-card-modern h-100">
+                                    <div class="tool-icon-large tool-icon-blue">
+                                        <i data-lucide="bar-chart-3"></i>
+                                    </div>
+                                    <h3>Statistical modelling</h3>
+                                    <p class="mb-3">Fits probabilistic models to source data and samples from those distributions to generate realistic records.</p>
+                                    <ul class="mb-0">
+                                        <li><strong>Best for:</strong> Data with clear distributions and measurable correlations.</li>
+                                        <li><strong>Watch for:</strong> Assumptions that struggle with non-linear or rare relationships.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="tool-card-modern h-100">
+                                    <div class="tool-icon-large tool-icon-purple">
+                                        <i data-lucide="cpu"></i>
+                                    </div>
+                                    <h3>Machine learning</h3>
+                                    <p class="mb-3">Uses models such as GANs and VAEs to learn complex patterns and create high-fidelity synthetic datasets.</p>
+                                    <ul class="mb-0">
+                                        <li><strong>Best for:</strong> High-dimensional health data requiring pattern preservation.</li>
+                                        <li><strong>Watch for:</strong> Training complexity, opaque decision pathways, overfitting risks.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="tool-card-modern h-100">
+                                    <div class="tool-icon-large tool-icon-coral">
+                                        <i data-lucide="layers"></i>
+                                    </div>
+                                    <h3>Hybrid approaches</h3>
+                                    <p class="mb-3">Combines statistical structure with machine learning flexibility to balance interpretability and fidelity.</p>
+                                    <ul class="mb-0">
+                                        <li><strong>Best for:</strong> Complex health datasets needing adaptable techniques.</li>
+                                        <li><strong>Watch for:</strong> Integration overhead and compounded model governance.</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -169,71 +192,102 @@
                     <div class="concept-content">
                         <p>Synthetic health data enables numerous applications across research, healthcare delivery, technology development, and policy analysis while maintaining privacy protection. These applications demonstrate the value proposition of synthetic data in advancing health outcomes while respecting individual privacy.</p>
 
-                        <div class="application-grid">
-                            <div class="application-card">
-                                <div class="application-title">Research and development</div>
-                                <ul>
-                                    <li>Proof-of-concept analysis and feasibility studies</li>
-                                    <li>Algorithm development and validation</li>
-                                    <li>Preliminary research tasks and hypothesis testing</li>
-                                    <li>Multi-site research collaboration</li>
-                                    <li>Training machine learning models</li>
-                                </ul>
+                        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-4">
+                            <div class="col">
+                                <div class="role-card h-100">
+                                    <div class="role-header">
+                                        <h3><i data-lucide="flask-conical"></i> Research &amp; development</h3>
+                                    </div>
+                                    <div class="role-content">
+                                        <ul>
+                                            <li>Proof-of-concept analysis and feasibility testing</li>
+                                            <li>Algorithm development and independent validation</li>
+                                            <li>Hypothesis exploration without disclosing real data</li>
+                                            <li>Multi-site collaboration and benchmarking</li>
+                                            <li>Training machine learning pipelines safely</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-
-                            <div class="application-card">
-                                <div class="application-title">Healthcare system management</div>
-                                <ul>
-                                    <li>System planning and capacity modelling</li>
-                                    <li>Resource allocation optimisation</li>
-                                    <li>Workflow analysis and improvement</li>
-                                    <li>Performance benchmarking</li>
-                                    <li>Policy impact simulation</li>
-                                </ul>
+                            <div class="col">
+                                <div class="role-card h-100">
+                                    <div class="role-header">
+                                        <h3><i data-lucide="stethoscope"></i> Health system management</h3>
+                                    </div>
+                                    <div class="role-content">
+                                        <ul>
+                                            <li>Scenario planning and capacity modelling</li>
+                                            <li>Resource allocation and rostering optimisation</li>
+                                            <li>Workflow analysis and service redesign</li>
+                                            <li>Performance benchmarking across facilities</li>
+                                            <li>Policy impact simulations before rollout</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-
-                            <div class="application-card">
-                                <div class="application-title">Technology development</div>
-                                <ul>
-                                    <li>Software testing and validation</li>
-                                    <li>User interface development</li>
-                                    <li>System integration testing</li>
-                                    <li>Performance stress testing</li>
-                                    <li>Security testing scenarios</li>
-                                </ul>
+                            <div class="col">
+                                <div class="role-card h-100">
+                                    <div class="role-header">
+                                        <h3><i data-lucide="cpu"></i> Technology development</h3>
+                                    </div>
+                                    <div class="role-content">
+                                        <ul>
+                                            <li>Software verification and regression testing</li>
+                                            <li>User interface design with realistic interactions</li>
+                                            <li>Systems integration and interoperability checks</li>
+                                            <li>Performance and stress testing at scale</li>
+                                            <li>Security and resilience rehearsal scenarios</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-
-                            <div class="application-card">
-                                <div class="application-title">Education and training</div>
-                                <ul>
-                                    <li>Clinical decision support training</li>
-                                    <li>Health data analysis education</li>
-                                    <li>Research methodology teaching</li>
-                                    <li>Hackathons and innovation events</li>
-                                    <li>Skill development workshops</li>
-                                </ul>
+                            <div class="col">
+                                <div class="role-card h-100">
+                                    <div class="role-header">
+                                        <h3><i data-lucide="graduation-cap"></i> Education &amp; training</h3>
+                                    </div>
+                                    <div class="role-content">
+                                        <ul>
+                                            <li>Clinical decision support and triage simulations</li>
+                                            <li>Health data analytics and coding curricula</li>
+                                            <li>Research methodology practical exercises</li>
+                                            <li>Innovation events and capability sprints</li>
+                                            <li>Skill development workshops and labs</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-
-                            <div class="application-card">
-                                <div class="application-title">Quality assurance</div>
-                                <ul>
-                                    <li>Data validation and verification</li>
-                                    <li>System reliability testing</li>
-                                    <li>Process improvement analysis</li>
-                                    <li>Compliance monitoring</li>
-                                    <li>Audit trail development</li>
-                                </ul>
+                            <div class="col">
+                                <div class="role-card h-100">
+                                    <div class="role-header">
+                                        <h3><i data-lucide="shield-check"></i> Quality assurance</h3>
+                                    </div>
+                                    <div class="role-content">
+                                        <ul>
+                                            <li>Data validation and verification routines</li>
+                                            <li>System reliability and regression testing</li>
+                                            <li>Process improvement and optimisation cycles</li>
+                                            <li>Compliance monitoring and audit readiness</li>
+                                            <li>Documenting reproducible audit trails</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-
-                            <div class="application-card">
-                                <div class="application-title">Innovation and collaboration</div>
-                                <ul>
-                                    <li>Cross-organisation partnerships</li>
-                                    <li>Industry-academic collaboration</li>
-                                    <li>International research networks</li>
-                                    <li>Public-private partnerships</li>
-                                    <li>Innovation ecosystem development</li>
-                                </ul>
+                            <div class="col">
+                                <div class="role-card h-100">
+                                    <div class="role-header">
+                                        <h3><i data-lucide="users"></i> Innovation &amp; collaboration</h3>
+                                    </div>
+                                    <div class="role-content">
+                                        <ul>
+                                            <li>Cross-organisation partnerships and pilots</li>
+                                            <li>Industry–academic collaboration programs</li>
+                                            <li>International research networks and data hubs</li>
+                                            <li>Public–private innovation accelerators</li>
+                                            <li>Developing privacy-preserving ecosystems</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

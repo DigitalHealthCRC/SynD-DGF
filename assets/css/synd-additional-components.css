@@ -1094,8 +1094,110 @@
   color: #856404;
 }
 
+.glossary-content .letter-section {
+  margin-bottom: var(--spacing-3xl);
+  padding-bottom: var(--spacing-xl);
+  border-bottom: 1px solid rgba(45, 74, 43, 0.08);
+}
+
+.glossary-content .letter-heading {
+  margin-bottom: var(--spacing-lg);
+}
+
+.glossary-content .term-entry.principle-card {
+  margin-bottom: var(--spacing-lg);
+}
+
+.jurisdiction-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--color-white);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-right: var(--spacing-md);
+}
+
+@media (min-width: 768px) {
+  .glossary-content .letter-section {
+    display: flex;
+    gap: var(--spacing-lg);
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+  }
+
+  .glossary-content .letter-heading {
+    flex: 0 0 auto;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    padding-right: var(--spacing-lg);
+  }
+
+  .glossary-content .term-entry.principle-card {
+    flex: 0 0 320px;
+    margin-bottom: 0;
+    scroll-snap-align: start;
+  }
+}
+
+.tool-weight-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(45, 74, 43, 0.12);
+  color: var(--color-forest-green-dark);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.impact-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.impact-priority-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(45, 74, 43, 0.1);
+  color: var(--color-forest-green-dark);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.impact-risk-list {
+  padding-left: 1.2rem;
+  margin-bottom: 0;
+}
+
+.impact-risk-list li {
+  margin-bottom: 0.35rem;
+}
+}
+
+@media (max-width: 767px) {
+  .glossary-content .letter-section {
+    border-bottom: none;
+    padding-bottom: var(--spacing-lg);
+  }
+}
+
 /* Responsive adjustments for step navigation */
 @media (max-width: 768px) {
+  .nav-buttons {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
   .nav-buttons {
     flex-direction: column;
     gap: var(--spacing-md);

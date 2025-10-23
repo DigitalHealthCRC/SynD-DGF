@@ -105,8 +105,8 @@
               <span class="synd-chat-avatar-initials">DZ</span>
             </div>
             <div class="synd-chat-header-text">
-              <h3 id="synd-chat-title">Dr Zib</h3>
-              <p>Synthetic Data Governance Framework Assistant</p>
+              <h3 id="synd-chat-title">Assistant</h3>
+              <p>Synthetic Data Governance Framework AI Assistant</p>
             </div>
           </div>
           <div class="synd-chat-actions">

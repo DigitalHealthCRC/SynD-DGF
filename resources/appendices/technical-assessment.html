@@ -103,53 +103,60 @@
 
                 <div class="technical-domain evaluation">
                     <div class="domain-header">
-                        <span class="domain-icon"></span>
-                        <h2 class="domain-title">Technical evaluation criteria</h2>
+                        <h2 class="domain-title"><i data-lucide="cpu"></i> Technical evaluation criteria</h2>
                     </div>
                     <p>Systematic evaluation of synthetic data generation methods across multiple technical dimensions.</p>
 
                     <div class="assessment-framework">
                         <h3>Core evaluation dimensions</h3>
-                        <div class="criteria-grid">
-                            <div class="criteria-item">
-                                <div class="criteria-title">Algorithmic approach</div>
-                                <p>Assessment of the underlying computational methods and theoretical foundations.</p>
-                                <ul class="criteria-list">
-                                    <li>What type of generation algorithm is used (statistical, machine learning, hybrid)?</li>
-                                    <li>How well-established and validated is the approach?</li>
-                                    <li>What are the theoretical guarantees and limitations?</li>
-                                    <li>How does the method handle different data types and structures?</li>
-                                </ul>
+                        <div class="row row-cols-1 row-cols-lg-2 g-4 mt-3">
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="brain"></i> Algorithmic approach</h4>
+                                    <p>Assessment of the underlying computational methods and theoretical foundations.</p>
+                                    <ul class="criteria-list">
+                                        <li>What type of generation algorithm is used (statistical, machine learning, hybrid)?</li>
+                                        <li>How well-established and validated is the approach?</li>
+                                        <li>What are the theoretical guarantees and limitations?</li>
+                                        <li>How does the method handle different data types and structures?</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Data handling capabilities</div>
-                                <p>Evaluation of how methods process different health data characteristics.</p>
-                                <ul class="criteria-list">
-                                    <li>Can the method handle mixed data types (continuous, categorical, temporal)?</li>
-                                    <li>How are missing values and outliers managed?</li>
-                                    <li>What data preprocessing requirements exist?</li>
-                                    <li>How well does it preserve complex relationships between variables?</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="table-2"></i> Data handling capabilities</h4>
+                                    <p>Evaluation of how methods process different health data characteristics.</p>
+                                    <ul class="criteria-list">
+                                        <li>Can the method handle mixed data types (continuous, categorical, temporal)?</li>
+                                        <li>How are missing values and outliers managed?</li>
+                                        <li>What data preprocessing requirements exist?</li>
+                                        <li>How well does it preserve complex relationships between variables?</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Flexibility and customisation</div>
-                                <p>Assessment of method adaptability to specific use case requirements.</p>
-                                <ul class="criteria-list">
-                                    <li>How configurable are generation parameters?</li>
-                                    <li>Can the method incorporate domain-specific constraints?</li>
-                                    <li>What options exist for balancing utility and privacy?</li>
-                                    <li>How easily can the approach be modified for different contexts?</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="sliders-horizontal"></i> Flexibility and customisation</h4>
+                                    <p>Assessment of method adaptability to specific use case requirements.</p>
+                                    <ul class="criteria-list">
+                                        <li>How configurable are generation parameters?</li>
+                                        <li>Can the method incorporate domain-specific constraints?</li>
+                                        <li>What options exist for balancing utility and privacy?</li>
+                                        <li>How easily can the approach be modified for different contexts?</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Reproducibility and stability</div>
-                                <p>Evaluation of consistency and reliability of generation processes.</p>
-                                <ul class="criteria-list">
-                                    <li>Are generation results reproducible with the same inputs?</li>
-                                    <li>How stable are outputs across different random seeds?</li>
-                                    <li>What documentation and versioning practices exist?</li>
-                                    <li>How well are generation parameters tracked and recorded?</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="repeat"></i> Reproducibility and stability</h4>
+                                    <p>Evaluation of consistency and reliability of generation processes.</p>
+                                    <ul class="criteria-list">
+                                        <li>Are generation results reproducible with the same inputs?</li>
+                                        <li>How stable are outputs across different random seeds?</li>
+                                        <li>What documentation and versioning practices exist?</li>
+                                        <li>How well are generation parameters tracked and recorded?</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -157,97 +164,112 @@
 
                 <div class="technical-domain quality">
                     <div class="domain-header">
-                        <span class="domain-icon"></span>
-                        <h2 class="domain-title">Quality assessment frameworks</h2>
+                        <h2 class="domain-title"><i data-lucide="sparkles"></i> Quality assessment frameworks</h2>
                     </div>
                     <p>Comprehensive frameworks for evaluating statistical utility and privacy metrics of synthetic data outputs.</p>
 
                     <div class="assessment-framework">
                         <h3>Statistical utility assessment</h3>
-                        <div class="criteria-grid">
-                            <div class="criteria-item">
-                                <div class="criteria-title">Univariate statistics</div>
-                                <p>Comparison of basic statistical properties between original and synthetic data.</p>
-                                <ul class="criteria-list">
-                                    <li>Means, medians, and variance preservation</li>
-                                    <li>Distribution shape and skewness maintenance</li>
-                                    <li>Categorical variable frequency preservation</li>
-                                    <li>Missing value pattern replication</li>
-                                </ul>
+                        <div class="row row-cols-1 row-cols-lg-2 g-4 mt-3">
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="bar-chart"></i> Univariate statistics</h4>
+                                    <p>Comparison of basic statistical properties between original and synthetic data.</p>
+                                    <ul class="criteria-list">
+                                        <li>Means, medians, and variance preservation</li>
+                                        <li>Distribution shape and skewness maintenance</li>
+                                        <li>Categorical variable frequency preservation</li>
+                                        <li>Missing value pattern replication</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Multivariate relationships</div>
-                                <p>Assessment of complex relationships and dependencies between variables.</p>
-                                <ul class="criteria-list">
-                                    <li>Correlation matrix preservation</li>
-                                    <li>Cross-tabulation accuracy for categorical variables</li>
-                                    <li>Conditional distribution maintenance</li>
-                                    <li>Higher-order moment preservation</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="grid-3x3"></i> Multivariate relationships</h4>
+                                    <p>Assessment of complex relationships and dependencies between variables.</p>
+                                    <ul class="criteria-list">
+                                        <li>Correlation matrix preservation</li>
+                                        <li>Cross-tabulation accuracy for categorical variables</li>
+                                        <li>Conditional distribution maintenance</li>
+                                        <li>Higher-order moment preservation</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Machine learning utility</div>
-                                <p>Evaluation of synthetic data performance in downstream analytical tasks.</p>
-                                <ul class="criteria-list">
-                                    <li>Predictive model performance comparison</li>
-                                    <li>Feature importance preservation</li>
-                                    <li>Classification and regression accuracy</li>
-                                    <li>Clustering and dimensionality reduction results</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="bot"></i> Machine learning utility</h4>
+                                    <p>Evaluation of synthetic data performance in downstream analytical tasks.</p>
+                                    <ul class="criteria-list">
+                                        <li>Predictive model performance comparison</li>
+                                        <li>Feature importance preservation</li>
+                                        <li>Classification and regression accuracy</li>
+                                        <li>Clustering and dimensionality reduction results</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Domain-specific metrics</div>
-                                <p>Health-specific quality measures relevant to intended use cases.</p>
-                                <ul class="criteria-list">
-                                    <li>Clinical outcome associations</li>
-                                    <li>Temporal pattern preservation</li>
-                                    <li>Rare event representation</li>
-                                    <li>Population stratification accuracy</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="activity"></i> Domain-specific metrics</h4>
+                                    <p>Health-specific quality measures relevant to intended use cases.</p>
+                                    <ul class="criteria-list">
+                                        <li>Clinical outcome associations</li>
+                                        <li>Temporal pattern preservation</li>
+                                        <li>Rare event representation</li>
+                                        <li>Population stratification accuracy</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
 
                         <h3>Privacy metrics assessment</h3>
-                        <div class="criteria-grid">
-                            <div class="criteria-item">
-                                <div class="criteria-title">Re-identification risk</div>
-                                <p>Measurement of potential for linking synthetic records to original individuals.</p>
-                                <ul class="criteria-list">
-                                    <li>Distance-based re-identification attacks</li>
-                                    <li>Nearest neighbour analysis</li>
-                                    <li>Unique record identification probability</li>
-                                    <li>Attribute inference risk assessment</li>
-                                </ul>
+                        <div class="row row-cols-1 row-cols-lg-2 g-4 mt-3">
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="shield-alert"></i> Re-identification risk</h4>
+                                    <p>Measurement of potential for linking synthetic records to original individuals.</p>
+                                    <ul class="criteria-list">
+                                        <li>Distance-based re-identification attacks</li>
+                                        <li>Nearest neighbour analysis</li>
+                                        <li>Unique record identification probability</li>
+                                        <li>Attribute inference risk assessment</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Membership inference</div>
-                                <p>Evaluation of ability to determine if individuals were in the original dataset.</p>
-                                <ul class="criteria-list">
-                                    <li>Statistical membership inference tests</li>
-                                    <li>Machine learning-based membership attacks</li>
-                                    <li>Confidence interval analysis for membership determination</li>
-                                    <li>Shadow model attack resistance</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="user-search"></i> Membership inference</h4>
+                                    <p>Evaluation of ability to determine if individuals were in the original dataset.</p>
+                                    <ul class="criteria-list">
+                                        <li>Statistical membership inference tests</li>
+                                        <li>Machine learning-based membership attacks</li>
+                                        <li>Confidence interval analysis for membership determination</li>
+                                        <li>Shadow model attack resistance</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Differential privacy metrics</div>
-                                <p>Formal privacy guarantees and epsilon-delta measurements where applicable.</p>
-                                <ul class="criteria-list">
-                                    <li>Privacy budget (epsilon) values</li>
-                                    <li>Composition analysis for multiple queries</li>
-                                    <li>Sensitivity analysis of generation process</li>
-                                    <li>Privacy-utility trade-off curves</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="lock"></i> Differential privacy metrics</h4>
+                                    <p>Formal privacy guarantees and epsilon-delta measurements where applicable.</p>
+                                    <ul class="criteria-list">
+                                        <li>Privacy budget (epsilon) values</li>
+                                        <li>Composition analysis for multiple queries</li>
+                                        <li>Sensitivity analysis of generation process</li>
+                                        <li>Privacy-utility trade-off curves</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Empirical privacy assessment</div>
-                                <p>Practical privacy evaluation through attack simulation and risk measurement.</p>
-                                <ul class="criteria-list">
-                                    <li>Singling out attack resistance</li>
-                                    <li>Linkability attack evaluation</li>
-                                    <li>Inference attack performance</li>
-                                    <li>Background knowledge incorporation risks</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="shield-half"></i> Empirical privacy assessment</h4>
+                                    <p>Practical privacy evaluation through attack simulation and risk measurement.</p>
+                                    <ul class="criteria-list">
+                                        <li>Singling out attack resistance</li>
+                                        <li>Linkability attack evaluation</li>
+                                        <li>Inference attack performance</li>
+                                        <li>Background knowledge incorporation risks</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -255,8 +277,7 @@
 
                 <div class="technical-domain validation">
                     <div class="domain-header">
-                        <span class="domain-icon"></span>
-                        <h2 class="domain-title">Validation methodologies</h2>
+                        <h2 class="domain-title"><i data-lucide="check-circle"></i> Validation methodologies</h2>
                     </div>
                     <p>Systematic approaches for validating synthetic data outputs against quality and privacy requirements.</p>
 
@@ -347,53 +368,60 @@
 
                 <div class="technical-domain infrastructure">
                     <div class="domain-header">
-                        <span class="domain-icon">️</span>
-                        <h2 class="domain-title">Technical infrastructure requirements</h2>
+                        <h2 class="domain-title"><i data-lucide="server-cog"></i> Technical infrastructure requirements</h2>
                     </div>
                     <p>Comprehensive infrastructure considerations for implementing synthetic data generation at scale.</p>
 
                     <div class="assessment-framework">
                         <h3>Infrastructure assessment areas</h3>
-                        <div class="criteria-grid">
-                            <div class="criteria-item">
-                                <div class="criteria-title">Computational requirements</div>
-                                <p>Hardware and processing power needed for synthetic data generation.</p>
-                                <ul class="criteria-list">
-                                    <li>CPU requirements for model training and generation</li>
-                                    <li>Memory (RAM) needs for data processing</li>
-                                    <li>GPU acceleration requirements for deep learning methods</li>
-                                    <li>Storage requirements for source data, models, and outputs</li>
-                                </ul>
+                        <div class="row row-cols-1 row-cols-lg-2 g-4 mt-3">
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="cpu"></i> Computational requirements</h4>
+                                    <p>Hardware and processing power needed for synthetic data generation.</p>
+                                    <ul class="criteria-list">
+                                        <li>CPU requirements for model training and generation</li>
+                                        <li>Memory (RAM) needs for data processing</li>
+                                        <li>GPU acceleration requirements for deep learning methods</li>
+                                        <li>Storage requirements for source data, models, and outputs</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Security infrastructure</div>
-                                <p>Security measures and controls for protecting sensitive data processing.</p>
-                                <ul class="criteria-list">
-                                    <li>Secure computation environments and access controls</li>
-                                    <li>Data encryption in transit and at rest</li>
-                                    <li>Audit logging and monitoring systems</li>
-                                    <li>Network security and isolation requirements</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="shield-lock"></i> Security infrastructure</h4>
+                                    <p>Security measures and controls for protecting sensitive data processing.</p>
+                                    <ul class="criteria-list">
+                                        <li>Secure computation environments and access controls</li>
+                                        <li>Data encryption in transit and at rest</li>
+                                        <li>Audit logging and monitoring systems</li>
+                                        <li>Network security and isolation requirements</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Scalability architecture</div>
-                                <p>System design considerations for handling increasing data volumes and complexity.</p>
-                                <ul class="criteria-list">
-                                    <li>Distributed processing capabilities</li>
-                                    <li>Cloud vs on-premise deployment options</li>
-                                    <li>Auto-scaling and load balancing systems</li>
-                                    <li>Data pipeline orchestration and management</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="layers"></i> Scalability architecture</h4>
+                                    <p>System design considerations for handling increasing data volumes and complexity.</p>
+                                    <ul class="criteria-list">
+                                        <li>Distributed processing capabilities</li>
+                                        <li>Cloud vs on-premise deployment options</li>
+                                        <li>Auto-scaling and load balancing systems</li>
+                                        <li>Data pipeline orchestration and management</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Operational requirements</div>
-                                <p>Ongoing operational needs for maintaining synthetic data systems.</p>
-                                <ul class="criteria-list">
-                                    <li>Monitoring and alerting systems</li>
-                                    <li>Backup and disaster recovery procedures</li>
-                                    <li>Version control and deployment management</li>
-                                    <li>Performance optimisation and tuning capabilities</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="settings-2"></i> Operational requirements</h4>
+                                    <p>Ongoing operational needs for maintaining synthetic data systems.</p>
+                                    <ul class="criteria-list">
+                                        <li>Monitoring and alerting systems</li>
+                                        <li>Backup and disaster recovery procedures</li>
+                                        <li>Version control and deployment management</li>
+                                        <li>Performance optimisation and tuning capabilities</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -476,53 +504,60 @@
 
                 <div class="technical-domain selection">
                     <div class="domain-header">
-                        <span class="domain-icon"></span>
-                        <h2 class="domain-title">Method selection guidelines</h2>
+                        <h2 class="domain-title"><i data-lucide="filter"></i> Method selection guidelines</h2>
                     </div>
                     <p>Systematic approach for selecting appropriate synthetic data generation methods based on project requirements and constraints.</p>
 
                     <div class="assessment-framework">
                         <h3>Selection criteria framework</h3>
-                        <div class="criteria-grid">
-                            <div class="criteria-item">
-                                <div class="criteria-title">Data characteristics</div>
-                                <p>Consider the nature and structure of your source data.</p>
-                                <ul class="criteria-list">
-                                    <li>Data types: tabular, time series, images, text, mixed</li>
-                                    <li>Data volume: small (&lt;1K records), medium (1K-100K), large (&gt;100K)</li>
-                                    <li>Dimensionality: number of variables and complexity</li>
-                                    <li>Missing data patterns and data quality issues</li>
-                                </ul>
+                        <div class="row row-cols-1 row-cols-lg-2 g-4 mt-3">
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="database"></i> Data characteristics</h4>
+                                    <p>Consider the nature and structure of your source data.</p>
+                                    <ul class="criteria-list">
+                                        <li>Data types: tabular, time series, images, text, mixed</li>
+                                        <li>Data volume: small (&lt;1K records), medium (1K-100K), large (&gt;100K)</li>
+                                        <li>Dimensionality: number of variables and complexity</li>
+                                        <li>Missing data patterns and data quality issues</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Use case requirements</div>
-                                <p>Define specific analytical and utility requirements.</p>
-                                <ul class="criteria-list">
-                                    <li>Primary analytical tasks (ML training, statistics, exploration)</li>
-                                    <li>Required statistical properties and relationships</li>
-                                    <li>Acceptable utility-privacy trade-offs</li>
-                                    <li>Performance and accuracy requirements</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="target"></i> Use case requirements</h4>
+                                    <p>Define specific analytical and utility requirements.</p>
+                                    <ul class="criteria-list">
+                                        <li>Primary analytical tasks (ML training, statistics, exploration)</li>
+                                        <li>Required statistical properties and relationships</li>
+                                        <li>Acceptable utility-privacy trade-offs</li>
+                                        <li>Performance and accuracy requirements</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Privacy requirements</div>
-                                <p>Determine privacy protection level and formal guarantees needed.</p>
-                                <ul class="criteria-list">
-                                    <li>Formal privacy guarantees (differential privacy) vs empirical</li>
-                                    <li>Re-identification risk tolerance</li>
-                                    <li>Regulatory compliance requirements</li>
-                                    <li>Stakeholder privacy expectations</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="shield"></i> Privacy requirements</h4>
+                                    <p>Determine privacy protection level and formal guarantees needed.</p>
+                                    <ul class="criteria-list">
+                                        <li>Formal privacy guarantees (differential privacy) vs empirical</li>
+                                        <li>Re-identification risk tolerance</li>
+                                        <li>Regulatory compliance requirements</li>
+                                        <li>Stakeholder privacy expectations</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Resource constraints</div>
-                                <p>Assess available technical and human resources.</p>
-                                <ul class="criteria-list">
-                                    <li>Computational budget and hardware availability</li>
-                                    <li>Technical expertise and skill requirements</li>
-                                    <li>Development timeline and maintenance capacity</li>
-                                    <li>Software licensing and tool availability</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="briefcase"></i> Resource constraints</h4>
+                                    <p>Assess available technical and human resources.</p>
+                                    <ul class="criteria-list">
+                                        <li>Computational budget and hardware availability</li>
+                                        <li>Technical expertise and skill requirements</li>
+                                        <li>Development timeline and maintenance capacity</li>
+                                        <li>Software licensing and tool availability</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -590,8 +625,7 @@
 
                 <div class="technical-domain benchmarking">
                     <div class="domain-header">
-                        <span class="domain-icon"></span>
-                        <h2 class="domain-title">Performance benchmarking approaches</h2>
+                        <h2 class="domain-title"><i data-lucide="gauge"></i> Performance benchmarking approaches</h2>
                     </div>
                     <p>Standardised approaches for measuring and comparing synthetic data generation method performance.</p>
 
@@ -609,7 +643,7 @@
                                 <div class="metric-label">Re-identification Risk Threshold</div>
                             </div>
                             <div class="benchmark-metric">
-                                <div class="metric-value">±10%</div>
+                                <div class="metric-value">-Â¦10%</div>
                                 <div class="metric-label">ML Performance Tolerance</div>
                             </div>
                             <div class="benchmark-metric">
@@ -626,45 +660,55 @@
                             <li><strong>Domain-specific datasets:</strong> Custom datasets representative of target use case</li>
                         </ul>
 
+                        
                         <h4>Performance metrics suite</h4>
-                        <div class="criteria-grid">
-                            <div class="criteria-item">
-                                <div class="criteria-title">Utility metrics</div>
-                                <ul class="criteria-list">
-                                    <li>Statistical similarity scores (JSD, Wasserstein distance)</li>
-                                    <li>Machine learning efficacy (TSTR, TRTS ratios)</li>
-                                    <li>Correlation preservation (R², Spearman rank)</li>
-                                    <li>Distribution comparison (KS test, AD test)</li>
-                                </ul>
+                        <div class="row row-cols-1 row-cols-lg-2 g-4 mt-3">
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="bar-chart-4"></i> Utility metrics</h4>
+                                    <ul class="criteria-list">
+                                        <li>Statistical similarity scores (JSD, Wasserstein distance)</li>
+                                        <li>Machine learning efficacy (TSTR, TRTS ratios)</li>
+                                        <li>Correlation preservation (R^2, Spearman rank)</li>
+                                        <li>Distribution comparison (KS test, AD test)</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Privacy metrics</div>
-                                <ul class="criteria-list">
-                                    <li>Distance-to-closest record (DCR)</li>
-                                    <li>Membership inference attack accuracy</li>
-                                    <li>Attribute inference attack success rate</li>
-                                    <li>Differential privacy epsilon values</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="shield-keyhole"></i> Privacy metrics</h4>
+                                    <ul class="criteria-list">
+                                        <li>Distance-to-closest record (DCR)</li>
+                                        <li>Membership inference attack accuracy</li>
+                                        <li>Attribute inference attack success rate</li>
+                                        <li>Differential privacy epsilon values</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Computational metrics</div>
-                                <ul class="criteria-list">
-                                    <li>Training time per epoch/iteration</li>
-                                    <li>Memory consumption during generation</li>
-                                    <li>Scaling behaviour with data size</li>
-                                    <li>Generation speed (records per second)</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="timer"></i> Computational metrics</h4>
+                                    <ul class="criteria-list">
+                                        <li>Training time per epoch/iteration</li>
+                                        <li>Memory consumption during generation</li>
+                                        <li>Scaling behaviour with data size</li>
+                                        <li>Generation speed (records per second)</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Quality metrics</div>
-                                <ul class="criteria-list">
-                                    <li>Data validity and constraint satisfaction</li>
-                                    <li>Missing value pattern preservation</li>
-                                    <li>Range and boundary condition adherence</li>
-                                    <li>Logical consistency across variables</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="shield-check"></i> Quality metrics</h4>
+                                    <ul class="criteria-list">
+                                        <li>Data validity and constraint satisfaction</li>
+                                        <li>Missing value pattern preservation</li>
+                                        <li>Range and boundary condition adherence</li>
+                                        <li>Logical consistency across variables</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
+                    </div>
                     </div>
 
                     <div class="code-example">
@@ -705,8 +749,7 @@ def benchmark_synthetic_method(method, dataset, metrics_suite):
 
                 <div class="technical-domain risk">
                     <div class="domain-header">
-                        <span class="domain-icon">⚠️</span>
-                        <h2 class="domain-title">Technical risk assessment</h2>
+                        <h2 class="domain-title"><i data-lucide="triangle-alert"></i> Technical risk assessment</h2>
                     </div>
                     <p>Comprehensive evaluation of technical risks associated with synthetic data generation and deployment.</p>
 
@@ -748,45 +791,55 @@ def benchmark_synthetic_method(method, dataset, metrics_suite):
                     </div>
 
                     <div class="assessment-framework">
+                        
                         <h3>Risk mitigation strategies</h3>
-                        <div class="criteria-grid">
-                            <div class="criteria-item">
-                                <div class="criteria-title">Pre-deployment mitigation</div>
-                                <ul class="criteria-list">
-                                    <li>Comprehensive validation testing across multiple datasets</li>
-                                    <li>Independent privacy evaluation by external experts</li>
-                                    <li>Stress testing with edge cases and unusual data patterns</li>
-                                    <li>Thorough documentation of all technical procedures</li>
-                                </ul>
+                        <div class="row row-cols-1 row-cols-lg-2 g-4 mt-3">
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="shield"></i> Pre-deployment mitigation</h4>
+                                    <ul class="criteria-list">
+                                        <li>Comprehensive validation testing across multiple datasets</li>
+                                        <li>Independent privacy evaluation by external experts</li>
+                                        <li>Stress testing with edge cases and unusual data patterns</li>
+                                        <li>Thorough documentation of all technical procedures</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Operational mitigation</div>
-                                <ul class="criteria-list">
-                                    <li>Continuous monitoring of generation quality metrics</li>
-                                    <li>Regular re-validation of privacy protection measures</li>
-                                    <li>Automated alerts for performance degradation</li>
-                                    <li>Systematic backup and recovery procedures</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="activity"></i> Operational mitigation</h4>
+                                    <ul class="criteria-list">
+                                        <li>Continuous monitoring of generation quality metrics</li>
+                                        <li>Regular re-validation of privacy protection measures</li>
+                                        <li>Automated alerts for performance degradation</li>
+                                        <li>Systematic backup and recovery procedures</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Quality assurance</div>
-                                <ul class="criteria-list">
-                                    <li>Multi-stage review processes for synthetic data releases</li>
-                                    <li>Independent validation by domain experts</li>
-                                    <li>Regular auditing of generation processes</li>
-                                    <li>Feedback loops for continuous improvement</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="badge-check"></i> Quality assurance</h4>
+                                    <ul class="criteria-list">
+                                        <li>Multi-stage review processes for synthetic data releases</li>
+                                        <li>Independent validation by domain experts</li>
+                                        <li>Regular auditing of generation processes</li>
+                                        <li>Feedback loops for continuous improvement</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Contingency planning</div>
-                                <ul class="criteria-list">
-                                    <li>Alternative method preparation for primary method failure</li>
-                                    <li>Data recall procedures for compromised synthetic datasets</li>
-                                    <li>Incident response plans for privacy breaches</li>
-                                    <li>Regular testing of backup and recovery systems</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="life-buoy"></i> Contingency planning</h4>
+                                    <ul class="criteria-list">
+                                        <li>Alternative method preparation for primary method failure</li>
+                                        <li>Data recall procedures for compromised synthetic datasets</li>
+                                        <li>Incident response plans for privacy breaches</li>
+                                        <li>Regular testing of backup and recovery systems</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
+                    </div>
                     </div>
                 </div>
 
@@ -845,8 +898,8 @@ def benchmark_synthetic_method(method, dataset, metrics_suite):
 
                 <div class="step-navigation">
                     <div class="nav-buttons">
-                        <a href="impact-assessment.html" class="nav-button nav-previous">← Appendix 5: Impact Assessment</a>
-                        <a href="deidentification-techniques.html" class="nav-button nav-next">Appendix 7: De-identification Techniques →</a>
+                        <a href="impact-assessment.html" class="nav-button nav-previous">Ã”Ã¥Ã‰ Appendix 5: Impact Assessment</a>
+                        <a href="deidentification-techniques.html" class="nav-button nav-next">Appendix 7: De-identification Techniques Ã”Ã¥Ã†</a>
                     </div>
                 </div>
             </div>
@@ -867,3 +920,6 @@ def benchmark_synthetic_method(method, dataset, metrics_suite):
     <script src="../../assets/chatbot/chatbot.js"></script>
 </body>
 </html>
+
+
+

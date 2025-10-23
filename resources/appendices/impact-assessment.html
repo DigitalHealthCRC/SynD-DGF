@@ -48,165 +48,211 @@
                 <h2>Assessment framework overview</h2>
                 <p>Impact assessment for synthetic health data projects requires evaluation across multiple domains to ensure comprehensive consideration of all potential consequences. This assessment should be conducted early in project planning and revisited throughout the project lifecycle.</p>
 
-                <div class="impact-matrix">
+                                <div class="impact-matrix">
                     <h3>Impact assessment matrix</h3>
                     <p>Use this matrix to systematically evaluate potential impacts across all domains:</p>
-                    <table class="matrix-table">
-                        <thead>
-                            <tr>
-                                <th>Impact Domain</th>
-                                <th>High Risk</th>
-                                <th>Medium Risk</th>
-                                <th>Low Risk</th>
-                                <th>Assessment Priority</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Privacy Impact</strong></td>
-                                <td class="impact-high">Re-identification possible</td>
-                                <td class="impact-medium">Limited risk with controls</td>
-                                <td class="impact-low">Minimal privacy concerns</td>
-                                <td>Critical</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Ethical Impact</strong></td>
-                                <td class="impact-high">Significant ethical concerns</td>
-                                <td class="impact-medium">Some ethical considerations</td>
-                                <td class="impact-low">Minor ethical implications</td>
-                                <td>High</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Social Impact</strong></td>
-                                <td class="impact-high">Potential for harm/discrimination</td>
-                                <td class="impact-medium">Limited social concerns</td>
-                                <td class="impact-low">Positive social benefit</td>
-                                <td>High</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Technical Impact</strong></td>
-                                <td class="impact-high">Technical limitations significant</td>
-                                <td class="impact-medium">Some technical challenges</td>
-                                <td class="impact-low">Technical approach sound</td>
-                                <td>Medium</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Legal Impact</strong></td>
-                                <td class="impact-high">Legal compliance unclear</td>
-                                <td class="impact-medium">Some legal complexities</td>
-                                <td class="impact-low">Clear legal pathway</td>
-                                <td>Critical</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-3">
+                        <div class="col">
+                            <div class="tool-card-modern h-100 d-flex flex-column">
+                                <div class="impact-card-header">
+                                    <div class="tool-icon-large tool-icon-purple">
+                                        <i data-lucide="shield"></i>
+                                    </div>
+                                    <span class="impact-priority-pill">Priority: Critical</span>
+                                </div>
+                                <h3>Privacy impact</h3>
+                                <ul class="impact-risk-list">
+                                    <li><strong>High:</strong> Re-identification possible</li>
+                                    <li><strong>Medium:</strong> Limited risk with controls</li>
+                                    <li><strong>Low:</strong> Minimal privacy concerns</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="tool-card-modern h-100 d-flex flex-column">
+                                <div class="impact-card-header">
+                                    <div class="tool-icon-large tool-icon-teal">
+                                        <i data-lucide="scale"></i>
+                                    </div>
+                                    <span class="impact-priority-pill">Priority: High</span>
+                                </div>
+                                <h3>Ethical impact</h3>
+                                <ul class="impact-risk-list">
+                                    <li><strong>High:</strong> Significant ethical concerns</li>
+                                    <li><strong>Medium:</strong> Some ethical considerations</li>
+                                    <li><strong>Low:</strong> Minor ethical implications</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="tool-card-modern h-100 d-flex flex-column">
+                                <div class="impact-card-header">
+                                    <div class="tool-icon-large tool-icon-blue">
+                                        <i data-lucide="users"></i>
+                                    </div>
+                                    <span class="impact-priority-pill">Priority: High</span>
+                                </div>
+                                <h3>Social impact</h3>
+                                <ul class="impact-risk-list">
+                                    <li><strong>High:</strong> Potential for harm or discrimination</li>
+                                    <li><strong>Medium:</strong> Limited social concerns</li>
+                                    <li><strong>Low:</strong> Positive social benefit</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="tool-card-modern h-100 d-flex flex-column">
+                                <div class="impact-card-header">
+                                    <div class="tool-icon-large tool-icon-green">
+                                        <i data-lucide="cpu"></i>
+                                    </div>
+                                    <span class="impact-priority-pill">Priority: Medium</span>
+                                </div>
+                                <h3>Technical impact</h3>
+                                <ul class="impact-risk-list">
+                                    <li><strong>High:</strong> Significant technical limitations</li>
+                                    <li><strong>Medium:</strong> Some technical challenges</li>
+                                    <li><strong>Low:</strong> Technical approach sound</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="tool-card-modern h-100 d-flex flex-column">
+                                <div class="impact-card-header">
+                                    <div class="tool-icon-large tool-icon-coral">
+                                        <i data-lucide="gavel"></i>
+                                    </div>
+                                    <span class="impact-priority-pill">Priority: High</span>
+                                </div>
+                                <h3>Legal impact</h3>
+                                <ul class="impact-risk-list">
+                                    <li><strong>High:</strong> Legal compliance unclear</li>
+                                    <li><strong>Medium:</strong> Some legal complexities</li>
+                                    <li><strong>Low:</strong> Clear legal pathway</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="impact-domain privacy">
                     <div class="domain-header">
-                        <span class="domain-icon"></span>
-                        <h2 class="domain-title">Privacy impact assessment</h2>
+                        <h2 class="domain-title"><i data-lucide="shield"></i> Privacy impact assessment</h2>
                     </div>
                     <p>Privacy impact assessment evaluates risks to individual privacy throughout the synthetic data lifecycle.</p>
 
                     <div class="assessment-criteria">
                         <h3>Key assessment areas</h3>
-                        <div class="criteria-grid">
-                            <div class="criteria-item">
-                                <div class="criteria-title">Source data privacy</div>
-                                <p>Assessment of privacy risks in accessing and using source data for synthetic generation.</p>
-                                <ul class="criteria-questions">
-                                    <li>What sensitive information is contained in source data?</li>
-                                    <li>How will source data be accessed and stored?</li>
-                                    <li>Who will have access to source data during the project?</li>
-                                    <li>What controls prevent unauthorised source data access?</li>
-                                </ul>
+                        <div class="row row-cols-1 row-cols-lg-2 g-4 mt-3">
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="lock"></i> Source data privacy</h4>
+                                    <p>Assessment of privacy risks in accessing and using source data for synthetic generation.</p>
+                                    <ul class="criteria-questions">
+                                        <li>What sensitive information is contained in source data?</li>
+                                        <li>How will source data be accessed and stored?</li>
+                                        <li>Who will have access to source data during the project?</li>
+                                        <li>What controls prevent unauthorised source data access?</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Generation process risks</div>
-                                <p>Privacy risks arising during the synthetic data generation process itself.</p>
-                                <ul class="criteria-questions">
-                                    <li>Could the generation process inadvertently preserve identifiable information?</li>
-                                    <li>Are generation algorithms privacy-preserving by design?</li>
-                                    <li>How is model training data protected?</li>
-                                    <li>What quality assurance processes protect privacy?</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="cpu"></i> Generation process risks</h4>
+                                    <p>Privacy risks arising during the synthetic data generation process itself.</p>
+                                    <ul class="criteria-questions">
+                                        <li>Could the generation process inadvertently preserve identifiable information?</li>
+                                        <li>Are generation algorithms privacy-preserving by design?</li>
+                                        <li>How is model training data protected?</li>
+                                        <li>What quality assurance processes protect privacy?</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Synthetic data disclosure risks</div>
-                                <p>Evaluation of re-identification and inference risks in synthetic data outputs.</p>
-                                <ul class="criteria-questions">
-                                    <li>Could individuals be re-identified from synthetic data patterns?</li>
-                                    <li>What attributes or combinations pose re-identification risks?</li>
-                                    <li>How will synthetic data be distributed and accessed?</li>
-                                    <li>What controls limit inappropriate use of synthetic data?</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="eye-off"></i> Synthetic data disclosure risks</h4>
+                                    <p>Evaluation of re-identification and inference risks in synthetic data outputs.</p>
+                                    <ul class="criteria-questions">
+                                        <li>Could individuals be re-identified from synthetic data patterns?</li>
+                                        <li>What attributes or combinations pose re-identification risks?</li>
+                                        <li>How will synthetic data be distributed and accessed?</li>
+                                        <li>What controls limit inappropriate use of synthetic data?</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Ongoing privacy protection</div>
-                                <p>Long-term privacy protection measures and monitoring arrangements.</p>
-                                <ul class="criteria-questions">
-                                    <li>How will privacy protection be monitored over time?</li>
-                                    <li>What happens if privacy risks increase after generation?</li>
-                                    <li>How can synthetic data be recalled if necessary?</li>
-                                    <li>What privacy breach response procedures exist?</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="shield"></i> Ongoing privacy protection</h4>
+                                    <p>Long-term privacy protection measures and monitoring arrangements.</p>
+                                    <ul class="criteria-questions">
+                                        <li>How will privacy protection be monitored over time?</li>
+                                        <li>What happens if privacy risks increase after generation?</li>
+                                        <li>How can synthetic data be recalled if necessary?</li>
+                                        <li>What privacy breach response procedures exist?</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
                 </div>
 
                 <div class="impact-domain ethical">
                     <div class="domain-header">
-                        <span class="domain-icon">️</span>
-                        <h2 class="domain-title">Ethical impact assessment</h2>
+                        <h2 class="domain-title"><i data-lucide="scale"></i> Ethical impact assessment</h2>
                     </div>
                     <p>Ethical assessment ensures synthetic data projects align with fundamental ethical principles and community values.</p>
 
                     <div class="assessment-criteria">
                         <h3>Ethical evaluation framework</h3>
-                        <div class="criteria-grid">
-                            <div class="criteria-item">
-                                <div class="criteria-title">Autonomy and consent</div>
-                                <p>Respect for individual autonomy and decision-making in synthetic data use.</p>
-                                <ul class="criteria-questions">
-                                    <li>How do consent arrangements address synthetic data generation?</li>
-                                    <li>Can individuals opt out of synthetic data generation?</li>
-                                    <li>Are people informed about synthetic data creation from their data?</li>
-                                    <li>How are incapacitated persons' interests protected?</li>
-                                </ul>
+                        <div class="row row-cols-1 row-cols-lg-2 g-4 mt-3">
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="user-check"></i> Autonomy and consent</h4>
+                                    <p>Respect for individual autonomy and decision-making in synthetic data use.</p>
+                                    <ul class="criteria-questions">
+                                        <li>How do consent arrangements address synthetic data generation?</li>
+                                        <li>Can individuals opt out of synthetic data generation?</li>
+                                        <li>Are people informed about synthetic data creation from their data?</li>
+                                        <li>How are incapacitated persons' interests protected?</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Beneficence and non-maleficence</div>
-                                <p>Ensuring benefits are maximised and harms minimised.</p>
-                                <ul class="criteria-questions">
-                                    <li>What specific benefits does this project aim to achieve?</li>
-                                    <li>Who benefits from the synthetic data use?</li>
-                                    <li>What potential harms could arise?</li>
-                                    <li>How do benefits compare to risks and resource use?</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="heart"></i> Beneficence and non-maleficence</h4>
+                                    <p>Ensuring benefits are maximised and harms minimised.</p>
+                                    <ul class="criteria-questions">
+                                        <li>What specific benefits does this project aim to achieve?</li>
+                                        <li>Who benefits from the synthetic data use?</li>
+                                        <li>What potential harms could arise?</li>
+                                        <li>How do benefits compare to risks and resource use?</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Justice and fairness</div>
-                                <p>Fair distribution of benefits and burdens across different groups.</p>
-                                <ul class="criteria-questions">
-                                    <li>Are benefits and risks fairly distributed across population groups?</li>
-                                    <li>Could synthetic data perpetuate or amplify existing biases?</li>
-                                    <li>How are vulnerable populations protected?</li>
-                                    <li>What measures ensure equitable access to benefits?</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="scale"></i> Justice and fairness</h4>
+                                    <p>Fair distribution of benefits and burdens across different groups.</p>
+                                    <ul class="criteria-questions">
+                                        <li>Are benefits and risks fairly distributed across population groups?</li>
+                                        <li>Could synthetic data perpetuate or amplify existing biases?</li>
+                                        <li>How are vulnerable populations protected?</li>
+                                        <li>What measures ensure equitable access to benefits?</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Transparency and accountability</div>
-                                <p>Open communication about synthetic data projects and clear accountability structures.</p>
-                                <ul class="criteria-questions">
-                                    <li>How will the project be communicated to stakeholders?</li>
-                                    <li>What information will be publicly available?</li>
-                                    <li>Who is accountable for project outcomes?</li>
-                                    <li>How can the community provide input or feedback?</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="megaphone"></i> Transparency and accountability</h4>
+                                    <p>Open communication about synthetic data projects and clear accountability structures.</p>
+                                    <ul class="criteria-questions">
+                                        <li>How will the project be communicated to stakeholders?</li>
+                                        <li>What information will be publicly available?</li>
+                                        <li>Who is accountable for project outcomes?</li>
+                                        <li>How can the community provide input or feedback?</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
                 </div>
 
                 <div class="indigenous-section">
@@ -234,183 +280,208 @@
 
                     <div class="assessment-criteria">
                         <h3>Indigenous data assessment questions</h3>
-                        <div class="criteria-grid">
-                            <div class="criteria-item">
-                                <div class="criteria-title">Community engagement</div>
-                                <ul class="criteria-questions">
-                                    <li>Has meaningful consultation occurred with relevant Indigenous communities?</li>
-                                    <li>Do Indigenous communities support the synthetic data project?</li>
-                                    <li>How will ongoing community involvement be maintained?</li>
-                                </ul>
+                        <div class="row row-cols-1 row-cols-lg-2 g-4 mt-3">
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="users-round"></i> Community engagement</h4>
+                                    <ul class="criteria-questions">
+                                        <li>Has meaningful consultation occurred with relevant Indigenous communities?</li>
+                                        <li>Do Indigenous communities support the synthetic data project?</li>
+                                        <li>How will ongoing community involvement be maintained?</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Governance and control</div>
-                                <ul class="criteria-questions">
-                                    <li>Do Indigenous communities have appropriate governance roles?</li>
-                                    <li>How can communities exercise control over their data?</li>
-                                    <li>What mechanisms exist for community oversight?</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="shield-check"></i> Governance and control</h4>
+                                    <ul class="criteria-questions">
+                                        <li>Do Indigenous communities have appropriate governance roles?</li>
+                                        <li>How can communities exercise control over their data?</li>
+                                        <li>What mechanisms exist for community oversight?</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Benefit sharing</div>
-                                <ul class="criteria-questions">
-                                    <li>How will Indigenous communities benefit from the project?</li>
-                                    <li>Are benefits shared equitably and appropriately?</li>
-                                    <li>How will project outcomes support community priorities?</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="handshake"></i> Benefit sharing</h4>
+                                    <ul class="criteria-questions">
+                                        <li>How will Indigenous communities benefit from the project?</li>
+                                        <li>Are benefits shared equitably and appropriately?</li>
+                                        <li>How will project outcomes support community priorities?</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Cultural sensitivity</div>
-                                <ul class="criteria-questions">
-                                    <li>Does the project respect Indigenous cultural values?</li>
-                                    <li>How are cultural protocols incorporated?</li>
-                                    <li>What cultural competency training is provided to staff?</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="feather"></i> Cultural sensitivity</h4>
+                                    <ul class="criteria-questions">
+                                        <li>Does the project respect Indigenous cultural values?</li>
+                                        <li>How are cultural protocols incorporated?</li>
+                                        <li>What cultural competency training is provided to staff?</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
                 </div>
 
                 <div class="impact-domain social">
                     <div class="domain-header">
-                        <span class="domain-icon"></span>
-                        <h2 class="domain-title">Social impact assessment</h2>
+                        <h2 class="domain-title"><i data-lucide="users"></i> Social impact assessment</h2>
                     </div>
                     <p>Social impact assessment evaluates broader societal effects and community implications of synthetic data projects.</p>
 
                     <div class="assessment-criteria">
                         <h3>Social impact evaluation areas</h3>
-                        <div class="criteria-grid">
-                            <div class="criteria-item">
-                                <div class="criteria-title">Community trust and acceptance</div>
-                                <ul class="criteria-questions">
-                                    <li>How might the project affect public trust in health data use?</li>
-                                    <li>What community concerns need to be addressed?</li>
-                                    <li>How will community acceptance be built and maintained?</li>
-                                </ul>
+                        <div class="row row-cols-1 row-cols-lg-2 g-4 mt-3">
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="smile"></i> Community trust and acceptance</h4>
+                                    <ul class="criteria-questions">
+                                        <li>How might the project affect public trust in health data use?</li>
+                                        <li>What community concerns need to be addressed?</li>
+                                        <li>How will community acceptance be built and maintained?</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Equity and discrimination</div>
-                                <ul class="criteria-questions">
-                                    <li>Could synthetic data perpetuate health inequities?</li>
-                                    <li>How are minority and vulnerable groups represented?</li>
-                                    <li>What measures prevent discriminatory use of outputs?</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="balance"></i> Equity and discrimination</h4>
+                                    <ul class="criteria-questions">
+                                        <li>Could synthetic data perpetuate health inequities?</li>
+                                        <li>How are minority and vulnerable groups represented?</li>
+                                        <li>What measures prevent discriminatory use of outputs?</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Healthcare system impacts</div>
-                                <ul class="criteria-questions">
-                                    <li>How might project outcomes affect healthcare delivery?</li>
-                                    <li>Could synthetic data improve health system equity?</li>
-                                    <li>What changes to clinical practice might result?</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="stethoscope"></i> Healthcare system impacts</h4>
+                                    <ul class="criteria-questions">
+                                        <li>How might project outcomes affect healthcare delivery?</li>
+                                        <li>Could synthetic data improve health system equity?</li>
+                                        <li>What changes to clinical practice might result?</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Economic and resource implications</div>
-                                <ul class="criteria-questions">
-                                    <li>What are the economic costs and benefits?</li>
-                                    <li>How do resource requirements compare to alternatives?</li>
-                                    <li>What economic impacts on communities are expected?</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="factory"></i> Economic and resource implications</h4>
+                                    <ul class="criteria-questions">
+                                        <li>What are the economic costs and benefits?</li>
+                                        <li>How do resource requirements compare to alternatives?</li>
+                                        <li>What economic impacts on communities are expected?</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
                 </div>
 
                 <div class="impact-domain technical">
                     <div class="domain-header">
-                        <span class="domain-icon"></span>
-                        <h2 class="domain-title">Technical impact assessment</h2>
+                        <h2 class="domain-title"><i data-lucide="cpu"></i> Technical impact assessment</h2>
                     </div>
                     <p>Technical assessment evaluates the feasibility, quality, and reliability of synthetic data generation approaches.</p>
 
                     <div class="assessment-criteria">
                         <h3>Technical evaluation criteria</h3>
-                        <div class="criteria-grid">
-                            <div class="criteria-item">
-                                <div class="criteria-title">Data quality and utility</div>
-                                <ul class="criteria-questions">
-                                    <li>Can synthetic data achieve required quality levels?</li>
-                                    <li>How will utility for intended purposes be validated?</li>
-                                    <li>What quality assurance processes will be implemented?</li>
-                                </ul>
+                        <div class="row row-cols-1 row-cols-lg-2 g-4 mt-3">
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="line-chart"></i> Data quality and utility</h4>
+                                    <ul class="criteria-questions">
+                                        <li>Can synthetic data achieve required quality levels?</li>
+                                        <li>How will utility for intended purposes be validated?</li>
+                                        <li>What quality assurance processes will be implemented?</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Technical feasibility</div>
-                                <ul class="criteria-questions">
-                                    <li>Are proposed methods technically achievable?</li>
-                                    <li>What technical expertise and resources are required?</li>
-                                    <li>How will technical challenges be addressed?</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="wrench"></i> Technical feasibility</h4>
+                                    <ul class="criteria-questions">
+                                        <li>Are proposed methods technically achievable?</li>
+                                        <li>What technical expertise and resources are required?</li>
+                                        <li>How will technical challenges be addressed?</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Scalability and sustainability</div>
-                                <ul class="criteria-questions">
-                                    <li>Can the approach scale to required data volumes?</li>
-                                    <li>How will ongoing technical maintenance be managed?</li>
-                                    <li>What happens if technical approaches become obsolete?</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="server"></i> Scalability and sustainability</h4>
+                                    <ul class="criteria-questions">
+                                        <li>Can the approach scale to required data volumes?</li>
+                                        <li>How will ongoing technical maintenance be managed?</li>
+                                        <li>What happens if technical approaches become obsolete?</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Security and integrity</div>
-                                <ul class="criteria-questions">
-                                    <li>How will data and system security be maintained?</li>
-                                    <li>What measures protect against technical attacks?</li>
-                                    <li>How is data integrity assured throughout the process?</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="shield-check"></i> Security and integrity</h4>
+                                    <ul class="criteria-questions">
+                                        <li>How will data and system security be maintained?</li>
+                                        <li>What measures protect against technical attacks?</li>
+                                        <li>How is data integrity assured throughout the process?</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
                 </div>
 
                 <div class="impact-domain legal">
                     <div class="domain-header">
-                        <span class="domain-icon"></span>
-                        <h2 class="domain-title">Legal and regulatory impact</h2>
+                        <h2 class="domain-title"><i data-lucide="gavel"></i> Legal and regulatory impact</h2>
                     </div>
                     <p>Legal assessment ensures compliance with applicable laws and regulations across all jurisdictions.</p>
 
                     <div class="assessment-criteria">
                         <h3>Legal compliance evaluation</h3>
-                        <div class="criteria-grid">
-                            <div class="criteria-item">
-                                <div class="criteria-title">Privacy law compliance</div>
-                                <ul class="criteria-questions">
-                                    <li>Which privacy laws apply to this project?</li>
-                                    <li>How do Australian Privacy Principles apply?</li>
-                                    <li>Are there state or territory specific requirements?</li>
-                                    <li>How do international privacy laws apply if relevant?</li>
-                                </ul>
+                        <div class="row row-cols-1 row-cols-lg-2 g-4 mt-3">
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="scale"></i> Privacy law compliance</h4>
+                                    <ul class="criteria-questions">
+                                        <li>Which privacy laws apply to this project?</li>
+                                        <li>How do Australian Privacy Principles apply?</li>
+                                        <li>Are there state or territory specific requirements?</li>
+                                        <li>How do international privacy laws apply if relevant?</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Health and research regulation</div>
-                                <ul class="criteria-questions">
-                                    <li>What health sector regulations apply?</li>
-                                    <li>Are there specific research governance requirements?</li>
-                                    <li>How do ethics approval processes apply?</li>
-                                    <li>What professional or industry standards are relevant?</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="hospital"></i> Health and research regulation</h4>
+                                    <ul class="criteria-questions">
+                                        <li>What health sector regulations apply?</li>
+                                        <li>Are there specific research governance requirements?</li>
+                                        <li>How do ethics approval processes apply?</li>
+                                        <li>What professional or industry standards are relevant?</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Data sharing and transfer</div>
-                                <ul class="criteria-questions">
-                                    <li>What legal frameworks govern data sharing arrangements?</li>
-                                    <li>How do cross-border data transfer laws apply?</li>
-                                    <li>What contractual arrangements are required?</li>
-                                    <li>How are third-party obligations managed?</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="exchange"></i> Data sharing and transfer</h4>
+                                    <ul class="criteria-questions">
+                                        <li>What legal frameworks govern data sharing arrangements?</li>
+                                        <li>How do cross-border data transfer laws apply?</li>
+                                        <li>What contractual arrangements are required?</li>
+                                        <li>How are third-party obligations managed?</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="criteria-item">
-                                <div class="criteria-title">Liability and accountability</div>
-                                <ul class="criteria-questions">
-                                    <li>How are legal liabilities allocated between parties?</li>
-                                    <li>What insurance or indemnity arrangements apply?</li>
-                                    <li>How is legal accountability for outcomes managed?</li>
-                                    <li>What dispute resolution mechanisms exist?</li>
-                                </ul>
+                            <div class="col">
+                                <div class="principle-card h-100">
+                                    <h4><i data-lucide="file-warning"></i> Liability and accountability</h4>
+                                    <ul class="criteria-questions">
+                                        <li>How are legal liabilities allocated between parties?</li>
+                                        <li>What insurance or indemnity arrangements apply?</li>
+                                        <li>How is legal accountability for outcomes managed?</li>
+                                        <li>What dispute resolution mechanisms exist?</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
                 </div>
 
                 <div class="assessment-workflow">
@@ -502,3 +573,6 @@
     <script src="../../assets/chatbot/chatbot.js"></script>
 </body>
 </html>
+
+
+
