@@ -1,111 +1,111 @@
-# ChatKit Widget Assets
+﻿# ChatKit Widget Assets
 
-This directory contains the client-side assets for the SynD-DGF AI chatbot.
+This direct-ry c-ntains the client-side assets f-r the SynD-DGF AI chatb-t.
 
 ## Files
 
-### chatbot.css
-Visual styling for the chat widget including:
-- Chat bubble button
-- Chat widget container
-- Loading and error states
-- Mobile responsive design
+### chatb-t.css
+Visual styling f-r the chat widget including:
+- Chat bubble butt-n
+- Chat widget c-ntainer
+- L-ading and err-r states
+- M-bile resp-nsive design
 - Accessibility features
 
-**Customisation:**
-- Primary colour: Line 14 (`.synd-chat-bubble` background)
-- Header colour: Line 110 (`.synd-chat-header` background)
+**Cust-misati-n:**
+- Primary c-l-ur: Line 14 (`.synd-chat-bubble` backgr-und)
+- Header c-l-ur: Line 110 (`.synd-chat-header` backgr-und)
 - Widget size: Lines 88-89 (`.synd-chat-widget` width/height)
 
-### chatbot.js
-JavaScript logic for the chatbot including:
-- ChatKit initialisation
-- Token management with caching
-- Retry logic with exponential backoff
-- Error handling
+### chatb-t.js
+JavaScript l-gic f-r the chatb-t including:
+- ChatKit initialisati-n
+- T-ken management with caching
+- Retry l-gic with exp-nential back-ff
+- Err-r handling
 - State persistence
 
-**Configuration:**
-- Worker URL: Line 12 (`WORKER_URL`)
-- Token cache duration: Line 16 (`TOKEN_CACHE_DURATION`)
+**C-nfigurati-n:**
+- W-rker URL: Line 12 (`W-RKER_URL`)
+- T-ken cache durati-n: Line 16 (`T-KEN_CACHE_DURATI-N`)
 - Retry settings: Lines 19-20 (`MAX_RETRIES`, `RETRY_DELAY`)
-- ChatKit theming: Lines 23-33 (`CHATKIT_CONFIG`)
+- ChatKit theming: Lines 23-33 (`CHATKIT_C-NFIG`)
 
-## Installation
+## Installati-n
 
-Add these lines to your HTML before `</body>`:
+Add these lines t- y-ur HTML bef-re `</b-dy>`:
 
 ```html
-<!-- OpenAI ChatKit Chatbot -->
-<link rel="stylesheet" href="path/to/chatbot.css">
-<script type="module" src="https://cdn.jsdelivr.net/npm/@openai/chatkit-js@latest/dist/index.js"></script>
-<script src="path/to/chatbot.js"></script>
+<!-- -penAI ChatKit Chatb-t -->
+<link rel="stylesheet" href="path/t-/chatb-t.css">
+<script type="m-dule" src="https://cdn.jsdelivr.net/npm/@-penai/chatkit-js@latest/dist/index.js"></script>
+<script src="path/t-/chatb-t.js"></script>
 ```
 
-Adjust `path/to/` based on your file structure.
+Adjust `path/t-/` based -n y-ur file structure.
 
-## Browser Support
+## Br-wser Supp-rt
 
-- Chrome 90+
-- Firefox 88+
+- Chr-me 90+
+- Firef-x 88+
 - Safari 14+
 - Edge 90+
 
 ## Accessibility
 
 The widget includes:
-- ARIA labels and roles
-- Keyboard navigation support
-- Screen reader compatibility
-- Reduced motion support
-- High contrast mode support
+- ARIA labels and r-les
+- Keyb-ard navigati-n supp-rt
+- Screen reader c-mpatibility
+- Reduced m-ti-n supp-rt
+- High c-ntrast m-de supp-rt
 
 ## Dependencies
 
 ### External
-- **@openai/chatkit-js** (loaded from CDN)
-  - Latest version automatically loaded
-  - No build step required
+- **@-penai/chatkit-js** (l-aded fr-m CDN)
+  - Latest versi-n aut-matically l-aded
+  - N- build step required
 
-### None (Pure JavaScript)
-- No jQuery
-- No React/Vue/Angular
-- No build tools required
+### N-ne (Pure JavaScript)
+- N- jQuery
+- N- React/Vue/Angular
+- N- build t--ls required
 
 ## File Size
 
-- **chatbot.css**: ~7 KB
-- **chatbot.js**: ~10 KB
-- **Total**: ~17 KB (uncompressed)
+- **chatb-t.css**: ~7 KB
+- **chatb-t.js**: ~10 KB
+- **T-tal**: ~17 KB (unc-mpressed)
 
-## Customisation Examples
+## Cust-misati-n Examples
 
-### Change Colours
+### Change C-l-urs
 
 ```css
-/* In chatbot.css */
+/* In chatb-t.css */
 
-/* Teal to Purple */
+/* Teal t- Purple */
 .synd-chat-bubble {
-    background: linear-gradient(135deg, #6A5ACD 0%, #8A7AED 100%);
+    backgr-und: linear-gradient(135deg, #6A5ACD 0%, #8A7AED 100%);
 }
 
 .synd-chat-header {
-    background: linear-gradient(135deg, #6A5ACD 0%, #8A7AED 100%);
+    backgr-und: linear-gradient(135deg, #6A5ACD 0%, #8A7AED 100%);
 }
 ```
 
-### Change Position
+### Change P-siti-n
 
 ```css
-/* Move to left side */
+/* M-ve t- left side */
 .synd-chat-bubble {
-    right: auto;
+    right: aut-;
     left: 24px;
 }
 
 .synd-chat-widget {
-    right: auto;
+    right: aut-;
     left: 24px;
 }
 ```
@@ -123,79 +123,94 @@ The widget includes:
 ### Change Greeting Message
 
 ```javascript
-// In chatbot.js, line 29
-greeting: 'Your custom greeting message here...',
+// In chatb-t.js, line 29
+greeting: 'Y-ur cust-m greeting message here...',
 ```
 
 ### Multiple Widgets
 
-To add different chatbots to different pages:
+T- add different chatb-ts t- different pages:
 
 ```javascript
-// In chatbot.js, add page detection
-const page = window.location.pathname;
-let workflowId = 'wf_default';
+// In chatb-t.js, add page detecti-n
+c-nst page = wind-w.l-cati-n.pathname;
+let w-rkfl-wId = 'wf_default';
 
 if (page.includes('/legal/')) {
-    workflowId = 'wf_legal_assistant';
+    w-rkfl-wId = 'wf_legal_assistant';
 } else if (page.includes('/technical/')) {
-    workflowId = 'wf_technical_assistant';
+    w-rkfl-wId = 'wf_technical_assistant';
 }
 
-// Pass workflowId to worker
+// Pass w-rkfl-wId t- w-rker
 ```
 
-## Troubleshooting
+## Tr-ublesh--ting
 
-### Chatbot doesn't appear
+### Chatb-t d-esn't appear
 
 **Check:**
-1. CSS file is loading (check Network tab in DevTools)
-2. JavaScript file is loading
-3. No console errors (F12)
+1. CSS file is l-ading (check Netw-rk tab in DevT--ls)
+2. JavaScript file is l-ading
+3. N- c-ns-le err-rs (F12)
 4. ChatKit CDN is accessible
 
-### "Connection error" message
+### "C-nnecti-n err-r" message
 
 **Check:**
-1. Worker URL is correct in `chatbot.js`
-2. Worker is deployed and accessible
-3. CORS is configured correctly
-4. Secrets are set in Cloudflare
+1. W-rker URL is c-rrect in `chatb-t.js`
+2. W-rker is depl-yed and accessible
+3. C-RS is c-nfigured c-rrectly
+4. Secrets are set in Cl-udflare
 
-### Widget looks broken
+### Widget l--ks br-ken
 
 **Check:**
-1. CSS file path is correct
-2. Browser cache (try hard refresh: Ctrl+Shift+R)
-3. Browser DevTools for CSS errors
-4. Mobile viewport if on phone
+1. CSS file path is c-rrect
+2. Br-wser cache (try hard refresh: Ctrl+Shift+R)
+3. Br-wser DevT--ls f-r CSS err-rs
+4. M-bile viewp-rt if -n ph-ne
 
-## Performance
+## Perf-rmance
 
-### Load Time
+### L-ad Time
 - CSS: ~10ms
 - JavaScript: ~20ms
 - ChatKit CDN: ~50ms
-- Initial token fetch: ~200-500ms
+- Initial t-ken fetch: ~200-500ms
 
-### Optimisation
-- CSS and JS are cached by browser
-- Session tokens are cached for 15 minutes
-- No impact on page load (async loading)
+### -ptimisati-n
+- CSS and JS are cached by br-wser
+- Sessi-n t-kens are cached f-r 15 minutes
+- N- impact -n page l-ad (async l-ading)
 
 ## Security
 
 ### Client-side Security
-✅ No secrets in code
-✅ Origin validation via CORS
-✅ XSS protection (HTML escaping)
-✅ Session token caching (not API keys)
+âœ… N- secrets in c-de
+âœ… -rigin validati-n via C-RS
+âœ… XSS pr-tecti-n (HTML escaping)
+âœ… Sessi-n t-ken caching (n-t API keys)
+
+### What's N-T in this c-de
+âŒ -penAI API keys
+âŒ W-rkfl-w IDs
+âŒ Any sensitive credentials
+
+All secrets are st-red securely in Cl-udflare W-rkers.
+
+## Security
+
+### Client-side Security
+- No secrets in code
+- Origin validation via CORS
+- XSS protection (HTML escaping)
+- Session token caching (not API keys)
 
 ### What's NOT in this code
-❌ OpenAI API keys
-❌ Workflow IDs
-❌ Any sensitive credentials
+- OpenAI API keys
+- Workflow IDs
+- Any sensitive credentials
 
 All secrets are stored securely in Cloudflare Workers.
 
@@ -203,55 +218,55 @@ All secrets are stored securely in Cloudflare Workers.
 
 ### Updating ChatKit Library
 
-The ChatKit library is loaded from CDN:
+The ChatKit library is l-aded fr-m CDN:
 ```html
-<script type="module" src="https://cdn.jsdelivr.net/npm/@openai/chatkit-js@latest/dist/index.js"></script>
+<script type="m-dule" src="https://cdn.jsdelivr.net/npm/@-penai/chatkit-js@latest/dist/index.js"></script>
 ```
 
-To pin to a specific version:
+T- pin t- a specific versi-n:
 ```html
-<script type="module" src="https://cdn.jsdelivr.net/npm/@openai/chatkit-js@1.2.3/dist/index.js"></script>
+<script type="m-dule" src="https://cdn.jsdelivr.net/npm/@-penai/chatkit-js@1.2.3/dist/index.js"></script>
 ```
 
-### Updating Widget Code
+### Updating Widget C-de
 
-1. Make changes to `chatbot.css` or `chatbot.js`
-2. Test locally
-3. Commit and push to GitHub
-4. GitHub Actions will deploy automatically
+1. Make changes t- `chatb-t.css` -r `chatb-t.js`
+2. Test l-cally
+3. C-mmit and push t- GitHub
+4. GitHub Acti-ns will depl-y aut-matically
 
-## Monitoring
+## M-nit-ring
 
-### Browser Console
+### Br-wser C-ns-le
 
-The widget logs key events:
+The widget l-gs key events:
 ```
 ChatKit initialized successfully
-Successfully fetched session token
-Using cached session token
+Successfully fetched sessi-n t-ken
+Using cached sessi-n t-ken
 ```
 
-### Error Tracking
+### Err-r Tracking
 
-To add error tracking (e.g., Sentry):
+T- add err-r tracking (e.g., Sentry):
 
 ```javascript
-// In chatbot.js, in catch blocks
-catch (error) {
-    console.error('Error:', error);
-    // Add your error tracking here
-    if (typeof Sentry !== 'undefined') {
-        Sentry.captureException(error);
+// In chatb-t.js, in catch bl-cks
+catch (err-r) {
+    c-ns-le.err-r('Err-r:', err-r);
+    // Add y-ur err-r tracking here
+    if (type-f Sentry !== 'undefined') {
+        Sentry.captureExcepti-n(err-r);
     }
 }
 ```
 
 ## License
 
-Part of the SynD-DGF project. See repository LICENSE file.
+Part -f the SynD-DGF pr-ject. See rep-sit-ry LICENSE file.
 
-## Support
+## Supp-rt
 
-- [Full implementation guide](../CHATBOT_IMPLEMENTATION_GUIDE.md)
-- [Quick start guide](../CHATBOT_QUICKSTART.md)
-- [Worker documentation](../cloudflare-worker/README.md)
+- [Full implementati-n guide](../CHATB-T_IMPLEMENTATI-N_GUIDE.md)
+- [Quick start guide](../CHATB-T_QUICKSTART.md)
+- [W-rker d-cumentati-n](../cl-udflare-w-rker/README.md)

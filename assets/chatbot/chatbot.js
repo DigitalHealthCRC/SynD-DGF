@@ -21,6 +21,8 @@
     // Retry configuration
     MAX_RETRIES: 3,
     RETRY_DELAY: 1000,
+    // Conversation persistence (thread) TTL in days
+    THREAD_TTL_DAYS: 7,
 
     // ChatKit configuration - Forest Canopy theme
     CHATKIT_CONFIG: {
@@ -45,6 +47,7 @@
       this.retryCount = 0;
       this.threadId = null;
       this.chatkitWidget = null;
+      this.keydownHandler = null;
 
       this.init();
     }
@@ -52,7 +55,7 @@
     /**
      * Initialize the chatbot UI
      */
-    init() {
+  init() {
       // Create chat bubble
       this.createChatBubble();
 
@@ -69,6 +72,12 @@
           this.updateUI();
         }
       });
+
+      // Global ESC to close
+      this.keydownHandler = (e) => {
+        if (e.key === 'Escape' && this.isOpen) this.close();
+      };
+      document.addEventListener('keydown', this.keydownHandler);
     }
 
     /**
@@ -98,6 +107,8 @@
       widget.className = 'synd-chat-widget';
       widget.setAttribute('role', 'dialog');
       widget.setAttribute('aria-labelledby', 'synd-chat-title');
+      widget.setAttribute('aria-modal', 'true');
+      widget.setAttribute('tabindex', '-1');
       widget.innerHTML = `
         <div class="synd-chat-header">
           <div class="synd-chat-header-content">
@@ -163,8 +174,20 @@
     startNewChat() {
       if (confirm('Start a new conversation? Your current chat history will be cleared.')) {
         this.clearThread();
-        // Reload the page to restart ChatKit with a fresh conversation
-        location.reload();
+        if (this.chatkitWidget && this.chatkitWidget.setThreadId) {
+          this.chatkitWidget.setThreadId(null);
+        }
+        if (this.bodyEl) {
+          this.bodyEl.innerHTML = `
+            <div class=\"synd-chat-loading\">
+              <div class=\"synd-chat-spinner\"></div>
+              <p>Initialising assistant...</p>
+            </div>
+          `;
+        }
+        if (this.isInitialized) {
+          this.initializeChatKit();
+        }
       }
     }
 
@@ -190,6 +213,10 @@
       // Initialize ChatKit if not already done
       if (!this.isInitialized) {
         await this.initializeChatKit();
+      }
+      // Focus dialog for accessibility
+      if (this.widget) {
+        try { this.widget.focus(); } catch {}
       }
     }
 
@@ -281,6 +308,7 @@
       try {
         this.threadId = null;
         localStorage.removeItem('synd-chat-thread-id');
+        localStorage.removeItem('synd-chat-thread');
         console.log('Thread ID cleared');
 
         // Reset ChatKit widget with new thread
@@ -312,7 +340,7 @@
         this.chatkitWidget = chatkit;
 
         // Configure the widget with getClientSecret callback
-        chatkit.setOptions({
+        const options = {
           api: {
             getClientSecret: async (existingSecret) => {
               console.log('ChatKit requesting client secret...');
@@ -328,7 +356,9 @@
           },
           // Optional customization
           theme: 'light',
-        });
+          ...CONFIG.CHATKIT_CONFIG
+        };
+        chatkit.setOptions(options);
 
         // Clear body and mount the widget
         this.bodyEl.innerHTML = '';
@@ -415,10 +445,12 @@
             throw new Error(`Failed to get session token after ${CONFIG.MAX_RETRIES} attempts: ${error.message}`);
           }
 
-          // Wait before retrying (exponential backoff)
-          await this.sleep(CONFIG.RETRY_DELAY * Math.pow(2, attempt));
-        }
+          // Wait before retrying (exponential backoff + jitter)
+          const base = CONFIG.RETRY_DELAY * Math.pow(2, attempt);
+          const jitter = Math.floor(Math.random() * 300);
+          await this.sleep(base + jitter);
       }
+    }
     }
 
     /**

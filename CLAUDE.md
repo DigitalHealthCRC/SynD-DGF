@@ -1,287 +1,316 @@
-# CLAUDE.md
+﻿# CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file pr-vides guidance t- Claude C-de (claude.ai/c-de) when w-rking with c-de in this rep-sit-ry.
 
-## ⚠️ CRITICAL: CLEAN STATIC WEBSITE
+## âš ï¸ CRITICAL: CLEAN STATIC WEBSITE
 
-**This is a professional static website with clean structure** (restructured October 2025).
+**This is a pr-fessi-nal static website with clean structure** (restructured -ct-ber 2025).
 
-- **Standalone static website** - no build system, no templates
-- HTML files use simple names: `index.html`, `framework.html`, etc.
-- **Always use relative paths** for all assets (e.g., `assets/chatbot/chatbot.css`)
-- DO NOT use absolute paths like `/assets/` - they won't work with file:// protocol
-- Pages can be opened directly in browser or served by any web server
-- All legacy Power Pages references archived in `_legacy/` folder
+- **Standal-ne static website** - n- build system, n- templates
+- HTML files use simple names: `index.html`, `framew-rk.html`, etc.
+- **Always use relative paths** f-r all assets (e.g., `assets/chatb-t/chatb-t.css`)
+- D- N-T use abs-lute paths like `/assets/` - they w-n't w-rk with file:// pr-t-c-l
+- Pages can be -pened directly in br-wser -r served by any web server
+- All legacy P-wer Pages references archived in `_legacy/` f-lder
 
-## Project overview
+## Pr-ject -verview
 
-SynD-DGF (Synthetic Data Governance Framework) is a standalone static website focused on navigating legal and technical data governance in synthetic health data. The project provides guidance resources, AI-powered assistance, and educational content about privacy compliance, technical standards, and regulatory insights.
+SynD-DGF (Synthetic Data G-vernance Framew-rk) is a standal-ne static website f-cused -n navigating legal and technical data g-vernance in synthetic health data. The pr-ject pr-vides guidance res-urces, AI-p-wered assistance, and educati-nal c-ntent ab-ut privacy c-mpliance, technical standards, and regulat-ry insights.
 
-## Repository structure (October 2025 Restructure)
+## Rep-sit-ry structure (-ct-ber 2025 Restructure)
 
-Clean, professional static website structure:
+Clean, pr-fessi-nal static website structure:
+
+Updated structure (clean, ASCII):
 
 ```
 Root/
-├── index.html                          # Home page
-├── framework.html                      # Framework overview
-├── assessment-tools.html               # Assessment tools hub
-├── decision-support.html               # Decision support hub
-├── resources.html                      # Resources hub
-│
-├── about/                              # About section (5 pages)
-├── tools/                              # Interactive tools (8 tools)
-├── decision-support/                   # Decision support tools (3 tools)
-├── framework/                          # Framework steps (5 steps)
-├── resources/appendices/               # Framework appendices (12 appendices)
-│
-├── assets/                             # All static assets consolidated
-│   ├── css/                            # All CSS files
-│   ├── js/                             # All JavaScript files
-│   ├── images/                         # Images
-│   └── chatbot/                        # Chatbot assets
-│
-├── cloudflare-worker/                  # Chatbot backend (serverless)
-└── _legacy/                            # Old Power Pages structure (archived)
-    ├── web-pages/
-    ├── content-snippets/
-    ├── web-templates/
-    └── [redirect-only folders]
+  index.html                        # Home page
+  framework.html                    # Framework overview
+  assessment-tools.html             # Assessment tools hub
+  decision-support.html             # Decision support hub
+  resources.html                    # Resources hub
+  search.html
+  404.html
+  access-denied.html
+
+  about/
+  tools/                            # 8 interactive tools
+  decision-support/                 # 3 decision tools
+  framework/                        # 5 steps
+  resources/appendices/             # 12 appendices
+
+  assets/
+    css/
+    js/
+    images/
+    chatbot/
+
+  cloudflare-worker/
+  .github/workflows/deploy.yml
 ```
 
-**Key Changes (October 2025):**
-- Moved from `web-pages/` nested structure to clean root-level organization
-- Renamed from `.en-US.webpage.copy.html` to simple `.html`
-- Consolidated all assets into single `assets/` directory
-- Removed all redirect-only folders
-- Archived old structure in `_legacy/` for reference
+```
+R--t/
+â”œâ”€â”€ index.html                          # H-me page
+â”œâ”€â”€ framew-rk.html                      # Framew-rk -verview
+â”œâ”€â”€ assessment-t--ls.html               # Assessment t--ls hub
+â”œâ”€â”€ decisi-n-supp-rt.html               # Decisi-n supp-rt hub
+â”œâ”€â”€ res-urces.html                      # Res-urces hub
+â”‚
+â”œâ”€â”€ ab-ut/                              # Ab-ut secti-n (5 pages)
+â”œâ”€â”€ t--ls/                              # Interactive t--ls (8 t--ls)
+â”œâ”€â”€ decisi-n-supp-rt/                   # Decisi-n supp-rt t--ls (3 t--ls)
+â”œâ”€â”€ framew-rk/                          # Framew-rk steps (5 steps)
+â”œâ”€â”€ res-urces/appendices/               # Framew-rk appendices (12 appendices)
+â”‚
+â”œâ”€â”€ assets/                             # All static assets c-ns-lidated
+â”‚   â”œâ”€â”€ css/                            # All CSS files
+â”‚   â”œâ”€â”€ js/                             # All JavaScript files
+â”‚   â”œâ”€â”€ images/                         # Images
+â”‚   â””â”€â”€ chatb-t/                        # Chatb-t assets
+â”‚
+â”œâ”€â”€ cl-udflare-w-rker/                  # Chatb-t backend (serverless)
+â””â”€â”€ _legacy/                            # -ld P-wer Pages structure (archived)
+    â”œâ”€â”€ web-pages/
+    â”œâ”€â”€ c-ntent-snippets/
+    â”œâ”€â”€ web-templates/
+    â””â”€â”€ [redirect--nly f-lders]
+```
+
+**Key Changes (-ct-ber 2025):**
+- M-ved fr-m `web-pages/` nested structure t- clean r--t-level -rganizati-n
+- Renamed fr-m `.en-US.webpage.c-py.html` t- simple `.html`
+- C-ns-lidated all assets int- single `assets/` direct-ry
+- Rem-ved all redirect--nly f-lders
+- Archived -ld structure in `_legacy/` f-r reference
 
 ## Page architecture
 
 ### Clean static pages
-Each web page is a **complete, self-contained HTML file**:
-- Simple `.html` extension (e.g., `index.html`, `framework.html`)
-- Can be opened directly in a browser (file:// or via web server)
-- Contains all CSS, HTML, and script references inline or via relative paths
-- **Must use relative paths** for all assets (e.g., `assets/chatbot/chatbot.css`)
-- Do NOT use absolute paths like `/assets/` - they won't work when opening files directly
+Each web page is a **c-mplete, self-c-ntained HTML file**:
+- Simple `.html` extensi-n (e.g., `index.html`, `framew-rk.html`)
+- Can be -pened directly in a br-wser (file:// -r via web server)
+- C-ntains all CSS, HTML, and script references inline -r via relative paths
+- **Must use relative paths** f-r all assets (e.g., `assets/chatb-t/chatb-t.css`)
+- D- N-T use abs-lute paths like `/assets/` - they w-n't w-rk when -pening files directly
 
 ### Path patterns
-- **From root pages** to assets: `assets/css/Home.css`
-- **From subdirectory pages** to assets: `../assets/css/About.css`
-- **From nested pages** to assets: `../../assets/js/Glossary.js`
-- **Between pages**: Use relative paths (e.g., `../about/index.html`)
+- **Fr-m r--t pages** t- assets: `assets/css/H-me.css`
+- **Fr-m subdirect-ry pages** t- assets: `../assets/css/Ab-ut.css`
+- **Fr-m nested pages** t- assets: `../../assets/js/Gl-ssary.js`
+- **Between pages**: Use relative paths (e.g., `../ab-ut/index.html`)
 
-## Development workflow
+## Devel-pment w-rkfl-w
 
-### File naming convention
-- Simple HTML files: `index.html`, `framework.html`, `compliance-checklist.html`
+### File naming c-nventi-n
+- Simple HTML files: `index.html`, `framew-rk.html`, `c-mpliance-checklist.html`
 - CSS files in assets: `assets/css/[PageName].css`
 - JS files in assets: `assets/js/[PageName].js`
 
-### Content updates
-- Edit HTML files directly for content changes
-- Modify CSS files in `assets/css/` for styling
-- Update JS files in `assets/js/` for functionality
-- Test locally by opening files or using local server
+### C-ntent updates
+- Edit HTML files directly f-r c-ntent changes
+- M-dify CSS files in `assets/css/` f-r styling
+- Update JS files in `assets/js/` f-r functi-nality
+- Test l-cally by -pening files -r using l-cal server
 
-### No build system
-This is a **static website** - no build tools, no compilation, no bundling:
-- Changes are made directly to HTML, CSS, and JavaScript files
-- Files can be opened directly in browser for testing
-- Deploy by pushing to GitHub (auto-deploys via GitHub Actions)
-- Works with any static hosting: GitHub Pages, Netlify, Vercel, etc.
-- **Always use relative paths** for all assets
+### N- build system
+This is a **static website** - n- build t--ls, n- c-mpilati-n, n- bundling:
+- Changes are made directly t- HTML, CSS, and JavaScript files
+- Files can be -pened directly in br-wser f-r testing
+- Depl-y by pushing t- GitHub (aut--depl-ys via GitHub Acti-ns)
+- W-rks with any static h-sting: GitHub Pages, Netlify, Vercel, etc.
+- **Always use relative paths** f-r all assets
 
-## Key pages and functionality
+## Key pages and functi-nality
 
-- **Home page** - Features hero section with background image, three-column feature layout highlighting privacy compliance, technical standards, and regulatory insights
-- **Framework pages** - 5-step synthetic data governance process with comprehensive guidance
-- **Assessment tools** - 6 interactive tools for use case evaluation, risk assessment, and compliance checking
-- **Decision support** - 4 tools for complex scenarios, legal pathways, risk mitigation, and jurisdiction mapping
-- **Resources section** - Complete framework documentation with 12 comprehensive appendices
-- **Profile page** - User information collection with privacy notices
-- **Search page** - Search functionality (implementation in custom JS)
-- **Access Denied / Page Not Found** - Error handling pages
+- **H-me page** - Features her- secti-n with backgr-und image, three-c-lumn feature lay-ut highlighting privacy c-mpliance, technical standards, and regulat-ry insights
+- **Framew-rk pages** - 5-step synthetic data g-vernance pr-cess with c-mprehensive guidance
+- **Assessment t--ls** - 8 interactive t--ls f-r use case evaluati-n, risk assessment, and c-mpliance checking
+- **Decisi-n supp-rt** - 3 t--ls f-r c-mplex scenari-s, legal pathways, risk mitigati-n, and jurisdicti-n mapping
+- **Res-urces secti-n** - C-mplete framew-rk d-cumentati-n with 12 c-mprehensive appendices
+- **Pr-file page** - User inf-rmati-n c-llecti-n with privacy n-tices
+- **Search page** - Search functi-nality (implementati-n in cust-m JS)
+- **Access Denied / Page N-t F-und** - Err-r handling pages
 
 ## Styling and theming
 
-**Unified CSS Design System (October 2025):**
-- **Single CSS file:** `assets/css/synd-design-system.css` - unified design system for entire website
-- **Forest Canopy theme:** Natural, professional colour palette inspired by earth tones
-- **Colour palette:**
-  - Forest Green (#2d4a2b) - Primary navigation, buttons, headings
-  - Sage (#7d8471) - Secondary elements, accents
-  - Olive (#a4ac86) - Light accents, hover states
-  - Ivory (#faf9f6) - Backgrounds, cards
-- **No inline styles:** All styling through external CSS file
-- **Component classes:**
-  - `.btn-modern-primary`, `.btn-modern-secondary`, `.btn-modern-accent` - Button variants
-  - `.step-card-modern`, `.tool-card-modern`, `.resource-card-modern` - Card components
-  - `.hero-modern`, `.hero-framework` - Hero sections with Forest Green gradient
-  - `.section-modern`, `.section-modern-alt` - Page sections
-- **Responsive design:** Mobile-first with breakpoints at 480px, 768px, 1024px
-- **Bootstrap 5.3:** Loaded via CDN for grid and utilities
-- **Legacy CSS archived:** Old individual page CSS files moved to `_legacy/css/`
+**Unified CSS Design System (-ct-ber 2025):**
+- **Single CSS file:** `assets/css/synd-design-system.css` - unified design system f-r entire website
+- **F-rest Can-py theme:** Natural, pr-fessi-nal c-l-ur palette inspired by earth t-nes
+- **C-l-ur palette:**
+  - F-rest Green (#2d4a2b) - Primary navigati-n, butt-ns, headings
+  - Sage (#7d8471) - Sec-ndary elements, accents
+  - -live (#a4ac86) - Light accents, h-ver states
+  - Iv-ry (#faf9f6) - Backgr-unds, cards
+- **N- inline styles:** All styling thr-ugh external CSS file
+- **C-mp-nent classes:**
+  - `.btn-m-dern-primary`, `.btn-m-dern-sec-ndary`, `.btn-m-dern-accent` - Butt-n variants
+  - `.step-card-m-dern`, `.t--l-card-m-dern`, `.res-urce-card-m-dern` - Card c-mp-nents
+  - `.her--m-dern`, `.her--framew-rk` - Her- secti-ns with F-rest Green gradient
+  - `.secti-n-m-dern`, `.secti-n-m-dern-alt` - Page secti-ns
+- **Resp-nsive design:** M-bile-first with breakp-ints at 480px, 768px, 1024px
+- **B--tstrap 5.3:** L-aded via CDN f-r grid and utilities
+- **Legacy CSS archived:** -ld individual page CSS files m-ved t- `_legacy/css/`
 
-## Content focus areas
+## C-ntent f-cus areas
 
-The platform provides guidance on:
-1. **Privacy compliance** - Synthetic data generation alignment with privacy laws
-2. **Technical standards** - Protocols for high-quality synthetic health data
-3. **Regulatory insights** - Information on evolving regulations and policies
-4. **AI-powered guidance** - Integrated AI assistance for governance questions
-5. **Comprehensive assessment** - Detailed evaluation frameworks across legal, technical, ethical, and safety domains
-6. **Implementation support** - Standardised forms, documentation templates, and audit trail requirements
+The platf-rm pr-vides guidance -n:
+1. **Privacy c-mpliance** - Synthetic data generati-n alignment with privacy laws
+2. **Technical standards** - Pr-t-c-ls f-r high-quality synthetic health data
+3. **Regulat-ry insights** - Inf-rmati-n -n ev-lving regulati-ns and p-licies
+4. **AI-p-wered guidance** - Integrated AI assistance f-r g-vernance questi-ns
+5. **C-mprehensive assessment** - Detailed evaluati-n framew-rks acr-ss legal, technical, ethical, and safety d-mains
+6. **Implementati-n supp-rt** - Standardised f-rms, d-cumentati-n templates, and audit trail requirements
 
 ## Writing and language guidelines
 
-When working with content in this repository, follow these strict requirements:
+When w-rking with c-ntent in this rep-sit-ry, f-ll-w these strict requirements:
 
-### Language conventions
-- Use Australian English spelling (colour, realise, centre, analyse, programme)
-- Write all headings in sentence case only (never title case)
-- Use standard hyphens (-) instead of em-dashes (—)
-- Default to conversational, authentic tone unless academic/formal writing is requested
-- Be direct and decisive rather than constantly qualifying statements
+### Language c-nventi-ns
+- Use Australian English spelling (c-l-ur, realise, centre, analyse, pr-gramme)
+- Write all headings in sentence case -nly (never title case)
+- Use standard hyphens (-) instead -f em-dashes (â€”)
+- Default t- c-nversati-nal, authentic t-ne unless academic/f-rmal writing is requested
+- Be direct and decisive rather than c-nstantly qualifying statements
 
-### Language patterns to avoid
-Use less of these unless specifically requested:
-- Meta-references: "this analysis", "our discussion", "this response"
-- Excessive hedging: "potentially", "arguably", "it seems that", "one might say"
-- Overused transitions: "furthermore", "moreover", "consequently", "in conclusion"
-- Academic buzzwords: "comprehensive", "robust", "systematic", "holistic"
-- Grandiose language: "vital role", "significant importance", "watershed moment"
-- Promotional tone: "cutting-edge", "state-of-the-art", "revolutionary"
-- Weasel words: "studies suggest", "experts believe", "it is widely accepted"
-- Formulaic openings: "It is important to note that", "One must consider"
-- Rule-of-three patterns (avoid listing three examples/adjectives repeatedly)
-- Chatbot artefacts: "Certainly!", "I hope this helps", "Let me know if"
+### Language patterns t- av-id
+Use less -f these unless specifically requested:
+- Meta-references: "this analysis", "-ur discussi-n", "this resp-nse"
+- Excessive hedging: "p-tentially", "arguably", "it seems that", "-ne might say"
+- -verused transiti-ns: "furtherm-re", "m-re-ver", "c-nsequently", "in c-nclusi-n"
+- Academic buzzw-rds: "c-mprehensive", "r-bust", "systematic", "h-listic"
+- Grandi-se language: "vital r-le", "significant imp-rtance", "watershed m-ment"
+- Pr-m-ti-nal t-ne: "cutting-edge", "state--f-the-art", "rev-luti-nary"
+- Weasel w-rds: "studies suggest", "experts believe", "it is widely accepted"
+- F-rmulaic -penings: "It is imp-rtant t- n-te that", "-ne must c-nsider"
+- Rule--f-three patterns (av-id listing three examples/adjectives repeatedly)
+- Chatb-t artefacts: "Certainly!", "I h-pe this helps", "Let me kn-w if"
 
-### Natural writing elements to use
-- Mix short, direct sentences with longer explanatory ones (5-35 words)
-- Use contractions naturally (it's, don't, won't)
-- Include specific examples from health/medical contexts
-- Apply relevant statistical or clinical terminology accurately
-- Start some sentences with "And" or "But" for flow
-- Add occasional parenthetical thoughts where helpful
-- Use active voice predominantly
-- Include domain-specific jargon when discussing data science or health topics
+### Natural writing elements t- use
+- Mix sh-rt, direct sentences with l-nger explanat-ry -nes (5-35 w-rds)
+- Use c-ntracti-ns naturally (it's, d-n't, w-n't)
+- Include specific examples fr-m health/medical c-ntexts
+- Apply relevant statistical -r clinical termin-l-gy accurately
+- Start s-me sentences with "And" -r "But" f-r fl-w
+- Add -ccasi-nal parenthetical th-ughts where helpful
+- Use active v-ice pred-minantly
+- Include d-main-specific jarg-n when discussing data science -r health t-pics
 
-## Framework appendices
+## Framew-rk appendices
 
-The platform includes 12 comprehensive appendices providing detailed guidance:
+The platf-rm includes 12 c-mprehensive appendices pr-viding detailed guidance:
 
-### Available appendices (12 of 12 complete):
-1. **Appendix 1:** About synthetic data - Overview and foundational concepts
-2. **Appendix 2:** Glossary - Complete terminology reference
-3. **Appendix 3:** Policy and legal framework - Comprehensive legal guidance and Australian privacy law framework
-4. **Appendix 4:** Use case assessment - Detailed criteria and scoring methodology for evaluating synthetic data use cases
-5. **Appendix 5:** Impact assessment - Privacy, ethical, social, technical, and legal impact evaluation framework
-6. **Appendix 6:** Technical assessment - Technical evaluation criteria, quality frameworks, and validation methodologies
-7. **Appendix 7:** De-identification techniques - Traditional and modern privacy-preserving methods guide
-8. **Appendix 9:** Lawful pathways explained - Detailed legal pathway guidance for Australian privacy compliance
-9. **Appendix 10:** Safety assessment - Safety protocols, risk assessment, and incident response procedures
-10. **Appendix 11:** Assessment outcomes - Standardised documentation forms and audit trail requirements
-11. **Appendix 12:** Privacy obligations - Jurisdiction matrix and detailed privacy obligations
+### Available appendices (12 -f 12 c-mplete):
+1. **Appendix 1:** Ab-ut synthetic data - -verview and f-undati-nal c-ncepts
+2. **Appendix 2:** Gl-ssary - C-mplete termin-l-gy reference
+3. **Appendix 3:** P-licy and legal framew-rk - C-mprehensive legal guidance and Australian privacy law framew-rk
+4. **Appendix 4:** Use case assessment - Detailed criteria and sc-ring meth-d-l-gy f-r evaluating synthetic data use cases
+5. **Appendix 5:** Impact assessment - Privacy, ethical, s-cial, technical, and legal impact evaluati-n framew-rk
+6. **Appendix 6:** Technical assessment - Technical evaluati-n criteria, quality framew-rks, and validati-n meth-d-l-gies
+7. **Appendix 7:** De-identificati-n techniques - Traditi-nal and m-dern privacy-preserving meth-ds guide
+8. **Appendix 9:** Lawful pathways explained - Detailed legal pathway guidance f-r Australian privacy c-mpliance
+9. **Appendix 10:** Safety assessment - Safety pr-t-c-ls, risk assessment, and incident resp-nse pr-cedures
+10. **Appendix 11:** Assessment -utc-mes - Standardised d-cumentati-n f-rms and audit trail requirements
+11. **Appendix 12:** Privacy -bligati-ns - Jurisdicti-n matrix and detailed privacy -bligati-ns
 
-### All appendices complete:
-- **Appendix 8:** Decision tree for complex scenarios ✅ (Complete - interactive decision tree and complex scenario guidance)
+### All appendices c-mplete:
+- **Appendix 8:** Decisi-n tree f-r c-mplex scenari-s âœ… (C-mplete - interactive decisi-n tree and c-mplex scenari- guidance)
 
-### Content characteristics:
-- All appendices follow Australian English conventions
-- Content is comprehensive yet accessible
-- Interactive elements enhance traditional PDF-based guidance
-- Appendices integrate with assessment tools for practical implementation
-- Each appendix includes downloadable resources and documentation templates
+### C-ntent characteristics:
+- All appendices f-ll-w Australian English c-nventi-ns
+- C-ntent is c-mprehensive yet accessible
+- Interactive elements enhance traditi-nal PDF-based guidance
+- Appendices integrate with assessment t--ls f-r practical implementati-n
+- Each appendix includes d-wnl-adable res-urces and d-cumentati-n templates
 
-## Recent major updates
+## Recent maj-r updates
 
-### Phase 1 Implementation Complete (September 2025)
-- Added 6 critical missing appendices to achieve 100% framework coverage
-- Resolved all major content gaps identified in comprehensive analysis
+### Phase 1 Implementati-n C-mplete (September 2025)
+- Added 6 critical missing appendices t- achieve 100% framew-rk c-verage
+- Res-lved all maj-r c-ntent gaps identified in c-mprehensive analysis
 - Enhanced legal, technical, and assessment guidance significantly
-- Maintained interactive tool advantages while adding comprehensive detail
-- All content follows established language and styling conventions
+- Maintained interactive t--l advantages while adding c-mprehensive detail
+- All c-ntent f-ll-ws established language and styling c-nventi-ns
 
-### Phase 2.3 Complex Scenarios Complete (September 2025)
-- Implemented final appendix (Appendix 8) achieving complete framework coverage
-- Added interactive decision tree for complex scenarios with 5 scenario types
-- Created comprehensive complex scenario examples and case studies
-- Established clear escalation pathways for complex implementations
+### Phase 2.3 C-mplex Scenari-s C-mplete (September 2025)
+- Implemented final appendix (Appendix 8) achieving c-mplete framew-rk c-verage
+- Added interactive decisi-n tree f-r c-mplex scenari-s with 5 scenari- types
+- Created c-mprehensive c-mplex scenari- examples and case studies
+- Established clear escalati-n pathways f-r c-mplex implementati-ns
 
-### Phase 2.1 Resources Restructuring Complete (September 2025)
-- Implemented multi-tiered resource organisation replacing flat structure
-- Created 5 distinct resource categories for improved content discoverability
-- Enhanced navigation with section anchors and dropdown categorisation
-- Added direct PDF access for all 15 framework documentation parts
-- Improved visual hierarchy with color-coded categories and status indicators
+### Phase 2.1 Res-urces Restructuring C-mplete (September 2025)
+- Implemented multi-tiered res-urce -rganisati-n replacing flat structure
+- Created 5 distinct res-urce categ-ries f-r impr-ved c-ntent disc-verability
+- Enhanced navigati-n with secti-n anch-rs and dr-pd-wn categ-risati-n
+- Added direct PDF access f-r all 15 framew-rk d-cumentati-n parts
+- Impr-ved visual hierarchy with c-l-r-c-ded categ-ries and status indicat-rs
 
-### Complete Framework Implementation Status (September 2025)
-- **Framework Coverage:** 100% of all framework content implemented
-- **Appendices Complete:** All 12 appendices fully operational with interactive features
-- **Assessment Tools:** All 6 tools enhanced with framework integration and export functionality
-- **Navigation System:** Complete cross-reference system and content tagging implemented
-- **Decision Support:** Interactive decision trees for complex scenarios operational
+### C-mplete Framew-rk Implementati-n Status (September 2025)
+- **Framew-rk C-verage:** 100% -f all framew-rk c-ntent implemented
+- **Appendices C-mplete:** All 12 appendices fully -perati-nal with interactive features
+- **Assessment T--ls:** All 6 t--ls enhanced with framew-rk integrati-n and exp-rt functi-nality
+- **Navigati-n System:** C-mplete cr-ss-reference system and c-ntent tagging implemented
+- **Decisi-n Supp-rt:** Interactive decisi-n trees f-r c-mplex scenari-s -perati-nal
 
-## Resource organisation structure
+## Res-urce -rganisati-n structure
 
-The resources section now follows a hierarchical structure:
+The res-urces secti-n n-w f-ll-ws a hierarchical structure:
 
-### Resource Categories:
-1. **Framework Documentation** - Complete PDF downloads and implementation guides
-2. **Assessment Resources** - Interactive tools, forms, and detailed criteria
-3. **Legal and Compliance** - Australian privacy law matrix and guidance
-4. **Technical Guidance** - De-identification techniques and quality standards
-5. **Framework Appendices** - Complete collection with clear status indicators
+### Res-urce Categ-ries:
+1. **Framew-rk D-cumentati-n** - C-mplete PDF d-wnl-ads and implementati-n guides
+2. **Assessment Res-urces** - Interactive t--ls, f-rms, and detailed criteria
+3. **Legal and C-mpliance** - Australian privacy law matrix and guidance
+4. **Technical Guidance** - De-identificati-n techniques and quality standards
+5. **Framew-rk Appendices** - C-mplete c-llecti-n with clear status indicat-rs
 
-### Navigation enhancements:
-- Section anchors for direct category access
-- Updated dropdown menus with proper categorisation
-- Visual status indicators showing content availability
-- Enhanced mobile and desktop navigation experience
+### Navigati-n enhancements:
+- Secti-n anch-rs f-r direct categ-ry access
+- Updated dr-pd-wn menus with pr-per categ-risati-n
+- Visual status indicat-rs sh-wing c-ntent availability
+- Enhanced m-bile and deskt-p navigati-n experience
 
-## Recent UX improvements (October 2025)
+## Recent UX impr-vements (-ct-ber 2025)
 
-### CSS Unification & Forest Canopy Theme (October 2025)
-**Major architectural improvement** - Complete CSS consolidation and theme standardisation:
+### CSS Unificati-n & F-rest Can-py Theme (-ct-ber 2025)
+**Maj-r architectural impr-vement** - C-mplete CSS c-ns-lidati-n and theme standardisati-n:
 
-**Before:**
-- 49 HTML files with inline `<style>` blocks (100-700 lines each)
-- 15 separate CSS files with massive duplication
-- Mixed colour schemes (teal #069494, blue #0066CC, peach #F7C59F, etc.)
-- Inconsistent navigation colours across pages
-- Total ~19,600 lines of duplicated CSS
+**Bef-re:**
+- 49 HTML files with inline `<style>` bl-cks (100-700 lines each)
+- 15 separate CSS files with massive duplicati-n
+- Mixed c-l-ur schemes (teal #069494, blue #0066CC, peach #F7C59F, etc.)
+- Inc-nsistent navigati-n c-l-urs acr-ss pages
+- T-tal ~19,600 lines -f duplicated CSS
 
 **After:**
 - Single unified `synd-design-system.css` (1,800 lines)
-- Forest Canopy theme throughout (Forest Green #2d4a2b, Sage #7d8471, Olive #a4ac86)
-- All 42 HTML pages updated to use unified CSS
-- Consistent Forest Green navigation across entire site
-- Zero inline styles (except chatbot integration)
+- F-rest Can-py theme thr-ugh-ut (F-rest Green #2d4a2b, Sage #7d8471, -live #a4ac86)
+- All 42 HTML pages updated t- use unified CSS
+- C-nsistent F-rest Green navigati-n acr-ss entire site
+- Zer- inline styles (except chatb-t integrati-n)
 
 **Benefits:**
-- Professional, cohesive appearance across all pages
-- Single source of truth for all styling
-- Change once, applies everywhere
-- Better performance (browser caches one CSS file)
+- Pr-fessi-nal, c-hesive appearance acr-ss all pages
+- Single s-urce -f truth f-r all styling
+- Change -nce, applies everywhere
+- Better perf-rmance (br-wser caches -ne CSS file)
 - Easy maintenance and updates
-- Natural, earthy theme suits health/sustainability context
+- Natural, earthy theme suits health/sustainability c-ntext
 
-**Files affected:** 42 HTML pages across all sections (root, framework, tools, decision support, about, resources)
+**Files affected:** 42 HTML pages acr-ss all secti-ns (r--t, framew-rk, t--ls, decisi-n supp-rt, ab-ut, res-urces)
 
-**Archives:** 15 old CSS files moved to `_legacy/css/`, HTML backups in `_legacy/html-backups/`
+**Archives:** 15 -ld CSS files m-ved t- `_legacy/css/`, HTML backups in `_legacy/html-backups/`
 
-### User experience enhancements (October 2025):
-1. **Navigation consistency** - Fixed Complex Scenarios Navigator availability messaging across Home and Decision Support pages
-2. **Link corrections** - Resolved broken links in Framework Overview to Complex Scenarios Navigator
-3. **Typography optimization** - Reduced hero heading sizes from 3rem to 2.5rem for better visual balance
-4. **Navigation aids** - Added floating back-to-top buttons on all long-form pages (Steps 1-5, Resources)
-5. **Button hierarchy** - Implemented visual distinction between primary and secondary CTAs on Assessment Tools page
-6. **Responsive design** - Enhanced mobile and tablet layouts for step card grids with proper breakpoints
+### User experience enhancements (-ct-ber 2025):
+1. **Navigati-n c-nsistency** - Fixed C-mplex Scenari-s Navigat-r availability messaging acr-ss H-me and Decisi-n Supp-rt pages
+2. **Link c-rrecti-ns** - Res-lved br-ken links in Framew-rk -verview t- C-mplex Scenari-s Navigat-r
+3. **Typ-graphy -ptimizati-n** - Reduced her- heading sizes fr-m 3rem t- 2.5rem f-r better visual balance
+4. **Navigati-n aids** - Added fl-ating back-t--t-p butt-ns -n all l-ng-f-rm pages (Steps 1-5, Res-urces)
+5. **Butt-n hierarchy** - Implemented visual distincti-n between primary and sec-ndary CTAs -n Assessment T--ls page
+6. **Resp-nsive design** - Enhanced m-bile and tablet lay-uts f-r step card grids with pr-per breakp-ints
 
-### Technical implementation details:
-- Back-to-top buttons appear after 200px scroll with smooth animation
-- Secondary buttons (`.button2`) use outlined style vs solid primary buttons
-- Mobile breakpoints: <768px (single column), 769-1024px (two columns)
-- All changes maintain Australian English conventions and existing design language
+### Technical implementati-n details:
+- Back-t--t-p butt-ns appear after 200px scr-ll with sm--th animati-n
+- Sec-ndary butt-ns (`.butt-n2`) use -utlined style vs s-lid primary butt-ns
+- M-bile breakp-ints: <768px (single c-lumn), 769-1024px (tw- c-lumns)
+- All changes maintain Australian English c-nventi-ns and existing design language

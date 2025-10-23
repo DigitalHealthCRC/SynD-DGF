@@ -13,24 +13,87 @@
  * - Error handling
  */
 
+// Rate limiting window
+const WINDOW_MS = 60 * 1000; // 1 minute fixed window
+// Basic in-memory fallback limiter (per isolate)
+const memLimits = new Map(); // key -> { count, windowStart }
+
+function parseIntSafe(v, def) {
+  const n = parseInt(v, 10);
+  return Number.isFinite(n) && n > 0 ? n : def;
+}
+
+function parseOriginQuotas(json, def) {
+  try {
+    const obj = JSON.parse(json || '{}');
+    const map = new Map();
+    for (const [k, v] of Object.entries(obj)) {
+      const n = parseIntSafe(v, def);
+      map.set(k, n);
+    }
+    return map;
+  } catch {
+    return new Map();
+  }
+}
+
+function bucketKey(prefix, parts, now = Date.now()) {
+  const bucket = Math.floor(now / WINDOW_MS);
+  return `${prefix}:${parts.join(':')}:${bucket}`;
+}
+
+async function kvIncrementAndCheck(kv, key, limit, ttlMs) {
+  // Soft increment: read-modify-write with TTL; not strongly consistent but good enough for minute windows
+  const current = parseInt(await kv.get(key, 'text') || '0', 10) || 0;
+  if (current >= limit) return { allowed: false, count: current };
+  const newCount = current + 1;
+  const ttlSec = Math.ceil(ttlMs / 1000);
+  await kv.put(key, String(newCount), { expirationTtl: ttlSec });
+  return { allowed: true, count: newCount };
+}
+
+function memIncrementAndCheck(map, key, limit, now = Date.now()) {
+  let entry = map.get(key);
+  const bucketStart = now - (now % WINDOW_MS);
+  if (!entry || (now - entry.windowStart) >= WINDOW_MS) {
+    entry = { count: 0, windowStart: bucketStart };
+  }
+  if (entry.count >= limit) {
+    map.set(key, entry);
+    return { allowed: false, count: entry.count };
+  }
+  entry.count += 1;
+  map.set(key, entry);
+  return { allowed: true, count: entry.count };
+}
+
 export default {
   async fetch(request, env) {
     // CORS configuration
-    const allowedOrigins = [
-      'https://digitalhealthcrc.github.io/SynD-DGF',
-      'https://digitalhealthcrc.github.io', // Fallback for root domain
-      'http://localhost:8000',
-      'http://127.0.0.1:8000'
-    ];
+    const DEFAULT_ORIGIN = 'https://digitalhealthcrc.github.io';
+    const allowedHosts = new Set([
+      'digitalhealthcrc.github.io',
+      'localhost:8000',
+      '127.0.0.1:8000'
+    ]);
 
     const origin = request.headers.get('Origin');
-    const isAllowed = allowedOrigins.some(allowed => origin?.startsWith(allowed));
+    let allowOrigin = DEFAULT_ORIGIN;
+    try {
+      if (origin) {
+        const u = new URL(origin);
+        if (allowedHosts.has(u.host) && (u.protocol === 'https:' || u.host.startsWith('localhost') || u.host.startsWith('127.0.0.1'))) {
+          allowOrigin = `${u.protocol}//${u.host}`;
+        }
+      }
+    } catch {}
 
     const corsHeaders = {
-      'Access-Control-Allow-Origin': isAllowed ? origin : allowedOrigins[0],
+      'Access-Control-Allow-Origin': allowOrigin,
       'Access-Control-Allow-Methods': 'POST, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type, X-Client-ID',
       'Access-Control-Max-Age': '86400',
+      'Vary': 'Origin'
     };
 
     // Handle preflight requests
@@ -56,6 +119,67 @@ export default {
     }
 
     try {
+      // Rate limiting (KV-backed with in-memory fallback)
+      const clientIdHeader = request.headers.get('X-Client-ID');
+      const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
+      const originHost = (() => {
+        try { return origin ? new URL(origin).host : 'unknown'; } catch { return 'unknown'; }
+      })();
+
+      const defaultOriginQuota = parseIntSafe(env.DEFAULT_ORIGIN_QUOTA, 120);
+      const perClientLimit = parseIntSafe(env.CLIENT_PER_MIN_LIMIT, 0); // 0 disables
+      const originQuotas = parseOriginQuotas(env.ORIGIN_QUOTAS_JSON, defaultOriginQuota);
+      const originLimit = originQuotas.get(originHost) || defaultOriginQuota;
+
+      const nowTs = Date.now();
+      const ttlMs = WINDOW_MS - (nowTs % WINDOW_MS);
+
+      // Build keys
+      const originKey = bucketKey('rate:origin', [originHost], nowTs);
+      const clientKey = clientIdHeader ? bucketKey('rate:client', [originHost, clientIdHeader], nowTs)
+                                       : bucketKey('rate:ip', [originHost, ip], nowTs);
+
+      let allowed = true;
+      let which = '';
+
+      if (env.RATE_LIMIT_KV) {
+        // Origin bucket
+        const o = await kvIncrementAndCheck(env.RATE_LIMIT_KV, originKey, originLimit, ttlMs);
+        allowed = o.allowed;
+        which = 'origin';
+        // Client bucket (if enabled)
+        if (allowed && perClientLimit > 0) {
+          const c = await kvIncrementAndCheck(env.RATE_LIMIT_KV, clientKey, perClientLimit, ttlMs);
+          allowed = c.allowed;
+          which = allowed ? which : 'client';
+        }
+      } else {
+        // Fallback to in-memory
+        const o = memIncrementAndCheck(memLimits, originKey, originLimit, nowTs);
+        allowed = o.allowed;
+        which = 'origin';
+        if (allowed && perClientLimit > 0) {
+          const c = memIncrementAndCheck(memLimits, clientKey, perClientLimit, nowTs);
+          allowed = c.allowed;
+          which = allowed ? which : 'client';
+        }
+      }
+
+      if (!allowed) {
+        return new Response(JSON.stringify({
+          error: 'Rate limit exceeded',
+          message: 'Too many requests. Please try again later.',
+          scope: which
+        }), {
+          status: 429,
+          headers: {
+            'Content-Type': 'application/json',
+            'Cache-Control': 'no-store, no-cache, must-revalidate',
+            'Retry-After': String(Math.ceil(ttlMs / 1000)),
+            ...corsHeaders
+          }
+        });
+      }
       // Validate environment variables
       if (!env.OPENAI_API_KEY) {
         throw new Error('OPENAI_API_KEY not configured');
@@ -100,6 +224,7 @@ export default {
         headers: {
           'Content-Type': 'application/json',
           'Cache-Control': 'no-store, no-cache, must-revalidate',
+          'Vary': 'Origin',
           ...corsHeaders
         }
       });
@@ -116,6 +241,7 @@ export default {
         status: 500,
         headers: {
           'Content-Type': 'application/json',
+          'Vary': 'Origin',
           ...corsHeaders
         }
       });

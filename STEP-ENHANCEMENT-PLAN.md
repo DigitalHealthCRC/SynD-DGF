@@ -1,178 +1,178 @@
-# Step Pages Enhancement Plan (Option B)
+﻿# Step Pages Enhancement Plan (-pti-n B)
 
-## Goal
-Make Steps 2-5 visually appealing and feature-rich like Step 1 by adding all interactive components and enhanced UI elements.
+## G-al
+Make Steps 2-5 visually appealing and feature-rich like Step 1 by adding all interactive c-mp-nents and enhanced UI elements.
 
 ---
 
 ## Current State Analysis
 
 ### Step 1 (Visually Appealing - Reference Template)
-**Has all these components:**
-- ✅ Enhanced Breadcrumbs with Framework Context (~60 lines HTML)
-- ✅ Page Actions (print/share/bookmark buttons)
-- ✅ Common Scenarios accordion section (~55 lines)
-- ✅ Content Tagging System (~85 lines)
-- ✅ Cross-Reference Navigation (~50 lines)
-- ✅ Related Resources Section (~75 lines)
-- ✅ Complete JavaScript (~390 lines) for all interactivity
-- ✅ `synd-additional-components.css` linked
+**Has all these c-mp-nents:**
+- âœ… Enhanced Breadcrumbs with Framew-rk C-ntext (~60 lines HTML)
+- âœ… Page Acti-ns (print/share/b--kmark butt-ns)
+- âœ… C-mm-n Scenari-s acc-rdi-n secti-n (~55 lines)
+- âœ… C-ntent Tagging System (~85 lines)
+- âœ… Cr-ss-Reference Navigati-n (~50 lines)
+- âœ… Related Res-urces Secti-n (~75 lines)
+- âœ… C-mplete JavaScript (~390 lines) f-r all interactivity
+- âœ… `synd-additi-nal-c-mp-nents.css` linked
 
-**Total:** ~900 lines of rich, interactive HTML
+**T-tal:** ~900 lines -f rich, interactive HTML
 
 ### Steps 2-5 (Basic - Need Enhancement)
-**Currently only have:**
-- ❌ Plain Bootstrap breadcrumbs (no framework context)
-- ❌ NO page actions
-- ❌ NO common scenarios section
-- ❌ NO content tagging system
-- ❌ NO cross-reference navigation
-- ❌ NO related resources section
-- ❌ Minimal JavaScript (only back-to-top button)
-- ✅ `synd-additional-components.css` linked (JUST ADDED!)
+**Currently -nly have:**
+- âŒ Plain B--tstrap breadcrumbs (n- framew-rk c-ntext)
+- âŒ N- page acti-ns
+- âŒ N- c-mm-n scenari-s secti-n
+- âŒ N- c-ntent tagging system
+- âŒ N- cr-ss-reference navigati-n
+- âŒ N- related res-urces secti-n
+- âŒ Minimal JavaScript (-nly back-t--t-p butt-n)
+- âœ… `synd-additi-nal-c-mp-nents.css` linked (JUST ADDED!)
 
-**Total:** ~440 lines of basic HTML
+**T-tal:** ~440 lines -f basic HTML
 
 ---
 
-## Implementation Plan for Each Step Page
+## Implementati-n Plan f-r Each Step Page
 
 ### Phase 1: Replace Breadcrumbs (10 minutes per page)
 
 **Current (Step 2-5):**
 ```html
 <!-- Breadcrumb -->
-<div class="container mt-4">
+<div class="c-ntainer mt-4">
     <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
-            <li class="breadcrumb-item"><a href="../framework.html">Framework</a></li>
+        <-l class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../index.html">H-me</a></li>
+            <li class="breadcrumb-item"><a href="../framew-rk.html">Framew-rk</a></li>
             <li class="breadcrumb-item active">Step X: Title</li>
-        </ol>
+        </-l>
     </nav>
 </div>
 ```
 
-**Replace with (from Step 1, lines 26-88):**
+**Replace with (fr-m Step 1, lines 26-88):**
 ```html
-<!-- Enhanced Breadcrumbs with Framework Context -->
-<nav class="enhanced-breadcrumbs" aria-label="Breadcrumb navigation">
-  <div class="breadcrumb-container">
-    <!-- Framework Step Context -->
-    <div class="framework-context" id="framework-context" style="display: none;">
-      <div class="context-header">
-        <span class="context-icon"><i data-lucide="clipboard-check"></i></span>
-        <span class="context-title">Framework Step</span>
+<!-- Enhanced Breadcrumbs with Framew-rk C-ntext -->
+<nav class="enhanced-breadcrumbs" aria-label="Breadcrumb navigati-n">
+  <div class="breadcrumb-c-ntainer">
+    <!-- Framew-rk Step C-ntext -->
+    <div class="framew-rk-c-ntext" id="framew-rk-c-ntext" style="display: n-ne;">
+      <div class="c-ntext-header">
+        <span class="c-ntext-ic-n"><i data-lucide="clipb-ard-check"></i></span>
+        <span class="c-ntext-title">Framew-rk Step</span>
       </div>
-      <div class="step-progress">
-        <!-- 5 step indicators here -->
+      <div class="step-pr-gress">
+        <!-- 5 step indicat-rs here -->
       </div>
     </div>
 
     <!-- Standard Breadcrumbs -->
-    <ol class="breadcrumb-list">
+    <-l class="breadcrumb-list">
       <li class="breadcrumb-item">
-        <a href="/" class="breadcrumb-link">
-          <span class="breadcrumb-icon"><i data-lucide="home"></i></span>
-          <span class="breadcrumb-text">Home</span>
+        <a href="../index.html" class="breadcrumb-link">
+          <span class="breadcrumb-ic-n"><i data-lucide="h-me"></i></span>
+          <span class="breadcrumb-text">H-me</span>
         </a>
       </li>
       <li class="breadcrumb-item current" id="current-page">
         <span class="breadcrumb-text">Step X: Title</span>
       </li>
-    </ol>
+    </-l>
 
-    <!-- Page Actions -->
-    <div class="page-actions">
-      <button class="action-button" onclick="printPage()">
-        <span class="action-icon"><i data-lucide="printer"></i></span>
-      </button>
-      <button class="action-button" onclick="sharePage()">
-        <span class="action-icon"><i data-lucide="share-2"></i></span>
-      </button>
-      <button class="action-button" onclick="bookmarkPage()">
-        <span class="action-icon"><i data-lucide="bookmark"></i></span>
-      </button>
+    <!-- Page Acti-ns -->
+    <div class="page-acti-ns">
+      <butt-n class="acti-n-butt-n" -nclick="printPage()">
+        <span class="acti-n-ic-n"><i data-lucide="printer"></i></span>
+      </butt-n>
+      <butt-n class="acti-n-butt-n" -nclick="sharePage()">
+        <span class="acti-n-ic-n"><i data-lucide="share-2"></i></span>
+      </butt-n>
+      <butt-n class="acti-n-butt-n" -nclick="b--kmarkPage()">
+        <span class="acti-n-ic-n"><i data-lucide="b--kmark"></i></span>
+      </butt-n>
     </div>
   </div>
 </nav>
 ```
 
-**Customization per step:**
-- Update `step` value in breadcrumb JavaScript (lines 91-215 from Step 1)
-- Change step number from `step: 1` to `step: 2/3/4/5`
+**Cust-mizati-n per step:**
+- Update `step` value in breadcrumb JavaScript (lines 91-215 fr-m Step 1)
+- Change step number fr-m `step: 1` t- `step: 2/3/4/5`
 
 ---
 
-### Phase 2: Add Common Scenarios Section (20 minutes per page)
+### Phase 2: Add C-mm-n Scenari-s Secti-n (20 minutes per page)
 
-**Insert before step navigation (from Step 1, lines 380-457):**
+**Insert bef-re step navigati-n (fr-m Step 1, lines 380-457):**
 
 ```html
-<div class="common-scenarios">
-    <h2>Common scenarios and guidance</h2>
+<div class="c-mm-n-scenari-s">
+    <h2>C-mm-n scenari-s and guidance</h2>
 
-    <div class="scenario-accordion" id="scenarios-accordion">
-        <!-- Scenario 1 -->
-        <div class="scenario-item">
-            <div class="scenario-header" data-scenario="1">
-                <div class="scenario-icon">📋</div>
-                <h3>Scenario Title</h3>
-                <div class="scenario-toggle">
-                    <i data-lucide="chevron-down"></i>
+    <div class="scenari--acc-rdi-n" id="scenari-s-acc-rdi-n">
+        <!-- Scenari- 1 -->
+        <div class="scenari--item">
+            <div class="scenari--header" data-scenari-="1">
+                <div class="scenari--ic-n">ðŸ“‹</div>
+                <h3>Scenari- Title</h3>
+                <div class="scenari--t-ggle">
+                    <i data-lucide="chevr-n-d-wn"></i>
                 </div>
             </div>
-            <div class="scenario-content" id="scenario-1">
-                <div class="scenario-description">
-                    <p><strong>Situation:</strong> Description</p>
-                    <p><strong>Guidance:</strong> Guidance text</p>
+            <div class="scenari--c-ntent" id="scenari--1">
+                <div class="scenari--descripti-n">
+                    <p><str-ng>Situati-n:</str-ng> Descripti-n</p>
+                    <p><str-ng>Guidance:</str-ng> Guidance text</p>
                 </div>
-                <div class="scenario-actions">
-                    <a href="#" class="btn-modern-primary">Related Tool</a>
+                <div class="scenari--acti-ns">
+                    <a href="#" class="btn-m-dern-primary">Related T--l</a>
                 </div>
             </div>
         </div>
-        <!-- Add 3-5 scenarios per step -->
+        <!-- Add 3-5 scenari-s per step -->
     </div>
 </div>
 ```
 
-**Step-specific scenarios to create:**
-- **Step 2:** Data availability issues, third-party data processors, cross-organisational data, data quality problems
-- **Step 3:** Model selection uncertainty, computational constraints, privacy-utility trade-offs, high-dimensional data
-- **Step 4:** High uniqueness rates, membership inference detected, differential privacy configuration, rare populations
-- **Step 5:** Multiple data requestors, public data releases, international data sharing, ongoing monitoring
+**Step-specific scenari-s t- create:**
+- **Step 2:** Data availability issues, third-party data pr-cess-rs, cr-ss--rganisati-nal data, data quality pr-blems
+- **Step 3:** M-del selecti-n uncertainty, c-mputati-nal c-nstraints, privacy-utility trade--ffs, high-dimensi-nal data
+- **Step 4:** High uniqueness rates, membership inference detected, differential privacy c-nfigurati-n, rare p-pulati-ns
+- **Step 5:** Multiple data request-rs, public data releases, internati-nal data sharing, -ng-ing m-nit-ring
 
 ---
 
-### Phase 3: Add Content Tagging System (15 minutes per page)
+### Phase 3: Add C-ntent Tagging System (15 minutes per page)
 
-**Insert before common scenarios (from Step 1, lines 224-309):**
+**Insert bef-re c-mm-n scenari-s (fr-m Step 1, lines 224-309):**
 
 ```html
-<!-- Content Tagging System -->
-<div class="content-tagging-system">
+<!-- C-ntent Tagging System -->
+<div class="c-ntent-tagging-system">
   <div class="tags-header">
-    <h3>Content tags</h3>
-    <p>Filter content by category</p>
+    <h3>C-ntent tags</h3>
+    <p>Filter c-ntent by categ-ry</p>
   </div>
 
-  <div class="tag-categories">
-    <div class="tag-category">
-      <h4>Framework elements</h4>
+  <div class="tag-categ-ries">
+    <div class="tag-categ-ry">
+      <h4>Framew-rk elements</h4>
       <div class="tags">
-        <button class="tag-button" data-tag="assessment">Assessment</button>
-        <button class="tag-button" data-tag="decision-criteria">Decision Criteria</button>
-        <button class="tag-button" data-tag="documentation">Documentation</button>
+        <butt-n class="tag-butt-n" data-tag="assessment">Assessment</butt-n>
+        <butt-n class="tag-butt-n" data-tag="decisi-n-criteria">Decisi-n Criteria</butt-n>
+        <butt-n class="tag-butt-n" data-tag="d-cumentati-n">D-cumentati-n</butt-n>
       </div>
     </div>
 
-    <div class="tag-category">
-      <h4>Content type</h4>
+    <div class="tag-categ-ry">
+      <h4>C-ntent type</h4>
       <div class="tags">
-        <button class="tag-button" data-tag="guidance">Guidance</button>
-        <button class="tag-button" data-tag="technical">Technical</button>
-        <button class="tag-button" data-tag="legal">Legal</button>
+        <butt-n class="tag-butt-n" data-tag="guidance">Guidance</butt-n>
+        <butt-n class="tag-butt-n" data-tag="technical">Technical</butt-n>
+        <butt-n class="tag-butt-n" data-tag="legal">Legal</butt-n>
       </div>
     </div>
   </div>
@@ -180,55 +180,55 @@ Make Steps 2-5 visually appealing and feature-rich like Step 1 by adding all int
 ```
 
 **Step-specific tags:**
-- **Step 2:** data-quality, technical-assessment, preparation, documentation, metadata
-- **Step 3:** model-selection, configuration, generation, security, reproducibility
-- **Step 4:** risk-assessment, de-identification, privacy, testing, mitigation
-- **Step 5:** safeguards, agreements, monitoring, approval, compliance
+- **Step 2:** data-quality, technical-assessment, preparati-n, d-cumentati-n, metadata
+- **Step 3:** m-del-selecti-n, c-nfigurati-n, generati-n, security, repr-ducibility
+- **Step 4:** risk-assessment, de-identificati-n, privacy, testing, mitigati-n
+- **Step 5:** safeguards, agreements, m-nit-ring, appr-val, c-mpliance
 
 ---
 
-### Phase 4: Add Cross-Reference Navigation (15 minutes per page)
+### Phase 4: Add Cr-ss-Reference Navigati-n (15 minutes per page)
 
-**Insert before related resources (from Step 1, lines 312-361):**
+**Insert bef-re related res-urces (fr-m Step 1, lines 312-361):**
 
 ```html
-<!-- Cross-Reference Navigation -->
-<div class="cross-reference-nav">
-  <div class="cross-ref-header">
-    <h3>Related framework resources</h3>
-    <p>Explore connected appendices, tools, and guidance</p>
+<!-- Cr-ss-Reference Navigati-n -->
+<div class="cr-ss-reference-nav">
+  <div class="cr-ss-ref-header">
+    <h3>Related framew-rk res-urces</h3>
+    <p>Expl-re c-nnected appendices, t--ls, and guidance</p>
   </div>
 
-  <div class="cross-ref-container">
+  <div class="cr-ss-ref-c-ntainer">
     <!-- Appendices -->
-    <div class="cross-ref-section">
-      <h4><i data-lucide="book-open"></i> Related appendices</h4>
-      <div class="cross-ref-list">
-        <a href="../resources/appendices/appendix-X.html" class="cross-ref-link">
-          <span class="ref-icon">📄</span>
+    <div class="cr-ss-ref-secti-n">
+      <h4><i data-lucide="b--k--pen"></i> Related appendices</h4>
+      <div class="cr-ss-ref-list">
+        <a href="../res-urces/appendices/appendix-X.html" class="cr-ss-ref-link">
+          <span class="ref-ic-n">ðŸ“„</span>
           <span class="ref-title">Appendix X: Title</span>
         </a>
       </div>
     </div>
 
-    <!-- Tools -->
-    <div class="cross-ref-section">
-      <h4><i data-lucide="wrench"></i> Related tools</h4>
-      <div class="cross-ref-list">
-        <a href="../tools/tool-name.html" class="cross-ref-link">
-          <span class="ref-icon">🔧</span>
-          <span class="ref-title">Tool Name</span>
+    <!-- T--ls -->
+    <div class="cr-ss-ref-secti-n">
+      <h4><i data-lucide="wrench"></i> Related t--ls</h4>
+      <div class="cr-ss-ref-list">
+        <a href="../t--ls/t--l-name.html" class="cr-ss-ref-link">
+          <span class="ref-ic-n">ðŸ”§</span>
+          <span class="ref-title">T--l Name</span>
         </a>
       </div>
     </div>
 
     <!-- Next Steps -->
-    <div class="cross-ref-section">
-      <h4><i data-lucide="arrow-right-circle"></i> Next steps</h4>
-      <div class="cross-ref-list">
-        <a href="step-X.html" class="cross-ref-link">
-          <span class="ref-icon">➡️</span>
-          <span class="ref-title">Proceed to Step X</span>
+    <div class="cr-ss-ref-secti-n">
+      <h4><i data-lucide="arr-w-right-circle"></i> Next steps</h4>
+      <div class="cr-ss-ref-list">
+        <a href="step-X.html" class="cr-ss-ref-link">
+          <span class="ref-ic-n">âž¡ï¸</span>
+          <span class="ref-title">Pr-ceed t- Step X</span>
         </a>
       </div>
     </div>
@@ -236,49 +236,49 @@ Make Steps 2-5 visually appealing and feature-rich like Step 1 by adding all int
 </div>
 ```
 
-**Step-specific cross-references:**
-- **Step 2:** Link to Appendix 6 (Technical Assessment), Appendix 7 (De-identification), Technical Assessment Tool
-- **Step 3:** Link to Appendix 6 (Technical Assessment), Model Selection Guide, Security Documentation Tool
-- **Step 4:** Link to Appendix 7 (De-identification), Appendix 4 (Impact Assessment), Risk Assessment Tool
-- **Step 5:** Link to Appendix 9 (Lawful Pathways), Appendix 12 (Privacy Obligations), Five Safes Guide
+**Step-specific cr-ss-references:**
+- **Step 2:** Link t- Appendix 6 (Technical Assessment), Appendix 7 (De-identificati-n), Technical Assessment T--l
+- **Step 3:** Link t- Appendix 6 (Technical Assessment), M-del Selecti-n Guide, Security D-cumentati-n T--l
+- **Step 4:** Link t- Appendix 7 (De-identificati-n), Appendix 4 (Impact Assessment), Risk Assessment T--l
+- **Step 5:** Link t- Appendix 9 (Lawful Pathways), Appendix 12 (Privacy -bligati-ns), Five Safes Guide
 
 ---
 
-### Phase 5: Add Related Resources Section (15 minutes per page)
+### Phase 5: Add Related Res-urces Secti-n (15 minutes per page)
 
-**Insert before step navigation (from Step 1, lines 363-439):**
+**Insert bef-re step navigati-n (fr-m Step 1, lines 363-439):**
 
 ```html
-<!-- Related Resources Section -->
-<div class="related-resources-section">
-  <div class="resources-header">
-    <h3>Related resources</h3>
-    <p>Additional materials to support this step</p>
+<!-- Related Res-urces Secti-n -->
+<div class="related-res-urces-secti-n">
+  <div class="res-urces-header">
+    <h3>Related res-urces</h3>
+    <p>Additi-nal materials t- supp-rt this step</p>
   </div>
 
-  <div class="resource-categories">
-    <!-- Category 1 -->
-    <div class="resource-category">
-      <h4>Assessment tools</h4>
-      <div class="resource-grid">
-        <div class="resource-card-modern">
-          <div class="resource-icon">📋</div>
-          <h5>Tool Name</h5>
-          <p>Brief description</p>
-          <a href="../tools/tool.html" class="btn-modern-accent">Access Tool</a>
+  <div class="res-urce-categ-ries">
+    <!-- Categ-ry 1 -->
+    <div class="res-urce-categ-ry">
+      <h4>Assessment t--ls</h4>
+      <div class="res-urce-grid">
+        <div class="res-urce-card-m-dern">
+          <div class="res-urce-ic-n">ðŸ“‹</div>
+          <h5>T--l Name</h5>
+          <p>Brief descripti-n</p>
+          <a href="../t--ls/t--l.html" class="btn-m-dern-accent">Access T--l</a>
         </div>
       </div>
     </div>
 
-    <!-- Category 2 -->
-    <div class="resource-category">
-      <h4>Framework guidance</h4>
-      <div class="resource-grid">
-        <div class="resource-card-modern">
-          <div class="resource-icon">📖</div>
-          <h5>Guidance Document</h5>
-          <p>Brief description</p>
-          <a href="../resources/guide.html" class="btn-modern-accent">View Guide</a>
+    <!-- Categ-ry 2 -->
+    <div class="res-urce-categ-ry">
+      <h4>Framew-rk guidance</h4>
+      <div class="res-urce-grid">
+        <div class="res-urce-card-m-dern">
+          <div class="res-urce-ic-n">ðŸ“–</div>
+          <h5>Guidance D-cument</h5>
+          <p>Brief descripti-n</p>
+          <a href="../res-urces/guide.html" class="btn-m-dern-accent">View Guide</a>
         </div>
       </div>
     </div>
@@ -286,84 +286,84 @@ Make Steps 2-5 visually appealing and feature-rich like Step 1 by adding all int
 </div>
 ```
 
-**Step-specific resources:**
-- **Step 2:** Data Availability Checklist, Data Quality Assessment Tool, Metadata Template, Data Specification Guide
-- **Step 3:** Model Selection Matrix, Configuration Guide, Generation Workflow, Security Checklist
-- **Step 4:** Risk Assessment Methodology, De-identification Techniques Guide, Privacy Testing Tools, Mitigation Strategies
-- **Step 5:** Five Safes Implementation Guide, DSA Template, DUA Template, Monitoring Checklist
+**Step-specific res-urces:**
+- **Step 2:** Data Availability Checklist, Data Quality Assessment T--l, Metadata Template, Data Specificati-n Guide
+- **Step 3:** M-del Selecti-n Matrix, C-nfigurati-n Guide, Generati-n W-rkfl-w, Security Checklist
+- **Step 4:** Risk Assessment Meth-d-l-gy, De-identificati-n Techniques Guide, Privacy Testing T--ls, Mitigati-n Strategies
+- **Step 5:** Five Safes Implementati-n Guide, DSA Template, DUA Template, M-nit-ring Checklist
 
 ---
 
-### Phase 6: Add Complete JavaScript (30 minutes per page)
+### Phase 6: Add C-mplete JavaScript (30 minutes per page)
 
-**Insert before closing `</body>` tag (from Step 1, lines 455-844):**
+**Insert bef-re cl-sing `</b-dy>` tag (fr-m Step 1, lines 455-844):**
 
 ```html
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // 1. Breadcrumb building and framework context (lines 92-180)
-    const currentPath = window.location.pathname;
-    const frameworkSteps = {
-        '/step-2-assess-source-data': { step: 2, title: 'Step 2: Assess Source Data' },
-        // ... update for each step
+d-cument.addEventListener('D-MC-ntentL-aded', functi-n() {
+    // 1. Breadcrumb building and framew-rk c-ntext (lines 92-180)
+    c-nst currentPath = wind-w.l-cati-n.pathname;
+    c-nst framew-rkSteps = {
+        '/step-2-assess-s-urce-data': { step: 2, title: 'Step 2: Assess S-urce Data' },
+        // ... update f-r each step
     };
 
-    // Build breadcrumbs with correct step number
-    function buildBreadcrumbs() { /* ... */ }
+    // Build breadcrumbs with c-rrect step number
+    functi-n buildBreadcrumbs() { /* ... */ }
 
-    // Show framework context with current step highlighted
-    function showFrameworkContext(currentStep) { /* ... */ }
+    // Sh-w framew-rk c-ntext with current step highlighted
+    functi-n sh-wFramew-rkC-ntext(currentStep) { /* ... */ }
 
-    // 2. Page action functions (lines 183-215)
-    function printPage() { window.print(); }
-    function sharePage() { /* navigator.share logic */ }
-    function bookmarkPage() { /* localStorage logic */ }
+    // 2. Page acti-n functi-ns (lines 183-215)
+    functi-n printPage() { wind-w.print(); }
+    functi-n sharePage() { /* navigat-r.share l-gic */ }
+    functi-n b--kmarkPage() { /* l-calSt-rage l-gic */ }
 
-    // 3. Scenario accordion functionality (lines 459-530)
-    const scenarioHeaders = document.querySelectorAll('.scenario-header');
-    scenarioHeaders.forEach(header => {
-        header.addEventListener('click', function() {
-            // Toggle accordion logic
+    // 3. Scenari- acc-rdi-n functi-nality (lines 459-530)
+    c-nst scenari-Headers = d-cument.querySelect-rAll('.scenari--header');
+    scenari-Headers.f-rEach(header => {
+        header.addEventListener('click', functi-n() {
+            // T-ggle acc-rdi-n l-gic
         });
     });
 
-    // 4. Content tagging system (lines 533-618)
-    const tagButtons = document.querySelectorAll('.tag-button');
+    // 4. C-ntent tagging system (lines 533-618)
+    c-nst tagButt-ns = d-cument.querySelect-rAll('.tag-butt-n');
     let activeFilters = new Set();
 
-    tagButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Tag filtering logic
+    tagButt-ns.f-rEach(butt-n => {
+        butt-n.addEventListener('click', functi-n() {
+            // Tag filtering l-gic
         });
     });
 
-    // 5. Cross-reference navigation highlighting (lines 621-680)
-    function highlightCurrentSection() { /* ... */ }
+    // 5. Cr-ss-reference navigati-n highlighting (lines 621-680)
+    functi-n highlightCurrentSecti-n() { /* ... */ }
 
-    // 6. Related resources interactions (lines 683-750)
-    const resourceCards = document.querySelectorAll('.resource-card-modern');
-    resourceCards.forEach(card => {
-        // Add hover effects and tracking
+    // 6. Related res-urces interacti-ns (lines 683-750)
+    c-nst res-urceCards = d-cument.querySelect-rAll('.res-urce-card-m-dern');
+    res-urceCards.f-rEach(card => {
+        // Add h-ver effects and tracking
     });
 
-    // Initialize all components
+    // Initialize all c-mp-nents
     buildBreadcrumbs();
-    lucide.createIcons();
+    lucide.createIc-ns();
 });
 </script>
 ```
 
 ---
 
-## Implementation Priority Order
+## Implementati-n Pri-rity -rder
 
-### Critical (Do First)
-1. **Step 2** - Most important after Step 1, foundational step
-2. **Step 4** - High complexity, benefits most from enhanced UI
-3. **Step 5** - Final step, needs comprehensive resources
+### Critical (D- First)
+1. **Step 2** - M-st imp-rtant after Step 1, f-undati-nal step
+2. **Step 4** - High c-mplexity, benefits m-st fr-m enhanced UI
+3. **Step 5** - Final step, needs c-mprehensive res-urces
 
-### Standard (Do Next)
-4. **Step 3** - Mid-process, good candidate for enhancement
+### Standard (D- Next)
+4. **Step 3** - Mid-pr-cess, g--d candidate f-r enhancement
 
 ---
 
@@ -372,73 +372,73 @@ document.addEventListener('DOMContentLoaded', function() {
 | Phase | Task | Time |
 |-------|------|------|
 | 1 | Replace breadcrumbs + add JavaScript | 10 min |
-| 2 | Create common scenarios (3-5 scenarios) | 20 min |
-| 3 | Add content tagging system | 15 min |
-| 4 | Add cross-reference navigation | 15 min |
-| 5 | Add related resources section | 15 min |
-| 6 | Add complete JavaScript integration | 30 min |
-| **Total** | **Per page** | **~105 min** |
+| 2 | Create c-mm-n scenari-s (3-5 scenari-s) | 20 min |
+| 3 | Add c-ntent tagging system | 15 min |
+| 4 | Add cr-ss-reference navigati-n | 15 min |
+| 5 | Add related res-urces secti-n | 15 min |
+| 6 | Add c-mplete JavaScript integrati-n | 30 min |
+| **T-tal** | **Per page** | **~105 min** |
 
-**For all 4 pages (Steps 2-5):** ~7 hours of focused work
+**F-r all 4 pages (Steps 2-5):** ~7 h-urs -f f-cused w-rk
 
 ---
 
-## Key Customization Points
+## Key Cust-mizati-n P-ints
 
-### For Each Step, Customize:
+### F-r Each Step, Cust-mize:
 
 1. **Breadcrumb JavaScript:**
-   - Change `step: 1` to correct step number
-   - Update page title in `frameworkSteps` mapping
+   - Change `step: 1` t- c-rrect step number
+   - Update page title in `framew-rkSteps` mapping
 
-2. **Common Scenarios:**
-   - Create 3-5 step-specific scenarios
-   - Link to relevant tools and appendices
-   - Use appropriate icons for each scenario type
+2. **C-mm-n Scenari-s:**
+   - Create 3-5 step-specific scenari-s
+   - Link t- relevant t--ls and appendices
+   - Use appr-priate ic-ns f-r each scenari- type
 
-3. **Content Tags:**
+3. **C-ntent Tags:**
    - Define 8-12 relevant tags per step
-   - Map tags to content sections on the page
-   - Update tag categories for step context
+   - Map tags t- c-ntent secti-ns -n the page
+   - Update tag categ-ries f-r step c-ntext
 
-4. **Cross-References:**
-   - Link to 2-3 most relevant appendices
-   - Link to 2-3 most relevant assessment tools
-   - Update "Next Steps" to point to following step
+4. **Cr-ss-References:**
+   - Link t- 2-3 m-st relevant appendices
+   - Link t- 2-3 m-st relevant assessment t--ls
+   - Update "Next Steps" t- p-int t- f-ll-wing step
 
-5. **Related Resources:**
-   - Create 6-10 resource cards per step
-   - Organize into 2-3 logical categories
-   - Ensure all links are valid and functional
+5. **Related Res-urces:**
+   - Create 6-10 res-urce cards per step
+   - -rganize int- 2-3 l-gical categ-ries
+   - Ensure all links are valid and functi-nal
 
 ---
 
-## Code Snippets to Copy from Step 1
+## C-de Snippets t- C-py fr-m Step 1
 
 ### Enhanced Breadcrumbs
 - **Lines:** 26-88 (HTML)
 - **Lines:** 91-215 (JavaScript)
-- **File:** `framework/step-1-use-case-assessment.html`
+- **File:** `framew-rk/step-1-use-case-assessment.html`
 
-### Common Scenarios
+### C-mm-n Scenari-s
 - **Lines:** 380-457 (HTML)
-- **Lines:** 459-530 (JavaScript for accordion)
-- **File:** `framework/step-1-use-case-assessment.html`
+- **Lines:** 459-530 (JavaScript f-r acc-rdi-n)
+- **File:** `framew-rk/step-1-use-case-assessment.html`
 
-### Content Tagging System
+### C-ntent Tagging System
 - **Lines:** 224-309 (HTML)
-- **Lines:** 533-618 (JavaScript for filtering)
-- **File:** `framework/step-1-use-case-assessment.html`
+- **Lines:** 533-618 (JavaScript f-r filtering)
+- **File:** `framew-rk/step-1-use-case-assessment.html`
 
-### Cross-Reference Navigation
+### Cr-ss-Reference Navigati-n
 - **Lines:** 312-361 (HTML)
-- **Lines:** 621-680 (JavaScript for highlighting)
-- **File:** `framework/step-1-use-case-assessment.html`
+- **Lines:** 621-680 (JavaScript f-r highlighting)
+- **File:** `framew-rk/step-1-use-case-assessment.html`
 
-### Related Resources
+### Related Res-urces
 - **Lines:** 363-439 (HTML)
-- **Lines:** 683-750 (JavaScript for interactions)
-- **File:** `framework/step-1-use-case-assessment.html`
+- **Lines:** 683-750 (JavaScript f-r interacti-ns)
+- **File:** `framew-rk/step-1-use-case-assessment.html`
 
 ---
 
@@ -446,57 +446,57 @@ document.addEventListener('DOMContentLoaded', function() {
 
 After implementing each page, verify:
 
-- [ ] Enhanced breadcrumbs display correctly
-- [ ] Framework context shows current step highlighted
-- [ ] Print, share, bookmark buttons all functional
-- [ ] Scenario accordions expand/collapse smoothly
-- [ ] Content tag filtering works correctly
-- [ ] Cross-reference links navigate properly
-- [ ] Related resources cards display well
-- [ ] All JavaScript executes without errors
-- [ ] Page is responsive on mobile (480px, 768px, 1024px)
-- [ ] Forest Canopy styling applies throughout
-- [ ] Lucide icons render correctly
+- [ ] Enhanced breadcrumbs display c-rrectly
+- [ ] Framew-rk c-ntext sh-ws current step highlighted
+- [ ] Print, share, b--kmark butt-ns all functi-nal
+- [ ] Scenari- acc-rdi-ns expand/c-llapse sm--thly
+- [ ] C-ntent tag filtering w-rks c-rrectly
+- [ ] Cr-ss-reference links navigate pr-perly
+- [ ] Related res-urces cards display well
+- [ ] All JavaScript executes with-ut err-rs
+- [ ] Page is resp-nsive -n m-bile (480px, 768px, 1024px)
+- [ ] F-rest Can-py styling applies thr-ugh-ut
+- [ ] Lucide ic-ns render c-rrectly
 
 ---
 
-## Quick Start Template for Next Session
+## Quick Start Template f-r Next Sessi-n
 
-When ready to implement, use this workflow:
+When ready t- implement, use this w-rkfl-w:
 
 ```bash
-# 1. Open Step 1 as reference
-# framework/step-1-use-case-assessment.html
+# 1. -pen Step 1 as reference
+# framew-rk/step-1-use-case-assessment.html
 
-# 2. Open target step (e.g., Step 2)
-# framework/step-2-assess-source-data.html
+# 2. -pen target step (e.g., Step 2)
+# framew-rk/step-2-assess-s-urce-data.html
 
-# 3. Copy sections in this order:
+# 3. C-py secti-ns in this -rder:
 #    a) Enhanced Breadcrumbs (replace simple breadcrumb)
-#    b) Common Scenarios (insert before step-navigation)
-#    c) Content Tagging (insert before common-scenarios)
-#    d) Cross-Reference Nav (insert before related-resources)
-#    e) Related Resources (insert before step-navigation)
-#    f) Complete JavaScript (insert before </body>)
+#    b) C-mm-n Scenari-s (insert bef-re step-navigati-n)
+#    c) C-ntent Tagging (insert bef-re c-mm-n-scenari-s)
+#    d) Cr-ss-Reference Nav (insert bef-re related-res-urces)
+#    e) Related Res-urces (insert bef-re step-navigati-n)
+#    f) C-mplete JavaScript (insert bef-re </b-dy>)
 
-# 4. Customize content for the specific step
-# 5. Test all functionality
-# 6. Move to next step
+# 4. Cust-mize c-ntent f-r the specific step
+# 5. Test all functi-nality
+# 6. M-ve t- next step
 ```
 
 ---
 
-## Expected Outcome
+## Expected -utc-me
 
-After completing Option B for all steps, **Steps 2-5 will have:**
+After c-mpleting -pti-n B f-r all steps, **Steps 2-5 will have:**
 
-✅ Same rich breadcrumb navigation as Step 1
-✅ Interactive page actions (print/share/bookmark)
-✅ Step-specific common scenarios with accordion
-✅ Content tagging and filtering system
-✅ Cross-reference cards to appendices/tools
-✅ Related resources organized by category
-✅ Full Forest Canopy styling from additional components CSS
-✅ Professional, cohesive appearance matching Step 1
+âœ… Same rich breadcrumb navigati-n as Step 1
+âœ… Interactive page acti-ns (print/share/b--kmark)
+âœ… Step-specific c-mm-n scenari-s with acc-rdi-n
+âœ… C-ntent tagging and filtering system
+âœ… Cr-ss-reference cards t- appendices/t--ls
+âœ… Related res-urces -rganized by categ-ry
+âœ… Full F-rest Can-py styling fr-m additi-nal c-mp-nents CSS
+âœ… Pr-fessi-nal, c-hesive appearance matching Step 1
 
-**Visual consistency across all 5 framework step pages!**
+**Visual c-nsistency acr-ss all 5 framew-rk step pages!**

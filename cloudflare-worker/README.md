@@ -103,10 +103,10 @@ Only allows requests from:
 - `http://localhost:8000` (local testing)
 - `http://127.0.0.1:8000` (local testing)
 
-### 2. Rate Limiting
-- 100 requests per hour per IP address
-- Configurable via `RATE_LIMIT_REQUESTS` and `RATE_LIMIT_WINDOW`
-- Optional: Enable KV namespace for distributed rate limiting
+### 2. Rate Limiting (KV-backed)
+- Per-origin quota (requests per minute), configured in `wrangler.toml`
+- Optional per-client quota (by `X-Client-ID` or IP)
+- Global and persistent via Workers KV; falls back to in-memory if KV unbound
 
 ### 3. Error Handling
 - Graceful error responses
@@ -118,27 +118,51 @@ Only allows requests from:
 - Validates environment variables
 - Handles OpenAI API errors
 
-## Optional: Enable Advanced Rate Limiting
+## KV-based Rate Limiting and Quotas
 
-For production-grade rate limiting with KV storage:
+This worker supports production-grade, global rate limiting using Workers KV, with configurable per-origin quotas.
 
-### 1. Create KV Namespace
+### 1) Create the KV Namespace
 
 ```bash
 npx wrangler kv:namespace create "RATE_LIMIT_KV"
 ```
 
-### 2. Update wrangler.toml
+Copy the returned `id` and `preview_id`.
 
-Uncomment and update the KV namespace section:
+### 2) Bind the KV in wrangler.toml
+
+Edit `cloudflare-worker/wrangler.toml` and set the binding IDs:
 
 ```toml
 [[kv_namespaces]]
 binding = "RATE_LIMIT_KV"
-id = "YOUR_KV_NAMESPACE_ID"  # From step 1
+id = "RATE_LIMIT_KV_ID_PLACEHOLDER"
+preview_id = "RATE_LIMIT_KV_PREVIEW_ID_PLACEHOLDER"
 ```
 
-### 3. Redeploy
+### 3) Configure quotas (per-origin and per-client)
+
+Defaults live under `[env.production].vars` (and `[env.staging]` for dev):
+
+```toml
+[env.production]
+vars = {
+  # Fallback quota per origin (requests per minute)
+  DEFAULT_ORIGIN_QUOTA = "120",
+  # Optional per-client limit per minute (0 disables)
+  CLIENT_PER_MIN_LIMIT = "30",
+  # JSON map of host -> per-minute quota
+  ORIGIN_QUOTAS_JSON = "{\"digitalhealthcrc.github.io\":120,\"localhost:8000\":30,\"127.0.0.1:8000\":30}"
+}
+```
+
+Notes:
+- Origin is matched by host (e.g., `digitalhealthcrc.github.io`).
+- Client is identified by `X-Client-ID` header (sent by the widget) or falls back to IP.
+- Responses include `Retry-After` when limited.
+
+### 4) Deploy
 
 ```bash
 npm run deploy
@@ -203,9 +227,9 @@ Cloudflare Workers Free Tier:
 - Test with browser DevTools Network tab
 
 ### Error: "Rate limit exceeded"
-- Wait 1 hour for rate limit to reset
-- Or increase `RATE_LIMIT_REQUESTS`
-- Or enable KV-based rate limiting
+- Limits use a ~1 minute window. Wait for the window to reset (see `Retry-After`).
+- Adjust `ORIGIN_QUOTAS_JSON`, `DEFAULT_ORIGIN_QUOTA`, or `CLIENT_PER_MIN_LIMIT` in `wrangler.toml`.
+- Verify the request `Origin` matches an allowed host and you’re not exceeding per-client limits.
 
 ## Security Best Practices
 
